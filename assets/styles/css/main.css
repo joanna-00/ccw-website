@@ -1,0 +1,38 @@
+@import url("https://fonts.googleapis.com/css2?family=Nunito+Sans:wght@400;700&display=swap");
+body {
+  font-family: "Nunito Sans", "Segoe UI", Tahoma, Geneva, Verdana, sans-serif;
+}
+
+.dropdown {
+  width: 100%;
+  -webkit-box-shadow: 0px 3px 10px 0px rgba(0, 0, 0, 0.25);
+  -moz-box-shadow: 0px 3px 10px 0px rgba(0, 0, 0, 0.25);
+  box-shadow: 0px 3px 10px 0px rgba(0, 0, 0, 0.25);
+  border-radius: 10px;
+}
+.dropdown__options-container {
+  list-style: none;
+  padding: 0;
+  margin: 0;
+}
+.dropdown__options-container.hidden {
+  display: none;
+}
+.dropdown__title {
+  padding: 1rem 4rem;
+}
+.dropdown__option {
+  padding: 1rem 4rem;
+}
+.dropdown__option:hover {
+  background-color: #133657;
+  color: #f9f9f9;
+}
+.dropdown__option:last-of-type {
+  border-radius: 0 0 10px 10px;
+}
+.dropdown__option:first-of-type {
+  border-top: 1px solid grey;
+}
+
+/*# sourceMappingURL=main.css.map */
