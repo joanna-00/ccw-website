@@ -1,0 +1,148 @@
+input[type="text"] {
+  width: 100%;
+  border: none;
+  @include drop-shadow-light-sm;
+  @include border-round-lg;
+  padding: 1rem 2rem;
+  color: $text-dark;
+
+  &:invalid {
+    outline: none;
+    border: 1px solid $error;
+  }
+
+  &:focus {
+    outline: none;
+    border: 1px solid $primary-light;
+  }
+}
+
+input[type="range"] {
+  -webkit-appearance: none;
+  appearance: none;
+  position: relative;
+  width: 100%;
+  height: 15px;
+  background: $white;
+  outline: none;
+  cursor: pointer;
+  @include drop-shadow-light-sm;
+  @include border-circle;
+
+  &::-webkit-slider-thumb {
+    -webkit-appearance: none;
+    appearance: none;
+    width: 27px;
+    height: 27px;
+    @include drop-shadow-light-sm;
+    @include border-circle;
+    background: $primary-dark-alt;
+  }
+
+  &::-moz-range-thumb {
+    width: 27px;
+    height: 27px;
+    @include drop-shadow-light-sm;
+    @include border-circle;
+    position: absolute;
+    background: $primary-dark-alt;
+  }
+
+  &::-ms-fill-lower {
+    background: $primary-dark;
+  }
+}
+
+// Radio buttons
+
+.radio {
+  &__group {
+    display: inline-block;
+  }
+
+  &__input {
+    display: none;
+
+    &:checked ~ .radio__label .radio__button--lg::after {
+      opacity: 1;
+    }
+  }
+
+  &__label {
+    cursor: pointer;
+    position: relative;
+    @include flex-center;
+  }
+
+  &__button--lg {
+    width: 35px;
+    height: 35px;
+    display: inline-block;
+    @include drop-shadow-light-sm;
+    @include border-circle;
+    position: relative;
+    margin-right: 1rem;
+
+    &::after {
+      content: "";
+      width: 22px;
+      height: 22px;
+      background-color: $background-dark;
+      @include border-circle;
+      position: absolute;
+      top: 50%;
+      left: 50%;
+      transform: translate(-50%, -50%);
+      opacity: 0;
+    }
+  }
+}
+
+// Checkboxes
+
+.checkbox {
+  &__input {
+    display: none;
+
+    &:checked ~ .checkbox__label .checkbox__button--lg::after {
+      opacity: 1;
+    }
+  }
+
+  &__group {
+    display: inline-block;
+  }
+
+  &__label {
+    cursor: pointer;
+    position: relative;
+    @include flex-center;
+  }
+
+  &__button--lg {
+    width: 35px;
+    height: 35px;
+    display: inline-block;
+
+    @include drop-shadow-light-sm;
+    @include border-round-sm;
+    position: relative;
+    margin-right: 1rem;
+
+    &::after {
+      content: "";
+      background-image: url(../../../assets/images/svgs/check-24px.svg);
+      background-size: cover;
+      background-repeat: no-repeat;
+      display: inline-block;
+      width: 100%;
+      height: 100%;
+      position: absolute;
+
+      top: 50%;
+      left: 50%;
+      transform: translate(-50%, -50%);
+      opacity: 0;
+    }
+  }
+}

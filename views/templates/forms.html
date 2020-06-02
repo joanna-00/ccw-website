@@ -1,0 +1,155 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+    <link
+      rel="stylesheet"
+      href="../../assets/libs/bootstrap/css/bootstrap.min.css"
+    />
+    <script
+      src="https://code.jquery.com/jquery-3.5.1.slim.min.js"
+      integrity="sha384-DfXdz2htPH0lsSSs5nCTpuj/zy4C+OGpamoFVy38MVBnE+IbbVYUew+OrCXaRkfj"
+      crossorigin="anonymous"
+    ></script>
+    <script
+      src="../../assets/libs/bootstrap/js/bootstrap.min.js"
+      defer
+    ></script>
+    <link rel="stylesheet" href="../../assets/libs/normalize/normalize.css" />
+    <link rel="stylesheet" href="../../assets/styles/css/main.css" />
+    <script src="../../assets/scripts/main.js" defer></script>
+    <script src="../../assets/scripts/forms.js" defer></script>
+    <link
+      href="https://fonts.googleapis.com/icon?family=Material+Icons"
+      rel="stylesheet"
+    />
+  </head>
+  <body>
+    <div class="container-fluid">
+      <!-- Dropdowns -->
+      <div class="row mt-4">
+        <div class="col-4">
+          <div class="dropdown">
+            <div class="dropdown__title">
+              Select an option
+              <i class="material-icons mi--chevron">expand_more</i>
+            </div>
+            <ul class="dropdown__options-container hidden">
+              <li class="dropdown__option">Option 1</li>
+              <li class="dropdown__option">Option 2</li>
+              <li class="dropdown__option">Option 3</li>
+            </ul>
+          </div>
+        </div>
+
+        <div class="col-6">
+          <div class="dropdown">
+            <div class="dropdown__title">
+              Select an option
+              <i class="material-icons mi--chevron">expand_more</i>
+            </div>
+            <ul class="dropdown__options-container hidden">
+              <li class="dropdown__option">Option 1</li>
+              <li class="dropdown__option">Option 2</li>
+              <li class="dropdown__option">Option 3</li>
+            </ul>
+          </div>
+        </div>
+      </div>
+
+      <!-- Text inputs -->
+      <div class="row mt-4">
+        <div class="col-4">
+          <input type="text" name="" class="form__text" />
+        </div>
+      </div>
+
+      <div class="row mt-4">
+        <div class="col-6">
+          <label for=""></label>
+          <input type="text" name="" class="form__text" />
+        </div>
+      </div>
+
+      <!-- Sliders -->
+
+      <div class="row mt-4">
+        <div class="col-6">
+          <input
+            type="range"
+            value="100"
+            min="0"
+            max="500"
+            name=""
+            class="form__slider"
+          />
+        </div>
+      </div>
+
+      <!-- Radio buttons -->
+
+      <div class="row mt-4">
+        <div class="col-6">
+          <div class="radio__group">
+            <input
+              type="radio"
+              name="radio"
+              id="radio-button--lg"
+              class="radio__input"
+            />
+            <label for="radio-button--lg" class="radio__label">
+              <span class="radio__button--lg"></span>
+              <span class="radio__button-text"> Radio large</span>
+            </label>
+          </div>
+
+          <!-- <div class="radio-group">
+          <input
+            type="radio"
+            name="radio"
+            id="radio-button--md"
+            class="radio-input"
+          />
+          <label for="radio-button--md" class="radio-label">
+            <span class="radio-button--md"> </span>
+            Radio medium
+          </label>
+        </div>
+
+        <div class="radio-group">
+          <input
+            type="radio"
+            name="radio"
+            id="radio-button--sm"
+            class="radio-input"
+          />
+          <label for="radio-button--sm" class="radio-label">
+            <span class="radio-button--sm"></span>
+            Radio small
+          </label>
+        </div> -->
+        </div>
+      </div>
+
+      <!-- Checkboxes -->
+      <div class="row">
+        <div class="col-6">
+          <div class="checkbox__group">
+            <input
+              type="checkbox"
+              name=""
+              id="checkbox--lg"
+              class="checkbox__input"
+            />
+            <label for="checkbox--lg" class="checkbox__label">
+              <span class="checkbox__button--lg"></span>
+              <span class="checkbox__button-text">Checkbox large</span>
+            </label>
+          </div>
+        </div>
+      </div>
+    </div>
+  </body>
+</html>

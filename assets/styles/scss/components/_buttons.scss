@@ -1,0 +1,22 @@
+.button {
+  border: none;
+  margin: 0;
+  padding: 0;
+  width: auto;
+  overflow: visible;
+  background: transparent;
+  color: $primary-light;
+  font-weight: $bold;
+
+  &--base-lg {
+    border: 3px solid $primary-light;
+    @include padding-base;
+    @include border-round-lg;
+  }
+
+  &--base-sm {
+    border: 2px solid $primary-light;
+    @include padding-base;
+    @include border-round-lg;
+  }
+}
