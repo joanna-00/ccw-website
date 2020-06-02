@@ -29,6 +29,7 @@
   <body>
     <div class="container-fluid">
       <!-- Dropdowns -->
+
       <div class="row mt-4">
         <div class="col-4">
           <div class="dropdown">
@@ -45,7 +46,7 @@
         </div>
 
         <div class="col-6">
-          <div class="dropdown">
+          <div class="dropdown dark">
             <div class="dropdown__title">
               Select an option
               <i class="material-icons mi--chevron">expand_more</i>
@@ -60,16 +61,27 @@
       </div>
 
       <!-- Text inputs -->
+
       <div class="row mt-4">
         <div class="col-4">
-          <input type="text" name="" class="form__text" />
+          <div class="text-input">
+            <label for="firstName" class="text-input__label">First name</label>
+            <input
+              type="text"
+              name=""
+              id="firstName"
+              class="text-input__input"
+            />
+          </div>
         </div>
       </div>
 
       <div class="row mt-4">
         <div class="col-6">
-          <label for=""></label>
-          <input type="text" name="" class="form__text" />
+          <div class="text-input">
+            <label for="address" class="text-input__label">Address</label>
+            <input type="text" name="" id="address" class="text-input__input" />
+          </div>
         </div>
       </div>
 
@@ -83,7 +95,7 @@
             min="0"
             max="500"
             name=""
-            class="form__slider"
+            class="slider"
           />
         </div>
       </div>

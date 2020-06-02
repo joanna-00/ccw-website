@@ -5,18 +5,55 @@
   width: auto;
   overflow: visible;
   background: transparent;
-  color: $primary-light;
   font-weight: $bold;
 
   &--base-lg {
-    border: 3px solid $primary-light;
+    border: 3px solid;
     @include padding-base;
     @include border-round-lg;
   }
 
   &--base-sm {
-    border: 2px solid $primary-light;
+    border: 2px solid;
     @include padding-base;
     @include border-round-lg;
+  }
+
+  &--primary-light {
+    border-color: $primary-light;
+
+    &.button--filled {
+      background-color: $primary-light;
+      color: $text-light;
+    }
+  }
+
+  &--primary-dark {
+    border-color: $primary-dark;
+    color: $primary-dark;
+
+    &.button--filled {
+      background-color: $primary-dark;
+      color: $text-light;
+    }
+  }
+
+  &--secondary {
+    border-color: $secondary;
+    color: $secondary;
+
+    &.button--filled {
+      background-color: $secondary;
+      color: $text-light;
+    }
+  }
+  &--disabled {
+    border-color: $greyed-out;
+    color: $greyed-out;
+
+    &.button--filled {
+      background-color: $greyed-out;
+      color: $text-light;
+    }
   }
 }

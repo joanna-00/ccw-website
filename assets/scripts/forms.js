@@ -6,6 +6,8 @@ initDropdowns();
 function initDropdowns() {
   dropdown_Title.forEach((element) => {
     element.addEventListener("click", () => {
+      element.querySelector(".mi--chevron").classList.toggle("expanded");
+      console.log(element.querySelector(".mi--chevron"));
       element.parentElement
         .querySelector(".dropdown__options-container")
         .classList.toggle("hidden");
@@ -19,7 +21,7 @@ function initDropdowns() {
           ".dropdown__title"
         ).innerHTML =
           childNode.textContent +
-          '<i class="material-icons mi--chevron">expand_more</i>';
+          '<i class="material-icons mi--chevron expanded">expand_more</i>';
       });
     });
   });
