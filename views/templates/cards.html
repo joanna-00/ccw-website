@@ -31,28 +31,28 @@
   </head>
   <body>
     <div class="container-fluid">
-      <div class="row mt-4">
+      <div class="row mt-5">
         <div class="col-3">
-          <div class="card">
-            <div class="card__image">
+          <div class="shop-card">
+            <div class="shop-card__image">
               <img
                 src="../../assets/images/photos/steering-wheel-wash.jpg"
                 alt=""
               />
             </div>
-            <div class="card__content">
-              <div class="card__label">
-                <h2 class="card__title">Card title</h2>
+            <div class="shop-card__content">
+              <div class="shop-card__label">
+                <h4 class="shop-card__title">Card title</h4>
                 <i class="material-icons mi--arrow_forward">arrow_forward</i>
               </div>
 
-              <p class="card__description">
+              <p class="shop-card__description">
                 card teext text textcard teext text textcard teext text textcard
                 teext text textcard teext text text
               </p>
 
-              <div class="card__features">
-                <h2 class="card__price">175</h2>
+              <div class="shop-card__features">
+                <h2 class="shop-card__price">175</h2>
                 <button class="button button--base-lg button--primary-light">
                   Add to cart
                   <i class="material-icons mi--add_shopping_cart icon--right"
@@ -64,26 +64,26 @@
           </div>
         </div>
         <div class="col-4">
-          <div class="card">
-            <div class="card__image">
+          <div class="shop-card">
+            <div class="shop-card__image">
               <img
                 src="../../assets/images/photos/steering-wheel-wash.jpg"
                 alt=""
               />
             </div>
-            <div class="card__content">
-              <div class="card__label">
-                <h2 class="card__title">Card title</h2>
+            <div class="shop-card__content">
+              <div class="shop-card__label">
+                <h4 class="shop-card__title">Card title</h4>
                 <i class="material-icons mi--arrow_forward">arrow_forward</i>
               </div>
 
-              <p class="card__description">
+              <p class="shop-card__description">
                 card teext text textcard teext text textcard teext text textcard
                 teext text textcard teext text text
               </p>
 
-              <div class="card__features">
-                <h2 class="card__price">175</h2>
+              <div class="shop-card__features">
+                <h2 class="shop-card__price">175</h2>
                 <button class="button button--base-lg button--primary-light">
                   Add to cart
                   <i class="material-icons mi--add_shopping_cart icon--right"
@@ -96,7 +96,7 @@
         </div>
       </div>
 
-      <div class="row mt-4">
+      <div class="row mt-5">
         <div class="col-3">
           <div class="card">
             <div class="card__image">
@@ -107,8 +107,8 @@
             </div>
             <div class="card__content">
               <div class="card__label">
-                <h2 class="card__title">Card title</h2>
-                <a href="">Go to page</a>
+                <h4 class="card__title">Card title</h4>
+                <a href="" class="card__link">Go to page</a>
               </div>
 
               <p class="card__description">
@@ -120,7 +120,7 @@
         </div>
       </div>
 
-      <div class="row mt-4">
+      <div class="row mt-5">
         <div class="col-6">
           <div class="checkout-card">
             <div class="checkout-card__image">
@@ -131,8 +131,8 @@
             </div>
             <div class="checkout-card__content">
               <div class="checkout-card__label">
-                <h2 class="checkout-card__title">Card title</h2>
-                <i class="material-icons mi--arrow_forward">arrow_forward</i>
+                <h4 class="checkout-card__title">Card title</h4>
+                <a href="" class="checkout-card__link">Remove item</a>
               </div>
 
               <p class="checkout-card__description">
@@ -142,17 +142,49 @@
 
               <div class="checkout-card__features">
                 <h2 class="checkout-card__price">175</h2>
-                <button class="button button--base-lg button--primary-light">
-                  Add to cart
-                  <i class="material-icons mi--add_shopping_cart icon--right"
-                    >add_shopping_cart</i
-                  >
-                </button>
+                <div class="checkout-card__amount">
+                  <div class="checkout-card__amount--decrease">-</div>
+                  <div class="checkout-card__amount--display">1</div>
+                  <div class="checkout-card__amount--increase">+</div>
+                </div>
               </div>
             </div>
           </div>
         </div>
+      </div>
 
+      <div class="row mt-5">
+        <div class="col-3">
+          <div class="membership-card">
+            <div class="membership-card__image">
+              <img src="../../assets/images/svgs/check-24px.svg" alt="" />
+            </div>
+            <div class="membership-card__content">
+              <h4 class="membership-card__title">Platinum</h4>
+              <p class="membership-card__description">
+                The quick, brown fox jumps over a lazy dog. DJs flock by when
+                MTV
+              </p>
+              <button
+                class="button button--base-lg button--secondary button--filled"
+              >
+                Buy now
+              </button>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <div class="row mt-5">
+        <div class="col-2">
+          <div class="badge-card">
+            <h2 class="badge-card__title">title</h2>
+            <p class="badge-card__subtitle">subtitle</p>
+          </div>
+        </div>
+      </div>
+
+      <div class="row mt-5"></div>
     </div>
   </body>
 </html>

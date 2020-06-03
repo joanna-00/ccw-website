@@ -1,13 +1,19 @@
 @import url("https://fonts.googleapis.com/css2?family=Nunito+Sans:wght@400;700&display=swap");
 * {
-  box-sizing: border-box;
+  box-sizing: inherit;
+}
+
+html {
+  font-size: 62.5%;
 }
 
 body {
+  box-sizing: border-box;
   font-family: "Nunito Sans", "Segoe UI", Tahoma, Geneva, Verdana, sans-serif;
   margin: 0;
   color: #133657;
   background: #f9f9f9;
+  font-size: 1.6rem;
 }
 
 .row {
@@ -16,10 +22,46 @@ body {
 
 a:link {
   color: inherit;
+  text-decoration: none;
 }
 
 a:visited {
   color: inherit;
+  text-decoration: none;
+}
+
+p {
+  font-size: 1.6rem;
+}
+
+h6 {
+  font-size: 2rem;
+  font-weight: 700;
+}
+
+h5 {
+  font-size: 2.4rem;
+  font-weight: 700;
+}
+
+h4 {
+  font-size: 2.8rem;
+  font-weight: 700;
+}
+
+h3 {
+  font-size: 3.2rem;
+  font-weight: 700;
+}
+
+h2 {
+  font-size: 3.6rem;
+  font-weight: 700;
+}
+
+h1 {
+  font-size: 4rem;
+  font-weight: 700;
 }
 
 .button {
@@ -36,12 +78,12 @@ a:visited {
 }
 .button--base-lg {
   border: 3px solid;
-  padding: 1rem 2rem;
+  padding: 2rem 4rem;
   border-radius: 10px;
 }
 .button--base-sm {
   border: 2px solid;
-  padding: 1rem 2rem;
+  padding: 2rem 4rem;
   border-radius: 10px;
 }
 .button--primary-light {
@@ -77,53 +119,112 @@ a:visited {
   color: #f9f9f9;
 }
 
-.card, .checkout-card {
+.card, .badge-card, .membership-card, .checkout-card, .shop-card {
   width: 100%;
+  background-color: #ffffff;
   border-radius: 10px;
   -webkit-box-shadow: 0px 3px 10px 0px rgba(0, 0, 0, 0.25);
   -moz-box-shadow: 0px 3px 10px 0px rgba(0, 0, 0, 0.25);
   box-shadow: 0px 3px 10px 0px rgba(0, 0, 0, 0.25);
   overflow: hidden;
 }
-.card__image {
+.card__image, .shop-card__image {
   height: 300px;
   width: 100%;
   overflow: hidden;
 }
-.card__image img {
+.card__image img, .shop-card__image img {
   width: 100%;
   object-fit: cover;
 }
-.card__content {
-  padding: 1rem 2rem;
+.card__content, .shop-card__content {
+  padding: 2rem 4rem;
 }
-.card__label {
+.card__label, .checkout-card__label, .shop-card__label {
   display: flex;
   justify-content: space-between;
   align-items: center;
 }
-.card__features {
+.card a.card__link, .badge-card a.card__link, .membership-card a.card__link, .checkout-card a.card__link, .shop-card a.card__link {
+  text-decoration: underline;
+}
+
+.shop-card__features {
   display: flex;
   justify-content: space-between;
   align-items: center;
+}
+.shop-card__price {
+  color: #66bf6c;
 }
 
 .checkout-card {
   display: flex;
   justify-content: space-between;
   align-items: center;
-  flex-direction: row;
 }
 .checkout-card__image {
+  display: flex;
   overflow: hidden;
-  max-width: 40%;
+  max-height: 100%;
+  max-width: 50%;
 }
 .checkout-card__image img {
   width: 100%;
+  max-height: inherit;
   object-fit: cover;
 }
 .checkout-card__content {
-  padding: 1rem 2rem;
+  padding: 2rem 4rem;
+}
+.checkout-card__features {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+.checkout-card__price {
+  color: #66bf6c;
+}
+.checkout-card__amount {
+  -webkit-box-shadow: 0px 3px 10px 0px rgba(0, 0, 0, 0.25);
+  -moz-box-shadow: 0px 3px 10px 0px rgba(0, 0, 0, 0.25);
+  box-shadow: 0px 3px 10px 0px rgba(0, 0, 0, 0.25);
+  border-radius: 5px;
+  display: flex;
+  background-color: #133657;
+  color: #f9f9f9;
+}
+.checkout-card__amount--increase, .checkout-card__amount--decrease, .checkout-card__amount--display {
+  padding: 1rem;
+}
+
+.membership-card {
+  padding: 2rem 4rem;
+}
+.membership-card__image {
+  height: 200px;
+}
+.membership-card__content {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-direction: column;
+}
+.membership-card__title {
+  text-transform: uppercase;
+}
+
+.badge-card {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-direction: column;
+  background-color: #66bf6c;
+  color: #f9f9f9;
+  font-weight: 700;
+}
+.badge-card__title {
+  text-transform: uppercase;
 }
 
 .date-picker {
@@ -182,7 +283,7 @@ a:visited {
   display: grid;
   grid-template-columns: repeat(7, 1fr);
   height: auto;
-  padding: 1rem 2rem;
+  padding: 2rem 4rem;
 }
 .date-picker .days .day, .date-picker .days .day-week {
   display: flex;
@@ -219,19 +320,18 @@ a:visited {
   list-style: none;
   padding: 0;
   margin: 0;
-  transition: all 1s ease-out;
 }
 .dropdown__options-container.hidden {
   display: none;
 }
 .dropdown__title {
-  padding: 1rem 2rem;
+  padding: 2rem 4rem;
   position: relative;
 }
 .dropdown__title .mi--chevron {
   position: absolute;
   right: 2rem;
-  top: 0.75rem;
+  top: 1.3rem;
   font-size: 200%;
 }
 .dropdown__title .mi--chevron.expanded {
@@ -242,7 +342,7 @@ a:visited {
   color: #f9f9f9;
 }
 .dropdown__option {
-  padding: 1rem 2em;
+  padding: 2rem 4rem;
 }
 .dropdown__option:hover {
   background-color: #133657;

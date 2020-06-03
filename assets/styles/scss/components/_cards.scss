@@ -1,5 +1,6 @@
 .card {
   width: 100%;
+  background-color: $white;
   @include border-round-lg;
   @include drop-shadow-light-sm;
   overflow: hidden;
@@ -26,10 +27,34 @@
     align-items: center;
   }
 
+  a.card__link {
+    text-decoration: underline;
+  }
+}
+
+.shop-card {
+  @extend .card;
+
+  &__image {
+    @extend .card__image;
+  }
+
+  &__content {
+    @extend .card__content;
+  }
+
+  &__label {
+    @extend .card__label;
+  }
+
   &__features {
     display: flex;
     justify-content: space-between;
     align-items: center;
+  }
+
+  &__price {
+    color: $secondary;
   }
 }
 
@@ -38,16 +63,17 @@
   display: flex;
   justify-content: space-between;
   align-items: center;
-  flex-direction: row;
 
   &__image {
+    display: flex;
     overflow: hidden;
-    // height: 300px;
-    max-width: 40%;
-    // display: inline-block;
+    // height: 500px;
+    max-height: 100%;
+    max-width: 50%;
 
     img {
       width: 100%;
+      max-height: inherit;
       //   height: 200px;
       object-fit: cover;
     }
@@ -55,6 +81,66 @@
 
   &__content {
     @include padding-base;
-    // display: inline-block;
+    // min-width: 60%;
+  }
+
+  &__label {
+    @extend .card__label;
+  }
+
+  &__features {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+  }
+
+  &__price {
+    color: $secondary;
+  }
+
+  &__amount {
+    @include drop-shadow-light-sm;
+    @include border-round-sm;
+    display: flex;
+    background-color: $background-dark;
+    color: $text-light;
+
+    &--increase,
+    &--decrease,
+    &--display {
+      padding: 1rem;
+    }
+  }
+}
+
+.membership-card {
+  @extend .card;
+  @include padding-base;
+
+  &__image {
+    height: 200px;
+  }
+
+  &__content {
+    @include flex-center;
+    flex-direction: column;
+  }
+
+  &__title {
+    text-transform: uppercase;
+  }
+}
+
+.badge-card {
+  @extend .card;
+  @include flex-center;
+  flex-direction: column;
+
+  background-color: $secondary;
+  color: $text-light;
+  font-weight: $bold;
+
+  &__title {
+    text-transform: uppercase;
   }
 }
