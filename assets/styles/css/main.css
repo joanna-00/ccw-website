@@ -22,6 +22,9 @@ body {
   overflow: visible;
   background: transparent;
   font-weight: 700;
+  display: flex;
+  align-items: center;
+  justify-content: center;
 }
 .button--base-lg {
   border: 3px solid;
@@ -35,6 +38,7 @@ body {
 }
 .button--primary-light {
   border-color: #133657;
+  color: #133657;
 }
 .button--primary-light.button--filled {
   background-color: #133657;
@@ -63,6 +67,37 @@ body {
 .button--disabled.button--filled {
   background-color: #999999;
   color: #f9f9f9;
+}
+
+.card {
+  width: 100%;
+  border-radius: 10px;
+  -webkit-box-shadow: 0px 3px 15px 0px rgba(0, 0, 0, 0.25);
+  -moz-box-shadow: 0px 3px 15px 0px rgba(0, 0, 0, 0.25);
+  box-shadow: 0px 3px 15px 0px rgba(0, 0, 0, 0.25);
+  overflow: hidden;
+}
+.card__image {
+  height: 300px;
+  width: 100%;
+  overflow: hidden;
+}
+.card__image img {
+  width: 100%;
+  object-fit: cover;
+}
+.card__content {
+  padding: 1rem 2rem;
+}
+.card__label {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+.card__features {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
 }
 
 .date-picker {
@@ -335,6 +370,10 @@ body {
   left: 50%;
   transform: translate(-50%, -50%);
   opacity: 0;
+}
+
+.icon--right {
+  margin-left: 1.5rem;
 }
 
 /*# sourceMappingURL=main.css.map */

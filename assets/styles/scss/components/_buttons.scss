@@ -7,6 +7,8 @@
   background: transparent;
   font-weight: $bold;
 
+  @include flex-center;
+
   &--base-lg {
     border: 3px solid;
     @include padding-base;
@@ -21,6 +23,7 @@
 
   &--primary-light {
     border-color: $primary-light;
+    color: $primary-light;
 
     &.button--filled {
       background-color: $primary-light;
