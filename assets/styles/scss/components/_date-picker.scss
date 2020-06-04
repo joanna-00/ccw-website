@@ -1,10 +1,10 @@
 .date-picker {
   position: relative;
   width: 100%;
-  max-width: 380px;
+  // max-width: 380px;
   height: 60px;
   background-color: #fff;
-  margin: 30px auto;
+  // margin: 30px auto;
   @include drop-shadow-light-sm;
   @include border-round-lg;
 
@@ -50,12 +50,19 @@
   .days {
     display: grid;
     grid-template-columns: repeat(7, 1fr);
+    // grid-row: ;
+    grid-gap: auto;
     height: auto;
-    @include padding-base;
+
+    padding: $padding-md;
 
     .day {
       @include flex-center;
-      height: 40px;
+      justify-content: center;
+      // height: 4rem;
+      // width: 4rem;
+      // height: 40px;
+      padding: 25% 0;
       cursor: pointer;
 
       &-week {

@@ -1,23 +1,30 @@
 .card {
   width: 100%;
+  background-color: $white;
   @include border-round-lg;
   @include drop-shadow-light-sm;
   overflow: hidden;
 
   &__image {
+    display: none;
     height: 300px;
     width: 100%;
     overflow: hidden;
 
     img {
       width: 100%;
-      //   height: 200px;
       object-fit: cover;
     }
   }
 
+  &--image {
+    .card__image {
+      display: inline-block;
+    }
+  }
+
   &__content {
-    @include padding-base;
+    padding: $padding-md;
   }
 
   &__label {
@@ -26,35 +33,119 @@
     align-items: center;
   }
 
+  a.card__link {
+    text-decoration: underline;
+  }
+
   &__features {
     display: flex;
     justify-content: space-between;
     align-items: center;
   }
-}
 
-.checkout-card {
-  @extend .card;
-  display: flex;
-  justify-content: space-between;
-  align-items: center;
-  flex-direction: row;
+  &__price {
+    display: none;
+    color: $secondary;
+    justify-self: left;
+  }
 
-  &__image {
-    overflow: hidden;
-    // height: 300px;
-    max-width: 40%;
-    // display: inline-block;
-
-    img {
-      width: 100%;
-      //   height: 200px;
-      object-fit: cover;
+  &--price {
+    .card__price {
+      display: inline-block;
     }
   }
 
-  &__content {
-    @include padding-base;
-    // display: inline-block;
+  &__button {
+    display: none;
+    justify-self: right;
+    float: right;
   }
+
+  &--button {
+    .card__button {
+      display: inline-block;
+    }
+  }
+
+  &__amount {
+    @include drop-shadow-light-sm;
+    @include border-round-sm;
+    display: flex;
+    background-color: $background-dark;
+    color: $text-light;
+
+    &--increase,
+    &--decrease,
+    &--display {
+      padding: 1rem;
+    }
+
+    &--increase,
+    &--decrease {
+      cursor: pointer;
+    }
+  }
+
+  &--horizontal {
+    display: flex;
+    justify-content: space-between;
+    align-items: top;
+
+    .card__image {
+      // display: flex;
+      overflow: visible;
+      // height: 300px;
+      // width: 50%;
+      // max-height: 100%;
+      max-width: 50%;
+      // position: relative;
+
+      img {
+        // width: 100%;
+        // max-height: inherit;
+        height: auto;
+        display: block;
+        //   height: 200px;
+        object-fit: cover;
+        // position: absolute;
+        // top: -25%;
+      }
+    }
+  }
+
+  &--membership {
+    padding: $padding-md;
+
+    .card__image {
+      height: 200px;
+    }
+
+    .card__content {
+      @include flex-center;
+      flex-direction: column;
+    }
+
+    .card__title {
+      text-transform: uppercase;
+    }
+  }
+
+  &--badge {
+    @include flex-center;
+    flex-direction: column;
+
+    background-color: $secondary;
+    color: $text-light;
+    font-weight: $bold;
+
+    .card__title {
+      text-transform: uppercase;
+    }
+  }
+}
+
+.checkout-card {
+}
+
+.service-price-card {
 }

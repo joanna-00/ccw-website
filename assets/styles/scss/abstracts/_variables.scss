@@ -1,3 +1,5 @@
+//  Colors
+
 $primary-light: #133657;
 $primary-dark: #55beee;
 $primary-dark-alt: #0d99c2;
@@ -10,18 +12,32 @@ $background-dark: #133657;
 $text-light: #f9f9f9;
 $text-dark: #133657;
 
-$font-primary: "Nunito Sans";
-$font-fallback: "Segoe UI", Tahoma, Geneva, Verdana, sans-serif;
-
-$greyed-out: #999999;
-
 $error: #d14444;
 $new: #f6d868;
 $alert: #0d99c2;
 $correct: #309a37;
 
+$greyed-out: #999999;
 $white: #ffffff;
+
+// Fonts
+
+$font-primary: "Nunito Sans";
+$font-fallback: "Segoe UI", Tahoma, Geneva, Verdana, sans-serif;
 
 $bold: 700;
 
 $logo: url(../../images/svgs/CCW_logo.svg);
+$p: 1.6rem;
+$h6: 2rem;
+$h5: 2.4rem;
+$h4: 2.8rem;
+$h3: 3.2rem;
+$h2: 3.6rem;
+$h1: 4rem;
+
+// Margins & padding
+
+$padding-sm: 1rem 2rem;
+$padding-md: 2rem 4rem;
+$padding-lg: 4rem 8rem;
