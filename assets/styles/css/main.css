@@ -402,4 +402,52 @@ a:visited {
   margin-left: 1.5rem;
 }
 
+header {
+  background-color: #f9f9f9;
+  padding: 0 8rem;
+}
+header nav .menu {
+  color: #133657;
+  border: none;
+  background-color: transparent;
+  font-size: 2.4rem;
+}
+header nav .logo {
+  background-image: url(../../images/svgs/CCW_logo.svg);
+  background-size: contain;
+  background-repeat: no-repeat;
+  background-position: center;
+  padding: 3.6rem;
+}
+header nav ul {
+  list-style: none;
+  padding: 0;
+  margin: 0;
+}
+header nav ul li {
+  display: contents;
+}
+header nav ul li a {
+  color: #133657;
+  text-decoration: none;
+  display: inline-block;
+  padding: 2rem;
+  text-align: center;
+}
+header nav ul li .active {
+  border-bottom: #133657 solid 2px;
+}
+header nav .shopping-cart {
+  color: #133657;
+  border: none;
+  background-color: transparent;
+  font-size: 2.4rem;
+}
+header nav .login {
+  text-decoration: none;
+  color: #133657;
+  padding: 1rem 2rem;
+  border-radius: 10px;
+}
+
 /*# sourceMappingURL=main.css.map */
