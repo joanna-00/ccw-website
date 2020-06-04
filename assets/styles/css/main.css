@@ -36,42 +36,129 @@ a:visited {
 
 p {
   font-size: 1.6rem;
+  margin: 0.8rem 0;
 }
 
 h6 {
   font-size: 2rem;
   font-weight: 700;
-  margin: 2rem 0;
+  margin: 1rem 0;
 }
 
 h5 {
   font-size: 2.4rem;
   font-weight: 700;
-  margin: 2.4rem 0;
+  margin: 1.2rem 0;
 }
 
 h4 {
   font-size: 2.8rem;
   font-weight: 700;
-  margin: 2.8rem 0;
+  margin: 1.4rem 0;
 }
 
 h3 {
   font-size: 3.2rem;
   font-weight: 700;
-  margin: 3.2rem 0;
+  margin: 1.6rem 0;
 }
 
 h2 {
   font-size: 3.6rem;
   font-weight: 700;
-  margin: 3.6rem 0;
+  margin: 1.8rem 0;
 }
 
 h1 {
   font-size: 4rem;
   font-weight: 700;
-  margin: 4rem 0;
+  margin: 2rem 0;
+}
+
+.headline {
+  width: 100%;
+  overflow: hidden;
+}
+.headline h1,
+.headline h2,
+.headline h3,
+.headline h4,
+.headline h5,
+.headline h6 {
+  display: inline-block;
+  position: relative;
+  margin-left: 15rem;
+  padding: 1rem 2rem;
+}
+.headline h1::after,
+.headline h2::after,
+.headline h3::after,
+.headline h4::after,
+.headline h5::after,
+.headline h6::after {
+  content: "";
+  display: block;
+  position: absolute;
+  width: 90vw;
+  border-radius: 9999px;
+  top: 50%;
+  transform: translateY(-50%);
+  left: 100%;
+  height: 1.4rem;
+  background-color: #133657;
+}
+.headline h1::before,
+.headline h2::before,
+.headline h3::before,
+.headline h4::before,
+.headline h5::before,
+.headline h6::before {
+  content: "";
+  display: block;
+  position: absolute;
+  width: 120%;
+  right: 100%;
+  top: 50%;
+  transform: translateY(-50%);
+  border-radius: 9999px;
+  height: 1.4rem;
+  background-color: #133657;
+}
+.headline h1::after {
+  height: 2rem;
+}
+.headline h1::before {
+  height: 2rem;
+}
+.headline h2::after {
+  height: 1.8rem;
+}
+.headline h2::before {
+  height: 1.8rem;
+}
+.headline h3::after {
+  height: 1.6rem;
+}
+.headline h3::before {
+  height: 1.6rem;
+}
+.headline h4::after {
+  height: 1.4rem;
+}
+.headline h4::before {
+  height: 1.4rem;
+}
+.headline h5::after {
+  height: 1.2rem;
+}
+.headline h5::before {
+  height: 1.2rem;
+}
+.headline h6::after {
+  height: 1rem;
+}
+.headline h6::before {
+  height: 1rem;
 }
 
 .breadcrumbs__item, .breadcrumbs__item--active {
@@ -124,6 +211,9 @@ h1 {
   overflow: visible;
   background: transparent;
   font-weight: 700;
+  display: flex;
+  align-items: center;
+  justify-content: center;
 }
 .button--base-lg {
   border: 3px solid;
@@ -192,6 +282,9 @@ h1 {
 }
 .card__content {
   padding: 2rem 4rem;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
 }
 .card__label {
   display: flex;
@@ -201,23 +294,27 @@ h1 {
 .card a.card__link {
   text-decoration: underline;
 }
+.card__description {
+  margin: 3rem 0;
+}
 .card__features {
   display: flex;
-  justify-content: space-between;
-  align-items: center;
+  justify-content: flex-end;
+  align-items: flex-end;
 }
 .card__price {
   display: none;
   color: #66bf6c;
   justify-self: left;
 }
+.card--price .card__features {
+  justify-content: space-between;
+}
 .card--price .card__price {
   display: inline-block;
 }
 .card__button {
   display: none;
-  justify-self: right;
-  float: right;
 }
 .card--button .card__button {
   display: inline-block;
@@ -279,6 +376,22 @@ h1 {
   text-transform: uppercase;
 }
 
+.checkout-card {
+  padding: 2rem 4rem;
+  display: flex;
+  flex-direction: column;
+}
+.checkout-card__item {
+  display: flex;
+  justify-content: space-between;
+}
+.checkout-card__total {
+  display: flex;
+  justify-content: space-between;
+  padding: 1rem 0;
+  text-transform: uppercase;
+  border-top: 1px solid #999999;
+}
 .date-picker {
   position: relative;
   width: 100%;

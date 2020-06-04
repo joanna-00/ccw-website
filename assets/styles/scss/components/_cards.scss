@@ -25,6 +25,9 @@
 
   &__content {
     padding: $padding-md;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
   }
 
   &__label {
@@ -37,10 +40,14 @@
     text-decoration: underline;
   }
 
+  &__description {
+    margin: 3rem 0;
+  }
+
   &__features {
     display: flex;
-    justify-content: space-between;
-    align-items: center;
+    justify-content: flex-end;
+    align-items: flex-end;
   }
 
   &__price {
@@ -50,6 +57,9 @@
   }
 
   &--price {
+    .card__features {
+      justify-content: space-between;
+    }
     .card__price {
       display: inline-block;
     }
@@ -57,8 +67,6 @@
 
   &__button {
     display: none;
-    justify-self: right;
-    float: right;
   }
 
   &--button {
@@ -145,6 +153,25 @@
 }
 
 .checkout-card {
+  padding: $padding-md;
+  display: flex;
+  flex-direction: column;
+
+  &__item {
+    display: flex;
+    justify-content: space-between;
+  }
+
+  &__total {
+    display: flex;
+    justify-content: space-between;
+    padding: $padding-y-sm;
+    text-transform: uppercase;
+    border-top: 1px solid $greyed-out;
+  }
+
+  &__button {
+  }
 }
 
 .service-price-card {
