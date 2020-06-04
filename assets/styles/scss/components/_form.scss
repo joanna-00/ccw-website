@@ -15,7 +15,7 @@
   }
 
   &__title {
-    @include padding-base;
+    padding: $padding-md;
     position: relative;
 
     .mi--chevron {
@@ -37,7 +37,7 @@
   }
 
   &__option {
-    @include padding-base;
+    padding: $padding-md;
 
     &:hover {
       background-color: $primary-light;

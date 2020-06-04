@@ -30,30 +30,53 @@
     <script src="../../assets/scripts/main.js" defer></script>
   </head>
   <body>
+    <!-- Template navigation -->
+    <div class="row">
+      <div class="col-12">
+        <div style="display: flex; justify-content: space-between;">
+          <a href="breadcrumbs.html">breadcrumbs</a>
+          <a href="buttons.html">buttons</a>
+          <a href="cards.html">cards</a>
+          <a href="date-picker.html">date-picker</a>
+          <a href="forms.html">forms</a>
+          <a href="typography.html">typography</a>
+        </div>
+      </div>
+    </div>
+    <!-- End of template navigation -->
+
     <div class="container-fluid">
       <div class="row mt-5">
         <div class="col-3">
-          <div class="shop-card">
-            <div class="shop-card__image">
+          <div
+            class="card card--image card--button card--description card--price"
+          >
+            <div class="card__image">
               <img
                 src="../../assets/images/photos/steering-wheel-wash.jpg"
                 alt=""
               />
             </div>
-            <div class="shop-card__content">
-              <div class="shop-card__label">
-                <h4 class="shop-card__title">Card title</h4>
-                <i class="material-icons mi--arrow_forward">arrow_forward</i>
+            <div class="card__content">
+              <div class="card__label">
+                <h4 class="card__title">Card title</h4>
+                <a href="" class="card__link"
+                  ><i class="material-icons mi--arrow_forward"
+                    >arrow_forward</i
+                  ></a
+                >
               </div>
 
-              <p class="shop-card__description">
+              <p class="card__description">
                 card teext text textcard teext text textcard teext text textcard
                 teext text textcard teext text text
               </p>
 
-              <div class="shop-card__features">
-                <h2 class="shop-card__price">175</h2>
-                <button class="button button--base-lg button--primary-light">
+              <div class="card__features">
+                <h2 class="card__price">175</h2>
+                <button
+                  class="card__button button button--base-lg button--primary-light"
+                >
                   Add to cart
                   <i class="material-icons mi--add_shopping_cart icon--right"
                     >add_shopping_cart</i
@@ -64,27 +87,29 @@
           </div>
         </div>
         <div class="col-4">
-          <div class="shop-card">
-            <div class="shop-card__image">
+          <div class="card card--button">
+            <div class="card__image">
               <img
                 src="../../assets/images/photos/steering-wheel-wash.jpg"
                 alt=""
               />
             </div>
-            <div class="shop-card__content">
-              <div class="shop-card__label">
-                <h4 class="shop-card__title">Card title</h4>
+            <div class="card__content">
+              <div class="card__label">
+                <h4 class="card__title">Card title</h4>
                 <i class="material-icons mi--arrow_forward">arrow_forward</i>
               </div>
 
-              <p class="shop-card__description">
+              <p class="card__description">
                 card teext text textcard teext text textcard teext text textcard
                 teext text textcard teext text text
               </p>
 
-              <div class="shop-card__features">
-                <h2 class="shop-card__price">175</h2>
-                <button class="button button--base-lg button--primary-light">
+              <div class="card__features">
+                <h2 class="card__price">175</h2>
+                <button
+                  class="card__button button button--base-lg button--primary-light"
+                >
                   Add to cart
                   <i class="material-icons mi--add_shopping_cart icon--right"
                     >add_shopping_cart</i
@@ -122,30 +147,30 @@
 
       <div class="row mt-5">
         <div class="col-6">
-          <div class="checkout-card">
-            <div class="checkout-card__image">
+          <div class="card card--horizontal card--image">
+            <div class="card__image">
               <img
                 src="../../assets/images/photos/steering-wheel-wash.jpg"
                 alt=""
               />
             </div>
-            <div class="checkout-card__content">
-              <div class="checkout-card__label">
-                <h4 class="checkout-card__title">Card title</h4>
-                <a href="" class="checkout-card__link">Remove item</a>
+            <div class="card__content">
+              <div class="card__label">
+                <h4 class="card__title">Card title</h4>
+                <a href="" class="card__link">Remove item</a>
               </div>
 
-              <p class="checkout-card__description">
+              <p class="card__description">
                 card teext text textcard teext text textcard teext text textcard
                 teext text textcard teext text text
               </p>
 
-              <div class="checkout-card__features">
-                <h2 class="checkout-card__price">175</h2>
-                <div class="checkout-card__amount">
-                  <div class="checkout-card__amount--decrease">-</div>
-                  <div class="checkout-card__amount--display">1</div>
-                  <div class="checkout-card__amount--increase">+</div>
+              <div class="card__features">
+                <h2 class="card__price">175</h2>
+                <div class="card__amount">
+                  <div class="card__amount--decrease">-</div>
+                  <div class="card__amount--display">1</div>
+                  <div class="card__amount--increase">+</div>
                 </div>
               </div>
             </div>
@@ -155,13 +180,13 @@
 
       <div class="row mt-5">
         <div class="col-3">
-          <div class="membership-card">
-            <div class="membership-card__image">
+          <div class="card card--membership">
+            <div class="card__image">
               <img src="../../assets/images/svgs/check-24px.svg" alt="" />
             </div>
-            <div class="membership-card__content">
-              <h4 class="membership-card__title">Platinum</h4>
-              <p class="membership-card__description">
+            <div class="card__content">
+              <h4 class="card__title">Platinum</h4>
+              <p class="card__description">
                 The quick, brown fox jumps over a lazy dog. DJs flock by when
                 MTV
               </p>
@@ -177,9 +202,9 @@
 
       <div class="row mt-5">
         <div class="col-2">
-          <div class="badge-card">
-            <h2 class="badge-card__title">title</h2>
-            <p class="badge-card__subtitle">subtitle</p>
+          <div class="card card--badge">
+            <h2 class="card__title">title</h2>
+            <p class="card__subtitle">subtitle</p>
           </div>
         </div>
       </div>

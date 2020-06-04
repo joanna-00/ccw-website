@@ -145,6 +145,8 @@ function populateDays() {
     let day_element_date_value = new Date(year, month, i + 1);
     day_element.dataset.value = day_element_date_value;
 
+    // let yesterday = new Date();
+    // yesterday.setDate(yesterday - 1);
     if (day_element_date_value < new Date()) {
       day_element.classList.add("unavailable");
     }
