@@ -1,0 +1,28 @@
+.footer {
+  background-color: $white;
+
+  &__center {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+  }
+
+  &__section {
+    ul {
+      @include list-clear;
+    }
+  }
+
+  &__icons-container {
+    // margin-top: 4rem;
+    width: 100%;
+    display: flex;
+    justify-content: center;
+
+    img {
+      max-height: 40px;
+      margin: $padding-sm;
+    }
+  }
+}

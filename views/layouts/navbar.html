@@ -1,45 +1,69 @@
 <!DOCTYPE html>
 <html lang="en">
-
-<head>
+  <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>Document</title>
     <!-- Bootstrap -->
-    <link rel="stylesheet" href="../../assets/libs/bootstrap/css/bootstrap-grid.min.css" />
-    <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js"
-        integrity="sha384-DfXdz2htPH0lsSSs5nCTpuj/zy4C+OGpamoFVy38MVBnE+IbbVYUew+OrCXaRkfj" crossorigin="anonymous">
-    </script>
-    <script src="../../assets/libs/bootstrap/js/bootstrap.min.js" defer></script>
+    <link
+      rel="stylesheet"
+      href="../../assets/libs/bootstrap/css/bootstrap-grid.min.css"
+    />
+    <script
+      src="https://code.jquery.com/jquery-3.5.1.slim.min.js"
+      integrity="sha384-DfXdz2htPH0lsSSs5nCTpuj/zy4C+OGpamoFVy38MVBnE+IbbVYUew+OrCXaRkfj"
+      crossorigin="anonymous"
+    ></script>
+    <script
+      src="../../assets/libs/bootstrap/js/bootstrap.min.js"
+      defer
+    ></script>
     <!-- Normalize -->
     <link rel="stylesheet" href="../../assets/libs/normalize/normalize.css" />
     <!-- Material Icons CDN -->
-    <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet" />
+    <link
+      href="https://fonts.googleapis.com/icon?family=Material+Icons"
+      rel="stylesheet"
+    />
     <!-- Custom styles and scripts -->
     <link rel="stylesheet" href="../../assets/styles/css/main.css" />
     <script src="../../assets/scripts/main.js" defer></script>
-</head>
+  </head>
 
-<body>
-    <header>
-        <nav class="row justify-content-xl-between justify-content-lg-between justify-content-center align-items-center">
-            <button class="material-icons menu d-xl-none d-l-none d-md-block d-sm-block">menu</button>
-            <a class="logo" href=""></a>
-            <ul class="row">
-                <li><a href="" class="active">Home</a></li>
-                <li><a href="">Memberships</a></li>
-                <li><a href="">Shop</a></li>
-                <li><a href="">The&nbsp;company</a></li>
-                <li><a href="">Contact&nbsp;us</a></li>
-            </ul>
-            <div class="col-2">
-                <div class="row justify-content-between">
-                    <button class="shopping-cart cart material-icons">shopping_cart</button>
-                    <a class="button button--base-sm button--primary-light login" href="">Login</a>
-                </div>
-            </div>
-        </nav>
-    </header>
-</body>
+  <body>
+    <nav class="nav">
+      <!-- row justify-content-xl-between justify-content-lg-between justify-content-center align-items-center -->
+      <div class="container">
+        <!-- <button
+          class="material-icons menu d-xl-none d-l-none d-md-block d-sm-block"
+        >
+          menu
+        </button> -->
+        <div class="row">
+          <div class="nav__logo-container col-3">
+            <a href="" class="nav__logo"></a>
+          </div>
 
+          <ul class="nav__links-container col-7">
+            <li class="nav__link active"><a href="">Home</a></li>
+            <li class="nav__link"><a href="">Memberships</a></li>
+            <li class="nav__link"><a href="">Shop</a></li>
+            <li class="nav__link"><a href="">The&nbsp;company</a></li>
+            <li class="nav__link"><a href="">Contact&nbsp;us</a></li>
+          </ul>
+
+          <div class="nav__buttons col-2">
+            <button class="nav__shopping-cart material-icons">
+              shopping_cart
+            </button>
+            <button
+              class="nav__login button button--base-sm button--primary-light"
+            >
+              Login
+            </button>
+          </div>
+        </div>
+      </div>
+    </nav>
+  </body>
 </html>

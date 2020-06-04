@@ -3,11 +3,12 @@
   margin: 0;
   padding: 0;
   width: auto;
+  // display: inline;
   overflow: visible;
   background: transparent;
   font-weight: $bold;
 
-  @include flex-center;
+  // @include flex-center;
 
   &--base-lg {
     border: 3px solid;
