@@ -352,6 +352,10 @@ h1 {
   color: #999999;
 }
 
+.filters {
+  background: #133657;
+}
+
 .dropdown {
   width: 100%;
   background-color: #ffffff;
