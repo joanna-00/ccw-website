@@ -1,0 +1,25 @@
+.footer {
+  background-color: $white;
+
+  &__center {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+  }
+
+  &__section {
+    ul {
+      @include list-clear;
+    }
+
+    // display: flex;
+    // flex-direction: column;
+    // justify-content: space-between;
+    // align-items: space-between;
+
+    // input {
+    //   width: 50%;
+    // }
+  }
+}
