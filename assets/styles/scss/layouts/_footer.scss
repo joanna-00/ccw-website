@@ -12,14 +12,17 @@
     ul {
       @include list-clear;
     }
+  }
 
-    // display: flex;
-    // flex-direction: column;
-    // justify-content: space-between;
-    // align-items: space-between;
+  &__icons-container {
+    // margin-top: 4rem;
+    width: 100%;
+    display: flex;
+    justify-content: center;
 
-    // input {
-    //   width: 50%;
-    // }
+    img {
+      max-height: 40px;
+      margin: $padding-sm;
+    }
   }
 }
