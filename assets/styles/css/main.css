@@ -870,6 +870,36 @@ h1 {
   background-repeat: no-repeat;
   background-size: cover;
 }
+.main-service__purchase .service-info-card__title {
+  margin: 1.6rem 0 3.2rem 0;
+}
+.main-service__purchase .service-info-card__price {
+  margin-bottom: 1.6rem;
+}
+.main-service__purchase .service-info-card__price-value {
+  margin: 0;
+}
+.main-service__purchase .service-info-card__time {
+  margin-bottom: 3.2rem;
+}
+.main-service__purchase .service-info-card__time-value {
+  margin: 0;
+}
+.main-service__purchase .card--badge .card__title {
+  margin: 0.8rem 0 0 0;
+}
+.main-service__purchase .card--badge .card__subtitle {
+  margin: 0 0 0.8rem 0;
+}
+
+.recommended-services {
+  padding: 4rem 0;
+  background-color: #133657;
+}
+.recommended-services h3 {
+  color: white;
+}
+
 .shop main {
   padding: 4rem 0;
 }

@@ -1,18 +1,51 @@
 .main-service{
     padding: $padding-sm;
-
     &__info{
-
         &__image{
             background-image: url(../../images/photos/steering-wheel-wash.jpg);
-            width: 100%;
-            padding-top: 56.25%;
-            background-position: center;
-            background-repeat: no-repeat;
-            background-size: cover;
+            @include bckg-img;
         }
         &__description{
 
         }
     }
+
+    &__purchase{
+        .service-info-card{
+            &__title{
+                margin: 1.6rem 0 3.2rem 0;
+            }
+            &__price{
+                margin-bottom: 1.6rem;
+                &-value{
+                    margin: 0;
+                }
+            }
+            &__time{
+                margin-bottom: 3.2rem;
+                &-value{
+                    margin: 0;
+                }
+            }
+        }
+
+        .card--badge{
+            .card__title{
+                margin: 0.8rem 0 0 0;
+            }
+            .card__subtitle{
+                margin: 0 0 0.8rem 0;
+            }
+        }
+        
+    }
+}
+
+.recommended-services{
+    padding: 4rem 0;
+    background-color: $primary-light;
+    h3{
+        color: white;
+    }
+    
 }
