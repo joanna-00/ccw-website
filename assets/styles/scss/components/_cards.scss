@@ -170,9 +170,47 @@
     border-top: 1px solid $greyed-out;
   }
 
-  &__button {
+  &__buttons {
+    display: flex;
+    justify-content: space-evenly;
+    flex-wrap: wrap;
+  }
+
+  &__coupon {
+    display: flex;
+    justify-content: space-between;
+
+    &-input {
+      // display: inline-block;
+      width: 15rem !important;
+    }
   }
 }
 
-.service-price-card {
+.service-info-card {
+  padding: $padding-md;
+
+  &__title {
+    text-transform: capitalize;
+  }
+
+  &__price,
+  &__time {
+    display: flex;
+    justify-content: space-between;
+
+    &-label {
+      font-size: $p * 1.2;
+    }
+
+    &-value {
+      color: $secondary;
+    }
+  }
+
+  &__buttons {
+    display: flex;
+    justify-content: space-evenly;
+    flex-wrap: wrap;
+  }
 }

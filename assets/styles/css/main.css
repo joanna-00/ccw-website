@@ -34,6 +34,10 @@ a:visited {
   text-decoration: none;
 }
 
+.content {
+  margin-top: 15rem;
+}
+
 p {
   font-size: 1.6rem;
   margin: 0.8rem 0;
@@ -392,6 +396,41 @@ h1 {
   text-transform: uppercase;
   border-top: 1px solid #999999;
 }
+.checkout-card__buttons {
+  display: flex;
+  justify-content: space-evenly;
+  flex-wrap: wrap;
+}
+.checkout-card__coupon {
+  display: flex;
+  justify-content: space-between;
+}
+.checkout-card__coupon-input {
+  width: 15rem !important;
+}
+
+.service-info-card {
+  padding: 2rem 4rem;
+}
+.service-info-card__title {
+  text-transform: capitalize;
+}
+.service-info-card__price, .service-info-card__time {
+  display: flex;
+  justify-content: space-between;
+}
+.service-info-card__price-label, .service-info-card__time-label {
+  font-size: 1.92rem;
+}
+.service-info-card__price-value, .service-info-card__time-value {
+  color: #66bf6c;
+}
+.service-info-card__buttons {
+  display: flex;
+  justify-content: space-evenly;
+  flex-wrap: wrap;
+}
+
 .date-picker {
   position: relative;
   width: 100%;
@@ -707,8 +746,19 @@ h1 {
 .filters {
   background: #133657;
   color: #f9f9f9;
-  min-height: 90vh;
-  height: 100%;
+  min-height: 100%;
+  width: 100%;
+  margin-top: 0;
+  position: absolute;
+  left: 0;
+  top: 0;
+  transform: translateX(-100%);
+}
+@media (min-width: 768px) {
+  .filters {
+    position: relative;
+    transform: translateX(0%);
+  }
 }
 
 .nav {
@@ -717,6 +767,10 @@ h1 {
   -moz-box-shadow: 0px 3px 10px 0px rgba(0, 0, 0, 0.25);
   box-shadow: 0px 3px 10px 0px rgba(0, 0, 0, 0.25);
   background-color: #ffffff;
+  position: fixed;
+  top: 0;
+  width: 100vw;
+  z-index: 9999;
 }
 .nav__logo {
   background-image: url(../../images/svgs/CCW_logo.svg);
