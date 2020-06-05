@@ -4,6 +4,7 @@
         &__image{
             background-image: url(../../images/photos/steering-wheel-wash.jpg);
             @include bckg-img;
+            @include drop-shadow-light-sm;
         }
         &__description{
 
