@@ -97,61 +97,61 @@ h1 {
 
   h1 {
     &::after {
-      height: $h1 * 0.5;
+      height: $h1 * 0.25;
     }
 
     &::before {
-      height: $h1 * 0.5;
+      height: $h1 * 0.25;
     }
   }
 
   h2 {
     &::after {
-      height: $h2 * 0.5;
+      height: $h2 * 0.25;
     }
 
     &::before {
-      height: $h2 * 0.5;
+      height: $h2 * 0.25;
     }
   }
 
   h3 {
     &::after {
-      height: $h3 * 0.5;
+      height: $h3 * 0.25;
     }
 
     &::before {
-      height: $h3 * 0.5;
+      height: $h3 * 0.25;
     }
   }
 
   h4 {
     &::after {
-      height: $h4 * 0.5;
+      height: $h4 * 0.25;
     }
 
     &::before {
-      height: $h4 * 0.5;
+      height: $h4 * 0.25;
     }
   }
 
   h5 {
     &::after {
-      height: $h5 * 0.5;
+      height: $h5 * 0.25;
     }
 
     &::before {
-      height: $h5 * 0.5;
+      height: $h5 * 0.25;
     }
   }
 
   h6 {
     &::after {
-      height: $h6 * 0.5;
+      height: $h6 * 0.25;
     }
 
     &::before {
-      height: $h6 * 0.5;
+      height: $h6 * 0.25;
     }
   }
 }

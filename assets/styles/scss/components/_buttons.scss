@@ -3,7 +3,7 @@
   margin: 0;
   padding: 0;
   width: auto;
-  // display: inline;
+
   overflow: visible;
   background: transparent;
   font-weight: $bold;
@@ -27,9 +27,18 @@
     border-color: $primary-light;
     color: $primary-light;
 
+    &:hover {
+      background-color: $primary-light;
+      color: $text-light;
+    }
+
     &.button--filled {
       background-color: $primary-light;
       color: $text-light;
+
+      &:hover {
+        background-color: darken($primary-light, 7);
+      }
     }
   }
 
@@ -40,6 +49,10 @@
     &.button--filled {
       background-color: $primary-dark;
       color: $text-light;
+
+      &:hover {
+        background-color: darken($primary-dark, 7);
+      }
     }
   }
 
@@ -50,15 +63,19 @@
     &.button--filled {
       background-color: $secondary;
       color: $text-light;
+
+      &:hover {
+        background-color: darken($secondary, 7);
+      }
     }
   }
   &--disabled {
     border-color: $greyed-out;
-    color: $greyed-out;
+    color: $greyed-out-dark;
 
     &.button--filled {
       background-color: $greyed-out;
-      color: $text-light;
+      // color: $text-light;
     }
   }
 }

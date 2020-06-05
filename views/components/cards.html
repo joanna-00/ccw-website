@@ -20,11 +20,11 @@
     ></script>
     <!-- Normalize -->
     <link rel="stylesheet" href="../../assets/libs/normalize/normalize.css" />
-    <!-- Material Icons CDN -->
-    <link
-      href="https://fonts.googleapis.com/icon?family=Material+Icons"
-      rel="stylesheet"
-    />
+    <!-- FontAwesome CDN -->
+    <script
+      src="https://kit.fontawesome.com/0f43a8f1c0.js"
+      crossorigin="anonymous"
+    ></script>
     <!-- Custom styles and scripts -->
     <link rel="stylesheet" href="../../assets/styles/css/main.css" />
     <script src="../../assets/scripts/main.js" defer></script>
@@ -59,12 +59,14 @@
             </div>
             <div class="card__content">
               <div class="card__label">
-                <h4 class="card__title">Card title</h4>
-                <a href="" class="card__link"
-                  ><i class="material-icons mi--arrow_forward"
-                    >arrow_forward</i
-                  ></a
-                >
+                <h4 class="card__title">
+                  Card title
+                </h4>
+                <h4>
+                  <a href="" class="card__link"
+                    ><i class="fas fa-arrow-right"></i
+                  ></a>
+                </h4>
               </div>
 
               <p class="card__description">
@@ -73,19 +75,18 @@
               </p>
 
               <div class="card__features">
-                <h2 class="card__price">175</h2>
+                <h4 class="card__price">175</h4>
                 <button
                   class="card__button button button--base-lg button--primary-light"
                 >
                   Add to cart
-                  <i class="material-icons mi--add_shopping_cart icon--right"
-                    >add_shopping_cart</i
-                  >
+                  <i class="fas fa-cart-plus"></i>
                 </button>
               </div>
             </div>
           </div>
         </div>
+
         <div class="col-4">
           <div class="card card--button">
             <div class="card__image">
@@ -97,7 +98,11 @@
             <div class="card__content">
               <div class="card__label">
                 <h4 class="card__title">Card title</h4>
-                <i class="material-icons mi--arrow_forward">arrow_forward</i>
+                <h4>
+                  <a href="" class="card__link"
+                    ><i class="fas fa-arrow-right"></i
+                  ></a>
+                </h4>
               </div>
 
               <p class="card__description">
@@ -106,14 +111,12 @@
               </p>
 
               <div class="card__features">
-                <h2 class="card__price">175</h2>
+                <h4 class="card__price">175</h4>
                 <button
                   class="card__button button button--base-lg button--primary-light"
                 >
                   Add to cart
-                  <i class="material-icons mi--add_shopping_cart icon--right"
-                    >add_shopping_cart</i
-                  >
+                  <i class="fas fa-cart-plus"></i>
                 </button>
               </div>
             </div>
@@ -147,7 +150,7 @@
 
       <div class="row mt-5">
         <div class="col-6">
-          <div class="card card--horizontal card--image">
+          <div class="card card--horizontal card--image card--price">
             <div class="card__image">
               <img
                 src="../../assets/images/photos/steering-wheel-wash.jpg"
@@ -166,7 +169,7 @@
               </p>
 
               <div class="card__features">
-                <h2 class="card__price">175</h2>
+                <h4 class="card__price">175</h4>
                 <div class="card__amount">
                   <div class="card__amount--decrease">-</div>
                   <div class="card__amount--display">1</div>
@@ -229,7 +232,7 @@
 
             <div class="checkout-card__coupon">
               <p class="checkout-card__coupon-label">Coupon</p>
-              <!-- <p class="checkout-card__coupon-input">10 dolers</p> -->
+
               <input
                 type="text"
                 name=""
@@ -272,6 +275,7 @@
                 class="service-info-card__button button button--base-sm button--primary-light button--filled"
               >
                 Add to cart
+                <i class="fas fa-cart-plus"></i>
               </button>
               <button
                 class="service-info-card__button button button--base-sm button--secondary"

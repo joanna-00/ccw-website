@@ -20,11 +20,11 @@
     ></script>
     <!-- Normalize -->
     <link rel="stylesheet" href="../../assets/libs/normalize/normalize.css" />
-    <!-- Material Icons CDN -->
-    <link
-      href="https://fonts.googleapis.com/icon?family=Material+Icons"
-      rel="stylesheet"
-    />
+    <!-- FontAwesome CDN -->
+    <script
+      src="https://kit.fontawesome.com/0f43a8f1c0.js"
+      crossorigin="anonymous"
+    ></script>
     <!-- Custom styles and scripts -->
     <link rel="stylesheet" href="../../assets/styles/css/main.css" />
     <script src="../../assets/scripts/main.js" defer></script>
@@ -34,11 +34,6 @@
   <body>
     <nav class="nav">
       <div class="container">
-        <!-- <button
-          class="material-icons menu d-xl-none d-l-none d-md-block d-sm-block"
-        >
-          menu
-        </button> -->
         <div class="row">
           <div class="nav__logo-container col-3">
             <a href="" class="nav__logo"></a>
@@ -55,9 +50,7 @@
           </div>
 
           <div class="nav__buttons col-3">
-            <button class="nav__shopping-cart material-icons">
-              shopping_cart
-            </button>
+            <i class="fas fa-shopping-cart nav__shopping-cart"></i>
             <button
               class="nav__login button button--base-sm button--primary-light"
             >
@@ -234,45 +227,11 @@
           </aside>
           <main class="col-9">
             <div class="row">
-              <div class="col-4">
-                <div
-                  class="card card--image card--button card--description card--price"
-                >
-                  <div class="card__image">
-                    <img
-                      src="../../assets/images/photos/steering-wheel-wash.jpg"
-                      alt=""
-                    />
-                  </div>
-                  <div class="card__content">
-                    <div class="card__label">
-                      <h4 class="card__title">Card title</h4>
-                      <a href="" class="card__link"
-                        ><i class="material-icons mi--arrow_forward"
-                          >arrow_forward</i
-                        ></a
-                      >
-                    </div>
-
-                    <p class="card__description">
-                      card teext text textcard teext text textcard teext text
-                      textcard teext text textcard teext text text
-                    </p>
-
-                    <div class="card__features">
-                      <h2 class="card__price">175</h2>
-                      <button
-                        class="card__button button button--base-sm button--primary-light"
-                      >
-                        Add to cart
-                        <i
-                          class="material-icons mi--add_shopping_cart icon--right"
-                          >add_shopping_cart</i
-                        >
-                      </button>
-                    </div>
-                  </div>
-                </div>
+              <h1 class="col-12">Our services</h1>
+            </div>
+            <div class="row section--interior" id="sectionInterior">
+              <div class="headline col-12">
+                <h2>Interior</h2>
               </div>
               <div class="col-4">
                 <div
@@ -286,52 +245,14 @@
                   </div>
                   <div class="card__content">
                     <div class="card__label">
-                      <h4 class="card__title">Card title</h4>
-                      <a href="" class="card__link"
-                        ><i class="material-icons mi--arrow_forward"
-                          >arrow_forward</i
-                        ></a
-                      >
-                    </div>
-
-                    <p class="card__description">
-                      card teext text textcard teext text textcard teext text
-                      textcard teext text textcard teext text text
-                    </p>
-
-                    <div class="card__features">
-                      <h2 class="card__price">175</h2>
-                      <button
-                        class="card__button button button--base-sm button--primary-light"
-                      >
-                        Add to cart
-                        <i
-                          class="material-icons mi--add_shopping_cart icon--right"
-                          >add_shopping_cart</i
-                        >
-                      </button>
-                    </div>
-                  </div>
-                </div>
-              </div>
-              <div class="col-4">
-                <div
-                  class="card card--image card--button card--description card--price"
-                >
-                  <div class="card__image">
-                    <img
-                      src="../../assets/images/photos/steering-wheel-wash.jpg"
-                      alt=""
-                    />
-                  </div>
-                  <div class="card__content">
-                    <div class="card__label">
-                      <h4 class="card__title">Card title</h4>
-                      <a href="" class="card__link"
-                        ><i class="material-icons mi--arrow_forward"
-                          >arrow_forward</i
-                        ></a
-                      >
+                      <h4 class="card__title">
+                        Card title
+                      </h4>
+                      <h4>
+                        <a href="" class="card__link"
+                          ><i class="fas fa-arrow-right"></i
+                        ></a>
+                      </h4>
                     </div>
 
                     <p class="card__description">
@@ -342,13 +263,249 @@
                     <div class="card__features">
                       <h4 class="card__price">175</h4>
                       <button
-                        class="card__button button button--base-sm button--primary-light"
+                        class="card__button button button--base-lg button--primary-light"
                       >
                         Add to cart
-                        <i
-                          class="material-icons mi--add_shopping_cart icon--right"
-                          >add_shopping_cart</i
-                        >
+                        <i class="fas fa-cart-plus"></i>
+                      </button>
+                    </div>
+                  </div>
+                </div>
+              </div>
+              <div class="col-4">
+                <div
+                  class="card card--image card--button card--description card--price"
+                >
+                  <div class="card__image">
+                    <img
+                      src="../../assets/images/photos/steering-wheel-wash.jpg"
+                      alt=""
+                    />
+                  </div>
+                  <div class="card__content">
+                    <div class="card__label">
+                      <h4 class="card__title">
+                        Card title
+                      </h4>
+                      <h4>
+                        <a href="" class="card__link"
+                          ><i class="fas fa-arrow-right"></i
+                        ></a>
+                      </h4>
+                    </div>
+
+                    <p class="card__description">
+                      card teext text textcard teext text textcard teext text
+                      textcard teext text textcard teext text text
+                    </p>
+
+                    <div class="card__features">
+                      <h4 class="card__price">175</h4>
+                      <button
+                        class="card__button button button--base-lg button--primary-light"
+                      >
+                        Add to cart
+                        <i class="fas fa-cart-plus"></i>
+                      </button>
+                    </div>
+                  </div>
+                </div>
+              </div>
+              <div class="col-4">
+                <div
+                  class="card card--image card--button card--description card--price"
+                >
+                  <div class="card__image">
+                    <img
+                      src="../../assets/images/photos/steering-wheel-wash.jpg"
+                      alt=""
+                    />
+                  </div>
+                  <div class="card__content">
+                    <div class="card__label">
+                      <h4 class="card__title">
+                        Card title
+                      </h4>
+                      <h4>
+                        <a href="" class="card__link"
+                          ><i class="fas fa-arrow-right"></i
+                        ></a>
+                      </h4>
+                    </div>
+
+                    <p class="card__description">
+                      card teext text textcard teext text textcard teext text
+                      textcard teext text textcard teext text text
+                    </p>
+
+                    <div class="card__features">
+                      <h4 class="card__price">175</h4>
+                      <button
+                        class="card__button button button--base-lg button--primary-light"
+                      >
+                        Add to cart
+                        <i class="fas fa-cart-plus"></i>
+                      </button>
+                    </div>
+                  </div>
+                </div>
+              </div>
+              <div class="col-4">
+                <div
+                  class="card card--image card--button card--description card--price"
+                >
+                  <div class="card__image">
+                    <img
+                      src="../../assets/images/photos/steering-wheel-wash.jpg"
+                      alt=""
+                    />
+                  </div>
+                  <div class="card__content">
+                    <div class="card__label">
+                      <h4 class="card__title">
+                        Card title
+                      </h4>
+                      <h4>
+                        <a href="" class="card__link"
+                          ><i class="fas fa-arrow-right"></i
+                        ></a>
+                      </h4>
+                    </div>
+
+                    <p class="card__description">
+                      card teext text textcard teext text textcard teext text
+                      textcard teext text textcard teext text text
+                    </p>
+
+                    <div class="card__features">
+                      <h4 class="card__price">175</h4>
+                      <button
+                        class="card__button button button--base-lg button--primary-light"
+                      >
+                        Add to cart
+                        <i class="fas fa-cart-plus"></i>
+                      </button>
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </div>
+            <div class="row section--exterior" id="sectionExterior">
+              <div class="headline col-12">
+                <h2>Interior</h2>
+              </div>
+              <div class="col-4">
+                <div
+                  class="card card--image card--button card--description card--price"
+                >
+                  <div class="card__image">
+                    <img
+                      src="../../assets/images/photos/steering-wheel-wash.jpg"
+                      alt=""
+                    />
+                  </div>
+                  <div class="card__content">
+                    <div class="card__label">
+                      <h4 class="card__title">
+                        Card title
+                      </h4>
+                      <h4>
+                        <a href="" class="card__link"
+                          ><i class="fas fa-arrow-right"></i
+                        ></a>
+                      </h4>
+                    </div>
+
+                    <p class="card__description">
+                      card teext text textcard teext text textcard teext text
+                      textcard teext text textcard teext text text
+                    </p>
+
+                    <div class="card__features">
+                      <h4 class="card__price">175</h4>
+                      <button
+                        class="card__button button button--base-lg button--primary-light"
+                      >
+                        Add to cart
+                        <i class="fas fa-cart-plus"></i>
+                      </button>
+                    </div>
+                  </div>
+                </div>
+              </div>
+              <div class="col-4">
+                <div
+                  class="card card--image card--button card--description card--price"
+                >
+                  <div class="card__image">
+                    <img
+                      src="../../assets/images/photos/steering-wheel-wash.jpg"
+                      alt=""
+                    />
+                  </div>
+                  <div class="card__content">
+                    <div class="card__label">
+                      <h4 class="card__title">
+                        Card title
+                      </h4>
+                      <h4>
+                        <a href="" class="card__link"
+                          ><i class="fas fa-arrow-right"></i
+                        ></a>
+                      </h4>
+                    </div>
+
+                    <p class="card__description">
+                      card teext text textcard teext text textcard teext text
+                      textcard teext text textcard teext text text
+                    </p>
+
+                    <div class="card__features">
+                      <h4 class="card__price">175</h4>
+                      <button
+                        class="card__button button button--base-lg button--primary-light"
+                      >
+                        Add to cart
+                        <i class="fas fa-cart-plus"></i>
+                      </button>
+                    </div>
+                  </div>
+                </div>
+              </div>
+              <div class="col-4">
+                <div
+                  class="card card--image card--button card--description card--price"
+                >
+                  <div class="card__image">
+                    <img
+                      src="../../assets/images/photos/steering-wheel-wash.jpg"
+                      alt=""
+                    />
+                  </div>
+                  <div class="card__content">
+                    <div class="card__label">
+                      <h4 class="card__title">
+                        Card title
+                      </h4>
+                      <h4>
+                        <a href="" class="card__link"
+                          ><i class="fas fa-arrow-right"></i
+                        ></a>
+                      </h4>
+                    </div>
+
+                    <p class="card__description">
+                      card teext text textcard teext text textcard teext text
+                      textcard teext text textcard teext text text
+                    </p>
+
+                    <div class="card__features">
+                      <h4 class="card__price">175</h4>
+                      <button
+                        class="card__button button button--base-lg button--primary-light"
+                      >
+                        Add to cart
+                        <i class="fas fa-cart-plus"></i>
                       </button>
                     </div>
                   </div>
