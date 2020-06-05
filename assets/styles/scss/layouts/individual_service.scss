@@ -3,11 +3,7 @@
     &__info{
         &__image{
             background-image: url(../../images/photos/steering-wheel-wash.jpg);
-            width: 100%;
-            padding-top: 56.25%;
-            background-position: center;
-            background-repeat: no-repeat;
-            background-size: cover;
+            @include bckg-img;
         }
         &__description{
 
@@ -51,4 +47,5 @@
     h3{
         color: white;
     }
+    
 }
