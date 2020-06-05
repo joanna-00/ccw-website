@@ -8,6 +8,7 @@
   background: transparent;
   font-weight: $bold;
 
+  cursor: pointer;
   @include flex-center;
 
   &--base-lg {

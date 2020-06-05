@@ -4,6 +4,7 @@
   @include border-round-lg;
   @include drop-shadow-light-sm;
   overflow: hidden;
+  margin-bottom: 4rem;
 
   &__image {
     display: none;
@@ -20,6 +21,7 @@
   &--image {
     .card__image {
       display: inline-block;
+      max-height: 200px;
     }
   }
 
@@ -41,13 +43,13 @@
   }
 
   &__description {
-    margin: 3rem 0;
+    // margin: 3rem 0;
   }
 
   &__features {
     display: flex;
     justify-content: flex-end;
-    align-items: flex-end;
+    align-items: center;
   }
 
   &__price {

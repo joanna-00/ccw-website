@@ -35,7 +35,17 @@ a:visited {
 }
 
 .content {
-  margin-top: 15rem;
+  margin-top: calc(20px * 1.25 + 8rem);
+}
+
+h1,
+h2,
+h3,
+h4,
+h5,
+h6,
+p {
+  line-height: 1.6;
 }
 
 p {
@@ -215,6 +225,7 @@ h1 {
   overflow: visible;
   background: transparent;
   font-weight: 700;
+  cursor: pointer;
   display: flex;
   align-items: center;
   justify-content: center;
@@ -270,6 +281,7 @@ h1 {
   -moz-box-shadow: 0px 3px 10px 0px rgba(0, 0, 0, 0.25);
   box-shadow: 0px 3px 10px 0px rgba(0, 0, 0, 0.25);
   overflow: hidden;
+  margin-bottom: 4rem;
 }
 .card__image {
   display: none;
@@ -283,6 +295,7 @@ h1 {
 }
 .card--image .card__image {
   display: inline-block;
+  max-height: 200px;
 }
 .card__content {
   padding: 2rem 4rem;
@@ -298,13 +311,10 @@ h1 {
 .card a.card__link {
   text-decoration: underline;
 }
-.card__description {
-  margin: 3rem 0;
-}
 .card__features {
   display: flex;
   justify-content: flex-end;
-  align-items: flex-end;
+  align-items: center;
 }
 .card__price {
   display: none;
@@ -746,23 +756,23 @@ h1 {
 .filters {
   background: #133657;
   color: #f9f9f9;
-  min-height: 100%;
+  padding: 1rem 2rem;
+  min-height: 100vh;
   width: 100%;
   margin-top: 0;
   position: absolute;
   left: 0;
   top: 0;
-  transform: translateX(-100%);
+  transform: translateX(calc(-100% - 10vw));
 }
 @media (min-width: 768px) {
   .filters {
     position: relative;
-    transform: translateX(0%);
+    transform: translateX(calc(-5vw - 30px));
   }
 }
 
 .nav {
-  padding: 1rem 2rem;
   -webkit-box-shadow: 0px 3px 10px 0px rgba(0, 0, 0, 0.25);
   -moz-box-shadow: 0px 3px 10px 0px rgba(0, 0, 0, 0.25);
   box-shadow: 0px 3px 10px 0px rgba(0, 0, 0, 0.25);
@@ -771,6 +781,10 @@ h1 {
   top: 0;
   width: 100vw;
   z-index: 9999;
+  font-size: 2rem;
+}
+.nav__logo-container {
+  padding: 2rem 4rem;
 }
 .nav__logo {
   background-image: url(../../images/svgs/CCW_logo.svg);
@@ -785,7 +799,8 @@ h1 {
   list-style: none;
   padding: 0;
   margin: 0;
-  padding: 2rem 4rem;
+  display: flex;
+  justify-content: center;
 }
 .nav__link {
   display: inline-block;
@@ -794,11 +809,11 @@ h1 {
   color: #133657;
   text-decoration: none;
   display: inline-block;
-  padding: 1rem 2rem;
+  padding: 4rem 2rem;
   text-align: center;
 }
 .nav__link.active {
-  border-bottom: #133657 solid 2px;
+  border-bottom: #133657 solid 3px;
 }
 .nav__buttons {
   display: flex;
@@ -812,6 +827,13 @@ h1 {
   padding: 1rem 2rem;
   font-size: 4rem;
   margin-right: 4rem;
+}
+.nav__login {
+  width: 50%;
+}
+
+.shop main {
+  padding: 4rem 0;
 }
 
 /*# sourceMappingURL=main.css.map */

@@ -1,18 +1,23 @@
 .nav {
-  padding: $padding-sm;
+  // padding: $padding-sm;
   @include drop-shadow-light-sm;
   background-color: $white;
   position: fixed;
   top: 0;
   width: 100vw;
   z-index: 9999;
+  font-size: $p * 1.25;
+
+  &__logo-container {
+    padding: $padding-md;
+  }
 
   &__logo {
     background-image: $logo;
     background-size: contain;
     background-repeat: no-repeat;
     background-position: left bottom;
-    // padding: 3.6rem;
+
     display: inline-block;
     height: 100%;
     width: 100%;
@@ -20,7 +25,9 @@
 
   &__links-container {
     @include list-clear;
-    padding: $padding-md;
+    // padding: $padding-md;
+    display: flex;
+    justify-content: center;
   }
 
   &__link {
@@ -31,12 +38,12 @@
       color: $text-dark;
       text-decoration: none;
       display: inline-block;
-      padding: $padding-sm;
+      padding: 4rem 2rem;
       text-align: center;
     }
 
     &.active {
-      border-bottom: $text-dark solid 2px;
+      border-bottom: $text-dark solid 3px;
     }
   }
 
@@ -54,5 +61,9 @@
     padding: $padding-sm;
     font-size: $h1;
     margin-right: 4rem;
+  }
+
+  &__login {
+    width: 50%;
   }
 }
