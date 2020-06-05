@@ -1,9 +1,9 @@
-/* Error: expected "{".
+/* Error: expected ";".
  *    ,
- * 24 | @import "pages/shop";
- *    |                     ^
+ * 20 | @import "layouts/individual_service"
+ *    |                                     ^
  *    '
- *   assets\styles\scss\main.scss 24:21  root stylesheet */
+ *   assets\styles\scss\main.scss 20:37  root stylesheet */
 
 body::before {
   font-family: "Source Code Pro", "SF Mono", Monaco, Inconsolata, "Fira Mono",
@@ -13,5 +13,5 @@ body::before {
   padding: 1em;
   margin-bottom: 1em;
   border-bottom: 2px solid black;
-  content: 'Error: expected "{".\a    \2577 \a 24 \2502  @import "pages/shop";\d\a    \2502                      ^\a    \2575 \a   assets\\styles\\scss\\main.scss 24:21  root stylesheet';
+  content: 'Error: expected ";".\a    \2577 \a 20 \2502  @import "layouts/individual_service"\d\a    \2502                                      ^\a    \2575 \a   assets\\styles\\scss\\main.scss 20:37  root stylesheet';
 }
