@@ -814,4 +814,16 @@ h1 {
   margin-right: 4rem;
 }
 
+.main-service {
+  padding: 1rem 2rem;
+}
+.main-service__info__image {
+  background-image: url(../../images/photos/steering-wheel-wash.jpg);
+  width: 100%;
+  padding-top: 56.25%;
+  background-position: center;
+  background-repeat: no-repeat;
+  background-size: cover;
+}
+
 /*# sourceMappingURL=main.css.map */
