@@ -4,7 +4,7 @@
   padding: $padding-sm;
   // min-height: 90vh;
   min-height: 100vh;
-  width: 100%;
+  width: calc(25% - 5vw + 30px);
   margin-top: 0;
   position: absolute;
   left: 0;
@@ -12,7 +12,10 @@
   transform: translateX(calc(-100% - 10vw));
 
   @media (min-width: $media-md) {
-    position: relative;
-    transform: translateX(calc(-5vw - 30px));
+    // position: relative;
+    // transform: translateX(calc(-5vw - 30px));
+    top: calc(16px * 1.6 + 8rem);
+    position: fixed;
+    transform: translateX(0);
   }
 }
