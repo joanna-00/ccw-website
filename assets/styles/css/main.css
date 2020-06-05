@@ -39,6 +39,16 @@ a:visited {
   margin-top: calc(16px * 1.6 * 1.25 + +2px + 8rem);
 }
 
+h1,
+h2,
+h3,
+h4,
+h5,
+h6,
+p {
+  line-height: 1.6;
+}
+
 p {
   font-size: 1.6rem;
   margin: 0.8rem 0;
@@ -822,6 +832,21 @@ h1 {
 }
 .nav__login {
   width: 50%;
+}
+
+.main-service {
+  padding: 1rem 2rem;
+}
+.main-service__info__image {
+  background-image: url(../../images/photos/steering-wheel-wash.jpg);
+  width: 100%;
+  padding-top: 56.25%;
+  background-position: center;
+  background-repeat: no-repeat;
+  background-size: cover;
+}
+.shop main {
+  padding: 4rem 0;
 }
 
 .shop main {
