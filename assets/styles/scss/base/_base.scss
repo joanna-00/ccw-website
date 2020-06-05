@@ -12,7 +12,8 @@ body {
   margin: 0;
   color: $text-dark;
   background: $background-light;
-  font-size: 1.6rem;
+  font-size: $p;
+  line-height: 1.6;
 }
 
 .container {
