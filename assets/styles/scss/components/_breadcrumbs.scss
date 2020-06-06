@@ -1,4 +1,7 @@
 .breadcrumbs {
+  padding: 0;
+  list-style: none;
+
   &__item {
     display: inline;
     font-weight: $bold;
