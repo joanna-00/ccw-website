@@ -21,6 +21,10 @@
 .recommended-services {
   .recommended-services-container{
     max-width: 100%;
+  .recommended-services-container__row{
+    overflow-y: hidden;
+    overflow-x: auto;
+  }
   }
   padding: 2rem 0;
   background-color: $primary-light;

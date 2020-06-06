@@ -1010,6 +1010,10 @@ h1 {
 .recommended-services .recommended-services-container {
   max-width: 100%;
 }
+.recommended-services .recommended-services-container .recommended-services-container__row {
+  overflow-y: hidden;
+  overflow-x: auto;
+}
 .recommended-services h3 {
   color: white;
 }
