@@ -1019,6 +1019,9 @@ h1 {
 .main-service .main-service-container {
   max-width: 100%;
 }
+.main-service .main-service-container .breadcrumbs--h6 {
+  padding: 0;
+}
 .main-service__info__image {
   background-image: url(../../images/photos/steering-wheel-wash.jpg);
   width: 100%;
@@ -1040,6 +1043,10 @@ h1 {
 }
 .recommended-services .recommended-services-container {
   max-width: 100%;
+}
+.recommended-services .recommended-services-container .recommended-services-container__row {
+  overflow-y: hidden;
+  overflow-x: auto;
 }
 .recommended-services h3 {
   color: white;
