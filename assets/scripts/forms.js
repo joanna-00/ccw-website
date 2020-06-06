@@ -6,8 +6,10 @@ initDropdowns();
 function initDropdowns() {
   dropdown_Title.forEach((element) => {
     element.addEventListener("click", () => {
-      element.querySelector(".mi--chevron").classList.toggle("expanded");
-      console.log(element.querySelector(".mi--chevron"));
+      element.querySelector(".fas").classList.toggle("expanded");
+      element.querySelector(".fas").classList.toggle("fa-chevron-up");
+      element.querySelector(".fas").classList.toggle("fa-chevron-down");
+      // console.log(element.querySelector(".fa-chevron-down"));
       element.parentElement
         .querySelector(".dropdown__options-container")
         .classList.toggle("hidden");
@@ -20,8 +22,7 @@ function initDropdowns() {
         childNode.parentElement.parentElement.querySelector(
           ".dropdown__title"
         ).innerHTML =
-          childNode.textContent +
-          '<i class="material-icons mi--chevron expanded">expand_more</i>';
+          childNode.textContent + '<i class="fas fa-chevron-up expanded"></i>';
       });
     });
   });

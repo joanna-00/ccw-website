@@ -17,17 +17,9 @@
   &__title {
     padding: $padding-md;
     position: relative;
-
-    .mi--chevron {
-      position: absolute;
-      right: 2rem;
-      top: 1.3rem;
-      font-size: 200%;
-
-      &.expanded {
-        transform: rotate(180deg);
-      }
-    }
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
   }
   &.dark {
     .dropdown__option:hover {

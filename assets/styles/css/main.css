@@ -608,15 +608,9 @@ h1 {
 .dropdown__title {
   padding: 2rem 4rem;
   position: relative;
-}
-.dropdown__title .mi--chevron {
-  position: absolute;
-  right: 2rem;
-  top: 1.3rem;
-  font-size: 200%;
-}
-.dropdown__title .mi--chevron.expanded {
-  transform: rotate(180deg);
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
 }
 .dropdown.dark .dropdown__option:hover {
   background-color: #0d99c2;
