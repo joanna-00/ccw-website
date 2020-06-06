@@ -1,5 +1,5 @@
 const date_picker_element = $(".date-picker");
-const selected_date_element = $(".date-picker .selected-date");
+// const selected_date_element = $(".date-picker .selected-date");
 const dates_element = $(".date-picker .dates");
 const mth_element = $(".date-picker .dates .month .mth");
 const next_mth_element = $(".date-picker .dates .month .next-mth ");
@@ -32,7 +32,7 @@ let selectedMonth = month;
 let selectedYear = year;
 
 mth_element.textContent = months[month] + " " + year;
-selected_date_element.textContent = formatDate(date);
+// selected_date_element.textContent = formatDate(date);
 
 // date_picker_element.addEventListener("click", toggleDatePicker);
 next_mth_element.addEventListener("click", goToNextMonth);
@@ -158,8 +158,8 @@ function populateDays() {
         selectedMonth = month;
         selectedYear = year;
 
-        selected_date_element.textContent = formatDate(selectedDate);
-        selected_date_element.dataset.value = selectedDate;
+        // selected_date_element.textContent = formatDate(selectedDate);
+        date_picker_element.dataset.value = selectedDate;
 
         populateDays();
       });

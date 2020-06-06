@@ -2,11 +2,12 @@
   position: relative;
   width: 100%;
   // max-width: 380px;
-  height: 60px;
+  // height: 60px;
   background-color: #fff;
   // margin: 30px auto;
   @include drop-shadow-light-sm;
   @include border-round-lg;
+  overflow: hidden;
 
   user-select: none;
 
@@ -19,12 +20,12 @@
   .dates {
     // display: none;
     display: block;
-    position: absolute;
-    top: 100%;
+    // position: absolute;
+    // top: 100%;
     left: 0;
     right: 0;
-    @include drop-shadow-light-sm;
-    @include border-round-lg;
+    // @include drop-shadow-light-sm;
+    // @include border-round-lg;
 
     &.active {
       display: block;
@@ -32,15 +33,17 @@
 
     .month {
       @include flex-center;
-      justify-content: space-between;
+      justify-content: center;
+      // padding: $padding-sm;
 
       background-color: $background-dark;
       color: $text-light;
       font-weight: $bold;
 
       .arrows {
-        width: 35px;
-        height: 35px;
+        // width: 35px;
+        // height: 35px;
+        padding: 2rem;
         @include flex-center;
         color: $text-light;
         cursor: pointer;

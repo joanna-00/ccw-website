@@ -4,25 +4,28 @@ const dropdown_OptionsContainer = $$(".dropdown__options-container");
 initDropdowns();
 
 function initDropdowns() {
-  dropdown_Title.forEach((element) => {
-    element.addEventListener("click", () => {
-      element.querySelector(".fas").classList.toggle("expanded");
-      element.querySelector(".fas").classList.toggle("fa-chevron-up");
-      element.querySelector(".fas").classList.toggle("fa-chevron-down");
-      // console.log(element.querySelector(".fa-chevron-down"));
-      element.parentElement
+  dropdown_Title.forEach((dropdown) => {
+    dropdown.addEventListener("click", () => {
+      dropdown.querySelector(".fas").classList.toggle("fa-chevron-up");
+      dropdown.querySelector(".fas").classList.toggle("fa-chevron-down");
+      dropdown.parentElement
         .querySelector(".dropdown__options-container")
         .classList.toggle("hidden");
     });
   });
 
-  dropdown_OptionsContainer.forEach((element) => {
-    element.childNodes.forEach((childNode) => {
+  dropdown_OptionsContainer.forEach((dropdown) => {
+    dropdown.childNodes.forEach((childNode) => {
       childNode.addEventListener("click", () => {
         childNode.parentElement.parentElement.querySelector(
           ".dropdown__title"
         ).innerHTML =
-          childNode.textContent + '<i class="fas fa-chevron-up expanded"></i>';
+          childNode.textContent +
+          '<i class="fas fa-chevron-down expanded"></i>';
+
+        childNode.parentElement.parentElement
+          .querySelector(".dropdown__options-container")
+          .classList.toggle("hidden");
       });
     });
   });
