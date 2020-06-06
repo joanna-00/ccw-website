@@ -17,7 +17,10 @@ body {
 }
 
 .container {
-  max-width: 90vw;
+  max-width: calc(100vw - 30px);
+  @media (min-width: $media-lg) {
+    max-width: 95vw;
+  }
 }
 
 .row {

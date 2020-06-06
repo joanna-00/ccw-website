@@ -2,20 +2,27 @@
   flex-direction: row;
 
   &__step {
-    // display: flex;
-    // align-items: center;
     @include flex-center;
     padding: $padding-sm;
     border-right: 1px solid $greyed-out;
     position: relative;
+
+    flex-direction: column;
+    @media (min-width: $media-md) {
+      flex-direction: row;
+    }
 
     &:last-of-type {
       border-right: none;
     }
 
     i {
-      font-size: 200%;
+      font-size: 150%;
       padding: $padding-sm;
+
+      @media (min-width: $media-xl) {
+        font-size: 200%;
+      }
 
       &.completed {
         color: $secondary;
@@ -23,7 +30,27 @@
     }
 
     &-text {
-      padding: $padding-sm;
+      display: none;
+      text-align: center;
+
+      @media (min-width: $media-md) {
+        display: block;
+        text-align: left;
+      }
+    }
+
+    &-title {
+      font-size: 80%;
+    }
+
+    &-description {
+      font-size: 80%;
+      display: none;
+      line-height: 1.2;
+
+      @media (min-width: $media-xl) {
+        // display: block;
+      }
     }
 
     &::before {
@@ -32,10 +59,16 @@
       left: 100%;
       width: 0;
       height: 0;
-      border-top: 30px solid transparent;
-      border-bottom: 30px solid transparent;
 
-      border-left: 25px solid $greyed-out;
+      border-top: 15px solid transparent;
+      border-bottom: 15px solid transparent;
+      border-left: 12px solid $greyed-out;
+
+      @media (min-width: $media-md) {
+        border-top: 20px solid transparent;
+        border-bottom: 20px solid transparent;
+        border-left: 15px solid $greyed-out;
+      }
     }
 
     &::after {
@@ -44,21 +77,16 @@
       left: calc(100% - 1px);
       width: 0;
       height: 0;
-      border-top: 30px solid transparent;
-      border-bottom: 30px solid transparent;
 
-      border-left: 24px solid $white;
-    }
-  }
+      border-top: 15px solid transparent;
+      border-bottom: 15px solid transparent;
+      border-left: 11px solid $white;
 
-  &--small {
-    .process-steps__step {
-      // display: flex;
-      // align-items: center;
-      @include flex-center;
-      padding: 0;
-      border-right: 1px solid $greyed-out;
-      position: relative;
+      @media (min-width: $media-md) {
+        border-top: 20px solid transparent;
+        border-bottom: 20px solid transparent;
+        border-left: 14px solid $white;
+      }
     }
   }
 }
