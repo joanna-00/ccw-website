@@ -1,6 +1,9 @@
 .main-service {
   .main-service-container{
     max-width: 100%;
+    .breadcrumbs--h6{
+      padding: 0;
+    }
   }
   &__info {
     &__image {
