@@ -19,7 +19,7 @@ $background-dark: #133657;
 $text-light: #f9f9f9;
 $text-dark: #133657;
 
-$error: #d14444;
+$warning: #d14444;
 $new: #f6d868;
 $alert: #0d99c2;
 $correct: #309a37;
@@ -35,7 +35,6 @@ $font-fallback: "Segoe UI", Tahoma, Geneva, Verdana, sans-serif;
 
 $bold: 700;
 
-$logo: url(../../images/svgs/CCW_logo.svg);
 $p: 1.6rem;
 $h6: 2rem;
 $h5: 2.4rem;
@@ -54,3 +53,15 @@ $button-padding-sm: 1rem 2rem;
 $button-padding-lg: 1.5rem 3rem;
 
 $padding-y-sm: 1rem 0;
+
+// Transitions
+
+$very-fast: 0.2s;
+$fast: 0.3s;
+$medium: 0.5s;
+$slow: 0.7s;
+$very-slow: 1s;
+
+// Images
+
+$logo: url(../../images/svgs/CCW_logo.svg);

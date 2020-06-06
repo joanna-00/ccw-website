@@ -9,6 +9,7 @@
   font-weight: $bold;
 
   cursor: pointer;
+  transition: all $very-fast ease-out;
   @include flex-center;
 
   &--base-lg {
@@ -37,7 +38,8 @@
       color: $text-light;
 
       &:hover {
-        background-color: darken($primary-light, 7);
+        background-color: lighten($primary-light, 10);
+        border-color: lighten($primary-light, 10);
       }
     }
   }
@@ -46,12 +48,18 @@
     border-color: $primary-dark;
     color: $primary-dark;
 
+    &:hover {
+      background-color: $primary-dark;
+      color: $text-light;
+    }
+
     &.button--filled {
       background-color: $primary-dark;
       color: $text-light;
 
       &:hover {
-        background-color: darken($primary-dark, 7);
+        background-color: darken($primary-dark, 10);
+        border-color: darken($primary-dark, 10);
       }
     }
   }
@@ -60,22 +68,50 @@
     border-color: $secondary;
     color: $secondary;
 
+    &:hover {
+      background-color: $secondary;
+      color: $text-light;
+    }
+
     &.button--filled {
       background-color: $secondary;
       color: $text-light;
 
       &:hover {
-        background-color: darken($secondary, 7);
+        background-color: darken($secondary, 10);
+        border-color: darken($secondary, 10);
       }
     }
   }
+
+  &--warning {
+    border-color: $warning;
+    color: $warning;
+
+    &:hover {
+      background-color: $warning;
+      color: $text-light;
+    }
+
+    &.button--filled {
+      background-color: $warning;
+      color: $text-light;
+
+      &:hover {
+        background-color: darken($warning, 10);
+        border-color: darken($warning, 10);
+      }
+    }
+  }
+
   &--disabled {
     border-color: $greyed-out;
-    color: $greyed-out-dark;
+    color: $greyed-out;
+    cursor: not-allowed;
 
     &.button--filled {
       background-color: $greyed-out;
-      // color: $text-light;
+      color: $greyed-out-dark;
     }
   }
 }

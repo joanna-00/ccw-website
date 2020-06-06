@@ -8,12 +8,7 @@
   margin-bottom: 4rem;
   display: flex;
   flex-direction: column;
-  transition: transform 0.2s ease-out;
-
-  cursor: pointer;
-  &:hover {
-    transform: scale(1.05);
-  }
+  transition: transform $fast ease-out;
 
   &__image {
     display: none;
@@ -100,6 +95,13 @@
     &--increase,
     &--decrease {
       cursor: pointer;
+    }
+  }
+
+  &--clickable {
+    cursor: pointer;
+    &:hover {
+      transform: scale(1.05);
     }
   }
 

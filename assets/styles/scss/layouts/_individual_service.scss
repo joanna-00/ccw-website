@@ -1,0 +1,23 @@
+.main-service {
+  padding: $padding-sm;
+  &__info {
+    &__image {
+      background-image: url(../../images/photos/steering-wheel-wash.jpg);
+      @include bckg-img;
+      @include drop-shadow-light-sm;
+    }
+    &__description {
+    }
+  }
+
+  &__purchase {
+  }
+}
+
+.recommended-services {
+  padding: 4rem 0;
+  background-color: $primary-light;
+  h3 {
+    color: white;
+  }
+}
