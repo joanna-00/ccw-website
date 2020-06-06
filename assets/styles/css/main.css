@@ -18,7 +18,12 @@ body {
 }
 
 .container {
-  max-width: 90vw;
+  max-width: calc(100vw - 30px);
+}
+@media (min-width: 992px) {
+  .container {
+    max-width: 95vw;
+  }
 }
 
 .row {
@@ -793,19 +798,45 @@ h1 {
   padding: 1rem 2rem;
   border-right: 1px solid #999999;
   position: relative;
+  flex-direction: column;
+}
+@media (min-width: 768px) {
+  .process-steps__step {
+    flex-direction: row;
+  }
 }
 .process-steps__step:last-of-type {
   border-right: none;
 }
 .process-steps__step i {
-  font-size: 200%;
+  font-size: 150%;
   padding: 1rem 2rem;
+}
+@media (min-width: 1200px) {
+  .process-steps__step i {
+    font-size: 200%;
+  }
 }
 .process-steps__step i.completed {
   color: #66bf6c;
 }
 .process-steps__step-text {
-  padding: 1rem 2rem;
+  display: none;
+  text-align: center;
+}
+@media (min-width: 768px) {
+  .process-steps__step-text {
+    display: block;
+    text-align: left;
+  }
+}
+.process-steps__step-title {
+  font-size: 80%;
+}
+.process-steps__step-description {
+  font-size: 80%;
+  display: none;
+  line-height: 1.2;
 }
 .process-steps__step::before {
   content: "";
@@ -813,9 +844,16 @@ h1 {
   left: 100%;
   width: 0;
   height: 0;
-  border-top: 30px solid transparent;
-  border-bottom: 30px solid transparent;
-  border-left: 25px solid #999999;
+  border-top: 15px solid transparent;
+  border-bottom: 15px solid transparent;
+  border-left: 12px solid #999999;
+}
+@media (min-width: 768px) {
+  .process-steps__step::before {
+    border-top: 20px solid transparent;
+    border-bottom: 20px solid transparent;
+    border-left: 15px solid #999999;
+  }
 }
 .process-steps__step::after {
   content: "";
@@ -823,17 +861,16 @@ h1 {
   left: calc(100% - 1px);
   width: 0;
   height: 0;
-  border-top: 30px solid transparent;
-  border-bottom: 30px solid transparent;
-  border-left: 24px solid #ffffff;
+  border-top: 15px solid transparent;
+  border-bottom: 15px solid transparent;
+  border-left: 11px solid #ffffff;
 }
-.process-steps--small .process-steps__step {
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  padding: 0;
-  border-right: 1px solid #999999;
-  position: relative;
+@media (min-width: 768px) {
+  .process-steps__step::after {
+    border-top: 20px solid transparent;
+    border-bottom: 20px solid transparent;
+    border-left: 14px solid #ffffff;
+  }
 }
 
 .footer {

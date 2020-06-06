@@ -47,7 +47,7 @@
     <!-- End of template navigation -->
 
     <div class="container">
-      <div class="row">
+      <div class="row d-none">
         <div class="col-12">
           <div class="card process-steps">
             <div class="process-steps__step" data-step="1">
@@ -90,44 +90,54 @@
         </div>
       </div>
       <div class="row">
-        <div class="col-8">
-          <div class="card process-steps process-steps--small">
-            <div class="process-steps__step" data-step="1">
+        <div class="col-12 col-lg-8">
+          <div
+            class="row card process-steps process-steps process-steps--small"
+          >
+            <!-- <div class=""> -->
+            <div class="col-3 process-steps__step" data-step="1">
               <i class="far fa-calendar"></i>
               <div class="process-steps__step-text">
-                <h6 class="process-steps__step-title">Book your appointment</h6>
+                <h6 class="process-steps__step-title">
+                  Book your appointment
+                </h6>
                 <p class="process-steps__step-description">
                   Book a date and time for your appointment
                 </p>
               </div>
             </div>
-            <div class="process-steps__step" data-step="2">
+            <div class="col-3 process-steps__step" data-step="2">
               <i class="fas fa-user process-steps__step-icon"></i>
               <div class="process-steps__step-text">
-                <h6 class="process-steps__step-title">Personal information</h6>
+                <h6 class="process-steps__step-title">
+                  Personal information
+                </h6>
                 <p class="process-steps__step-description">
-                  Book a date and time for your appointment
+                  Fill in your personal information to complete the booking
+                  process.
                 </p>
               </div>
             </div>
-            <div class="process-steps__step" data-step="3">
+            <div class="col-3 process-steps__step" data-step="3">
               <i class="fas fa-car"></i>
               <div class="process-steps__step-text">
                 <h6 class="process-steps__step-title">Car information</h6>
                 <p class="process-steps__step-description">
-                  Book a date and time for your appointment
+                  Fill in your car information to complete the booking process.
                 </p>
               </div>
             </div>
-            <div class="process-steps__step" data-step="4">
+            <div class="col-3 process-steps__step" data-step="4">
               <i class="far fa-credit-card"></i>
               <div class="process-steps__step-text">
                 <h6 class="process-steps__step-title">Complete purchase</h6>
                 <p class="process-steps__step-description">
-                  Book a date and time for your appointment
+                  Enter your credit card information to complete the booking
+                  process.
                 </p>
               </div>
             </div>
+            <!-- </div> -->
           </div>
         </div>
       </div>
