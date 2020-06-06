@@ -481,19 +481,23 @@ h1 {
   padding: 2rem 4rem;
 }
 .service-info-card__title {
+  margin: 1.6rem 0;
   text-transform: capitalize;
 }
 .service-info-card__price, .service-info-card__time {
   display: flex;
   justify-content: space-between;
+  margin-top: 1.6rem;
 }
 .service-info-card__price-label, .service-info-card__time-label {
   font-size: 1.92rem;
 }
 .service-info-card__price-value, .service-info-card__time-value {
   color: #66bf6c;
+  margin: 0;
 }
 .service-info-card__buttons {
+  margin-top: 4.8rem;
   display: flex;
   justify-content: space-evenly;
   flex-wrap: wrap;
@@ -944,8 +948,8 @@ h1 {
   width: 50%;
 }
 
-.main-service {
-  padding: 1rem 2rem;
+.main-service .main-service-container {
+  max-width: 100%;
 }
 .main-service__info__image {
   background-image: url(../../images/photos/steering-wheel-wash.jpg);
@@ -958,14 +962,33 @@ h1 {
   -moz-box-shadow: 0px 3px 10px 0px rgba(0, 0, 0, 0.25);
   box-shadow: 0px 3px 10px 0px rgba(0, 0, 0, 0.25);
 }
+.main-service__purchase {
+  padding: 0;
+}
+
 .recommended-services {
   padding: 4rem 0;
   background-color: #133657;
+}
+.recommended-services .recommended-services-container {
+  max-width: 100%;
 }
 .recommended-services h3 {
   color: white;
 }
 
+@media (min-width: 1200px) {
+  .main-service {
+    padding: 1rem 2rem;
+  }
+  .main-service__purchase {
+    padding: 0;
+  }
+
+  .recommended-services {
+    padding: 4rem 0;
+  }
+}
 .shop main {
   padding: 4rem 0;
 }
