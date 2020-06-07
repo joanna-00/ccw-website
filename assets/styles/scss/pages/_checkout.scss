@@ -1,48 +1,55 @@
 .checkout {
-  .form-steps {
-    // position: relative;
-    height: 80vh;
+  &__form-steps {
+    position: relative;
+    // height: 100%;
+    overflow: hidden;
   }
+
   .form-step {
     opacity: 0;
-    position: absolute;
+    // position: absolute;
     width: 100%;
-    // transition: all 0.3s ease-out;
-    // pointer-events: none;
-    // display: none;
+    display: none;
+
+    pointer-events: none;
 
     &.current {
       opacity: 1;
-      //   width: 100%;
-      //   display: flex;
+      pointer-events: all;
+      display: flex;
     }
 
     &.moveInLeft {
       animation-name: moveInLeft;
-      animation-duration: $very-fast;
-      //   animation-fill-mode: backwards;
+      animation-duration: $fast;
+      animation-fill-mode: backwards;
       animation-timing-function: ease-out;
     }
 
     &.moveInRight {
       animation-name: moveInRight;
-      animation-duration: $very-fast;
-      //   animation-fill-mode: backwards;
+      animation-duration: $fast;
+      animation-fill-mode: backwards;
       animation-timing-function: ease-out;
     }
 
     &.moveOutLeft {
       animation-name: moveOutLeft;
-      animation-duration: $very-fast;
-      //   animation-fill-mode: backwards;
+      animation-duration: $fast;
+      animation-fill-mode: backwards;
       animation-timing-function: ease-out;
     }
 
     &.moveOutRight {
       animation-name: moveOutRight;
-      animation-duration: $very-fast;
-      //   animation-fill-mode: backwards;
+      animation-duration: $fast;
+      animation-fill-mode: backwards;
       animation-timing-function: ease-out;
     }
+  }
+
+  &__buttons {
+    margin-bottom: 5rem;
+    position: relative;
   }
 }

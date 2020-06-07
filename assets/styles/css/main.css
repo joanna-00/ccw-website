@@ -1064,36 +1064,48 @@ h1 {
     padding: 4rem 0;
   }
 }
-.checkout .form-steps {
-  height: 80vh;
+.checkout__form-steps {
+  position: relative;
+  overflow: hidden;
 }
 .checkout .form-step {
   opacity: 0;
-  position: absolute;
   width: 100%;
+  display: none;
+  pointer-events: none;
 }
 .checkout .form-step.current {
   opacity: 1;
+  pointer-events: all;
+  display: flex;
 }
 .checkout .form-step.moveInLeft {
   animation-name: moveInLeft;
-  animation-duration: 0.2s;
+  animation-duration: 0.3s;
+  animation-fill-mode: backwards;
   animation-timing-function: ease-out;
 }
 .checkout .form-step.moveInRight {
   animation-name: moveInRight;
-  animation-duration: 0.2s;
+  animation-duration: 0.3s;
+  animation-fill-mode: backwards;
   animation-timing-function: ease-out;
 }
 .checkout .form-step.moveOutLeft {
   animation-name: moveOutLeft;
-  animation-duration: 0.2s;
+  animation-duration: 0.3s;
+  animation-fill-mode: backwards;
   animation-timing-function: ease-out;
 }
 .checkout .form-step.moveOutRight {
   animation-name: moveOutRight;
-  animation-duration: 0.2s;
+  animation-duration: 0.3s;
+  animation-fill-mode: backwards;
   animation-timing-function: ease-out;
+}
+.checkout__buttons {
+  margin-bottom: 5rem;
+  position: relative;
 }
 
 .shop main {
