@@ -969,32 +969,61 @@ h1 {
   font-size: 2rem;
 }
 .nav__logo-container {
-  padding: 2rem 4rem;
+  padding: 1rem 0;
 }
 .nav__logo {
   background-image: url(../../images/svgs/CCW_logo.svg);
   background-size: contain;
   background-repeat: no-repeat;
-  background-position: left bottom;
+  background-position: left center;
   display: inline-block;
   height: 100%;
   width: 100%;
+  padding: 2.4rem;
+}
+.nav .hamburger {
+  background-color: transparent;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  cursor: pointer;
+  position: relative;
+  left: 50%;
+  transform: translateX(-65%);
+}
+.nav .hamburger .line {
+  width: 24px;
+  height: 2.4px;
+  background-color: black;
+  margin: 2.4px auto;
+  transition: all 0.3s ease-in-out;
+}
+.nav .is-active .line:nth-child(1) {
+  transform: translateY(7.5px) rotate(45deg);
+}
+.nav .is-active .line:nth-child(2) {
+  opacity: 0;
+}
+.nav .is-active .line:nth-child(3) {
+  transform: translateY(-7.5px) rotate(-45deg);
 }
 .nav__links-container {
   list-style: none;
   padding: 0;
   margin: 0;
   display: flex;
+  flex-direction: column;
   justify-content: center;
 }
 .nav__link {
   display: inline-block;
+  text-align: center;
 }
 .nav__link a {
   color: #133657;
   text-decoration: none;
   display: inline-block;
-  padding: 4rem 2rem;
+  padding: 1.6rem 0.8rem;
   text-align: center;
 }
 .nav__link.active {
@@ -1002,8 +1031,19 @@ h1 {
 }
 .nav__buttons {
   display: flex;
+  flex-direction: column;
   justify-content: flex-end;
   align-items: center;
+}
+.nav__buttons button {
+  margin-bottom: 1rem;
+  width: 100%;
+}
+.nav__buttons button .nav__shopping-cart {
+  color: white;
+  padding: 0;
+  font-size: 2.4rem;
+  margin-right: 2.4vw;
 }
 .nav__shopping-cart {
   color: #133657;
@@ -1017,6 +1057,93 @@ h1 {
   width: 50%;
 }
 
+.hidden {
+  display: none;
+  transition: all 0.3s ease-in-out;
+}
+
+@media (min-width: 992px) {
+  .hidden {
+    display: block;
+  }
+
+  .nav {
+    font-size: 1.6rem;
+  }
+  .nav__logo-container {
+    padding: 1rem 3rem;
+  }
+  .nav__logo {
+    display: inline-block;
+    height: 100%;
+    width: 100%;
+    background-position: left bottom;
+  }
+  .nav__links-container {
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+  }
+  .nav__link a {
+    padding: 2.4rem 0.8rem;
+  }
+  .nav__buttons {
+    display: flex;
+    flex-direction: row;
+    justify-content: flex-end;
+    align-items: center;
+  }
+  .nav__shopping-cart {
+    padding: 1rem 2rem;
+    font-size: 3.2rem;
+    margin-right: 1.6rem;
+    display: block;
+  }
+  .nav__login {
+    width: 50%;
+  }
+}
+@media (min-width: 1200px) {
+  .hidden {
+    display: block;
+  }
+
+  .nav {
+    font-size: 2rem;
+  }
+  .nav__logo-container {
+    padding: 2rem 4rem;
+  }
+  .nav__logo {
+    display: inline-block;
+    height: 100%;
+    width: 100%;
+    background-position: left bottom;
+  }
+  .nav__links-container {
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+  }
+  .nav__link a {
+    padding: 4rem 2rem;
+  }
+  .nav__buttons {
+    display: flex;
+    flex-direction: row;
+    justify-content: flex-end;
+    align-items: center;
+  }
+  .nav__shopping-cart {
+    padding: 1rem 2rem;
+    font-size: 4rem;
+    margin-right: 4rem;
+    display: block;
+  }
+  .nav__login {
+    width: 50%;
+  }
+}
 .main-service .main-service-container {
   max-width: 100%;
 }
