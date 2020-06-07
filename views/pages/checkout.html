@@ -165,10 +165,10 @@
                 >
                 <input
                   type="text"
-                  name=""
+                  name="firstName"
                   id="firstName"
                   class="text-input__input"
-                  pattern="[^0-9]"
+                  pattern="[^0-9]+"
                   required
                 />
               </div>
@@ -181,7 +181,7 @@
                   name=""
                   id="lastName"
                   class="text-input__input"
-                  pattern="[^0-9]"
+                  pattern="[^0-9]+"
                   required
                 />
               </div>
@@ -226,6 +226,7 @@
                   name=""
                   id="telephoneNumber"
                   class="text-input__input"
+                  pattern="[0-9]+"
                   required
                 />
               </div>
@@ -257,6 +258,7 @@
                   name=""
                   id="licensePlateNumber"
                   class="text-input__input"
+                  required
                 />
               </div>
               <div class="col-6 text-input mr-5">
@@ -268,6 +270,7 @@
                   name=""
                   id="carBrand"
                   class="text-input__input"
+                  required
                 />
               </div>
               <div class="col-6 text-input mr-5">
@@ -279,6 +282,7 @@
                   name=""
                   id="carModel"
                   class="text-input__input"
+                  required
                 />
               </div>
             </form>
@@ -292,9 +296,11 @@
                     <div class="radio__group col-4">
                       <input
                         type="radio"
-                        name="radio"
+                        name="radio-payment"
                         id="MasterCard"
                         class="radio__input"
+                        checked
+                        required
                       />
                       <label for="MasterCard" class="radio__label">
                         <span class="radio__button--lg"></span>
@@ -304,7 +310,7 @@
                     <div class="radio__group col-4">
                       <input
                         type="radio"
-                        name="radio"
+                        name="radio-payment"
                         id="Visa"
                         class="radio__input"
                       />
@@ -316,7 +322,7 @@
                     <div class="radio__group col-4">
                       <input
                         type="radio"
-                        name="radio"
+                        name="radio-payment"
                         id="PaySafe"
                         class="radio__input"
                       />
@@ -331,13 +337,13 @@
 
               <div class="row col-12">
                 <div class="col-6 text-input">
-                  <label for="carBrand" class="text-input__label"
+                  <label for="creditCardNumber" class="text-input__label"
                     >Credit card number</label
                   >
                   <input
                     type="text"
                     name=""
-                    id="carBrand"
+                    id="creditCardNumber"
                     class="text-input__input"
                   />
                 </div>
@@ -345,13 +351,13 @@
 
               <div class="row col-12">
                 <div class="col-6 text-input">
-                  <label for="carModel" class="text-input__label"
+                  <label for="nameOnCreditCard" class="text-input__label"
                     >Name on credit card</label
                   >
                   <input
                     type="text"
                     name=""
-                    id="carModel"
+                    id="nameOnCreditCard"
                     class="text-input__input"
                   />
                 </div>
@@ -359,32 +365,33 @@
 
               <div class="row col-12">
                 <div class="col-3 text-input">
-                  <label for="carModel" class="text-input__label"
+                  <label for="expirationDate" class="text-input__label"
                     >Expiration date</label
                   >
                   <input
                     type="text"
                     name=""
-                    id="carModel"
+                    id="expirationDate"
                     class="text-input__input col-4 mr-3"
+                    required
                   />
                   <h6 class="text-input__slash">/</h6>
                   <input
                     type="text"
                     name=""
-                    id="carModel"
+                    id="expirationDate2"
                     class="text-input__input col-4 ml-3"
+                    required
                   />
                 </div>
                 <div class="col-3 text-input">
-                  <label for="carModel" class="text-input__label"
-                    >CVV / CVC</label
-                  >
+                  <label for="CVC" class="text-input__label">CVV / CVC</label>
                   <input
                     type="text"
                     name=""
-                    id="carModel"
+                    id="CVC"
                     class="text-input__input col-4"
+                    required
                   />
                 </div>
               </div>
