@@ -1,4 +1,4 @@
-const shopItems = requestWP(catEndPoint, catService, renderShop);
+const shopItems = requestWP(tagEndPoint, tagShop, renderShop);
 
 // renderShop(shopItems);
 

@@ -110,9 +110,9 @@
                 </div>
               </div>
             </div>
-            <div class="row form-step current" data-step="1">
+            <form class="row form-step current" data-step="1">
               <div class="col-6">
-                <div class="dropdown">
+                <div class="dropdown" id="dropdownLocation" data-value="">
                   <div class="dropdown__title">
                     Choose a location
                     <i class="fas fa-chevron-down"></i>
@@ -122,7 +122,11 @@
                     <li class="dropdown__option">Aarhus</li>
                   </ul>
                 </div>
-                <div class="date-picker mt-5">
+                <div
+                  class="date-picker hidden mt-5"
+                  data-type="checkout"
+                  data-value=""
+                >
                   <div class="dates">
                     <div class="month">
                       <div class="arrows prev-mth">
@@ -137,7 +141,11 @@
                     <div class="days"></div>
                   </div>
                 </div>
-                <div class="dropdown mt-5">
+                <div
+                  class="dropdown hidden mt-5"
+                  id="dropdownTime"
+                  data-value=""
+                >
                   <div class="dropdown__title">
                     Choose a time
                     <i class="fas fa-chevron-down"></i>
@@ -149,8 +157,8 @@
                   </ul>
                 </div>
               </div>
-            </div>
-            <div class="row form-step" data-step="2">
+            </form>
+            <form class="row form-step" data-step="2">
               <div class="col-6 text-input">
                 <label for="firstName" class="text-input__label"
                   >First name</label
@@ -160,6 +168,8 @@
                   name=""
                   id="firstName"
                   class="text-input__input"
+                  pattern="[^0-9]"
+                  required
                 />
               </div>
               <div class="col-6 text-input">
@@ -171,6 +181,8 @@
                   name=""
                   id="lastName"
                   class="text-input__input"
+                  pattern="[^0-9]"
+                  required
                 />
               </div>
               <div class="col-9 text-input">
@@ -180,6 +192,7 @@
                   name=""
                   id="address"
                   class="text-input__input"
+                  required
                 />
               </div>
               <div class="col-6 text-input">
@@ -191,6 +204,7 @@
                   name=""
                   id="postalCode"
                   class="text-input__input"
+                  required
                 />
               </div>
               <div class="col-6 text-input">
@@ -200,6 +214,7 @@
                   name=""
                   id="city"
                   class="text-input__input"
+                  required
                 />
               </div>
               <div class="col-6 text-input mr-5">
@@ -207,10 +222,11 @@
                   >Telephone number</label
                 >
                 <input
-                  type="text"
+                  type="tel"
                   name=""
                   id="telephoneNumber"
                   class="text-input__input"
+                  required
                 />
               </div>
               <div class="col-6 text-input">
@@ -230,8 +246,8 @@
                 >
                 <input type="text" name="" id="CVR" class="text-input__input" />
               </div>
-            </div>
-            <div class="row form-step" data-step="3">
+            </form>
+            <form class="row form-step" data-step="3">
               <div class="col-6 text-input mr-5">
                 <label for="licensePlateNumber" class="text-input__label"
                   >License plate number</label
@@ -265,42 +281,114 @@
                   class="text-input__input"
                 />
               </div>
-            </div>
-            <div class="row form-step" data-step="4">
-              <div class="col-6 text-input mr-5">
-                <label for="licensePlateNumber" class="text-input__label"
-                  >License plate number</label
-                >
-                <input
-                  type="text"
-                  name=""
-                  id="licensePlateNumber"
-                  class="text-input__input"
-                />
+            </form>
+            <form class="row form-step" data-step="4">
+              <div class="row col-12">
+                <div class="col-6 text-input">
+                  <label for="licensePlateNumber" class="text-input__label"
+                    >Choose a payment method</label
+                  >
+                  <div class="row">
+                    <div class="radio__group col-4">
+                      <input
+                        type="radio"
+                        name="radio"
+                        id="MasterCard"
+                        class="radio__input"
+                      />
+                      <label for="MasterCard" class="radio__label">
+                        <span class="radio__button--lg"></span>
+                        <span class="radio__button-text">MasterCard</span>
+                      </label>
+                    </div>
+                    <div class="radio__group col-4">
+                      <input
+                        type="radio"
+                        name="radio"
+                        id="Visa"
+                        class="radio__input"
+                      />
+                      <label for="Visa" class="radio__label">
+                        <span class="radio__button--lg"></span>
+                        <span class="radio__button-text">Visa</span>
+                      </label>
+                    </div>
+                    <div class="radio__group col-4">
+                      <input
+                        type="radio"
+                        name="radio"
+                        id="PaySafe"
+                        class="radio__input"
+                      />
+                      <label for="PaySafe" class="radio__label">
+                        <span class="radio__button--lg"></span>
+                        <span class="radio__button-text">PaySafe</span>
+                      </label>
+                    </div>
+                  </div>
+                </div>
               </div>
-              <div class="col-6 text-input mr-5">
-                <label for="carBrand" class="text-input__label"
-                  >Car brand</label
-                >
-                <input
-                  type="text"
-                  name=""
-                  id="carBrand"
-                  class="text-input__input"
-                />
+
+              <div class="row col-12">
+                <div class="col-6 text-input">
+                  <label for="carBrand" class="text-input__label"
+                    >Credit card number</label
+                  >
+                  <input
+                    type="text"
+                    name=""
+                    id="carBrand"
+                    class="text-input__input"
+                  />
+                </div>
               </div>
-              <div class="col-6 text-input mr-5">
-                <label for="carModel" class="text-input__label"
-                  >Car model</label
-                >
-                <input
-                  type="text"
-                  name=""
-                  id="carModel"
-                  class="text-input__input"
-                />
+
+              <div class="row col-12">
+                <div class="col-6 text-input">
+                  <label for="carModel" class="text-input__label"
+                    >Name on credit card</label
+                  >
+                  <input
+                    type="text"
+                    name=""
+                    id="carModel"
+                    class="text-input__input"
+                  />
+                </div>
               </div>
-            </div>
+
+              <div class="row col-12">
+                <div class="col-3 text-input">
+                  <label for="carModel" class="text-input__label"
+                    >Expiration date</label
+                  >
+                  <input
+                    type="text"
+                    name=""
+                    id="carModel"
+                    class="text-input__input col-4 mr-3"
+                  />
+                  <h6 class="text-input__slash">/</h6>
+                  <input
+                    type="text"
+                    name=""
+                    id="carModel"
+                    class="text-input__input col-4 ml-3"
+                  />
+                </div>
+                <div class="col-3 text-input">
+                  <label for="carModel" class="text-input__label"
+                    >CVV / CVC</label
+                  >
+                  <input
+                    type="text"
+                    name=""
+                    id="carModel"
+                    class="text-input__input col-4"
+                  />
+                </div>
+              </div>
+            </form>
           </div>
           <div class="col-4">
             <div class="card checkout-card">
@@ -318,18 +406,6 @@
                 <p class="checkout-card__item-name">Item 1</p>
                 <p class="checkout-card__item-price">10 dolers</p>
               </div>
-              <!-- 
-              <div class="checkout-card__coupon">
-                <p class="checkout-card__coupon-label">Coupon</p>
-
-                <input
-                  type="text"
-                  name=""
-                  id="firstName"
-                  class="checkout-card__coupon-input text-input__input"
-                />
-              </div> -->
-
               <div class="checkout-card__total">
                 <h6>Total:</h6>
                 <h6 class="checkout-card__total-price">700</h6>
@@ -351,6 +427,7 @@
               class="button button--base-lg button--primary-light"
               id="buttonBack"
             >
+              <i class="fas fa-arrow-left"></i>
               Back
             </button>
           </div>
@@ -358,8 +435,10 @@
             <button
               class="button button--base-lg button--primary-light button--filled"
               id="buttonNext"
+              type="submit"
             >
               Next
+              <i class="fas fa-arrow-right"></i>
             </button>
           </div>
         </div>
