@@ -29,10 +29,10 @@ function requestWP(endpoint, id, callback) {
   xhttp.onreadystatechange = function () {
     if (this.readyState == 4 && this.status == 200) {
       let data = JSON.parse(this.responseText).reverse();
-      data = acfParser(data);
+      let parsedData = acfParser(data);
+      console.log(parsedData);
       console.log(data);
       callback(data);
-      // return data;
     }
   };
   xhttp.open("GET", `${apiUrl}posts${endpoint}${id}&per_page=100`, true);

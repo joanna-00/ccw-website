@@ -12,7 +12,7 @@ function renderShop(shopItems) {
   shopItems.forEach((item) => {
     // console.log(item);
     let filters = [];
-    item.service_type_filter.forEach((filter) => {
+    item.acf.service_type_filter.forEach((filter) => {
       filters.push(parseFilter(filter));
     });
     console.log(filters);

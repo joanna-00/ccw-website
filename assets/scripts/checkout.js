@@ -30,17 +30,6 @@ function updateStepIcons() {
   });
 }
 
-// function showCalendar() {
-//   date_picker_element.classList.remove("hidden");
-// }
-
-// function showDropdownTime() {
-//   dropdownTime.classList.remove("hidden");
-// }
-
-// customizeDropdownEvent(dropdownLocation, showCalendar);
-// customizeDropdownEvent(dropdownLocation, showCalendar);
-
 function validateDropdown(dropdownToValidate) {
   if (dropdownToValidate.dataset.value === "") {
     console.log("validateDropdown: false ");
@@ -148,6 +137,12 @@ buttonNext.addEventListener("click", () => {
 
       showForm("moveInRight");
       updateStepIcons();
+    }
+  }
+
+  if ((currentStep = 4)) {
+    if (validateForm()) {
+      //redirect to shopping cart and display message
     }
   }
 });
