@@ -1,3 +1,9 @@
+document.querySelector('.hamburger').addEventListener('click', function(){
+  document.querySelector('.hamburger').classList.toggle('is-active');
+  document.querySelector('#links-container').classList.toggle('hidden');
+  document.querySelector('#buttons-container').classList.toggle('hidden');
+});
+
 // SELECTOR FUNCTIONS
 const $ = (arg) => {
   return document.querySelector(arg);
