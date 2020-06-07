@@ -376,7 +376,7 @@ h1 {
   margin-bottom: 4rem;
   display: flex;
   flex-direction: column;
-  transition: transform 0.3s ease-out;
+  transition: transform 0.2s ease-out;
 }
 .card__image {
   display: none;
@@ -556,6 +556,7 @@ h1 {
   position: relative;
   width: 100%;
   background-color: #fff;
+  margin-bottom: 3rem;
   -webkit-box-shadow: 0px 3px 10px 0px rgba(0, 0, 0, 0.25);
   -moz-box-shadow: 0px 3px 10px 0px rgba(0, 0, 0, 0.25);
   box-shadow: 0px 3px 10px 0px rgba(0, 0, 0, 0.25);
@@ -624,6 +625,10 @@ h1 {
 .date-picker .days .day.unavailable, .date-picker .days .unavailable.day-week {
   color: #999999;
 }
+.date-picker.invalid {
+  outline: none;
+  border: 1px solid #d14444;
+}
 
 .dropdown {
   width: 100%;
@@ -650,7 +655,7 @@ h1 {
   justify-content: space-between;
   align-items: center;
 }
-.dropdown.dark .dropdown__option:hover {
+.dropdown--dark .dropdown__option:hover {
   background-color: #0d99c2;
   color: #f9f9f9;
 }
@@ -667,6 +672,10 @@ h1 {
 .dropdown__option:first-of-type {
   border-top: 1px solid #999999;
 }
+.dropdown.invalid {
+  outline: none;
+  border: 1px solid #d14444;
+}
 
 .text-input__input {
   width: 100%;
@@ -679,16 +688,21 @@ h1 {
   color: #133657;
   margin-bottom: 3rem;
 }
-.text-input__input:invalid {
-  outline: none;
-  border: 1px solid #d14444;
-}
 .text-input__input:focus {
   outline: none;
   border: 1px solid #133657;
 }
+.text-input__input.invalid {
+  outline: none;
+  border: 1px solid #d14444;
+}
 .text-input__label {
   font-weight: 700;
+  display: block;
+}
+.text-input__slash {
+  font-weight: 700;
+  display: inline;
 }
 
 .slider {
@@ -736,6 +750,7 @@ h1 {
 
 .radio__group {
   display: inline-block;
+  margin-bottom: 3rem;
 }
 .radio__input {
   display: none;
@@ -1201,6 +1216,9 @@ h1 {
   width: 100%;
   display: none;
   pointer-events: none;
+}
+.checkout .form-step .hidden {
+  display: none;
 }
 .checkout .form-step.current {
   opacity: 1;

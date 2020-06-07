@@ -68,7 +68,7 @@
             <div
               class="row card process-steps process-steps process-steps--small"
             >
-              <!-- <div class=""> -->
+           
               <div class="col-3 process-steps__step" data-step="1">
                 <i class="far fa-calendar"></i>
                 <div class="process-steps__step-text">
@@ -112,84 +112,157 @@
                   </p>
                 </div>
               </div>
-              <!-- </div> -->
+          
             </div>
             <div class="row">
-              <div class="col-6 text-input mr-5">
-                <label for="licensePlateNumber" class="text-input__label"
-                  >License plate number</label
-                >
-                <input
-                  type="text"
-                  name=""
-                  id="licensePlateNumber"
-                  class="text-input__input"
-                />
+              <div class="row col-12">
+                <div class="col-6 text-input">
+                  <label for="licensePlateNumber" class="text-input__label"
+                    >Choose a payment method</label
+                  >
+                  <div class="row">
+                  <div class="radio__group col-4">
+                    <input
+                      type="radio"
+                      name="radio"
+                      id="MasterCard"
+                      class="radio__input"
+                    />
+                    <label for="MasterCard" class="radio__label">
+                      <span class="radio__button--lg"></span>
+                      <span class="radio__button-text">MasterCard</span>
+                    </label>
+                  </div>
+                  <div class="radio__group col-4">
+                    <input
+                      type="radio"
+                      name="radio"
+                      id="Visa"
+                      class="radio__input"
+                    />
+                    <label for="Visa" class="radio__label">
+                      <span class="radio__button--lg"></span>
+                      <span class="radio__button-text">Visa</span>
+                    </label>
+                  </div>
+                  <div class="radio__group col-4">
+                    <input
+                      type="radio"
+                      name="radio"
+                      id="PaySafe"
+                      class="radio__input"
+                    />
+                    <label for="PaySafe" class="radio__label">
+                      <span class="radio__button--lg"></span>
+                      <span class="radio__button-text">PaySafe</span>
+                    </label>
+                  </div>
+                </div>
+                </div>
               </div>
-              <div class="col-6 text-input mr-5">
-                <label for="carBrand" class="text-input__label"
-                  >Car brand</label
-                >
-                <input
-                  type="text"
-                  name=""
-                  id="carBrand"
-                  class="text-input__input"
-                />
+
+              <div class="row col-12">
+                <div class="col-6 text-input">
+                  <label for="carBrand" class="text-input__label"
+                    >Credit card number</label
+                  >
+                  <input
+                    type="text"
+                    name=""
+                    id="carBrand"
+                    class="text-input__input"
+                  />
+                </div>
               </div>
-              <div class="col-6 text-input mr-5">
-                <label for="carModel" class="text-input__label"
-                  >Car model</label
-                >
-                <input
-                  type="text"
-                  name=""
-                  id="carModel"
-                  class="text-input__input"
-                />
+
+              <div class="row col-12">
+                <div class="col-6 text-input">
+                  <label for="carModel" class="text-input__label"
+                    >Name on credit card</label
+                  >
+                  <input
+                    type="text"
+                    name=""
+                    id="carModel"
+                    class="text-input__input"
+                  />
+                </div>
               </div>
-            </div>
+ 
+              <div class="row col-12">
+                <div class="col-3 text-input ">
+                  <label for="carModel" class="text-input__label"
+                    >Expiration date</label
+                  >
+                  <input
+                    type="text"
+                    name=""
+                    id="carModel"
+                    class="text-input__input col-4 mr-3"
+                  />
+                  <h6 class="text-input__slash">/</h6>
+                  <input
+                    type="text"
+                    name=""
+                    id="carModel"
+                    class="text-input__input col-4 ml-3"
+                  />
+               </div>
+                <div class="col-3 text-input">
+                  <label for="carModel" class="text-input__label"
+                    >CVV / CVC</label
+                  >
+                  <input
+                    type="text"
+                    name=""
+                    id="carModel"
+                    class="text-input__input col-4"
+                  />
+      
+              </div>
+              </div>
           </div>
-          <div class="col-4">
-            <div class="card checkout-card">
-              <div class="checkout-card__item">
-                <p class="checkout-card__item-name">Item 1</p>
-                <p class="checkout-card__item-price">10 dolers</p>
-              </div>
 
-              <div class="checkout-card__item">
-                <p class="checkout-card__item-name">Item 1</p>
-                <p class="checkout-card__item-price">10 dolers</p>
-              </div>
+        </div>
+        <div class="col-4">
+          <div class="card checkout-card">
+            <div class="checkout-card__item">
+              <p class="checkout-card__item-name">Item 1</p>
+              <p class="checkout-card__item-price">10 dolers</p>
+            </div>
 
-              <div class="checkout-card__item">
-                <p class="checkout-card__item-name">Item 1</p>
-                <p class="checkout-card__item-price">10 dolers</p>
-              </div>
-              <!-- 
-              <div class="checkout-card__coupon">
-                <p class="checkout-card__coupon-label">Coupon</p>
+            <div class="checkout-card__item">
+              <p class="checkout-card__item-name">Item 1</p>
+              <p class="checkout-card__item-price">10 dolers</p>
+            </div>
 
-                <input
-                  type="text"
-                  name=""
-                  id="firstName"
-                  class="checkout-card__coupon-input text-input__input"
-                />
-              </div> -->
+            <div class="checkout-card__item">
+              <p class="checkout-card__item-name">Item 1</p>
+              <p class="checkout-card__item-price">10 dolers</p>
+            </div>
+            <!-- 
+            <div class="checkout-card__coupon">
+              <p class="checkout-card__coupon-label">Coupon</p>
 
-              <div class="checkout-card__total">
-                <h6>Total:</h6>
-                <h6 class="checkout-card__total-price">700</h6>
-              </div>
+              <input
+                type="text"
+                name=""
+                id="firstName"
+                class="checkout-card__coupon-input text-input__input"
+              />
+            </div> -->
 
-              <div class="checkout-card__buttons">
-                <button
-                  class="checkout-card__button button button--base-lg button--primary-light button--filled"
-                >
-                  Proceed to checkout
-                </button>
-              </div>
+            <div class="checkout-card__total">
+              <h6>Total:</h6>
+              <h6 class="checkout-card__total-price">700</h6>
+            </div>
+
+            <div class="checkout-card__buttons">
+              <button
+                class="checkout-card__button button button--base-lg button--primary-light button--filled"
+              >
+                Proceed to checkout
+              </button>
             </div>
           </div>
         </div>

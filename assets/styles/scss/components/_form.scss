@@ -22,7 +22,7 @@
     justify-content: space-between;
     align-items: center;
   }
-  &.dark {
+  &--dark {
     .dropdown__option:hover {
       background-color: $primary-dark-alt;
       color: $background-light;
@@ -45,6 +45,10 @@
       border-top: 1px solid $greyed-out;
     }
   }
+  &.invalid {
+    outline: none;
+    border: 1px solid $warning;
+  }
 }
 
 .text-input {
@@ -57,18 +61,29 @@
     color: $text-dark;
     margin-bottom: 3rem;
 
-    &:invalid {
-      outline: none;
-      border: 1px solid $warning;
-    }
+    // &:focus:required:invalid {
+    //   outline: none;
+    //   border: 1px solid $warning;
+    // }
 
     &:focus {
       outline: none;
       border: 1px solid $primary-light;
     }
+
+    &.invalid {
+      outline: none;
+      border: 1px solid $warning;
+    }
   }
   &__label {
     font-weight: $bold;
+    display: block;
+  }
+
+  &__slash {
+    font-weight: $bold;
+    display: inline;
   }
 }
 
@@ -118,6 +133,7 @@
 .radio {
   &__group {
     display: inline-block;
+    margin-bottom: 3rem;
   }
 
   &__input {

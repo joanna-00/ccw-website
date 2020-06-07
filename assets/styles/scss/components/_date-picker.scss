@@ -1,10 +1,9 @@
 .date-picker {
   position: relative;
   width: 100%;
-  // max-width: 380px;
-  // height: 60px;
   background-color: #fff;
-  // margin: 30px auto;
+  margin-bottom: 3rem;
+
   @include drop-shadow-light-sm;
   @include border-round-lg;
   overflow: hidden;
@@ -85,5 +84,10 @@
         // background-color: #eee;
       }
     }
+  }
+
+  &.invalid {
+    outline: none;
+    border: 1px solid $warning;
   }
 }

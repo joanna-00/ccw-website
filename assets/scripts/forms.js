@@ -1,7 +1,14 @@
+// const dropdowns = $$(".dropdown");
 const dropdown_Title = $$(".dropdown__title");
 const dropdown_OptionsContainer = $$(".dropdown__options-container");
 
 initDropdowns();
+
+function customizeDropdownEvent(dropdownElement, callback) {
+  dropdownElement.querySelectorAll(".dropdown__option").forEach((option) => {
+    option.addEventListener("click", callback);
+  });
+}
 
 function initDropdowns() {
   dropdown_Title.forEach((dropdown) => {
@@ -22,6 +29,18 @@ function initDropdowns() {
         ).innerHTML =
           childNode.textContent +
           '<i class="fas fa-chevron-down expanded"></i>';
+
+        if (childNode.parentElement.parentElement.id == "dropdownLocation") {
+          date_picker_element.classList.remove("hidden");
+          childNode.parentElement.parentElement.classList.remove("invalid");
+        }
+
+        if (childNode.parentElement.parentElement.id == "dropdownTime") {
+          childNode.parentElement.parentElement.classList.remove("invalid");
+        }
+
+        childNode.parentElement.parentElement.dataset.value =
+          childNode.textContent;
 
         childNode.parentElement.parentElement
           .querySelector(".dropdown__options-container")

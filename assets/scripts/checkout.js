@@ -6,12 +6,17 @@ const formSteps = $$(".form-step");
 let currentStep = 1;
 const processSteps = $$(".process-steps__step");
 
+const dropdownLocation = $("#dropdownLocation");
+const dropdownTime = $("#dropdownTime");
+
 const stepIcons = [
   "far fa-calendar",
   "fas fa-user",
   "fas fa-car",
   "far fa-credit-card",
 ];
+
+updateStepIcons();
 
 function updateStepIcons() {
   processSteps.forEach((step) => {
@@ -25,7 +30,82 @@ function updateStepIcons() {
   });
 }
 
-updateStepIcons();
+// function showCalendar() {
+//   date_picker_element.classList.remove("hidden");
+// }
+
+// function showDropdownTime() {
+//   dropdownTime.classList.remove("hidden");
+// }
+
+// customizeDropdownEvent(dropdownLocation, showCalendar);
+// customizeDropdownEvent(dropdownLocation, showCalendar);
+
+function validateDropdown(dropdownToValidate) {
+  if (dropdownToValidate.dataset.value === "") {
+    console.log("validateDropdown: false ");
+    return false;
+  } else {
+    console.log("validateDropdown: true ");
+    return true;
+  }
+}
+function validateDatePicker() {
+  if (date_picker_element.dataset.value === "") {
+    console.log("validateDatePicker: false ");
+    return false;
+  } else {
+    console.log("validateDatePicker: true ");
+    return true;
+  }
+}
+
+function validateForm() {
+  let currentForm = formSteps[currentStep - 1];
+  console.log(currentForm);
+  if (currentStep == 1) {
+    if (!validateDropdown(dropdownLocation)) {
+      dropdownLocation.classList.add("invalid");
+      return false;
+    }
+    if (!validateDatePicker()) {
+      date_picker_element.classList.add("invalid");
+      return false;
+    }
+    if (!validateDropdown(dropdownTime)) {
+      dropdownTime.classList.add("invalid");
+      return false;
+    }
+    return true;
+  } else {
+    let validationResult = currentForm.checkValidity();
+    console.log(validationResult);
+    highlightInvalidFields(currentForm);
+    return validationResult;
+  }
+}
+
+let invalidFields;
+
+function highlightInvalidFields(currentForm) {
+  if (invalidFields === undefined) {
+    invalidFields = currentForm.querySelectorAll(":invalid");
+    invalidFields.forEach((field) => {
+      field.classList.add("invalid");
+      // console.log(field);
+    });
+  } else {
+    invalidFields.forEach((field) => {
+      field.classList.remove("invalid");
+      // console.log(field);
+    });
+    invalidFields = currentForm.querySelectorAll(":invalid");
+    invalidFields.forEach((field) => {
+      field.classList.add("invalid");
+      // console.log(field);
+    });
+  }
+}
 
 function showForm(animationDirection) {
   formSteps.forEach((formStep) => {
@@ -61,10 +141,13 @@ buttonBack.addEventListener("click", () => {
 
 buttonNext.addEventListener("click", () => {
   if (currentStep < 4) {
-    currentStep++;
-    console.log(formSteps[currentStep - 1]);
-    formSteps[currentStep - 1].classList.add("moveOutLeft");
-    showForm("moveInRight");
-    updateStepIcons();
+    if (validateForm()) {
+      currentStep++;
+      console.log(formSteps[currentStep - 1]);
+      formSteps[currentStep - 1].classList.add("moveOutLeft");
+
+      showForm("moveInRight");
+      updateStepIcons();
+    }
   }
 });

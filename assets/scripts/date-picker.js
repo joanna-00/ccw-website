@@ -41,10 +41,17 @@ prev_mth_element.addEventListener("click", goToPreviousMonth);
 populateDays();
 // console.log(date.getDay());
 
-function toggleDatePicker(e) {
-  if (!checkEventPathForClass(e.path, "dates")) {
-    dates_element.classList.toggle("active");
-  }
+// function toggleDatePicker(e) {
+//   if (!checkEventPathForClass(e.path, "dates")) {
+//     dates_element.classList.toggle("active");
+//   }
+// }
+
+function customizeDatePickerEvent(callback) {
+  $$(".day_element").forEach((day) => {
+    day.addEventListener("click", callback);
+    console.log("click");
+  });
 }
 
 function goToNextMonth() {
@@ -161,6 +168,11 @@ function populateDays() {
         // selected_date_element.textContent = formatDate(selectedDate);
         date_picker_element.dataset.value = selectedDate;
 
+        if (date_picker_element.dataset.type == "checkout") {
+          dropdownTime.classList.remove("hidden");
+          date_picker_element.classList.remove("invalid");
+        }
+
         populateDays();
       });
     }
@@ -177,14 +189,14 @@ function populateDays() {
   }
 }
 
-function checkEventPathForClass(path, selector) {
-  for (let i = 0; i < path.length; i++) {
-    if (path[i].classList && path[i].classList.contains(selector)) {
-      return true;
-    }
-  }
-  return false;
-}
+// function checkEventPathForClass(path, selector) {
+//   for (let i = 0; i < path.length; i++) {
+//     if (path[i].classList && path[i].classList.contains(selector)) {
+//       return true;
+//     }
+//   }
+//   return false;
+// }
 
 function formatDate(date) {
   let day = date.getDate();
