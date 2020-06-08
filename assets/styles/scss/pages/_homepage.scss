@@ -1,0 +1,148 @@
+.main-homepage {
+    &__banner {
+        height: 100vh;
+        overflow: hidden;
+
+        &-video {
+            width: 100%;
+        }
+
+        &-container {
+            position: relative;
+            top: -100%;
+            transform: translateY(50%);
+        }
+
+        &-text {
+            // position: relative;
+            // top: -100%;
+            // transform: translateY(50%);
+            height: inherit;
+            backdrop-filter: blur(14px) brightness(64%);
+            color: $white;
+        }
+    }
+
+    &__memberships {
+        padding: 4rem 0;
+        &-text {
+            text-align: center;
+        }
+    }
+
+    &__company {
+        padding: 4rem 0;
+        background-image: url(../../images/photos/homepage-company.jpg);
+        @include bckg-img;
+        padding: 0;
+
+        &-text {
+            padding: 8rem 0;
+            backdrop-filter: blur(14px) brightness(64%);
+            color: $white;
+        }
+    }
+
+    &__services {
+        padding: 4rem 0;
+        &-text {
+            text-align: center;
+        }
+    }
+
+    &__signup {
+        padding: 4rem 0;
+        &-text {
+
+        }
+        &-devices {
+            background-image: url(../../images/photos/mock-up-devices.png);
+            @include bckg-img;
+            background-size: contain;
+        }
+    }
+
+    &__steps {
+        padding: 4rem 0;
+        text-align: center;
+        color: $white;
+        background-color: $primary-light;
+        i {
+            font-size: 10rem;
+        }
+    }
+
+    &__testimonials {
+        padding: 4rem 0;
+        &-avatar {
+            @include bckg-img;
+            background-size: contain;
+            border-radius: 100%;
+            padding: 4rem;
+            display: inline-block;
+            width: 0;
+            position: relative;
+            left: 50%;
+            transform: translateX(-50%);
+        }
+
+        .gitte {
+            background-image: url(../../images/photos/gitte.png);
+        }
+
+        .mathias {
+            background-image: url(../../images/photos/mathias.png);
+        }
+
+        .claus {
+            background-image: url(../../images/photos/claus.png);
+        }
+
+        &-text {
+            padding: $padding-sm;
+            .trustpilot{
+                @include bckg-img;
+                padding: 0.1rem 6.4rem;
+                background-image: url(../../images/photos/trustpilot.png); 
+            }
+        }
+    }
+
+    &__media {
+        padding: 4rem 0;
+        background-color: $primary-light;
+        color: $white;
+
+        &-text {
+            text-align: center;
+        }
+
+        &-images {
+            * {
+                @include bckg-img;
+                background-size: contain;
+                padding: 2rem;
+            }
+
+            .migog {
+                background-image: url(../../images/photos/migogaalborg.png);
+            }
+
+            .tv2nord {
+                background-image: url(../../images/photos/tv2-nord.png);
+            }
+
+            .nord24 {
+                background-image: url(../../images/photos/24-nord.png);
+            }
+
+            .nord {
+                background-image: url(../../images/photos/nordjyske.png);
+            }
+
+            .aalborgnu {
+                background-image: url(../../images/photos/aalborg-nu.png);
+            }
+        }
+    }
+}

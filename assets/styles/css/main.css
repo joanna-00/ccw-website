@@ -1311,4 +1311,141 @@ h1 {
   display: none;
 }
 
+.main-homepage__banner {
+  height: 100vh;
+  overflow: hidden;
+}
+.main-homepage__banner-video {
+  width: 100%;
+}
+.main-homepage__banner-container {
+  position: relative;
+  top: -100%;
+  transform: translateY(50%);
+}
+.main-homepage__banner-text {
+  height: inherit;
+  backdrop-filter: blur(14px) brightness(64%);
+  color: #ffffff;
+}
+.main-homepage__memberships {
+  padding: 4rem 0;
+}
+.main-homepage__memberships-text {
+  text-align: center;
+}
+.main-homepage__company {
+  padding: 4rem 0;
+  background-image: url(../../images/photos/homepage-company.jpg);
+  width: 100%;
+  padding-top: 56.25%;
+  background-position: center;
+  background-repeat: no-repeat;
+  background-size: cover;
+  padding: 0;
+}
+.main-homepage__company-text {
+  padding: 8rem 0;
+  backdrop-filter: blur(14px) brightness(64%);
+  color: #ffffff;
+}
+.main-homepage__services {
+  padding: 4rem 0;
+}
+.main-homepage__services-text {
+  text-align: center;
+}
+.main-homepage__signup {
+  padding: 4rem 0;
+}
+.main-homepage__signup-devices {
+  background-image: url(../../images/photos/mock-up-devices.png);
+  width: 100%;
+  padding-top: 56.25%;
+  background-position: center;
+  background-repeat: no-repeat;
+  background-size: cover;
+  background-size: contain;
+}
+.main-homepage__steps {
+  padding: 4rem 0;
+  text-align: center;
+  color: #ffffff;
+  background-color: #133657;
+}
+.main-homepage__steps i {
+  font-size: 10rem;
+}
+.main-homepage__testimonials {
+  padding: 4rem 0;
+}
+.main-homepage__testimonials-avatar {
+  width: 100%;
+  padding-top: 56.25%;
+  background-position: center;
+  background-repeat: no-repeat;
+  background-size: cover;
+  background-size: contain;
+  border-radius: 100%;
+  padding: 4rem;
+  display: inline-block;
+  width: 0;
+  position: relative;
+  left: 50%;
+  transform: translateX(-50%);
+}
+.main-homepage__testimonials .gitte {
+  background-image: url(../../images/photos/gitte.png);
+}
+.main-homepage__testimonials .mathias {
+  background-image: url(../../images/photos/mathias.png);
+}
+.main-homepage__testimonials .claus {
+  background-image: url(../../images/photos/claus.png);
+}
+.main-homepage__testimonials-text {
+  padding: 1rem 2rem;
+}
+.main-homepage__testimonials-text .trustpilot {
+  width: 100%;
+  padding-top: 56.25%;
+  background-position: center;
+  background-repeat: no-repeat;
+  background-size: cover;
+  padding: 0.1rem 6.4rem;
+  background-image: url(../../images/photos/trustpilot.png);
+}
+.main-homepage__media {
+  padding: 4rem 0;
+  background-color: #133657;
+  color: #ffffff;
+}
+.main-homepage__media-text {
+  text-align: center;
+}
+.main-homepage__media-images * {
+  width: 100%;
+  padding-top: 56.25%;
+  background-position: center;
+  background-repeat: no-repeat;
+  background-size: cover;
+  background-size: contain;
+  padding: 2rem;
+}
+.main-homepage__media-images .migog {
+  background-image: url(../../images/photos/migogaalborg.png);
+}
+.main-homepage__media-images .tv2nord {
+  background-image: url(../../images/photos/tv2-nord.png);
+}
+.main-homepage__media-images .nord24 {
+  background-image: url(../../images/photos/24-nord.png);
+}
+.main-homepage__media-images .nord {
+  background-image: url(../../images/photos/nordjyske.png);
+}
+.main-homepage__media-images .aalborgnu {
+  background-image: url(../../images/photos/aalborg-nu.png);
+}
+
 /*# sourceMappingURL=main.css.map */
