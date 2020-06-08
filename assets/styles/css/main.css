@@ -229,18 +229,15 @@ h1 {
   padding: 0;
   list-style: none;
 }
-.breadcrumbs__item,
-.breadcrumbs__item--active {
+.breadcrumbs__item, .breadcrumbs__item--active {
   display: inline;
   font-weight: 700;
 }
-.breadcrumbs__item a,
-.breadcrumbs__item--active a {
+.breadcrumbs__item a, .breadcrumbs__item--active a {
   padding: 1rem 2rem;
   text-decoration: underline;
 }
-.breadcrumbs__item::after,
-.breadcrumbs__item--active::after {
+.breadcrumbs__item::after, .breadcrumbs__item--active::after {
   content: " > ";
   display: inline;
 }
@@ -255,28 +252,22 @@ h1 {
   content: " " !important;
   display: inline;
 }
-.breadcrumbs--h1 .breadcrumbs__item,
-.breadcrumbs--h1 .breadcrumbs__item--active {
+.breadcrumbs--h1 .breadcrumbs__item, .breadcrumbs--h1 .breadcrumbs__item--active {
   font-size: 4rem;
 }
-.breadcrumbs--h2 .breadcrumbs__item,
-.breadcrumbs--h2 .breadcrumbs__item--active {
+.breadcrumbs--h2 .breadcrumbs__item, .breadcrumbs--h2 .breadcrumbs__item--active {
   font-size: 3.6rem;
 }
-.breadcrumbs--h3 .breadcrumbs__item,
-.breadcrumbs--h3 .breadcrumbs__item--active {
+.breadcrumbs--h3 .breadcrumbs__item, .breadcrumbs--h3 .breadcrumbs__item--active {
   font-size: 3.2rem;
 }
-.breadcrumbs--h4 .breadcrumbs__item,
-.breadcrumbs--h4 .breadcrumbs__item--active {
+.breadcrumbs--h4 .breadcrumbs__item, .breadcrumbs--h4 .breadcrumbs__item--active {
   font-size: 2.8rem;
 }
-.breadcrumbs--h5 .breadcrumbs__item,
-.breadcrumbs--h5 .breadcrumbs__item--active {
+.breadcrumbs--h5 .breadcrumbs__item, .breadcrumbs--h5 .breadcrumbs__item--active {
   font-size: 2.4rem;
 }
-.breadcrumbs--h6 .breadcrumbs__item,
-.breadcrumbs--h6 .breadcrumbs__item--active {
+.breadcrumbs--h6 .breadcrumbs__item, .breadcrumbs--h6 .breadcrumbs__item--active {
   font-size: 2rem;
 }
 
@@ -469,14 +460,11 @@ h1 {
   background-color: #133657;
   color: #f9f9f9;
 }
-.card__amount--increase,
-.card__amount--decrease,
-.card__amount--display {
+.card__amount--increase, .card__amount--decrease, .card__amount--display {
   padding: 1rem;
   line-height: 1;
 }
-.card__amount--increase,
-.card__amount--decrease {
+.card__amount--increase, .card__amount--decrease {
   cursor: pointer;
 }
 .card--clickable {
@@ -575,18 +563,15 @@ h1 {
   margin: 1.6rem 0;
   text-transform: capitalize;
 }
-.service-info-card__price,
-.service-info-card__time {
+.service-info-card__price, .service-info-card__time {
   display: flex;
   justify-content: space-between;
   margin-top: 1.6rem;
 }
-.service-info-card__price-label,
-.service-info-card__time-label {
+.service-info-card__price-label, .service-info-card__time-label {
   font-size: 1.92rem;
 }
-.service-info-card__price-value,
-.service-info-card__time-value {
+.service-info-card__price-value, .service-info-card__time-value {
   color: #66bf6c;
   margin: 0;
 }
@@ -648,8 +633,7 @@ h1 {
   height: auto;
   padding: 2rem 4rem;
 }
-.date-picker .days .day,
-.date-picker .days .day-week {
+.date-picker .days .day, .date-picker .days .day-week {
   display: flex;
   align-items: center;
   justify-content: center;
@@ -660,8 +644,7 @@ h1 {
 .date-picker .days .day-week {
   cursor: default;
 }
-.date-picker .days .day.selected,
-.date-picker .days .selected.day-week {
+.date-picker .days .day.selected, .date-picker .days .selected.day-week {
   border-radius: 5px;
   -webkit-box-shadow: 0px 3px 10px 0px rgba(0, 0, 0, 0.25);
   -moz-box-shadow: 0px 3px 10px 0px rgba(0, 0, 0, 0.25);
@@ -669,8 +652,7 @@ h1 {
   background-color: #133657;
   color: #f9f9f9;
 }
-.date-picker .days .day.unavailable,
-.date-picker .days .unavailable.day-week {
+.date-picker .days .day.unavailable, .date-picker .days .unavailable.day-week {
   color: #999999;
 }
 .date-picker.invalid {
@@ -1234,7 +1216,7 @@ h1 {
   }
 }
 
-.main-service .main-service-container {
+.main-service-container {
   max-width: 100%;
 }
 .main-service-container .breadcrumbs--h6 {
@@ -1260,9 +1242,7 @@ h1 {
 .recommended-services .recommended-services-container {
   max-width: 100%;
 }
-.recommended-services
-  .recommended-services-container
-  .recommended-services-container__row {
+.recommended-services .recommended-services-container .recommended-services-container__row {
   padding-top: 3rem;
   overflow-y: hidden;
   overflow-x: auto;

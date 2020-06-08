@@ -28,20 +28,28 @@
     <!-- Custom styles and scripts -->
     <link rel="stylesheet" href="../../assets/styles/css/main.css" />
     <script src="../../assets/scripts/main.js" defer></script>
-    <script src="../../assets/scripts/forms.js" defer></script>
-    <script src="../../assets/scripts/date-picker.js" defer></script>
-    <script src="../../assets/scripts/checkout.js" defer></script>
+    <!-- <script src="../../assets/scripts/forms.js" defer></script> -->
+    <script src="../../assets/scripts/shop.js" defer></script>
+    <!-- <script src="../../assets/scripts/checkout.js" defer></script> -->
   </head>
 
   <body>
     <nav class="nav">
       <div class="container">
         <div class="row">
-          <div class="nav__logo-container col-3">
-            <a href="" class="nav__logo"></a>
+          <div class="nav__logo-container row col-12 col-lg-3 col-xl-3">
+            <a href="" class="nav__logo col"></a>
+            <div class="hamburger d-xl-none d-lg-none col">
+              <span class="line"></span>
+              <span class="line"></span>
+              <span class="line"></span>
+            </div>
           </div>
 
-          <div class="col-6">
+          <div
+            class="col-12 col-lg-6 col-xl-6 mt-5 mt-lg-0 hidden"
+            id="links-container"
+          >
             <ul class="nav__links-container">
               <li class="nav__link active"><a href="">Home</a></li>
               <li class="nav__link"><a href="">Memberships</a></li>
@@ -51,8 +59,21 @@
             </ul>
           </div>
 
-          <div class="nav__buttons col-3">
-            <i class="fas fa-shopping-cart nav__shopping-cart"></i>
+          <div
+            class="nav__buttons col-12 col-lg-3 col-xl-3 my-5 my-lg-0 hidden"
+            id="buttons-container"
+          >
+            <button
+              class="button button--base-sm button--primary-light button--filled d-lg-none d-xl-none"
+            >
+              <i class="fas fa-shopping-cart nav__shopping-cart"></i
+              >Shopping&nbsp;cart
+            </button>
+
+            <i
+              class="fas fa-shopping-cart nav__shopping-cart d-none d-lg-block"
+            ></i>
+
             <button
               class="nav__login button button--base-sm button--primary-light"
             >
@@ -69,9 +90,100 @@
             <h2>Your shopping cart</h2>
           </div>
         </div>
-        <div class="row">
-          <div class="col-12 col-lg-8 shoping-cart__items-container"></div>
-          <div class="col-4">
+        <div class="row justify-content-between">
+          <div class="row col-12 col-lg-7 shoping-cart__items-container">
+            <!-- <div class="col-12">
+              <div class="card card--horizontal card--image card--price">
+                <div class="card__image">
+                  <img
+                    src="../../assets/images/photos/steering-wheel-wash.jpg"
+                    alt=""
+                  />
+                </div>
+                <div class="card__content">
+                  <div class="card__label">
+                    <h4 class="card__title">Card title</h4>
+                    <a href="" class="card__link">Remove item</a>
+                  </div>
+
+                  <p class="card__description">
+                    card teext text textcard teext text textcard teext text
+                    textcard teext text textcard teext text text
+                  </p>
+
+                  <div class="card__features">
+                    <h4 class="card__price">175</h4>
+                    <div class="card__amount">
+                      <div class="card__amount--decrease">-</div>
+                      <div class="card__amount--display">1</div>
+                      <div class="card__amount--increase">+</div>
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </div>
+            <div class="col-12">
+              <div class="card card--horizontal card--image card--price">
+                <div class="card__image">
+                  <img
+                    src="../../assets/images/photos/steering-wheel-wash.jpg"
+                    alt=""
+                  />
+                </div>
+                <div class="card__content">
+                  <div class="card__label">
+                    <h4 class="card__title">Card title</h4>
+                    <a href="" class="card__link">Remove item</a>
+                  </div>
+
+                  <p class="card__description">
+                    card teext text textcard teext text textcard teext text
+                    textcard teext text textcard teext text text
+                  </p>
+
+                  <div class="card__features">
+                    <h4 class="card__price">175</h4>
+                    <div class="card__amount">
+                      <div class="card__amount--decrease">-</div>
+                      <div class="card__amount--display">1</div>
+                      <div class="card__amount--increase">+</div>
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </div>
+            <div class="col-12">
+              <div class="card card--horizontal card--image card--price">
+                <div class="card__image">
+                  <img
+                    src="../../assets/images/photos/steering-wheel-wash.jpg"
+                    alt=""
+                  />
+                </div>
+                <div class="card__content">
+                  <div class="card__label">
+                    <h4 class="card__title">Card title</h4>
+                    <a href="" class="card__link">Remove item</a>
+                  </div>
+
+                  <p class="card__description">
+                    card teext text textcard teext text textcard teext text
+                    textcard teext text textcard teext text text
+                  </p>
+
+                  <div class="card__features">
+                    <h4 class="card__price">175</h4>
+                    <div class="card__amount">
+                      <div class="card__amount--decrease">-</div>
+                      <div class="card__amount--display">1</div>
+                      <div class="card__amount--increase">+</div>
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </div> -->
+          </div>
+          <div class="col-12 col-lg-4">
             <div class="card checkout-card">
               <div class="checkout-card__item">
                 <p class="checkout-card__item-name">Item 1</p>
