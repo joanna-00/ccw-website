@@ -40,6 +40,20 @@ function requestWP(endpoint, id, callback) {
   xhttp.send();
 }
 
+function requestPostWP(endpoint, id, callback) {
+  const xhttp = new XMLHttpRequest();
+  xhttp.onreadystatechange = function () {
+    if (this.readyState == 4 && this.status == 200) {
+      let data = JSON.parse(this.responseText);
+      console.log(data);
+      callback(data);
+    }
+  };
+  xhttp.open("GET", `${apiUrl}posts${endpoint}${id}`, true);
+  xhttp.setRequestHeader("Authorization", `Bearer ${apiKey}`);
+  xhttp.send();
+}
+
 function acfParser(object) {
   let array = [];
   object.forEach((elem) => {
@@ -52,15 +66,6 @@ function acfParser(object) {
 
 function parseFilter(string) {
   return string.split(":")[0];
-}
-
-// SHOPPING CART
-
-sessionStorage.setItem("shopping-cart", []);
-
-function addToShoppingCart(e) {
-  let serviceID = e.target.dataset.itemID;
-  sessionStorage.getItem("shopping-cart").push(serviceID);
 }
 
 // Mobile navigation

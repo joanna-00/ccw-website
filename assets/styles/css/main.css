@@ -66,6 +66,10 @@ body {
   }
 }
 
+.container-fluid {
+  padding: 0 2.5vw;
+}
+
 .row {
   margin: 0;
 }
@@ -468,6 +472,9 @@ h1 {
 }
 .card--clickable:hover {
   transform: scale(1.05);
+}
+.card--disabled {
+  opacity: 0.65;
 }
 .card--horizontal {
   flex-direction: row;
@@ -1218,14 +1225,13 @@ h1 {
     width: 50%;
   }
 }
-.main-service .main-service-container {
+.main-service-container {
   max-width: 100%;
 }
-.main-service .main-service-container .breadcrumbs--h6 {
+.main-service-container .breadcrumbs--h6 {
   padding: 0;
 }
 .main-service__info__image {
-  background-image: url(../../images/photos/steering-wheel-wash.jpg);
   width: 100%;
   padding-top: 56.25%;
   background-position: center;
@@ -1240,13 +1246,13 @@ h1 {
 }
 
 .recommended-services {
-  padding: 2rem 0;
   background-color: #133657;
 }
 .recommended-services .recommended-services-container {
   max-width: 100%;
 }
 .recommended-services .recommended-services-container .recommended-services-container__row {
+  padding-top: 3rem;
   overflow-y: hidden;
   overflow-x: auto;
 }
@@ -1255,15 +1261,12 @@ h1 {
 }
 
 @media (min-width: 1200px) {
-  .main-service {
-    padding: 1rem 2rem;
-  }
   .main-service__purchase {
     padding: 0;
   }
 
   .recommended-services {
-    padding: 4rem 0;
+    width: 100%;
   }
 }
 .checkout__form-steps {

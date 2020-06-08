@@ -1,18 +1,17 @@
 .main-service {
-  .main-service-container{
+  &-container {
     max-width: 100%;
-    .breadcrumbs--h6{
+    .breadcrumbs--h6 {
       padding: 0;
     }
   }
   &__info {
     &__image {
-      background-image: url(../../images/photos/steering-wheel-wash.jpg);
+      // background-image: url(../../images/photos/steering-wheel-wash.jpg);
       @include bckg-img;
       @include drop-shadow-light-sm;
     }
     &__description {
-
     }
   }
 
@@ -22,40 +21,39 @@
 }
 
 .recommended-services {
-  .recommended-services-container{
+  .recommended-services-container {
     max-width: 100%;
-  .recommended-services-container__row{
-    overflow-y: hidden;
-    overflow-x: auto;
+    .recommended-services-container__row {
+      padding-top: 3rem;
+      overflow-y: hidden;
+      overflow-x: auto;
+    }
   }
-  }
-  padding: 2rem 0;
+  // padding: 2rem 0;
   background-color: $primary-light;
   h3 {
     color: white;
   }
 }
 
-@media (min-width : $media-sm){
-
+@media (min-width: $media-sm) {
 }
 
-@media (min-width : $media-md){
-  
+@media (min-width: $media-md) {
 }
 
-@media (min-width : $media-lg){
-  
+@media (min-width: $media-lg) {
 }
 
-@media (min-width : $media-xl){
+@media (min-width: $media-xl) {
   .main-service {
-    padding: $padding-sm;
+    // padding: $padding-sm;
     &__purchase {
       padding: 0;
     }
   }
   .recommended-services {
-    padding: 4rem 0;
+    // padding: 4rem 0;
+    width: 100%;
   }
 }
