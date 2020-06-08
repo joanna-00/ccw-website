@@ -1,21 +1,51 @@
 .filters {
-  background: $background-dark;
-  color: $text-light;
-  padding: $padding-sm;
-  // min-height: 90vh;
-  min-height: 100vh;
-  width: calc(25% - 5vw + 30px);
-  margin-top: 0;
-  position: absolute;
-  left: 0;
-  top: 0;
-  transform: translateX(calc(-100% - 10vw));
+  &__body {
+    background: $background-dark;
+    color: $text-light;
+    padding: $padding-sm;
+    min-height: 100vh;
 
-  @media (min-width: $media-md) {
-    // position: relative;
-    // transform: translateX(calc(-5vw - 30px));
+    margin-top: 0;
+    position: absolute;
+    left: 0;
     top: calc(16px * 1.6 + 8rem);
-    position: fixed;
     transform: translateX(0);
+    transition: transform $fast ease-out;
+
+    @media (min-width: $media-md) {
+      position: fixed;
+      transform: translateX(0);
+      // width: calc(25% - 30px + 30px);
+    }
+
+    &.hidden {
+      transform: translateX(calc(-100% - 10vw));
+
+      @media (min-width: $media-lg) {
+        transform: translateX(0);
+      }
+    }
+  }
+
+  &__collapse-button {
+    &--outside {
+      top: calc(16px * 1.6 + 8rem);
+      left: 0;
+      position: fixed;
+      transform: translateX(0);
+    }
+
+    &--inside {
+      display: flex;
+      justify-content: flex-end;
+      align-items: center;
+      p {
+        text-decoration: underline;
+      }
+
+      @media (min-width: $media-lg) {
+        display: none;
+      }
+    }
   }
 }

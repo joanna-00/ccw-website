@@ -364,6 +364,14 @@ h1 {
   background-color: #999999;
   color: #464646;
 }
+.button--tab-left {
+  border-top-left-radius: 0;
+  border-bottom-left-radius: 0;
+}
+.button--tab-right {
+  border-top-right-radius: 0;
+  border-bottom-right-radius: 0;
+}
 
 .card {
   width: 100%;
@@ -479,7 +487,11 @@ h1 {
   padding: 2rem 4rem;
 }
 .card--membership .card__image {
-  height: 200px;
+  height: 300px;
+}
+.card--membership .card__image img {
+  width: 100%;
+  object-fit: contain;
 }
 .card--membership .card__content {
   display: flex;
@@ -489,6 +501,7 @@ h1 {
 }
 .card--membership .card__title {
   text-transform: uppercase;
+  text-align: center;
 }
 .card--badge {
   display: flex;
@@ -848,6 +861,9 @@ h1 {
 .icon--right {
   margin-left: 1.5rem;
 }
+.icon--left {
+  margin-right: 1.5rem;
+}
 
 .process-steps {
   flex-direction: row;
@@ -962,23 +978,49 @@ h1 {
   margin: 1rem 2rem;
 }
 
-.filters {
+.filters__body {
   background: #133657;
   color: #f9f9f9;
   padding: 1rem 2rem;
   min-height: 100vh;
-  width: calc(25% - 5vw + 30px);
   margin-top: 0;
   position: absolute;
   left: 0;
-  top: 0;
-  transform: translateX(calc(-100% - 10vw));
+  top: calc(16px * 1.6 + 8rem);
+  transform: translateX(0);
+  transition: transform 0.3s ease-out;
 }
 @media (min-width: 768px) {
-  .filters {
-    top: calc(16px * 1.6 + 8rem);
+  .filters__body {
     position: fixed;
     transform: translateX(0);
+  }
+}
+.filters__body.hidden {
+  transform: translateX(calc(-100% - 10vw));
+}
+@media (min-width: 992px) {
+  .filters__body.hidden {
+    transform: translateX(0);
+  }
+}
+.filters__collapse-button--outside {
+  top: calc(16px * 1.6 + 8rem);
+  left: 0;
+  position: fixed;
+  transform: translateX(0);
+}
+.filters__collapse-button--inside {
+  display: flex;
+  justify-content: flex-end;
+  align-items: center;
+}
+.filters__collapse-button--inside p {
+  text-decoration: underline;
+}
+@media (min-width: 992px) {
+  .filters__collapse-button--inside {
+    display: none;
   }
 }
 
@@ -1005,6 +1047,14 @@ h1 {
   height: 100%;
   width: 100%;
   padding: 2.4rem;
+}
+@media (min-width: 992px) {
+  .nav__logo {
+    display: inline-block;
+    height: 100%;
+    width: 100%;
+    background-position: left bottom;
+  }
 }
 .nav .hamburger {
   background-color: transparent;
@@ -1081,17 +1131,12 @@ h1 {
 .nav__login {
   width: 50%;
 }
-
-.hidden {
+.nav .hidden {
   display: none;
   transition: all 0.3s ease-in-out;
 }
 
 @media (min-width: 992px) {
-  .hidden {
-    display: block;
-  }
-
   .nav {
     font-size: 1.6rem;
   }
@@ -1126,6 +1171,10 @@ h1 {
   }
   .nav__login {
     width: 50%;
+  }
+
+  .hidden {
+    display: block;
   }
 }
 @media (min-width: 1200px) {
@@ -1266,6 +1315,9 @@ h1 {
 
 .shop main {
   padding: 4rem 0;
+}
+.shop__section.hidden {
+  display: none;
 }
 
 /*# sourceMappingURL=main.css.map */

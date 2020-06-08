@@ -114,4 +114,14 @@
       color: $greyed-out-dark;
     }
   }
+
+  &--tab-left {
+    border-top-left-radius: 0;
+    border-bottom-left-radius: 0;
+  }
+
+  &--tab-right {
+    border-top-right-radius: 0;
+    border-bottom-right-radius: 0;
+  }
 }

@@ -2,4 +2,10 @@
   main {
     padding: 4rem 0;
   }
+
+  &__section {
+    &.hidden {
+      display: none;
+    }
+  }
 }

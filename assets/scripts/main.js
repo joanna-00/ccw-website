@@ -1,9 +1,3 @@
-document.querySelector('.hamburger').addEventListener('click', function(){
-  document.querySelector('.hamburger').classList.toggle('is-active');
-  document.querySelector('#links-container').classList.toggle('hidden');
-  document.querySelector('#buttons-container').classList.toggle('hidden');
-});
-
 // SELECTOR FUNCTIONS
 const $ = (arg) => {
   return document.querySelector(arg);
@@ -59,3 +53,20 @@ function acfParser(object) {
 function parseFilter(string) {
   return string.split(":")[0];
 }
+
+// SHOPPING CART
+
+sessionStorage.setItem("shopping-cart", []);
+
+function addToShoppingCart(e) {
+  let serviceID = e.target.dataset.itemID;
+  sessionStorage.getItem("shopping-cart").push(serviceID);
+}
+
+// Mobile navigation
+
+// document.querySelector(".hamburger").addEventListener("click", function () {
+//   document.querySelector(".hamburger").classList.toggle("is-active");
+//   document.querySelector("#links-container").classList.toggle("hidden");
+//   document.querySelector("#buttons-container").classList.toggle("hidden");
+// });

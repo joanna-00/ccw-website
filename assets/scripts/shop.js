@@ -1,14 +1,21 @@
 const shopItems = requestWP(tagEndPoint, tagShop, renderShop);
 
-// renderShop(shopItems);
+// Shop redirect to individual page
+
+// let shopCard;
+
+// shopCard.addEventListener("click", () => {
+//   sessionStorage.setItem("redirectServiceID", shopCard.id);
+// });
+
+// Shop rendering
 
 function renderShop(shopItems) {
-  let exteriorContainer = $(".shop main #sectionExterior"),
-    interiorContainer = $(".shop main #sectionInterior"),
-    bundlesContainer = $(".shop main #sectionBundles"),
-    membershipsContainer = $(".shop main #sectionMemberships");
+  const containerExterior = $(".shop main #sectionExterior"),
+    containerInterior = $(".shop main #sectionInterior"),
+    containerBundles = $(".shop main #sectionBundles"),
+    containerMemberships = $(".shop main #sectionMemberships");
   let shopContainer = $(".shop main");
-
   shopItems.forEach((item) => {
     // let filters = [];
     // item.acf.service_type_filter.forEach((filter) => {
@@ -21,37 +28,40 @@ function renderShop(shopItems) {
 
     switch (filter) {
       case "memberships":
-        membershipsContainer.innerHTML += createMembershipCard(item);
+        containerMemberships.innerHTML += createMembershipCard(item);
         console.log(filter);
         break;
       case "exterior":
-        exteriorContainer.innerHTML += createShopCard(item);
+        containerExterior.innerHTML += createShopCard(item);
         break;
       case "interior":
-        interiorContainer.innerHTML += createShopCard(item);
+        containerInterior.innerHTML += createShopCard(item);
         break;
       case "bundles":
-        bundlesContainer.innerHTML += createShopCard(item);
+        containerBundles.innerHTML += createShopCard(item);
         break;
       default:
       // code block
     }
-    if (filter === "memberships") {
-    }
   });
+
+  addToggleToCheckbox(checkboxExterior, containerExterior);
+  addToggleToCheckbox(checkboxInterior, containerInterior);
+  addToggleToCheckbox(checkboxBundles, containerBundles);
+  addToggleToCheckbox(checkboxMemberships, containerMemberships);
 }
 
 function createMembershipCard(shopItem) {
-  return `        <div class="col-3">
-  <div class="card card--membership">
+  shopItem = shopItem.acf;
+  return `        <div class="col-12 col-sm-6 col-xl-3">
+  <div class="card card--membership card--image">
     <div class="card__image">
-      <img src="../../assets/images/svgs/check-24px.svg" alt="" />
+      <img src="${shopItem.membership_icon}" alt="" />
     </div>
     <div class="card__content">
-      <h4 class="card__title">Platinum</h4>
+      <h4 class="card__title">${shopItem.membership_title}</h4>
       <p class="card__description">
-        The quick, brown fox jumps over a lazy dog. DJs flock by when
-        MTV
+        ${shopItem.membership_description}
       </p>
       <button
         class="button button--base-lg button--secondary button--filled"
@@ -64,8 +74,9 @@ function createMembershipCard(shopItem) {
 }
 
 function createShopCard(shopItem) {
+  let post = shopItem;
   shopItem = shopItem.acf;
-  return `<div class="col-12 col-lg-6 col-xl-4">
+  return `<div class="col-12 col-sm-6 col-xl-4">
   <div
     class="card card--image card--button card--description card--price card--clickable"
   >
@@ -92,9 +103,10 @@ function createShopCard(shopItem) {
       </p>
 
       <div class="card__features">
-        <h4 class="card__price">${shopItem.price}</h4>
+        <h4 class="card__price">${shopItem.price},-</h4>
         <button
           class="card__button button button--base-lg button--primary-light"
+          id="${post.id}"
         >
           Add to cart
           <i class="fas fa-cart-plus"></i>
@@ -103,4 +115,20 @@ function createShopCard(shopItem) {
     </div>
   </div>
 </div>`;
+}
+
+// Filtering
+
+const checkboxExterior = $("#checkboxExterior"),
+  checkboxInterior = $("#checkboxInterior"),
+  checkboxBundles = $("#checkboxBundles"),
+  checkboxMemberships = $("#checkboxMemberships");
+
+console.log(checkboxExterior);
+
+function addToggleToCheckbox(checkbox, container) {
+  checkbox.addEventListener("change", () => {
+    container.classList.toggle("hidden");
+    console.log("changed");
+  });
 }

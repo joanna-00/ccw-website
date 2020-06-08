@@ -145,7 +145,12 @@
     padding: $padding-md;
 
     .card__image {
-      height: 200px;
+      height: 300px;
+
+      img {
+        width: 100%;
+        object-fit: contain;
+      }
     }
 
     .card__content {
@@ -155,6 +160,7 @@
 
     .card__title {
       text-transform: uppercase;
+      text-align: center;
     }
   }
 
