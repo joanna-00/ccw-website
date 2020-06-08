@@ -239,6 +239,7 @@ if (window.location.pathname.includes("shopping_cart.html")) {
 
 function renderShoppingCart(shoppingCartItems) {
   let shoppingCartItemsContainer = $(".shoping-cart__items-container");
+  let checkoutCardContainer = $(".checkout-card__container");
 
   let itemsToRender = JSON.parse(localStorage.getItem("itemsToRender"));
   // itemsToRender = JSON.parse(localStorage.getItem("itemsToRender"));
@@ -249,6 +250,11 @@ function renderShoppingCart(shoppingCartItems) {
       itemsToRender
     );
   });
+
+  checkoutCardContainer.innerHTML = createCheckoutSummary(
+    shoppingCartItems,
+    itemsToRender
+  );
 
   // Set up increase/decrease logic
   const cardAmountIncrease = $$(".card__amount--increase"),
@@ -307,6 +313,7 @@ function renderShoppingCart(shoppingCartItems) {
     });
   });
 
+  // Set up item removal logic
   const removeItemLinks = $$(".card__link");
 
   removeItemLinks.forEach((item) => {
@@ -356,6 +363,56 @@ function createShopppingCartCard(shopItem, itemsToRender) {
   } else {
     return "";
   }
+}
+
+function createCheckoutSummary(shoppingCartItems, itemsToRender) {
+  console.log(shoppingCartItems);
+  let output = "";
+  let totalPrice = 0;
+  shoppingCartItems.forEach((item) => {
+    let ID = item.id;
+    item = item.acf;
+    totalPrice += Number(item.price);
+    console.log(totalPrice);
+    output += `
+    <div class="checkout-card__item">
+      <p class="checkout-card__item-name">${item.title}</p>
+      <p class="checkout-card__item-price">${item.price}</p>
+    </div>`;
+    // return output;
+  });
+
+  let checkoutSummary = "";
+  checkoutSummary += `<div class="card checkout-card">`;
+  checkoutSummary += output;
+  // const renderItems = (itemsToRender) => {
+  //   let output = "";
+  //   for (const ID in itemsToRender) {
+  //     output += `
+  //   <div class="checkout-card__item">
+  //     <p class="checkout-card__item-name">a</p>
+  //     <p class="checkout-card__item-price">aa</p>
+  //   </div>`;
+  //   }
+  //   return output;
+  // };
+
+  // checkoutSummary += renderItems(itemsToRender);
+  checkoutSummary += `
+  <div class="checkout-card__total">
+    <h6>Total:</h6>
+    <h6 class="checkout-card__total-price">${totalPrice}</h6>
+  </div>
+
+  <div class="checkout-card__buttons">
+    <button
+      class="checkout-card__button button button--base-lg button--primary-light button--filled"
+    >
+      Proceed to checkout
+    </button>
+  </div>
+</div>`;
+  return checkoutSummary;
 }
 
 function updateShoppingCartLS(itemsToRender) {
