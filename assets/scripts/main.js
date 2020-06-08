@@ -65,8 +65,8 @@ function addToShoppingCart(e) {
 
 // Mobile navigation
 
-// document.querySelector(".hamburger").addEventListener("click", function () {
-//   document.querySelector(".hamburger").classList.toggle("is-active");
-//   document.querySelector("#links-container").classList.toggle("hidden");
-//   document.querySelector("#buttons-container").classList.toggle("hidden");
-// });
+ $(".hamburger").addEventListener("click", function () {
+   $(".hamburger").classList.toggle("is-active");
+   $("#links-container").classList.toggle("hidden");
+   $("#buttons-container").classList.toggle("hidden");
+ });
