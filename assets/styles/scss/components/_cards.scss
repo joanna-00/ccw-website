@@ -114,6 +114,10 @@
     }
   }
 
+  &--disabled {
+    opacity: 0.65;
+  }
+
   &--horizontal {
     flex-direction: row;
     justify-content: space-between;
