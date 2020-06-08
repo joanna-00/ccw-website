@@ -198,23 +198,23 @@ function addToShoppingCart(e) {
 }
 
 if (window.location.pathname.includes("shopping_cart.html")) {
-  if (!localStorage.getItem("itemsToRender")) {
-    let currentShoppingCart = JSON.parse(localStorage.getItem("shoppingCart"));
+  // if (!localStorage.getItem("itemsToRender")) {
+  let currentShoppingCart = JSON.parse(localStorage.getItem("shoppingCart"));
 
-    // Parse the IDs in the shopping cart to reflect quantity
-    let itemsToRender = currentShoppingCart.reduce(function (IDs, ID) {
-      if (ID in IDs) {
-        IDs[ID]++;
-      } else {
-        IDs[ID] = 1;
-      }
-      return IDs;
-    }, {});
-    console.log(itemsToRender);
-    localStorage.setItem("itemsToRender", JSON.stringify(itemsToRender));
-  } else {
-    itemsToRender = JSON.parse(localStorage.getItem("itemsToRender"));
-  }
+  // Parse the IDs in the shopping cart to reflect quantity
+  let itemsToRender = currentShoppingCart.reduce(function (IDs, ID) {
+    if (ID in IDs) {
+      IDs[ID]++;
+    } else {
+      IDs[ID] = 1;
+    }
+    return IDs;
+  }, {});
+  console.log(itemsToRender);
+  localStorage.setItem("itemsToRender", JSON.stringify(itemsToRender));
+  // } else {
+  // itemsToRender = JSON.parse(localStorage.getItem("itemsToRender"));
+  // }
 
   let requestString = "?include[]=";
   let i = 0;
@@ -241,8 +241,7 @@ function renderShoppingCart(shoppingCartItems) {
   let shoppingCartItemsContainer = $(".shoping-cart__items-container");
 
   let itemsToRender = JSON.parse(localStorage.getItem("itemsToRender"));
-
-  itemsToRender = JSON.parse(localStorage.getItem("itemsToRender"));
+  // itemsToRender = JSON.parse(localStorage.getItem("itemsToRender"));
 
   shoppingCartItems.forEach((item) => {
     shoppingCartItemsContainer.innerHTML += createShopppingCartCard(
@@ -250,7 +249,6 @@ function renderShoppingCart(shoppingCartItems) {
       itemsToRender
     );
   });
-  // console.log("rendering shopping cart");
 
   // Set up increase/decrease logic
   const cardAmountIncrease = $$(".card__amount--increase"),
@@ -291,6 +289,8 @@ function renderShoppingCart(shoppingCartItems) {
 
       if (currentItemAmount > 0) {
         currentItemAmount--;
+      } else if (currentItemAmount == 0) {
+        delete itemsToRender[`${currentID}`];
       }
 
       const cardAmountDisplay = event.target.parentElement.querySelector(
@@ -306,6 +306,16 @@ function renderShoppingCart(shoppingCartItems) {
       updateShoppingCartLS(itemsToRender);
     });
   });
+
+  const removeItemLinks = $$(".card__link");
+
+  removeItemLinks.forEach((item) => {
+    item.addEventListener("click", () => {
+      console.log("removing");
+      let currentID = item.dataset.id;
+      deleteItem(currentID);
+    });
+  });
 }
 
 function createShopppingCartCard(shopItem, itemsToRender) {
@@ -315,7 +325,7 @@ function createShopppingCartCard(shopItem, itemsToRender) {
   shopItem = shopItem.acf;
   if (!currentItemAmount == 0) {
     return `<div class="col-12">
-    <div class="card card--horizontal card--image card--price">
+    <div class="card card--horizontal card--image card--price" data-id="${currentID}">
       <div class="card__image">
         <img
           src="${shopItem.thumbnail_image.url}"
@@ -325,7 +335,7 @@ function createShopppingCartCard(shopItem, itemsToRender) {
       <div class="card__content">
         <div class="card__label">
           <h4 class="card__title">  ${shopItem.title}</h4>
-          <a href="" class="card__link" data-id="${currentID}">Remove item</a>
+          <a class="card__link" data-id="${currentID}">Remove item</a>
         </div>
   
         <p class="card__description">
@@ -387,7 +397,13 @@ function updateDisplay(currentID, newAmount, itemsToRender, displayElement) {
 //   updateDisplay(currentID, currentItemAmount, itemsToRender, cardAmountDisplay);
 // }
 
-// function deleteItem(ID) {
-//   $('.card [data-id]').remove()
-//   delete itemsToRender[`${ID}`];
-// }
+function deleteItem(ID) {
+  $(`.card[data-id='${ID}']`).remove();
+  console.log(itemsToRender[`${ID}`]);
+  console.log(itemsToRender);
+  delete itemsToRender[`${ID}`];
+  console.log(itemsToRender);
+  localStorage.setItem("itemsToRender", JSON.stringify(itemsToRender));
+}
+
+function updateTotal() {}
