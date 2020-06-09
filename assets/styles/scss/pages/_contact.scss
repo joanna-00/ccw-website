@@ -1,0 +1,39 @@
+.main-contact {
+    // h2{
+    //     padding-left: 15px;
+    // }
+    &:after {
+        content: '';
+        background-image: url(../../images/svgs/bubbles.svg);
+        position: fixed;
+        top: 0;
+        left: 0;
+        opacity: 16%;
+        min-height: 100%;
+        min-width: 100%;
+        z-index: -10;
+    }
+
+    margin-top: 12rem;
+
+    &__address {
+        padding: 4rem 0;
+        iframe{
+            border: none;
+        }
+    }
+
+    &__form {
+        padding: 4rem 0;
+        fieldset{
+            border: none;
+            textarea{
+                resize: none;
+                height: 24rem;
+            }
+        }
+        
+        
+    }
+
+}

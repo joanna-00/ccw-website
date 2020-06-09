@@ -1631,6 +1631,37 @@ h1 {
   background-image: url(../../images/photos/aalborg-nu.png);
 }
 
+.main-contact {
+  margin-top: 12rem;
+}
+.main-contact:after {
+  content: "";
+  background-image: url(../../images/svgs/bubbles.svg);
+  position: fixed;
+  top: 0;
+  left: 0;
+  opacity: 16%;
+  min-height: 100%;
+  min-width: 100%;
+  z-index: -10;
+}
+.main-contact__address {
+  padding: 4rem 0;
+}
+.main-contact__address iframe {
+  border: none;
+}
+.main-contact__form {
+  padding: 4rem 0;
+}
+.main-contact__form fieldset {
+  border: none;
+}
+.main-contact__form fieldset textarea {
+  resize: none;
+  height: 24rem;
+}
+
 .main-homepage {
   overflow-x: hidden;
 }
