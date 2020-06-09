@@ -968,6 +968,7 @@ h1 {
 }
 
 .footer {
+  padding: 4rem 0;
   background-color: #ffffff;
 }
 .footer__center {
@@ -1508,6 +1509,88 @@ h1 {
 }
 .main-homepage__media-images .aalborgnu {
   background-image: url(../../images/photos/aalborg-nu.png);
+}
+
+.main-memberships {
+  margin-top: 12rem;
+}
+.main-memberships:after {
+  content: "";
+  background-image: url(../../images/svgs/bubbles.svg);
+  position: absolute;
+  top: 0;
+  left: 0;
+  opacity: 16%;
+  min-height: 100%;
+  min-width: 100%;
+  z-index: -10;
+}
+.main-memberships__intro__banner {
+  padding: 4rem 0;
+}
+.main-memberships__intro__banner-image {
+  background-image: url(../../images/photos/membership-image.jpg);
+  width: 100%;
+  padding-top: 56.25%;
+  background-position: center;
+  background-repeat: no-repeat;
+  background-size: cover;
+  padding-top: 24.25%;
+}
+.main-memberships__intro__benefits {
+  padding: 2rem 0;
+  background-color: #ffffff;
+}
+.main-memberships__intro__benefits h4 {
+  display: inline-block;
+  border-bottom: 3px solid #55beee;
+}
+.main-memberships__memberships {
+  padding: 4rem 0 8rem 0;
+}
+.main-memberships__memberships table {
+  padding: 0;
+  -webkit-box-shadow: 0px 3px 10px 0px rgba(0, 0, 0, 0.25);
+  -moz-box-shadow: 0px 3px 10px 0px rgba(0, 0, 0, 0.25);
+  box-shadow: 0px 3px 10px 0px rgba(0, 0, 0, 0.25);
+  border-radius: 10px;
+}
+.main-memberships__memberships table tr:nth-child(odd) {
+  background-color: #ffffff;
+}
+.main-memberships__memberships table tr:nth-child(even) {
+  background-color: #f9f9f9;
+}
+.main-memberships__memberships table .heading {
+  padding-left: 8rem;
+}
+.main-memberships__memberships table .plat-heading, .main-memberships__memberships table .plat {
+  color: #3D6277;
+}
+.main-memberships__memberships table .gold-heading, .main-memberships__memberships table .gold {
+  color: #F6D868;
+}
+.main-memberships__memberships table .silver-heading, .main-memberships__memberships table .silver {
+  color: #B6B6B6;
+}
+.main-memberships__memberships table .bronze-heading, .main-memberships__memberships table .bronze {
+  color: #C99274;
+}
+.main-memberships__memberships table .plat, .main-memberships__memberships table .gold, .main-memberships__memberships table .silver, .main-memberships__memberships table .bronze {
+  padding: 1.6rem;
+  text-shadow: 0 3px 10px #c4c4c4;
+  text-align: center;
+  font-size: 3.2rem;
+}
+.main-memberships__services {
+  padding: 4rem 0;
+  background-color: #133657;
+}
+.main-memberships__services h2 {
+  color: #ffffff;
+}
+.main-memberships__services a {
+  color: black;
 }
 
 /*# sourceMappingURL=main.css.map */
