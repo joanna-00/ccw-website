@@ -1324,6 +1324,9 @@ h1 {
   display: none;
 }
 
+.main-homepage {
+  overflow-x: hidden;
+}
 .main-homepage__banner {
   height: 100vh;
   overflow: hidden;
