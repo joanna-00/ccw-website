@@ -1,12 +1,13 @@
 .main-homepage {
-    overflow-x: hidden;
+  overflow-x: hidden;
   &__banner {
     height: 100vh;
     overflow: hidden;
     position: relative;
 
     &-video {
-      width: 100%;
+      // width: 100%;
+      min-height: 100%;
       position: absolute;
       z-index: -1;
     }
@@ -15,8 +16,11 @@
       position: relative;
       height: 100vh;
       width: 100%;
+      clip-path: polygon(0 0, 60% 0, 100% 100%, 0 100%);
 
-      clip-path: polygon(0 0, 25% 0, 75% 100%, 0 100%);
+      @media (min-width: $media-md) {
+        clip-path: polygon(0 0, 40% 0, 60% 100%, 0 100%);
+      }
 
       backdrop-filter: blur(14px) brightness(64%);
       // top: -100%;
@@ -40,8 +44,8 @@
   }
 
   &__memberships {
-    &__cards{
-        overflow-x: auto;
+    &__cards {
+      overflow-x: auto;
     }
     padding: 4rem 0;
     &-text {
@@ -95,9 +99,9 @@
   }
 
   &__services {
-    &__cards{
-        overflow-x: auto;
-        overflow-y: hidden;
+    &__cards {
+      overflow-x: auto;
+      overflow-y: hidden;
     }
     padding: 4rem 0;
     &-text {
@@ -127,9 +131,9 @@
   }
 
   &__testimonials {
-      &__cards{
-          overflow-x: auto;
-      }
+    &__cards {
+      overflow-x: auto;
+    }
     padding: 4rem 0;
     &-avatar {
       @include bckg-img;
@@ -166,9 +170,9 @@
   }
 
   &__media {
-      &__medias{
-          overflow-x: auto;
-      }
+    &__medias {
+      overflow-x: auto;
+    }
     padding: 4rem 0;
     background-color: $primary-light;
     color: $white;

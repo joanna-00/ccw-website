@@ -1,3 +1,5 @@
+// SHOP
+
 if (window.location.pathname.includes("shop.html")) {
   const shopItems = requestWP(tagEndPoint, tagShop, renderShop);
 }
@@ -15,16 +17,16 @@ function renderShop(shopItems) {
 
     switch (filter) {
       case "memberships":
-        containerMemberships.innerHTML += createMembershipCard(item);
+        containerMemberships.innerHTML += createMembershipCard(item, "shop");
         break;
       case "exterior":
-        containerExterior.innerHTML += createShopCard(item);
+        containerExterior.innerHTML += createShopCard(item, "shop");
         break;
       case "interior":
-        containerInterior.innerHTML += createShopCard(item);
+        containerInterior.innerHTML += createShopCard(item, "shop");
         break;
       case "bundles":
-        containerBundles.innerHTML += createShopCard(item);
+        containerBundles.innerHTML += createShopCard(item, "shop");
         break;
     }
   });
@@ -59,9 +61,10 @@ function renderShop(shopItems) {
   });
 }
 
-function createMembershipCard(shopItem) {
+function createMembershipCard(shopItem, type) {
   shopItem = shopItem.acf;
-  return `        <div class="col-12 col-sm-6 col-xl-3">
+  if (type == "homepage") {
+    return `        <div class="col-12 col-sm-6 col-lg-3">
   <div class="shop__membership-card card card--membership card--image">
     <div class="card__image">
       <img src="${shopItem.membership_icon}" alt="" />
@@ -79,13 +82,74 @@ function createMembershipCard(shopItem) {
     </div>
   </div>
 </div>`;
+  }
+
+  if (type == "shop") {
+    return `        <div class="col-12 col-sm-6 col-xl-3">
+  <div class="shop__membership-card card card--membership card--image">
+    <div class="card__image">
+      <img src="${shopItem.membership_icon}" alt="" />
+    </div>
+    <div class="card__content">
+      <h4 class="card__title">${shopItem.membership_title}</h4>
+      <p class="card__description">
+        ${shopItem.membership_description}
+      </p>
+      <button
+        class="button button--base-lg button--secondary button--filled"
+      >
+        Buy now
+      </button>
+    </div>
+  </div>
+</div>`;
+  }
 }
 
-function createShopCard(shopItem) {
+function createShopCard(shopItem, type) {
   let post = shopItem;
   shopItem = shopItem.acf;
   // console.log(shopItem.isavailable);
-  if (shopItem.isavailable) {
+
+  if (type == "reccomended") {
+  }
+
+  if (type == "homepage") {
+    return `   <div class="col-12 col-sm-6 col-lg-4 col-xl-3">
+<div
+    class="card shop-item card--image card--button card--description card--price card--clickable">
+    <div class="card__image">
+        <img src="${shopItem.thumbnail_image.url}" alt="">
+    </div>
+    <div class="card__content">
+        <div class="card__label">
+            <h4 class="card__title">
+            ${shopItem.title}
+            </h4>
+            <h4>
+                <a href="" class="card__link"><i class="fas fa-arrow-right"
+                        aria-hidden="true"></i></a>
+            </h4>
+        </div>
+
+        <p class="card__description">
+        ${shopItem.description_short}
+        </p>
+
+        <div class="card__features">
+            <h4 class="card__price">${shopItem.price},-</h4>
+            <button class="card__button button button--base-lg button--primary-light"
+            data-id="${post.id}">
+                Add to cart
+                <i class="fas fa-cart-plus" aria-hidden="true"></i>
+            </button>
+        </div>
+    </div>
+</div>
+</div>`;
+  }
+
+  if (type == "shop" && shopItem.isavailable) {
     return `<div class="col-12 col-sm-6 col-xl-4">
   <div
     class="shop__service-card card card--image card--button card--description card--price card--clickable"
@@ -125,7 +189,7 @@ function createShopCard(shopItem) {
     </div>
   </div>
 </div>`;
-  } else {
+  } else if (type == "shop") {
     return `<div class="col-12 col-sm-6 col-xl-4">
   <div
     class="shop__service-card card card--image card--button card--description card--price"
@@ -177,7 +241,7 @@ function addToggleToCheckbox(checkbox, container) {
   });
 }
 
-// Shopping cart
+// SHOPPING CART
 
 function addToShoppingCart(e) {
   let serviceID = e.target.dataset.id;
@@ -509,5 +573,40 @@ if (
   $(".shoping-cart__items-container").classList.add("empty");
 }
 
+// HOMEPAGE
+
 if (window.location.pathname.includes("index.html")) {
+  let requestString = "?include[]=635&include[]=626&include[]=598";
+
+  const services = requestWP(noEndPoint, requestString, renderHomepageServices);
+  const memberships = requestWP(
+    catEndPoint,
+    catMembership,
+    renderHomepageMemberships
+  );
+}
+
+function renderHomepageServices(services) {
+  let servicesContainer = $(".main-homepage__services__cards");
+  services.forEach((item) => {
+    servicesContainer.innerHTML += createShopCard(item, "homepage");
+  });
+}
+
+function renderHomepageMemberships(memberships) {
+  let membershipsContainer = $(".main-homepage__memberships__cards");
+  memberships.forEach((item) => {
+    membershipsContainer.innerHTML += createMembershipCard(item, "homepage");
+  });
+}
+
+if (window.location.pathname.includes("memberships.html")) {
+  const memberships = requestWP(catEndPoint, catMembership, renderMemberships);
+}
+
+function renderMemberships(memberships) {
+  let membershipsContainer = $(".main-memberships__memberships__cards");
+  memberships.forEach((item) => {
+    membershipsContainer.innerHTML += createMembershipCard(item, "homepage");
+  });
 }
