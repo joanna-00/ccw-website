@@ -193,6 +193,8 @@ function addToShoppingCart(e) {
   }
 }
 
+// let shoppingCartItems;
+
 if (window.location.pathname.includes("shopping_cart.html")) {
   if (localStorage.getItem("shoppingCart")) {
     let currentShoppingCart = JSON.parse(localStorage.getItem("shoppingCart"));
@@ -249,8 +251,15 @@ function renderShoppingCart(shoppingCartItems) {
 
   checkoutCardContainer.innerHTML = createCheckoutSummary(
     shoppingCartItems,
-    itemsToRender
+    itemsToRender,
+    "shoppingCart"
   );
+
+  const proceedToCheckoutButton = $("#proceedToCheckoutButton");
+  proceedToCheckoutButton.addEventListener("click", () => {
+    let coupon = $("#coupon").value;
+    localStorage.setItem("coupon", coupon);
+  });
 
   // Set up increase/decrease logic
   const cardAmountIncrease = $$(".card__amount--increase"),
@@ -362,67 +371,80 @@ function createShopppingCartCard(shopItem, itemsToRender) {
   }
 }
 
-function createCheckoutSummary(shoppingCartItems, itemsToRender) {
+function createCheckoutSummary(shoppingCartItems, itemsToRender, type) {
   console.log(shoppingCartItems);
   let output = "";
   let totalPrice = 0;
+
   shoppingCartItems.forEach((item) => {
     let ID = item.id;
+    let itemAmount = itemsToRender[`${ID}`];
     item = item.acf;
-    totalPrice += Number(item.price);
+    totalPrice += Number(item.price) * itemAmount;
     console.log(totalPrice);
     output += `
     <div class="checkout-card__item">
-      <p class="checkout-card__item-name">${item.title}</p>
-      <p class="checkout-card__item-price">${item.price}</p>
+      <p class="checkout-card__item-name">${itemAmount}x ${item.title}</p>
+      <p class="checkout-card__item-price">${itemAmount * item.price}</p>
     </div>`;
-    // return output;
   });
 
   let checkoutSummary = "";
   checkoutSummary += `<div class="card checkout-card">`;
   checkoutSummary += output;
-  // const renderItems = (itemsToRender) => {
-  //   let output = "";
-  //   for (const ID in itemsToRender) {
-  //     output += `
-  //   <div class="checkout-card__item">
-  //     <p class="checkout-card__item-name">a</p>
-  //     <p class="checkout-card__item-price">aa</p>
-  //   </div>`;
-  //   }
-  //   return output;
-  // };
 
-  // checkoutSummary += renderItems(itemsToRender);
+  for (const ID in itemsToRender) {
+    output += `
+    <div class="checkout-card__item">
+      <p class="checkout-card__item-name">a</p>
+      <p class="checkout-card__item-price">aa</p>
+    </div>`;
+  }
+
+  if (type == "shoppingCart") {
+    checkoutSummary += `  <div class="checkout-card__coupon">
+    <p class="checkout-card__coupon-label">Coupon</p>
+  
+    <input
+      type="text"
+      name=""
+      id="coupon"
+      class="checkout-card__coupon-input text-input__input"
+    />
+  </div>`;
+  }
+
+  if (type == "checkout") {
+    checkoutSummary += `  <div class="checkout-card__coupon">
+    <p class="checkout-card__coupon-label">Coupon</p>
+  
+    <p
+      id="coupon"
+      class="checkout-card__coupon-input">
+      ${
+        localStorage.getItem("coupon") ? localStorage.getItem("coupon") : "none"
+      }
+    </p>
+  </div>`;
+  }
+
   checkoutSummary += `
-
-  <div class="checkout-card__coupon">
-  <p class="checkout-card__coupon-label">Coupon</p>
-
-  <input
-    type="text"
-    name=""
-    id="coupon"
-    class="checkout-card__coupon-input text-input__input"
-  />
-</div>
-
-
   <div class="checkout-card__total">
     <h6>Total:</h6>
     <h6 class="checkout-card__total-price">${totalPrice}</h6>
-  </div>
+  </div>`;
 
-
-  <div class="checkout-card__buttons">
-    <button
+  if (type == "shoppingCart") {
+    checkoutSummary += `<div class="checkout-card__buttons">
+    <a href="checkout.html"
       class="checkout-card__button button button--base-lg button--primary-light button--filled"
+      id="proceedToCheckoutButton"
     >
       Proceed to checkout
-    </button>
+    </a>
   </div>
 </div>`;
+  }
   return checkoutSummary;
 }
 
@@ -477,13 +499,24 @@ function deleteItem(ID, itemsToRender) {
 const removeAllButton = $("#removeAllButton");
 
 if (removeAllButton) {
-  removeAllButton.addEventListener("click", deleteAllItems);
+  removeAllButton.addEventListener("click", () => {
+    deleteAllItems(true);
+  });
 }
 
-function deleteAllItems() {
+function deleteAllItems(shouldRefresh) {
   localStorage.removeItem("itemsToRender");
   localStorage.removeItem("shoppingCart");
-  location.reload();
+  if (shouldRefresh === true) {
+    location.reload();
+  }
 }
 
 function updateTotal() {}
+
+if (
+  !localStorage.getItem("shoppingCart") &&
+  !localStorage.getItem("itemsToRender")
+) {
+  $(".shoping-cart__items-container").classList.add("empty");
+}

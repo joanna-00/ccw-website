@@ -18,6 +18,39 @@ const stepIcons = [
 
 updateStepIcons();
 
+if (window.location.pathname.includes("checkout.html")) {
+  let itemsToRender = JSON.parse(localStorage.getItem("itemsToRender"));
+  console.log(itemsToRender);
+
+  let requestString = "?include[]=";
+  let i = 0;
+
+  for (const ID in itemsToRender) {
+    if (i == 0) {
+      console.log(ID);
+      requestString += ID;
+      i++;
+    } else {
+      requestString += `&include[]=${ID}`;
+    }
+  }
+
+  console.log(requestString);
+  let shoppingCartItems = requestWP(noEndPoint, requestString, renderTotal);
+}
+
+function renderTotal(shoppingCartItems) {
+  console.log(shoppingCartItems);
+  let checkoutCardContainer = $(".checkout-card__container");
+  let itemsToRender = JSON.parse(localStorage.getItem("itemsToRender"));
+
+  checkoutCardContainer.innerHTML = createCheckoutSummary(
+    shoppingCartItems,
+    itemsToRender,
+    "checkout"
+  );
+}
+
 function updateStepIcons() {
   processSteps.forEach((step) => {
     if (step.dataset.step < currentStep) {
@@ -129,25 +162,38 @@ buttonBack.addEventListener("click", () => {
 });
 
 buttonNext.addEventListener("click", () => {
-  if (currentStep < 4) {
-    if (validateForm()) {
-      currentStep++;
+  if (currentStep < 5 && validateForm()) {
+    // if () {
+    currentStep++;
+    if (currentStep < 5) {
       console.log(formSteps[currentStep - 1]);
       formSteps[currentStep - 1].classList.add("moveOutLeft");
 
       showForm("moveInRight");
       updateStepIcons();
+    } else {
+      location.href = "shopping_cart.html";
+      deleteAllItems(false);
+
+      let newTitle = "Your appointment was successfully booked!",
+        newDesc =
+          'You can see it under "calendar" in your profile or in your e-mail.';
+
+      displayNotification("success", true, "sm", newTitle, newDesc);
     }
+    // }
   }
 
-  if (currentStep == 4) {
-    if (validateForm()) {
-      currentStep++;
-    }
-  }
-  if (currentStep == 5) {
-    if (validateForm()) {
-      location.href = "shopping_cart.html";
-    }
-  }
+  // if (currentStep == 4) {
+  //   if (validateForm()) {
+  //     console.log("current step is 4");
+  //     currentStep++;
+  //   }
+  // }
+  // if (currentStep == 5) {
+  //   if (validateForm()) {
+  //     location.href = "shopping_cart.html";
+  //     deleteAllItems();
+  //   }
+  // }
 });
