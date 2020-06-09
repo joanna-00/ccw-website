@@ -1,148 +1,194 @@
 .main-homepage {
-    &__banner {
-        height: 100vh;
-        overflow: hidden;
+  &__banner {
+    height: 100vh;
+    overflow: hidden;
+    position: relative;
 
-        &-video {
-            width: 100%;
-        }
-
-        &-container {
-            position: relative;
-            top: -100%;
-            transform: translateY(50%);
-        }
-
-        &-text {
-            // position: relative;
-            // top: -100%;
-            // transform: translateY(50%);
-            height: inherit;
-            backdrop-filter: blur(14px) brightness(64%);
-            color: $white;
-        }
+    &-video {
+      width: 100%;
+      position: absolute;
+      z-index: -1;
     }
 
-    &__memberships {
-        padding: 4rem 0;
-        &-text {
-            text-align: center;
-        }
+    &-container {
+      position: relative;
+      height: 100vh;
+      width: 100%;
+
+      clip-path: polygon(0 0, 25% 0, 75% 100%, 0 100%);
+
+      backdrop-filter: blur(14px) brightness(64%);
+      // top: -100%;
+      // transform: translateY(50%);
     }
 
-    &__company {
-        padding: 4rem 0;
-        background-image: url(../../images/photos/homepage-company.jpg);
-        @include bckg-img;
+    &-text {
+      position: relative;
+      //   top: -100%;
+      top: 50%;
+      padding-left: 4rem;
+      width: 50%;
+      transform: translateY(-50%);
+      //   height: inherit;
+
+      display: flex;
+      flex-direction: column;
+
+      color: $white;
+    }
+  }
+
+  &__memberships {
+    padding: 4rem 0;
+    &-text {
+      text-align: center;
+    }
+  }
+
+  &__company {
+    padding: 4rem 0;
+    background-image: url(../../images/photos/homepage-company.jpg);
+    @include bckg-img;
+    padding: 0;
+    height: 75vh;
+
+    .container-fluid {
+      padding: 0;
+      height: 100%;
+
+      div {
         padding: 0;
-
-        &-text {
-            padding: 8rem 0;
-            backdrop-filter: blur(14px) brightness(64%);
-            color: $white;
-        }
+        height: 100%;
+      }
     }
 
-    &__services {
-        padding: 4rem 0;
-        &-text {
-            text-align: center;
-        }
+    &-text {
+      padding: $padding-lg;
+      backdrop-filter: blur(14px) brightness(64%);
+      color: $white;
+
+      clip-path: polygon(75% 0, 100% 0, 100% 100%, 25% 100%);
+
+      position: relative;
+      //   top: -100%;
+      // left: 50%;
+      top: 50%;
+      padding-left: 4rem;
+      // width: 50%;
+      transform: translateY(-50%);
+      height: 100%;
+
+      display: flex;
+      justify-content: center;
+      flex-direction: column;
+      align-items: flex-end;
+      text-align: right;
+
+      h2 {
+        width: 25%;
+      }
+    }
+  }
+
+  &__services {
+    padding: 4rem 0;
+    &-text {
+      text-align: center;
+    }
+  }
+
+  &__signup {
+    padding: 4rem 0;
+    &-text {
+    }
+    &-devices {
+      background-image: url(../../images/photos/mock-up-devices.png);
+      @include bckg-img;
+      background-size: contain;
+    }
+  }
+
+  &__steps {
+    padding: 4rem 0;
+    text-align: center;
+    color: $white;
+    background-color: $primary-light;
+    i {
+      font-size: 10rem;
+    }
+  }
+
+  &__testimonials {
+    padding: 4rem 0;
+    &-avatar {
+      @include bckg-img;
+      background-size: contain;
+      border-radius: 100%;
+      padding: 4rem;
+      display: inline-block;
+      width: 0;
+      position: relative;
+      left: 50%;
+      transform: translateX(-50%);
     }
 
-    &__signup {
-        padding: 4rem 0;
-        &-text {
-
-        }
-        &-devices {
-            background-image: url(../../images/photos/mock-up-devices.png);
-            @include bckg-img;
-            background-size: contain;
-        }
+    .gitte {
+      background-image: url(../../images/photos/gitte.png);
     }
 
-    &__steps {
-        padding: 4rem 0;
-        text-align: center;
-        color: $white;
-        background-color: $primary-light;
-        i {
-            font-size: 10rem;
-        }
+    .mathias {
+      background-image: url(../../images/photos/mathias.png);
     }
 
-    &__testimonials {
-        padding: 4rem 0;
-        &-avatar {
-            @include bckg-img;
-            background-size: contain;
-            border-radius: 100%;
-            padding: 4rem;
-            display: inline-block;
-            width: 0;
-            position: relative;
-            left: 50%;
-            transform: translateX(-50%);
-        }
-
-        .gitte {
-            background-image: url(../../images/photos/gitte.png);
-        }
-
-        .mathias {
-            background-image: url(../../images/photos/mathias.png);
-        }
-
-        .claus {
-            background-image: url(../../images/photos/claus.png);
-        }
-
-        &-text {
-            padding: $padding-sm;
-            .trustpilot{
-                @include bckg-img;
-                padding: 0.1rem 6.4rem;
-                background-image: url(../../images/photos/trustpilot.png); 
-            }
-        }
+    .claus {
+      background-image: url(../../images/photos/claus.png);
     }
 
-    &__media {
-        padding: 4rem 0;
-        background-color: $primary-light;
-        color: $white;
-
-        &-text {
-            text-align: center;
-        }
-
-        &-images {
-            * {
-                @include bckg-img;
-                background-size: contain;
-                padding: 2rem;
-            }
-
-            .migog {
-                background-image: url(../../images/photos/migogaalborg.png);
-            }
-
-            .tv2nord {
-                background-image: url(../../images/photos/tv2-nord.png);
-            }
-
-            .nord24 {
-                background-image: url(../../images/photos/24-nord.png);
-            }
-
-            .nord {
-                background-image: url(../../images/photos/nordjyske.png);
-            }
-
-            .aalborgnu {
-                background-image: url(../../images/photos/aalborg-nu.png);
-            }
-        }
+    &-text {
+      padding: $padding-sm;
+      .trustpilot {
+        @include bckg-img;
+        padding: 0.1rem 6.4rem;
+        background-image: url(../../images/photos/trustpilot.png);
+      }
     }
+  }
+
+  &__media {
+    padding: 4rem 0;
+    background-color: $primary-light;
+    color: $white;
+
+    &-text {
+      text-align: center;
+    }
+
+    &-images {
+      * {
+        @include bckg-img;
+        background-size: contain;
+        padding: 2rem;
+      }
+
+      .migog {
+        background-image: url(../../images/photos/migogaalborg.png);
+      }
+
+      .tv2nord {
+        background-image: url(../../images/photos/tv2-nord.png);
+      }
+
+      .nord24 {
+        background-image: url(../../images/photos/24-nord.png);
+      }
+
+      .nord {
+        background-image: url(../../images/photos/nordjyske.png);
+      }
+
+      .aalborgnu {
+        background-image: url(../../images/photos/aalborg-nu.png);
+      }
+    }
+  }
 }

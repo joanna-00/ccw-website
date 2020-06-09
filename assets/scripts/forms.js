@@ -76,14 +76,14 @@ function applyFill(slider) {
 
 //SRC: https://codepen.io/nosurprisethere/pen/KJxwQz
 
-const collapseFiltersButtonOutside = $("#collapseFiltersButtonOutside"),
-  collapseFiltersButtonInside = $("#collapseFiltersButtonInside");
-const filtersBody = $(".filters__body");
+// const collapseFiltersButtonOutside = $("#collapseFiltersButtonOutside"),
+//   collapseFiltersButtonInside = $("#collapseFiltersButtonInside");
+// const filtersBody = $(".filters__body");
 
-collapseFiltersButtonOutside.addEventListener("click", () => {
-  filtersBody.classList.toggle("hidden");
-});
+// collapseFiltersButtonOutside.addEventListener("click", () => {
+//   filtersBody.classList.toggle("hidden");
+// });
 
-collapseFiltersButtonInside.addEventListener("click", () => {
-  filtersBody.classList.toggle("hidden");
-});
+// collapseFiltersButtonInside.addEventListener("click", () => {
+//   filtersBody.classList.toggle("hidden");
+// });

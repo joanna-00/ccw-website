@@ -499,6 +499,7 @@ h1 {
 .card--membership .card__image img {
   width: 100%;
   object-fit: contain;
+  object-position: 50% 50%;
 }
 .card--membership .card__content {
   display: flex;
@@ -1317,18 +1318,28 @@ h1 {
 .main-homepage__banner {
   height: 100vh;
   overflow: hidden;
+  position: relative;
 }
 .main-homepage__banner-video {
   width: 100%;
+  position: absolute;
+  z-index: -1;
 }
 .main-homepage__banner-container {
   position: relative;
-  top: -100%;
-  transform: translateY(50%);
+  height: 100vh;
+  width: 100%;
+  clip-path: polygon(0 0, 25% 0, 75% 100%, 0 100%);
+  backdrop-filter: blur(14px) brightness(64%);
 }
 .main-homepage__banner-text {
-  height: inherit;
-  backdrop-filter: blur(14px) brightness(64%);
+  position: relative;
+  top: 50%;
+  padding-left: 4rem;
+  width: 50%;
+  transform: translateY(-50%);
+  display: flex;
+  flex-direction: column;
   color: #ffffff;
 }
 .main-homepage__memberships {
@@ -1346,11 +1357,34 @@ h1 {
   background-repeat: no-repeat;
   background-size: cover;
   padding: 0;
+  height: 75vh;
+}
+.main-homepage__company .container-fluid {
+  padding: 0;
+  height: 100%;
+}
+.main-homepage__company .container-fluid div {
+  padding: 0;
+  height: 100%;
 }
 .main-homepage__company-text {
-  padding: 8rem 0;
+  padding: 3rem 6rem;
   backdrop-filter: blur(14px) brightness(64%);
   color: #ffffff;
+  clip-path: polygon(75% 0, 100% 0, 100% 100%, 25% 100%);
+  position: relative;
+  top: 50%;
+  padding-left: 4rem;
+  transform: translateY(-50%);
+  height: 100%;
+  display: flex;
+  justify-content: center;
+  flex-direction: column;
+  align-items: flex-end;
+  text-align: right;
+}
+.main-homepage__company-text h2 {
+  width: 25%;
 }
 .main-homepage__services {
   padding: 4rem 0;

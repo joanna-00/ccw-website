@@ -140,9 +140,14 @@ buttonNext.addEventListener("click", () => {
     }
   }
 
-  if ((currentStep = 4)) {
+  if (currentStep == 4) {
     if (validateForm()) {
-      //redirect to shopping cart and display message
+      currentStep++;
+    }
+  }
+  if (currentStep == 5) {
+    if (validateForm()) {
+      location.href = "shopping_cart.html";
     }
   }
 });
