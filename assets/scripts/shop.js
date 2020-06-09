@@ -469,24 +469,6 @@ function updateDisplay(currentID, newAmount, itemsToRender, displayElement) {
   localStorage.setItem("itemsToRender", JSON.stringify(itemsToRender));
 }
 
-// function changeAmount(type, event) {
-//   console.log(event.target.parentElement.dataset.id);
-//   let currentID = event.target.parentElement.dataset.id;
-//   let currentItemAmount = JSON.parse(localStorage.getItem("itemsToRender"))[
-//     `${currentID}`
-//   ];
-//   if (type == "decrease") {
-//     currentItemAmount--;
-//   } else if (type == "increase") {
-//     currentItemAmount++;
-//   }
-
-//   const cardAmountDisplay = event.target.parentElement.querySelector(
-//     ".card__amount--display"
-//   );
-//   updateDisplay(currentID, currentItemAmount, itemsToRender, cardAmountDisplay);
-// }
-
 function deleteItem(ID, itemsToRender) {
   $(`.card[data-id='${ID}']`).remove();
   console.log(itemsToRender[`${ID}`]);

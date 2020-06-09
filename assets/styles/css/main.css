@@ -481,23 +481,30 @@ h1 {
 .card--disabled {
   opacity: 0.65;
 }
-.card--horizontal {
-  flex-direction: row;
-  justify-content: space-between;
-  align-items: top;
-}
-.card--horizontal .card__link {
-  display: flex;
-  justify-content: flex-end;
-}
-.card--horizontal .card__image {
-  overflow: visible;
-  max-width: 50%;
-}
-.card--horizontal .card__image img {
-  height: auto;
-  display: block;
-  object-fit: cover;
+@media (min-width: 992px) {
+  .card--horizontal {
+    flex-direction: row;
+    justify-content: space-between;
+    align-items: top;
+    flex-direction: row;
+    justify-content: space-between;
+    align-items: top;
+  }
+  .card--horizontal .card__link {
+    display: flex;
+    justify-content: flex-end;
+  }
+  .card--horizontal .card__image {
+    overflow: hidden;
+    height: 100%;
+    max-width: 50%;
+  }
+  .card--horizontal .card__image img {
+    height: auto;
+    width: auto;
+    display: block;
+    object-fit: cover;
+  }
 }
 .card--membership {
   padding: 2rem 4rem;
