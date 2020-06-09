@@ -510,7 +510,7 @@ h1 {
   padding: 2rem 4rem;
 }
 .card--membership .card__image {
-  height: 300px;
+  max-height: 100%;
 }
 .card--membership .card__image img {
   width: 100%;
@@ -1163,6 +1163,12 @@ h1 {
   left: 0;
   position: fixed;
   transform: translateX(0);
+  z-index: 9999;
+}
+@media (min-width: 768px) {
+  .filters__collapse-button--outside {
+    z-index: 0;
+  }
 }
 .filters__collapse-button--inside {
   display: flex;
@@ -1671,7 +1677,7 @@ h1 {
   position: relative;
 }
 .main-homepage__banner-video {
-  width: 100%;
+  min-height: 100%;
   position: absolute;
   z-index: -1;
 }
@@ -1679,8 +1685,13 @@ h1 {
   position: relative;
   height: 100vh;
   width: 100%;
-  clip-path: polygon(0 0, 25% 0, 75% 100%, 0 100%);
+  clip-path: polygon(0 0, 60% 0, 100% 100%, 0 100%);
   backdrop-filter: blur(14px) brightness(64%);
+}
+@media (min-width: 768px) {
+  .main-homepage__banner-container {
+    clip-path: polygon(0 0, 40% 0, 60% 100%, 0 100%);
+  }
 }
 .main-homepage__banner-text {
   position: relative;

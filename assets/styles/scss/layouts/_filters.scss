@@ -33,6 +33,10 @@
       left: 0;
       position: fixed;
       transform: translateX(0);
+      z-index: 9999;
+      @media (min-width: $media-md) {
+        z-index: 0;
+      }
     }
 
     &--inside {
