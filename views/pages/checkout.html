@@ -105,7 +105,7 @@
           </div>
         </div>
         <div class="row">
-          <div class="col-12 col-lg-8 checkout__form-steps">
+          <div class="col-12 col-lg-8 order-1 order-lg-1 checkout__form-steps">
             <div
               class="row card process-steps process-steps process-steps--small"
             >
@@ -139,7 +139,7 @@
               </div>
             </div>
             <form class="row form-step current" data-step="1">
-              <div class="col-6">
+              <div class="col-12 col-lg-6">
                 <div class="dropdown" id="dropdownLocation" data-value="">
                   <div class="dropdown__title">
                     Choose a location
@@ -155,6 +155,8 @@
                   data-type="checkout"
                   data-value=""
                 >
+                  <p id="dateFullyAvailable">Fully available date</p>
+                  <p id="datePartiallyBooked">Partially booked date</p>
                   <div class="dates">
                     <div class="month">
                       <div class="arrows prev-mth">
@@ -179,9 +181,14 @@
                     <i class="fas fa-chevron-down"></i>
                   </div>
                   <ul class="dropdown__options-container hidden">
-                    <li class="dropdown__option">1</li>
-                    <li class="dropdown__option">2</li>
-                    <li class="dropdown__option">3</li>
+                    <li class="dropdown__option">08:00 - 09:00</li>
+                    <li class="dropdown__option">09:00 - 10:00</li>
+                    <li class="dropdown__option">10:15 - 11:15</li>
+                    <li class="dropdown__option">11:15 - 12:15</li>
+                    <li class="dropdown__option">12:45 - 13:45</li>
+                    <li class="dropdown__option">13:45 - 14:45</li>
+                    <li class="dropdown__option">15:00 - 16:00</li>
+                    <li class="dropdown__option">16:00 - 17:00</li>
                   </ul>
                 </div>
               </div>
@@ -427,56 +434,29 @@
               </div>
             </form>
           </div>
-          <div class="col-12 col-lg-4 checkout-card__container">
-            <!-- <div class="card checkout-card">
-              <div class="checkout-card__item">
-                <p class="checkout-card__item-name">Item 1</p>
-                <p class="checkout-card__item-price">10 dolers</p>
-              </div>
-
-              <div class="checkout-card__item">
-                <p class="checkout-card__item-name">Item 1</p>
-                <p class="checkout-card__item-price">10 dolers</p>
-              </div>
-
-              <div class="checkout-card__item">
-                <p class="checkout-card__item-name">Item 1</p>
-                <p class="checkout-card__item-price">10 dolers</p>
-              </div>
-              <div class="checkout-card__total">
-                <h6>Total:</h6>
-                <h6 class="checkout-card__total-price">700</h6>
-              </div>
-
-              <div class="checkout-card__buttons">
-                <button
-                  class="checkout-card__button button button--base-lg button--primary-light button--filled"
-                >
-                  Proceed to checkout
-                </button>
-              </div>
-            </div> -->
-          </div>
-        </div>
-        <div class="row checkout__buttons">
-          <div class="col-2">
-            <button
-              class="button button--base-lg button--primary-light"
-              id="buttonBack"
-            >
-              <i class="fas fa-arrow-left icon--left"></i>
-              Back
-            </button>
-          </div>
-          <div class="col-2">
-            <button
-              class="button button--base-lg button--primary-light button--filled"
-              id="buttonNext"
-              type="submit"
-            >
-              Next
-              <i class="fas fa-arrow-right icon--right"></i>
-            </button>
+          <div
+            class="col-12 col-lg-4 order-3 order-lg-2 checkout-card__container"
+          ></div>
+          <div class="col-12 order-2 order-lg-3 row checkout__buttons">
+            <div class="col-5 col-lg-2">
+              <button
+                class="button button--base-lg button--primary-light"
+                id="buttonBack"
+              >
+                <i class="fas fa-arrow-left icon--left"></i>
+                Back
+              </button>
+            </div>
+            <div class="col-5 col-lg-2">
+              <button
+                class="button button--base-lg button--primary-light button--filled"
+                id="buttonNext"
+                type="submit"
+              >
+                Next
+                <i class="fas fa-arrow-right icon--right"></i>
+              </button>
+            </div>
           </div>
         </div>
       </div>

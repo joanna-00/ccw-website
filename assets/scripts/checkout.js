@@ -172,14 +172,15 @@ buttonNext.addEventListener("click", () => {
       showForm("moveInRight");
       updateStepIcons();
     } else {
+      localStorage.setItem("notification", "bookedSuccess");
       location.href = "shopping_cart.html";
       deleteAllItems(false);
 
-      let newTitle = "Your appointment was successfully booked!",
-        newDesc =
-          'You can see it under "calendar" in your profile or in your e-mail.';
+      // let newTitle = "Your appointment was successfully booked!",
+      //   newDesc =
+      //     'You can see it under "calendar" in your profile or in your e-mail.';
 
-      displayNotification("success", true, "sm", newTitle, newDesc);
+      // displayNotification("success", true, "sm", newTitle, newDesc);
     }
     // }
   }

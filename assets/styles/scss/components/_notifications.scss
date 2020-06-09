@@ -1,5 +1,14 @@
 .notification {
-  width: 50%;
+  width: calc(100% - 4rem);
+
+  @media (min-width: $media-md) {
+    width: 75%;
+  }
+
+  @media (min-width: $media-lg) {
+    width: 50%;
+  }
+
   background-color: $white;
   @include border-round-lg;
   @include drop-shadow-light-sm;
@@ -7,8 +16,8 @@
   margin-bottom: 4rem;
   display: flex;
   position: fixed;
-  right: 0;
-  bottom: 0;
+  right: 2rem;
+  bottom: 1rem;
   z-index: 9999;
 
   animation-name: moveInRight;

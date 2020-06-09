@@ -193,8 +193,6 @@ function addToShoppingCart(e) {
   }
 }
 
-// let shoppingCartItems;
-
 if (window.location.pathname.includes("shopping_cart.html")) {
   if (localStorage.getItem("shoppingCart")) {
     let currentShoppingCart = JSON.parse(localStorage.getItem("shoppingCart"));
@@ -233,6 +231,14 @@ if (window.location.pathname.includes("shopping_cart.html")) {
       renderShoppingCart
     );
   }
+
+  if (localStorage.getItem("notification") == "bookedSuccess") {
+    let newTitle = "Your appointment was successfully booked!",
+      newDesc =
+        'You can see it under "calendar" in your profile or in your e-mail.';
+
+    displayNotification("success", true, "sm", newTitle, newDesc);
+  }
 }
 
 function renderShoppingCart(shoppingCartItems) {
@@ -240,7 +246,6 @@ function renderShoppingCart(shoppingCartItems) {
   let checkoutCardContainer = $(".checkout-card__container");
 
   let itemsToRender = JSON.parse(localStorage.getItem("itemsToRender"));
-  // itemsToRender = JSON.parse(localStorage.getItem("itemsToRender"));
 
   shoppingCartItems.forEach((item) => {
     shoppingCartItemsContainer.innerHTML += createShopppingCartCard(
@@ -498,9 +503,11 @@ function updateTotal() {}
 
 if (
   !localStorage.getItem("shoppingCart") &&
-  !localStorage.getItem(
-    "itemsToRender" && window.location.pathname.includes("shopping_cart.html")
-  )
+  !localStorage.getItem("itemsToRender") &&
+  window.location.pathname.includes("shopping_cart.html")
 ) {
   $(".shoping-cart__items-container").classList.add("empty");
+}
+
+if (window.location.pathname.includes("index.html")) {
 }
