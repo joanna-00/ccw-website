@@ -25,41 +25,503 @@
 <body>
     <nav class="nav">
         <div class="container">
-          <div class="row">
-            <div class="nav__logo-container row col-12 col-lg-3 col-xl-3">
-              <a href="index.html" class="nav__logo col"></a>
-              <div class="hamburger d-xl-none d-lg-none col">
-                <span class="line"></span>
-                <span class="line"></span>
-                <span class="line"></span>
+            <div class="row">
+                <div class="nav__logo-container row col-12 col-lg-3 col-xl-3">
+                    <a href="index.html" class="nav__logo col"></a>
+                    <div class="hamburger d-xl-none d-lg-none col">
+                        <span class="line"></span>
+                        <span class="line"></span>
+                        <span class="line"></span>
+                    </div>
+                </div>
+
+                <div class="col-12 col-lg-6 col-xl-6 mt-5 mt-lg-0 hidden" id="links-container">
+                    <ul class="nav__links-container">
+                        <li class="nav__link"><a href="index.html">Home</a></li>
+                        <li class="nav__link active"><a href="memberships.html">Memberships</a></li>
+                        <li class="nav__link"><a href="shop.html">Shop</a></li>
+                        <li class="nav__link"><a href="company.html">The&nbsp;company</a></li>
+                        <li class="nav__link"><a href="contact.html">Contact&nbsp;us</a></li>
+                    </ul>
+                </div>
+
+                <div class="nav__buttons col-12 col-lg-3 col-xl-3 my-5 my-lg-0 hidden" id="buttons-container">
+
+                    <button class="button button--base-sm button--primary-light button--filled d-lg-none d-xl-none"><i
+                            class="fas fa-shopping-cart nav__shopping-cart"></i>Shopping&nbsp;cart</button>
+
+                    <i class="fas fa-shopping-cart nav__shopping-cart d-none d-lg-block"></i>
+
+                    <button class="nav__login button button--base-sm button--primary-light">
+                        Login
+                    </button>
+
+                </div>
+
             </div>
+        </div>
+    </nav>
+    <main class="main-memberships">
+        <section class="main-memberships__intro">
+            <div class="container">
+                <div class="main-memberships__intro__banner row justify-content-xl-around align-items-center">
+                    <div class="main-memberships__intro__banner-message col-xl-4">
+                        <h1>Buy a membership today and get access to all the benefits CCW has to offer</h1>
+                    </div>
+                    <div class="main-memberships__intro__banner-image col-xl-5"></div>
+                </div>
+                <div class="main-memberships__intro__benefits row justify-content-xl-around">
+                    <article class="col-xl-3">
+                        <div>
+                            <h4>Discounts</h4>
+                            <p>Our range of memberships not only help you save time but we also have discount coupons
+                                for all our members!</p>
+                        </div>
+                    </article>
+                    <article class="col-xl-3">
+                        <div>
+                            <h4>Unlimited service</h4>
+                            <p>By buying a membership you also get unlimited booking or even NO BOOKING from our
+                                platinum membership package!</p>
+                        </div>
+                    </article>
+                    <article class="col-xl-3">
+                        <div>
+                            <h4>VIP Lounge</h4>
+                            <p>You can work in our VIP Lounge while you wait for your car to be cleaned. We provide the
+                                coffee and the atmosphere!</p>
+                        </div>
+                    </article>
+                </div>
             </div>
-    
-            <div class="col-12 col-lg-6 col-xl-6 mt-5 mt-lg-0 hidden" id="links-container">
-              <ul class="nav__links-container">
-                <li class="nav__link"><a href="index.html">Home</a></li>
-                <li class="nav__link active"><a href="memberships.html">Memberships</a></li>
-                <li class="nav__link"><a href="shop.html">Shop</a></li>
-                <li class="nav__link"><a href="company.html">The&nbsp;company</a></li>
-                <li class="nav__link"><a href="contact.html">Contact&nbsp;us</a></li>
-              </ul>
+        </section>
+
+        <section class="main-memberships__memberships">
+            <div class="container">
+                <div class="row mb-4 justify-content-center">
+                    <h2>The memberships</h2>
+                </div>
+                <div class="row my-4">
+                    <div class="col-xl-3">
+                        <div class="card card--membership">
+                            <div class="card__image">
+                                <img src="../../assets/images/svgs/check-24px.svg" alt="">
+                            </div>
+                            <div class="card__content">
+                                <h4 class="card__title">Platinum</h4>
+                                <p class="card__description">
+                                    The quick, brown fox jumps over a lazy dog. DJs flock by when
+                                    MTV
+                                </p>
+                                <button class="button button--base-lg button--secondary button--filled">
+                                    Buy now
+                                </button>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="col-xl-3">
+                        <div class="card card--membership">
+                            <div class="card__image">
+                                <img src="../../assets/images/svgs/check-24px.svg" alt="">
+                            </div>
+                            <div class="card__content">
+                                <h4 class="card__title">Platinum</h4>
+                                <p class="card__description">
+                                    The quick, brown fox jumps over a lazy dog. DJs flock by when
+                                    MTV
+                                </p>
+                                <button class="button button--base-lg button--secondary button--filled">
+                                    Buy now
+                                </button>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="col-xl-3">
+                        <div class="card card--membership">
+                            <div class="card__image">
+                                <img src="../../assets/images/svgs/check-24px.svg" alt="">
+                            </div>
+                            <div class="card__content">
+                                <h4 class="card__title">Platinum</h4>
+                                <p class="card__description">
+                                    The quick, brown fox jumps over a lazy dog. DJs flock by when
+                                    MTV
+                                </p>
+                                <button class="button button--base-lg button--secondary button--filled">
+                                    Buy now
+                                </button>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="col-xl-3">
+                        <div class="card card--membership">
+                            <div class="card__image">
+                                <img src="../../assets/images/svgs/check-24px.svg" alt="">
+                            </div>
+                            <div class="card__content">
+                                <h4 class="card__title">Platinum</h4>
+                                <p class="card__description">
+                                    The quick, brown fox jumps over a lazy dog. DJs flock by when
+                                    MTV
+                                </p>
+                                <button class="button button--base-lg button--secondary button--filled">
+                                    Buy now
+                                </button>
+                            </div>
+                        </div>
+                    </div>
+                    
+                </div>
+                <div class="row col-xl-12">
+                    <table class="col-xl-12">
+                        <tr class="row align-items-center">
+                            <th class="col-xl-4"></th>
+                            <th class="col-xl-2 plat-heading"><h6>Platinum</h6></th>
+                            <th class="col-xl-2 gold-heading"><h6>Gold</h6></th>
+                            <th class="col-xl-2 silver-heading"><h6>Silver</h6></th>
+                            <th class="col-xl-2 bronze-heading"><h6>Bronze</h6></th>
+                        </tr>
+                        <tr class="row align-items-center">
+                            <td class="col-xl-4 heading">CCW Lounge</td>
+                            <td class="col-xl-2 plat"><i class="fas fa-check"></i></td>
+                            <td class="col-xl-2 gold"><i class="fas fa-check"></i></td>
+                            <td class="col-xl-2 silver"><i class="fas fa-check"></i></td>
+                            <td class="col-xl-2 bronze"><i class="fas fa-check"></i></td>
+                        </tr>
+                        <tr class="row align-items-center">
+                            <td class="col-xl-4 heading">Car care book - your car's service history</td>
+                            <td class="col-xl-2 plat"><i class="fas fa-check"></i></td>
+                            <td class="col-xl-2 gold"><i class="fas fa-check"></i></td>
+                            <td class="col-xl-2 silver"><i class="fas fa-check"></i></td>
+                            <td class="col-xl-2 bronze"><i class="fas fa-check"></i></td>
+                        </tr>
+                        <tr class="row align-items-center">
+                            <td class="col-xl-4 heading">Vacuuming</td>
+                            <td class="col-xl-2 plat"><i class="fas fa-check"></i></td>
+                            <td class="col-xl-2 gold"><i class="fas fa-check"></i></td>
+                            <td class="col-xl-2 silver"><i class="fas fa-check"></i></td>
+                            <td class="col-xl-2 bronze"><i class="fas fa-check"></i></td>
+                        </tr>
+                        <tr class="row align-items-center">
+                            <td class="col-xl-4 heading">Wiping of plastic and interior</td>
+                            <td class="col-xl-2 plat"><i class="fas fa-check"></i></td>
+                            <td class="col-xl-2 gold"><i class="fas fa-check"></i></td>
+                            <td class="col-xl-2 silver"><i class="fas fa-check"></i></td>
+                            <td class="col-xl-2 bronze"><i class="fas fa-check"></i></td>
+                        </tr>
+                        <tr class="row align-items-center">
+                            <td class="col-xl-4 heading">Window polishing</td>
+                            <td class="col-xl-2 plat"><i class="fas fa-check"></i></td>
+                            <td class="col-xl-2 gold"><i class="fas fa-check"></i></td>
+                            <td class="col-xl-2 silver"><i class="fas fa-check"></i></td>
+                            <td class="col-xl-2 bronze"><i class="fas fa-check"></i></td>
+                        </tr>
+                        <tr class="row align-items-center">
+                            <td class="col-xl-4 heading">Door fake wiping</td>
+                            <td class="col-xl-2 plat"><i class="fas fa-check"></i></td>
+                            <td class="col-xl-2 gold"><i class="fas fa-check"></i></td>
+                            <td class="col-xl-2 silver"><i class="fas fa-check"></i></td>
+                            <td class="col-xl-2 bronze"></td>
+                        </tr>
+                        <tr class="row align-items-center">
+                            <td class="col-xl-4 heading">Exterior prewash + foam wash</td>
+                            <td class="col-xl-2 plat"><i class="fas fa-check"></i></td>
+                            <td class="col-xl-2 gold"><i class="fas fa-check"></i></td>
+                            <td class="col-xl-2 silver"><i class="fas fa-check"></i></td>
+                            <td class="col-xl-2 bronze"></td>
+                        </tr>
+                        <tr class="row align-items-center">
+                            <td class="col-xl-4 heading">Custom seasonal cleaning (insects, road salt)</td>
+                            <td class="col-xl-2 plat"><i class="fas fa-check"></i></td>
+                            <td class="col-xl-2 gold"><i class="fas fa-check"></i></td>
+                            <td class="col-xl-2 silver"><i class="fas fa-check"></i></td>
+                            <td class="col-xl-2 bronze"></td>
+                        </tr>
+                        <tr class="row align-items-center">
+                            <td class="col-xl-4 heading">Rims and wheel box wash</td>
+                            <td class="col-xl-2 plat"><i class="fas fa-check"></i></td>
+                            <td class="col-xl-2 gold"><i class="fas fa-check"></i></td>
+                            <td class="col-xl-2 silver"><i class="fas fa-check"></i></td>
+                            <td class="col-xl-2 bronze"></td>
+                        </tr>
+                        <tr class="row align-items-center">
+                            <td class="col-xl-4 heading">Rinse wax</td>
+                            <td class="col-xl-2 plat"><i class="fas fa-check"></i></td>
+                            <td class="col-xl-2 gold"><i class="fas fa-check"></i></td>
+                            <td class="col-xl-2 silver"><i class="fas fa-check"></i></td>
+                            <td class="col-xl-2 bronze"></td>
+                        </tr>
+                        <tr class="row align-items-center">
+                            <td class="col-xl-4 heading">Wiping of the car</td>
+                            <td class="col-xl-2 plat"><i class="fas fa-check"></i></td>
+                            <td class="col-xl-2 gold"><i class="fas fa-check"></i></td>
+                            <td class="col-xl-2 silver"><i class="fas fa-check"></i></td>
+                            <td class="col-xl-2 bronze"></td>
+                        </tr>
+                        <tr class="row align-items-center">
+                            <td class="col-xl-4 heading">Interior steam wash</td>
+                            <td class="col-xl-2 plat"><i class="fas fa-check"></i></td>
+                            <td class="col-xl-2 gold"><i class="fas fa-check"></i></td>
+                            <td class="col-xl-2 silver"></td>
+                            <td class="col-xl-2 bronze"></td>
+                        </tr>
+                        <tr class="row align-items-center">
+                            <td class="col-xl-4 heading">Steam washing of seats and mats</td>
+                            <td class="col-xl-2 plat"><i class="fas fa-check"></i></td>
+                            <td class="col-xl-2 gold"><i class="fas fa-check"></i></td>
+                            <td class="col-xl-2 silver"></td>
+                            <td class="col-xl-2 bronze"></td>
+                        </tr>
+                        <tr class="row align-items-center">
+                            <td class="col-xl-4 heading">Steam cleaning of door sides and door sills</td>
+                            <td class="col-xl-2 plat"><i class="fas fa-check"></i></td>
+                            <td class="col-xl-2 gold"><i class="fas fa-check"></i></td>
+                            <td class="col-xl-2 silver"></td>
+                            <td class="col-xl-2 bronze"></td>
+                        </tr>
+                        <tr class="row align-items-center">
+                            <td class="col-xl-4 heading">Stone repair in Lakkenl</td>
+                            <td class="col-xl-2 plat"><i class="fas fa-check"></i></td>
+                            <td class="col-xl-2 gold"><i class="fas fa-check"></i></td>
+                            <td class="col-xl-2 silver"></td>
+                            <td class="col-xl-2 bronze"></td>
+                        </tr>
+                        <tr class="row align-items-center">
+                            <td class="col-xl-4 heading">VIP Lounge access</td>
+                            <td class="col-xl-2 plat"><i class="fas fa-check"></i></td>
+                            <td class="col-xl-2 gold"><i class="fas fa-check"></i></td>
+                            <td class="col-xl-2 silver"></td>
+                            <td class="col-xl-2 bronze"></td>
+                        </tr>
+                        <tr class="row align-items-center">
+                            <td class="col-xl-4 heading">Coffee To Go</td>
+                            <td class="col-xl-2 plat"><i class="fas fa-check"></i></td>
+                            <td class="col-xl-2 gold"><i class="fas fa-check"></i></td>
+                            <td class="col-xl-2 silver"></td>
+                            <td class="col-xl-2 bronze"></td>
+                        </tr>
+                        <tr class="row align-items-center">
+                            <td class="col-xl-4 heading">NO BOOKING</td>
+                            <td class="col-xl-2 plat"><i class="fas fa-check"></i></td>
+                            <td class="col-xl-2 gold"></td>
+                            <td class="col-xl-2 silver"></td>
+                            <td class="col-xl-2 bronze"></td>
+                        </tr>
+                    </table>
+                </div>
             </div>
-    
-            <div class="nav__buttons col-12 col-lg-3 col-xl-3 my-5 my-lg-0 hidden" id="buttons-container">
+        </section>
+        <section class="main-memberships__services">
+            <div class="container">
+                <div class="row justify-content-center">
+                    <h2>Maybe you would like to try out our services first?</h2>
+                </div>
+                <div class="row justify-content-xl-center">
+                        <div class="col-4">
+                        <div
+                          class="card shop-item card--image card--button card--description card--price card--clickable"
+                        >
+                          <div class="card__image">
+                            <img
+                              src="../../assets/images/photos/steering-wheel-wash.jpg"
+                              alt=""
+                            />
+                          </div>
+                          <div class="card__content">
+                            <div class="card__label">
+                              <h4 class="card__title">
+                                Card title
+                              </h4>
+                              <h4>
+                                <a href="" class="card__link"
+                                  ><i class="fas fa-arrow-right"></i
+                                ></a>
+                              </h4>
+                            </div>
               
-              <button class="button button--base-sm button--primary-light button--filled d-lg-none d-xl-none"><i class="fas fa-shopping-cart nav__shopping-cart"></i>Shopping&nbsp;cart</button>
+                            <p class="card__description">
+                              card teext text textcard teext text textcard teext text textcard
+                              teext text textcard teext text text
+                            </p>
               
-              <i class="fas fa-shopping-cart nav__shopping-cart d-none d-lg-block"></i>
+                            <div class="card__features">
+                              <h4 class="card__price">175</h4>
+                              <button
+                                class="card__button button button--base-lg button--primary-light"
+                              >
+                                Add to cart
+                                <i class="fas fa-cart-plus"></i>
+                              </button>
+                            </div>
+                          </div>
+                        </div>
+                        </div>
+                        <div class="col-4">
+                        <div
+                          class="card shop-item card--image card--button card--description card--price card--clickable"
+                        >
+                          <div class="card__image">
+                            <img
+                              src="../../assets/images/photos/steering-wheel-wash.jpg"
+                              alt=""
+                            />
+                          </div>
+                          <div class="card__content">
+                            <div class="card__label">
+                              <h4 class="card__title">
+                                Card title
+                              </h4>
+                              <h4>
+                                <a href="" class="card__link"
+                                  ><i class="fas fa-arrow-right"></i
+                                ></a>
+                              </h4>
+                            </div>
               
-              <button class="nav__login button button--base-sm button--primary-light">
-                Login
+                            <p class="card__description">
+                              card teext text textcard teext text textcard teext text textcard
+                              teext text textcard teext text text
+                            </p>
+              
+                            <div class="card__features">
+                              <h4 class="card__price">175</h4>
+                              <button
+                                class="card__button button button--base-lg button--primary-light"
+                              >
+                                Add to cart
+                                <i class="fas fa-cart-plus"></i>
+                              </button>
+                            </div>
+                          </div>
+                        </div>
+                        </div>
+                        <div class="col-4">
+                        <div
+                          class="card shop-item card--image card--button card--description card--price card--clickable"
+                        >
+                          <div class="card__image">
+                            <img
+                              src="../../assets/images/photos/steering-wheel-wash.jpg"
+                              alt=""
+                            />
+                          </div>
+                          <div class="card__content">
+                            <div class="card__label">
+                              <h4 class="card__title">
+                                Card title
+                              </h4>
+                              <h4>
+                                <a href="" class="card__link"
+                                  ><i class="fas fa-arrow-right"></i
+                                ></a>
+                              </h4>
+                            </div>
+              
+                            <p class="card__description">
+                              card teext text textcard teext text textcard teext text textcard
+                              teext text textcard teext text text
+                            </p>
+              
+                            <div class="card__features">
+                              <h4 class="card__price">175</h4>
+                              <button
+                                class="card__button button button--base-lg button--primary-light"
+                              >
+                                Add to cart
+                                <i class="fas fa-cart-plus"></i>
+                              </button>
+                            </div>
+                          </div>
+                        </div>
+                        </div>
+                </div>
+                <div class="row justify-content-center">
+                    <a href="" class="button button--base-lg button--primary-dark button--filled">
+                        Button base lg
+                    </a>
+                </div>
+            </div>
+        </section>
+    </main>
+    <footer class="footer">
+        <div class="container">
+          <div class="row justify-content-between">
+            <div class="mt-4 mt-lg-0 col-xl-2 order-lg-1 col-lg-2 order-sm-1 col-sm-6 order-1 col-12">
+              <div class="footer__section">
+                <h6>Opening times</h6>
+                <p>Mon - Sat: 09:00 – 17:00</p>
+                <p>Sunday: Closed</p>
+              </div>
+  
+              <div class="footer__section">
+                <h6>Aarhus</h6>
+                <p>Anelystparken 37a</p>
+                <p>8381 Tilst</p>
+              </div>
+  
+              <div class="footer__section">
+                <h6>Aalborg</h6>
+                <p>K. Christensens Vej 2D</p>
+                <p>9200 Aalborg</p>
+              </div>
+            </div>
+  
+            <div class="mt-4 mt-lg-0 col-xl-4 order-lg-2 col-lg-4 order-sm-3 col-sm-12 order-3 col-12 footer__center">
+  
+                <h6>Subscribe to our newsletter!</h6>
+              <input
+                type="text"
+                name=""
+                id="firstName"
+                class="text-input__input"
+              />
+              <button
+                class="button button--base-sm button--secondary button--filled"
+              >
+                Subscribe
               </button>
-    
+  
+              <h6 class="mt-5">We accept</h6>
+              <div class="footer__icons-container">
+                  <img src="../../assets/images/payment-dankort.png" alt="Dankort">
+                  <img src="../../assets/images/payment-mastercard.png" alt="MasterCard">
+                  <img src="../../assets/images/payment-visa.png" alt="Visa">
+              </div>
+  
+              <div class="footer__icons-container">
+                  <!-- <h1> -->
+                      <i class="fab fa-facebook-square"></i>
+                      <i class="fab fa-instagram"></i>
+                      <i class="fab fa-youtube"></i>
+                      <i class="fab fa-linkedin"></i>
+                  <!-- </h1> -->
+  
+              </div>            
+  
+              <p class="footer__copyright">All rights reserved &copy; 2020</p>
             </div>
-            
+  
+            <div class="mt-4 mt-lg-0 col-xl-2 order-lg-3 col-lg-2 order-sm-2 col-sm-6 order-2 col-12">
+              <div class="footer__section">
+                <h6 >About CCW</h6>
+                <ul>
+                    <li><a href="">Shop</a></li>
+                    <li><a href="">Kontakt</a></li>
+                    <li><a href="">FAQ</a></li>
+                    <li><a href="">Abonnement og Handelsbetingelser</a></li>
+                    <li><a href="">GPDR privacy policy</a></li>
+                </ul>
+              </div>
+  
+              <div class="footer__section">
+                <h6>Contact</h6>
+                <p>+45 22 99 40 71</p>
+                <a  href="mailto:kontakt@centralcarwash.dk">kontakt@centralcarwash.dk</a>
+              </div>
+            </div>
           </div>
         </div>
-      </nav>
+      </footer>
+</body>
 
-      </body>
-      </html>
+</html>
