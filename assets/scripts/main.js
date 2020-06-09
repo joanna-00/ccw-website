@@ -77,3 +77,74 @@ if ($(".hamburger")) {
     $("#buttons-container").classList.toggle("hidden");
   });
 }
+
+// Notifications
+
+const notificationCloseButtons = $$(".notification__close-button");
+
+if (notificationCloseButtons) {
+  notificationCloseButtons.forEach((button) => {
+    button.addEventListener("click", (e) => {
+      e.target.parentElement.classList.add("fade-out");
+      setTimeout(() => {
+        e.target.parentElement.remove();
+      }, 500);
+    });
+  });
+}
+
+function displayNotification(type, hasIcon, size, title, description) {
+  const notificationBody = `<i class="notification__close-button fas fa-times"></i>
+  <div class="notification__icon">
+    <i class="far fa-envelope icon--alert"></i>
+    <i class="fas fa-check-circle icon--success"></i>
+    <i class="fas fa-exclamation-circle icon--warning"></i>
+    <i class="far fa-bell icon--new"></i>
+  </div>
+  <div class="notification__content">
+      <h4 class="notification__title">${title}</h4>
+    <p class="notification__description">
+      ${description}
+    </p>
+  </div>`;
+
+  let newNotification = document.createElement("div");
+  newNotification.setAttribute("class", "notification");
+
+  switch (type) {
+    case "alert":
+      newNotification.classList.add("notification--alert");
+      break;
+    case "success":
+      newNotification.classList.add("notification--success");
+      break;
+    case "warning":
+      newNotification.classList.add("notification--warning");
+      break;
+    case "new":
+      newNotification.classList.add("notification--new");
+      break;
+  }
+
+  if (hasIcon === true) {
+    newNotification.classList.add("notification--icon");
+  }
+
+  switch (size) {
+    case "sm":
+      newNotification.classList.add("notification--sm");
+      break;
+    case "md":
+      break;
+  }
+
+  newNotification.innerHTML += notificationBody;
+
+  $("body").appendChild(newNotification);
+  setTimeout(() => {
+    newNotification.classList.add("fade-out");
+    setTimeout(() => {
+      newNotification.remove();
+    }, 500);
+  }, 5000);
+}

@@ -13,6 +13,7 @@
 @import "components/date-picker";
 @import "components/form";
 @import "components/icons";
+@import "components/notifications";
 @import "components/process-steps";
 
 @import "layouts/footer";
@@ -21,8 +22,9 @@
 @import "layouts/individual_service";
 
 @import "pages/checkout";
-@import "pages/shop";
-@import "pages/homepage";
-@import "pages/memberships";
 @import "pages/company";
 @import "pages/contact";
+@import "pages/homepage";
+@import "pages/memberships";
+@import "pages/shop";
+@import "pages/shopping_cart";

@@ -231,6 +231,14 @@ if (window.location.pathname.includes("shopping_cart.html")) {
       renderShoppingCart
     );
   }
+
+  if (localStorage.getItem("notification") == "bookedSuccess") {
+    let newTitle = "Your appointment was successfully booked!",
+      newDesc =
+        'You can see it under "calendar" in your profile or in your e-mail.';
+
+    displayNotification("success", true, "sm", newTitle, newDesc);
+  }
 }
 
 function renderShoppingCart(shoppingCartItems) {
@@ -238,7 +246,6 @@ function renderShoppingCart(shoppingCartItems) {
   let checkoutCardContainer = $(".checkout-card__container");
 
   let itemsToRender = JSON.parse(localStorage.getItem("itemsToRender"));
-  // itemsToRender = JSON.parse(localStorage.getItem("itemsToRender"));
 
   shoppingCartItems.forEach((item) => {
     shoppingCartItemsContainer.innerHTML += createShopppingCartCard(
@@ -249,8 +256,15 @@ function renderShoppingCart(shoppingCartItems) {
 
   checkoutCardContainer.innerHTML = createCheckoutSummary(
     shoppingCartItems,
-    itemsToRender
+    itemsToRender,
+    "shoppingCart"
   );
+
+  const proceedToCheckoutButton = $("#proceedToCheckoutButton");
+  proceedToCheckoutButton.addEventListener("click", () => {
+    let coupon = $("#coupon").value;
+    localStorage.setItem("coupon", coupon);
+  });
 
   // Set up increase/decrease logic
   const cardAmountIncrease = $$(".card__amount--increase"),
@@ -362,67 +376,80 @@ function createShopppingCartCard(shopItem, itemsToRender) {
   }
 }
 
-function createCheckoutSummary(shoppingCartItems, itemsToRender) {
+function createCheckoutSummary(shoppingCartItems, itemsToRender, type) {
   console.log(shoppingCartItems);
   let output = "";
   let totalPrice = 0;
+
   shoppingCartItems.forEach((item) => {
     let ID = item.id;
+    let itemAmount = itemsToRender[`${ID}`];
     item = item.acf;
-    totalPrice += Number(item.price);
+    totalPrice += Number(item.price) * itemAmount;
     console.log(totalPrice);
     output += `
     <div class="checkout-card__item">
-      <p class="checkout-card__item-name">${item.title}</p>
-      <p class="checkout-card__item-price">${item.price}</p>
+      <p class="checkout-card__item-name">${itemAmount}x ${item.title}</p>
+      <p class="checkout-card__item-price">${itemAmount * item.price}</p>
     </div>`;
-    // return output;
   });
 
   let checkoutSummary = "";
   checkoutSummary += `<div class="card checkout-card">`;
   checkoutSummary += output;
-  // const renderItems = (itemsToRender) => {
-  //   let output = "";
-  //   for (const ID in itemsToRender) {
-  //     output += `
-  //   <div class="checkout-card__item">
-  //     <p class="checkout-card__item-name">a</p>
-  //     <p class="checkout-card__item-price">aa</p>
-  //   </div>`;
-  //   }
-  //   return output;
-  // };
 
-  // checkoutSummary += renderItems(itemsToRender);
+  for (const ID in itemsToRender) {
+    output += `
+    <div class="checkout-card__item">
+      <p class="checkout-card__item-name">a</p>
+      <p class="checkout-card__item-price">aa</p>
+    </div>`;
+  }
+
+  if (type == "shoppingCart") {
+    checkoutSummary += `  <div class="checkout-card__coupon">
+    <p class="checkout-card__coupon-label">Coupon</p>
+  
+    <input
+      type="text"
+      name=""
+      id="coupon"
+      class="checkout-card__coupon-input text-input__input"
+    />
+  </div>`;
+  }
+
+  if (type == "checkout") {
+    checkoutSummary += `  <div class="checkout-card__coupon">
+    <p class="checkout-card__coupon-label">Coupon</p>
+  
+    <p
+      id="coupon"
+      class="checkout-card__coupon-input">
+      ${
+        localStorage.getItem("coupon") ? localStorage.getItem("coupon") : "none"
+      }
+    </p>
+  </div>`;
+  }
+
   checkoutSummary += `
-
-  <div class="checkout-card__coupon">
-  <p class="checkout-card__coupon-label">Coupon</p>
-
-  <input
-    type="text"
-    name=""
-    id="coupon"
-    class="checkout-card__coupon-input text-input__input"
-  />
-</div>
-
-
   <div class="checkout-card__total">
     <h6>Total:</h6>
     <h6 class="checkout-card__total-price">${totalPrice}</h6>
-  </div>
+  </div>`;
 
-
-  <div class="checkout-card__buttons">
-    <button
+  if (type == "shoppingCart") {
+    checkoutSummary += `<div class="checkout-card__buttons">
+    <a href="checkout.html"
       class="checkout-card__button button button--base-lg button--primary-light button--filled"
+      id="proceedToCheckoutButton"
     >
       Proceed to checkout
-    </button>
+    </a>
   </div>
 </div>`;
+  }
   return checkoutSummary;
 }
 
@@ -447,24 +474,6 @@ function updateDisplay(currentID, newAmount, itemsToRender, displayElement) {
   localStorage.setItem("itemsToRender", JSON.stringify(itemsToRender));
 }
 
-// function changeAmount(type, event) {
-//   console.log(event.target.parentElement.dataset.id);
-//   let currentID = event.target.parentElement.dataset.id;
-//   let currentItemAmount = JSON.parse(localStorage.getItem("itemsToRender"))[
-//     `${currentID}`
-//   ];
-//   if (type == "decrease") {
-//     currentItemAmount--;
-//   } else if (type == "increase") {
-//     currentItemAmount++;
-//   }
-
-//   const cardAmountDisplay = event.target.parentElement.querySelector(
-//     ".card__amount--display"
-//   );
-//   updateDisplay(currentID, currentItemAmount, itemsToRender, cardAmountDisplay);
-// }
-
 function deleteItem(ID, itemsToRender) {
   $(`.card[data-id='${ID}']`).remove();
   console.log(itemsToRender[`${ID}`]);
@@ -477,13 +486,28 @@ function deleteItem(ID, itemsToRender) {
 const removeAllButton = $("#removeAllButton");
 
 if (removeAllButton) {
-  removeAllButton.addEventListener("click", deleteAllItems);
+  removeAllButton.addEventListener("click", () => {
+    deleteAllItems(true);
+  });
 }
 
-function deleteAllItems() {
+function deleteAllItems(shouldRefresh) {
   localStorage.removeItem("itemsToRender");
   localStorage.removeItem("shoppingCart");
-  location.reload();
+  if (shouldRefresh === true) {
+    location.reload();
+  }
 }
 
 function updateTotal() {}
+
+if (
+  !localStorage.getItem("shoppingCart") &&
+  !localStorage.getItem("itemsToRender") &&
+  window.location.pathname.includes("shopping_cart.html")
+) {
+  $(".shoping-cart__items-container").classList.add("empty");
+}
+
+if (window.location.pathname.includes("index.html")) {
+}

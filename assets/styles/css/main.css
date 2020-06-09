@@ -481,23 +481,30 @@ h1 {
 .card--disabled {
   opacity: 0.65;
 }
-.card--horizontal {
-  flex-direction: row;
-  justify-content: space-between;
-  align-items: top;
-}
-.card--horizontal .card__link {
-  display: flex;
-  justify-content: flex-end;
-}
-.card--horizontal .card__image {
-  overflow: visible;
-  max-width: 50%;
-}
-.card--horizontal .card__image img {
-  height: auto;
-  display: block;
-  object-fit: cover;
+@media (min-width: 992px) {
+  .card--horizontal {
+    flex-direction: row;
+    justify-content: space-between;
+    align-items: top;
+    flex-direction: row;
+    justify-content: space-between;
+    align-items: top;
+  }
+  .card--horizontal .card__link {
+    display: flex;
+    justify-content: flex-end;
+  }
+  .card--horizontal .card__image {
+    overflow: hidden;
+    height: 100%;
+    max-width: 50%;
+  }
+  .card--horizontal .card__image img {
+    height: auto;
+    width: auto;
+    display: block;
+    object-fit: cover;
+  }
 }
 .card--membership {
   padding: 2rem 4rem;
@@ -565,6 +572,9 @@ h1 {
 .checkout-card__coupon-input {
   width: 15rem !important;
 }
+.checkout-card p.checkout-card__coupon-input {
+  text-align: right;
+}
 
 .service-info-card {
   padding: 2rem 4rem;
@@ -592,7 +602,38 @@ h1 {
   flex-wrap: wrap;
 }
 
-.date-picker {
+.date-picker #dateFullyAvailable {
+  display: inline-block;
+  padding-right: 4rem;
+}
+.date-picker #dateFullyAvailable::before {
+  content: "";
+  display: inline-block;
+  width: 25px;
+  height: 25px;
+  margin-right: 2rem;
+  -webkit-box-shadow: 0px 3px 10px 0px rgba(0, 0, 0, 0.25);
+  -moz-box-shadow: 0px 3px 10px 0px rgba(0, 0, 0, 0.25);
+  box-shadow: 0px 3px 10px 0px rgba(0, 0, 0, 0.25);
+  border-radius: 5px;
+  background-color: #66bf6c;
+}
+.date-picker #datePartiallyBooked {
+  display: inline-block;
+}
+.date-picker #datePartiallyBooked::before {
+  content: "";
+  display: inline-block;
+  width: 25px;
+  height: 25px;
+  margin-right: 2rem;
+  -webkit-box-shadow: 0px 3px 10px 0px rgba(0, 0, 0, 0.25);
+  -moz-box-shadow: 0px 3px 10px 0px rgba(0, 0, 0, 0.25);
+  box-shadow: 0px 3px 10px 0px rgba(0, 0, 0, 0.25);
+  border-radius: 5px;
+  background-color: #55beee;
+}
+.date-picker .dates {
   position: relative;
   width: 100%;
   background-color: #fff;
@@ -603,15 +644,6 @@ h1 {
   border-radius: 10px;
   overflow: hidden;
   user-select: none;
-}
-.date-picker .selected-date {
-  width: 100%;
-  height: 100%;
-  display: flex;
-  align-items: center;
-  justify-content: center;
-}
-.date-picker .dates {
   display: block;
   left: 0;
   right: 0;
@@ -735,6 +767,7 @@ h1 {
 .text-input__input.invalid {
   outline: none;
   border: 1px solid #d14444;
+  position: relative;
 }
 .text-input__label {
   font-weight: 700;
@@ -880,6 +913,109 @@ h1 {
 }
 .icon--left {
   margin-right: 1.5rem;
+}
+
+.notification {
+  width: calc(100% - 4rem);
+  background-color: #ffffff;
+  border-radius: 10px;
+  -webkit-box-shadow: 0px 3px 10px 0px rgba(0, 0, 0, 0.25);
+  -moz-box-shadow: 0px 3px 10px 0px rgba(0, 0, 0, 0.25);
+  box-shadow: 0px 3px 10px 0px rgba(0, 0, 0, 0.25);
+  overflow: hidden;
+  margin-bottom: 4rem;
+  display: flex;
+  position: fixed;
+  right: 2rem;
+  bottom: 1rem;
+  z-index: 9999;
+  animation-name: moveInRight;
+  animation-duration: 0.3s;
+  animation-timing-function: ease-out;
+  transition: transform 0.2s ease-out;
+  transition: opacity 0.5s ease-out;
+  padding: 2rem 4rem;
+  border: 2px solid;
+}
+@media (min-width: 768px) {
+  .notification {
+    width: 75%;
+  }
+}
+@media (min-width: 992px) {
+  .notification {
+    width: 50%;
+  }
+}
+.notification.fade-out {
+  opacity: 0;
+}
+.notification__close-button {
+  position: absolute;
+  color: #999999;
+  font-size: 125%;
+  padding: 2rem;
+  right: 0;
+  top: 0;
+  cursor: pointer;
+}
+.notification__icon {
+  display: none;
+  padding-right: 4rem;
+}
+.notification__icon i {
+  font-size: 6rem;
+  display: none;
+}
+.notification--icon .notification__icon {
+  display: flex;
+  align-items: center;
+}
+.notification--sm {
+  padding: 1rem 2rem;
+}
+.notification--sm .notification__close-button {
+  padding: 2rem;
+}
+.notification--sm .notification__icon {
+  padding-right: 2rem;
+}
+.notification--sm .notification__icon i {
+  font-size: 4rem;
+}
+.notification--sm .notification__title {
+  margin: 0;
+}
+.notification--sm .notification__description {
+  margin: 0;
+}
+.notification--warning {
+  border-color: #d14444;
+}
+.notification--warning .icon--warning {
+  display: inline-block;
+  color: #d14444;
+}
+.notification--new {
+  border-color: #f6d868;
+}
+.notification--new .icon--new {
+  display: inline-block;
+  color: #f6d868;
+}
+.notification--success {
+  border-color: #309a37;
+}
+.notification--success .icon--success {
+  display: inline-block;
+  color: #309a37;
+}
+.notification--alert {
+  border-color: #0d99c2;
+}
+.notification--alert .icon--alert {
+  display: inline-block;
+  color: #0d99c2;
 }
 
 .process-steps {
@@ -1318,11 +1454,181 @@ h1 {
   position: relative;
 }
 
-.shop main {
+.main-company {
+  margin-top: 12rem;
+}
+.main-company:after {
+  content: "";
+  background-image: url(../../images/svgs/bubbles.svg);
+  position: fixed;
+  top: 0;
+  left: 0;
+  opacity: 16%;
+  min-height: 100%;
+  min-width: 100%;
+  z-index: -10;
+}
+.main-company__intro__banner {
   padding: 4rem 0;
 }
-.shop__section.hidden {
-  display: none;
+.main-company__intro__banner-image {
+  background-image: url(../../images/photos/AalborgFrontStore.jpeg);
+  width: 100%;
+  padding-top: 56.25%;
+  background-position: center;
+  background-repeat: no-repeat;
+  background-size: cover;
+  padding-top: 24.25%;
+}
+.main-company__intro__benefits {
+  padding: 2rem 0;
+  background-color: #ffffff;
+}
+.main-company__intro__benefits h4 {
+  display: inline-block;
+  border-bottom: 3px solid #55beee;
+}
+.main-company__founders {
+  padding: 4rem 0 8rem 0;
+}
+.main-company__founders-radu h4 {
+  text-align: right;
+}
+.main-company__founders-radu h4::before {
+  content: "";
+  display: block;
+  position: relative;
+  top: 2.4rem;
+  width: 75%;
+  height: 3px;
+  background-color: #55beee;
+}
+.main-company__founders-the_guys {
+  background-image: url(../../images/photos/the_guys_2.png);
+  width: 100%;
+  padding-top: 56.25%;
+  background-position: center;
+  background-repeat: no-repeat;
+  background-size: cover;
+  padding-top: 24.25%;
+}
+.main-company__founders-damir h4::after {
+  content: "";
+  display: block;
+  position: relative;
+  top: -2.4rem;
+  left: 30%;
+  width: 70%;
+  height: 3px;
+  background-color: #55beee;
+}
+.main-company__founders-damir h6 {
+  color: #66bf6c;
+}
+.main-company__story {
+  background-color: #ffffff;
+  padding: 8rem 0;
+}
+.main-company__story-start {
+  padding: 8rem 0;
+}
+.main-company__story-start-image {
+  background-image: url(../../images/photos/AalborgFrontStore.jpeg);
+  width: 100%;
+  padding-top: 56.25%;
+  background-position: center;
+  background-repeat: no-repeat;
+  background-size: cover;
+  padding-top: 32.25%;
+}
+.main-company__story-now {
+  padding: 8rem 0;
+}
+.main-company__story-now-image {
+  background-image: url(../../images/photos/AarhusLounge1.JPG);
+  width: 100%;
+  padding-top: 56.25%;
+  background-position: center;
+  background-repeat: no-repeat;
+  background-size: cover;
+  padding-top: 32.25%;
+}
+.main-company__testimonials {
+  padding: 4rem 0;
+}
+.main-company__testimonials__cards {
+  overflow-x: auto;
+}
+.main-company__testimonials-avatar {
+  width: 100%;
+  padding-top: 56.25%;
+  background-position: center;
+  background-repeat: no-repeat;
+  background-size: cover;
+  background-size: contain;
+  border-radius: 100%;
+  padding: 4rem;
+  display: inline-block;
+  width: 0;
+  position: relative;
+  left: 50%;
+  transform: translateX(-50%);
+}
+.main-company__testimonials .gitte {
+  background-image: url(../../images/photos/gitte.png);
+}
+.main-company__testimonials .mathias {
+  background-image: url(../../images/photos/mathias.png);
+}
+.main-company__testimonials .claus {
+  background-image: url(../../images/photos/claus.png);
+}
+.main-company__testimonials-text {
+  padding: 1rem 2rem;
+}
+.main-company__testimonials-text .trustpilot {
+  width: 100%;
+  padding-top: 56.25%;
+  background-position: center;
+  background-repeat: no-repeat;
+  background-size: cover;
+  padding: 0.1rem 6.4rem;
+  background-image: url(../../images/photos/trustpilot.png);
+}
+.main-company__media {
+  padding: 4rem 0;
+  background-color: #133657;
+  color: #ffffff;
+}
+.main-company__media__medias {
+  overflow-x: auto;
+}
+.main-company__media-text {
+  text-align: center;
+}
+.main-company__media-images * {
+  width: 100%;
+  padding-top: 56.25%;
+  background-position: center;
+  background-repeat: no-repeat;
+  background-size: cover;
+  background-size: contain;
+  padding: 2rem;
+}
+.main-company__media-images .migog {
+  background-image: url(../../images/photos/migogaalborg.png);
+}
+.main-company__media-images .tv2nord {
+  background-image: url(../../images/photos/tv2-nord.png);
+}
+.main-company__media-images .nord24 {
+  background-image: url(../../images/photos/24-nord.png);
+}
+.main-company__media-images .nord {
+  background-image: url(../../images/photos/nordjyske.png);
+}
+.main-company__media-images .aalborgnu {
+  background-image: url(../../images/photos/aalborg-nu.png);
 }
 
 .main-homepage {
@@ -1593,181 +1899,29 @@ h1 {
   color: black;
 }
 
-.main-company {
-  margin-top: 12rem;
-}
-.main-company:after {
-  content: "";
-  background-image: url(../../images/svgs/bubbles.svg);
-  position: fixed;
-  top: 0;
-  left: 0;
-  opacity: 16%;
-  min-height: 100%;
-  min-width: 100%;
-  z-index: -10;
-}
-.main-company__intro__banner {
+.shop main {
   padding: 4rem 0;
 }
-.main-company__intro__banner-image {
-  background-image: url(../../images/photos/AalborgFrontStore.jpeg);
-  width: 100%;
-  padding-top: 56.25%;
+.shop__section.hidden {
+  display: none;
+}
+
+.shopping-cart .empty {
+  height: 60vh;
   background-position: center;
   background-repeat: no-repeat;
-  background-size: cover;
-  padding-top: 24.25%;
+  background-size: 100%;
+  background-image: url(../../images/svgs/empty-cart.svg);
 }
-.main-company__intro__benefits {
-  padding: 2rem 0;
-  background-color: #ffffff;
+@media (min-width: 576px) {
+  .shopping-cart .empty {
+    background-size: 75%;
+  }
 }
-.main-company__intro__benefits h4 {
-  display: inline-block;
-  border-bottom: 3px solid #55beee;
-}
-.main-company__founders {
-  padding: 4rem 0 8rem 0;
-}
-.main-company__founders-radu h4 {
-  text-align: right;
-}
-.main-company__founders-radu h4::before {
-  content: "";
-  display: block;
-  position: relative;
-  top: 2.4rem;
-  width: 75%;
-  height: 3px;
-  background-color: #55beee;
-}
-.main-company__founders-the_guys {
-  background-image: url(../../images/photos/the_guys_2.png);
-  width: 100%;
-  padding-top: 56.25%;
-  background-position: center;
-  background-repeat: no-repeat;
-  background-size: cover;
-  padding-top: 24.25%;
-}
-.main-company__founders-damir h4::after {
-  content: "";
-  display: block;
-  position: relative;
-  top: -2.4rem;
-  left: 30%;
-  width: 70%;
-  height: 3px;
-  background-color: #55beee;
-}
-.main-company__founders-damir h6 {
-  color: #66bf6c;
-}
-.main-company__story {
-  background-color: #ffffff;
-  padding: 8rem 0;
-}
-.main-company__story-start {
-  padding: 8rem 0;
-}
-.main-company__story-start-image {
-  background-image: url(../../images/photos/AalborgFrontStore.jpeg);
-  width: 100%;
-  padding-top: 56.25%;
-  background-position: center;
-  background-repeat: no-repeat;
-  background-size: cover;
-  padding-top: 32.25%;
-}
-.main-company__story-now {
-  padding: 8rem 0;
-}
-.main-company__story-now-image {
-  background-image: url(../../images/photos/AarhusLounge1.JPG);
-  width: 100%;
-  padding-top: 56.25%;
-  background-position: center;
-  background-repeat: no-repeat;
-  background-size: cover;
-  padding-top: 32.25%;
-}
-.main-company__testimonials {
-  padding: 4rem 0;
-}
-.main-company__testimonials__cards {
-  overflow-x: auto;
-}
-.main-company__testimonials-avatar {
-  width: 100%;
-  padding-top: 56.25%;
-  background-position: center;
-  background-repeat: no-repeat;
-  background-size: cover;
-  background-size: contain;
-  border-radius: 100%;
-  padding: 4rem;
-  display: inline-block;
-  width: 0;
-  position: relative;
-  left: 50%;
-  transform: translateX(-50%);
-}
-.main-company__testimonials .gitte {
-  background-image: url(../../images/photos/gitte.png);
-}
-.main-company__testimonials .mathias {
-  background-image: url(../../images/photos/mathias.png);
-}
-.main-company__testimonials .claus {
-  background-image: url(../../images/photos/claus.png);
-}
-.main-company__testimonials-text {
-  padding: 1rem 2rem;
-}
-.main-company__testimonials-text .trustpilot {
-  width: 100%;
-  padding-top: 56.25%;
-  background-position: center;
-  background-repeat: no-repeat;
-  background-size: cover;
-  padding: 0.1rem 6.4rem;
-  background-image: url(../../images/photos/trustpilot.png);
-}
-.main-company__media {
-  padding: 4rem 0;
-  background-color: #133657;
-  color: #ffffff;
-}
-.main-company__media__medias {
-  overflow-x: auto;
-}
-.main-company__media-text {
-  text-align: center;
-}
-.main-company__media-images * {
-  width: 100%;
-  padding-top: 56.25%;
-  background-position: center;
-  background-repeat: no-repeat;
-  background-size: cover;
-  background-size: contain;
-  padding: 2rem;
-}
-.main-company__media-images .migog {
-  background-image: url(../../images/photos/migogaalborg.png);
-}
-.main-company__media-images .tv2nord {
-  background-image: url(../../images/photos/tv2-nord.png);
-}
-.main-company__media-images .nord24 {
-  background-image: url(../../images/photos/24-nord.png);
-}
-.main-company__media-images .nord {
-  background-image: url(../../images/photos/nordjyske.png);
-}
-.main-company__media-images .aalborgnu {
-  background-image: url(../../images/photos/aalborg-nu.png);
+@media (min-width: 992px) {
+  .shopping-cart .empty {
+    background-size: 50%;
+  }
 }
 
 /*# sourceMappingURL=main.css.map */

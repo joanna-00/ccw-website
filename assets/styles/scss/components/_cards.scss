@@ -124,34 +124,41 @@
   }
 
   &--horizontal {
-    flex-direction: row;
-    justify-content: space-between;
-    align-items: top;
+    @media (min-width: $media-lg) {
+      flex-direction: row;
+      justify-content: space-between;
+      align-items: top;
 
-    .card__link {
-      // min-width: 50%;
-      display: flex;
-      justify-content: flex-end;
-    }
+      flex-direction: row;
+      justify-content: space-between;
+      align-items: top;
 
-    .card__image {
-      // display: flex;
-      overflow: visible;
-      // height: 300px;
-      // width: 50%;
-      // max-height: 100%;
-      max-width: 50%;
-      // position: relative;
+      .card__link {
+        // min-width: 50%;
+        display: flex;
+        justify-content: flex-end;
+      }
 
-      img {
-        // width: 100%;
-        // max-height: inherit;
-        height: auto;
-        display: block;
-        //   height: 200px;
-        object-fit: cover;
-        // position: absolute;
-        // top: -25%;
+      .card__image {
+        // display: flex;
+        overflow: hidden;
+        height: 100%;
+        // width: 50%;
+        // max-height: 100%;
+        max-width: 50%;
+        // position: relative;
+
+        img {
+          // width: 100%;
+          // max-height: inherit;
+          height: auto;
+          width: auto;
+          display: block;
+          //   height: 200px;
+          object-fit: cover;
+          // position: absolute;
+          // top: -25%;
+        }
       }
     }
   }
@@ -231,6 +238,9 @@
       // display: inline-block;
       width: 15rem !important;
     }
+  }
+  p.checkout-card__coupon-input {
+    text-align: right;
   }
 }
 
