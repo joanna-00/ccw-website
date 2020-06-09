@@ -1,4 +1,5 @@
 .main-homepage {
+    overflow-x: hidden;
   &__banner {
     height: 100vh;
     overflow: hidden;
@@ -39,6 +40,9 @@
   }
 
   &__memberships {
+    &__cards{
+        overflow-x: auto;
+    }
     padding: 4rem 0;
     &-text {
       text-align: center;
@@ -91,6 +95,10 @@
   }
 
   &__services {
+    &__cards{
+        overflow-x: auto;
+        overflow-y: hidden;
+    }
     padding: 4rem 0;
     &-text {
       text-align: center;
@@ -119,6 +127,9 @@
   }
 
   &__testimonials {
+      &__cards{
+          overflow-x: auto;
+      }
     padding: 4rem 0;
     &-avatar {
       @include bckg-img;
@@ -155,6 +166,9 @@
   }
 
   &__media {
+      &__medias{
+          overflow-x: auto;
+      }
     padding: 4rem 0;
     background-color: $primary-light;
     color: $white;
