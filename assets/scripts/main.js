@@ -71,8 +71,8 @@ function parseFilter(string) {
 
 // Mobile navigation
 
-$(".hamburger").addEventListener("click", function () {
-  $(".hamburger").classList.toggle("is-active");
-  $("#links-container").classList.toggle("hidden");
-  $("#buttons-container").classList.toggle("hidden");
-});
+// $(".hamburger").addEventListener("click", function () {
+//   $(".hamburger").classList.toggle("is-active");
+//   $("#links-container").classList.toggle("hidden");
+//   $("#buttons-container").classList.toggle("hidden");
+// });

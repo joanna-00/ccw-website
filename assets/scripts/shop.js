@@ -399,10 +399,24 @@ function createCheckoutSummary(shoppingCartItems, itemsToRender) {
 
   // checkoutSummary += renderItems(itemsToRender);
   checkoutSummary += `
+
+  <div class="checkout-card__coupon">
+  <p class="checkout-card__coupon-label">Coupon</p>
+
+  <input
+    type="text"
+    name=""
+    id="coupon"
+    class="checkout-card__coupon-input text-input__input"
+  />
+</div>
+
+
   <div class="checkout-card__total">
     <h6>Total:</h6>
     <h6 class="checkout-card__total-price">${totalPrice}</h6>
   </div>
+
 
   <div class="checkout-card__buttons">
     <button
