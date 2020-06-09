@@ -1343,11 +1343,13 @@ h1 {
   color: #ffffff;
 }
 .main-homepage__memberships {
-  text-align: center;
   padding: 4rem 0;
 }
 .main-homepage__memberships__cards {
-  overflow-y: auto;
+  overflow-x: auto;
+}
+.main-homepage__memberships-text {
+  text-align: center;
 }
 .main-homepage__company {
   padding: 4rem 0;
@@ -1391,8 +1393,8 @@ h1 {
   padding: 4rem 0;
 }
 .main-homepage__services__cards {
-  overflow-y: hidden;
   overflow-x: auto;
+  overflow-y: hidden;
 }
 .main-homepage__services-text {
   text-align: center;
@@ -1421,6 +1423,9 @@ h1 {
 .main-homepage__testimonials {
   padding: 4rem 0;
 }
+.main-homepage__testimonials__cards {
+  overflow-x: auto;
+}
 .main-homepage__testimonials-avatar {
   width: 100%;
   padding-top: 56.25%;
@@ -1435,9 +1440,6 @@ h1 {
   position: relative;
   left: 50%;
   transform: translateX(-50%);
-}
-.main-homepage__testimonials__cards {
-  overflow-y: auto;
 }
 .main-homepage__testimonials .gitte {
   background-image: url(../../images/photos/gitte.png);
@@ -1465,11 +1467,11 @@ h1 {
   background-color: #133657;
   color: #ffffff;
 }
+.main-homepage__media__medias {
+  overflow-x: auto;
+}
 .main-homepage__media-text {
   text-align: center;
-}
-.main-homepage__media__medias {
-  overflow-y: auto;
 }
 .main-homepage__media-images * {
   width: 100%;
