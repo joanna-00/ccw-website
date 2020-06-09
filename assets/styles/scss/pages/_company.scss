@@ -16,9 +16,6 @@
     &__intro {
         &__banner {
             padding: 4rem 0;
-
-            &-message {}
-
             &-image {
                 background-image: url(../../images/photos/AalborgFrontStore.jpeg);
                 @include bckg-img;
