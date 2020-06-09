@@ -1460,6 +1460,183 @@ h1 {
   position: relative;
 }
 
+.main-company {
+  margin-top: 12rem;
+}
+.main-company:after {
+  content: "";
+  background-image: url(../../images/svgs/bubbles.svg);
+  position: fixed;
+  top: 0;
+  left: 0;
+  opacity: 16%;
+  min-height: 100%;
+  min-width: 100%;
+  z-index: -10;
+}
+.main-company__intro__banner {
+  padding: 4rem 0;
+}
+.main-company__intro__banner-image {
+  background-image: url(../../images/photos/AalborgFrontStore.jpeg);
+  width: 100%;
+  padding-top: 56.25%;
+  background-position: center;
+  background-repeat: no-repeat;
+  background-size: cover;
+  padding-top: 24.25%;
+}
+.main-company__intro__benefits {
+  padding: 2rem 0;
+  background-color: #ffffff;
+}
+.main-company__intro__benefits h4 {
+  display: inline-block;
+  border-bottom: 3px solid #55beee;
+}
+.main-company__founders {
+  padding: 4rem 0 8rem 0;
+}
+.main-company__founders-radu h4 {
+  text-align: right;
+}
+.main-company__founders-radu h4::before {
+  content: "";
+  display: block;
+  position: relative;
+  top: 2.4rem;
+  width: 75%;
+  height: 3px;
+  background-color: #55beee;
+}
+.main-company__founders-the_guys {
+  background-image: url(../../images/photos/the_guys_2.png);
+  width: 100%;
+  padding-top: 56.25%;
+  background-position: center;
+  background-repeat: no-repeat;
+  background-size: cover;
+  padding-top: 24.25%;
+}
+.main-company__founders-damir h4::after {
+  content: "";
+  display: block;
+  position: relative;
+  top: -2.4rem;
+  left: 30%;
+  width: 70%;
+  height: 3px;
+  background-color: #55beee;
+}
+.main-company__founders-damir h6 {
+  color: #66bf6c;
+}
+.main-company__story {
+  background-color: #ffffff;
+  padding: 8rem 0;
+}
+.main-company__story-start {
+  padding: 8rem 0;
+}
+.main-company__story-start-image {
+  background-image: url(../../images/photos/AalborgFrontStore.jpeg);
+  width: 100%;
+  padding-top: 56.25%;
+  background-position: center;
+  background-repeat: no-repeat;
+  background-size: cover;
+  padding-top: 32.25%;
+}
+.main-company__story-now {
+  padding: 8rem 0;
+}
+.main-company__story-now-image {
+  background-image: url(../../images/photos/AarhusLounge1.JPG);
+  width: 100%;
+  padding-top: 56.25%;
+  background-position: center;
+  background-repeat: no-repeat;
+  background-size: cover;
+  padding-top: 32.25%;
+}
+.main-company__testimonials {
+  padding: 4rem 0;
+}
+.main-company__testimonials__cards {
+  overflow-x: auto;
+}
+.main-company__testimonials-avatar {
+  width: 100%;
+  padding-top: 56.25%;
+  background-position: center;
+  background-repeat: no-repeat;
+  background-size: cover;
+  background-size: contain;
+  border-radius: 100%;
+  padding: 4rem;
+  display: inline-block;
+  width: 0;
+  position: relative;
+  left: 50%;
+  transform: translateX(-50%);
+}
+.main-company__testimonials .gitte {
+  background-image: url(../../images/photos/gitte.png);
+}
+.main-company__testimonials .mathias {
+  background-image: url(../../images/photos/mathias.png);
+}
+.main-company__testimonials .claus {
+  background-image: url(../../images/photos/claus.png);
+}
+.main-company__testimonials-text {
+  padding: 1rem 2rem;
+}
+.main-company__testimonials-text .trustpilot {
+  width: 100%;
+  padding-top: 56.25%;
+  background-position: center;
+  background-repeat: no-repeat;
+  background-size: cover;
+  padding: 0.1rem 6.4rem;
+  background-image: url(../../images/photos/trustpilot.png);
+}
+.main-company__media {
+  padding: 4rem 0;
+  background-color: #133657;
+  color: #ffffff;
+}
+.main-company__media__medias {
+  overflow-x: auto;
+}
+.main-company__media-text {
+  text-align: center;
+}
+.main-company__media-images * {
+  width: 100%;
+  padding-top: 56.25%;
+  background-position: center;
+  background-repeat: no-repeat;
+  background-size: cover;
+  background-size: contain;
+  padding: 2rem;
+}
+.main-company__media-images .migog {
+  background-image: url(../../images/photos/migogaalborg.png);
+}
+.main-company__media-images .tv2nord {
+  background-image: url(../../images/photos/tv2-nord.png);
+}
+.main-company__media-images .nord24 {
+  background-image: url(../../images/photos/24-nord.png);
+}
+.main-company__media-images .nord {
+  background-image: url(../../images/photos/nordjyske.png);
+}
+.main-company__media-images .aalborgnu {
+  background-image: url(../../images/photos/aalborg-nu.png);
+}
+
 .main-homepage {
   overflow-x: hidden;
 }
