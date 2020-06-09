@@ -516,7 +516,9 @@ function updateTotal() {}
 
 if (
   !localStorage.getItem("shoppingCart") &&
-  !localStorage.getItem("itemsToRender")
+  !localStorage.getItem(
+    "itemsToRender" && window.location.pathname.includes("shopping_cart.html")
+  )
 ) {
   $(".shoping-cart__items-container").classList.add("empty");
 }
