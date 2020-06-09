@@ -9,6 +9,7 @@ const individualService = requestPostWP(
 //  Individual page rendering
 
 function renderIndividualService(individualService) {
+  let id = individualService.id;
   individualService = individualService.acf;
   console.log("rendering page");
   $(".breadcrumbs__item--active").textContent = individualService.title;
@@ -29,4 +30,14 @@ function renderIndividualService(individualService) {
     ".main-service__info__image"
   ).style.backgroundImage = `url(${individualService.imageafter})`;
   // return ``;
+
+  $(".service-info-card__button-cart").dataset.id = id;
+  $(".service-info-card__button-cart").addEventListener("click", () => {
+    addToShoppingCart(event);
+  });
+  $(".service-info-card__button-buy").dataset.id = id;
+  $(".service-info-card__button-buy").addEventListener("click", () => {
+    addToShoppingCart(event);
+    location.href = "shopping_cart.html";
+  });
 }

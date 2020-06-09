@@ -41,7 +41,7 @@ function renderShop(shopItems) {
   serviceCards.forEach((card) => {
     card.addEventListener("click", (event) => {
       if (!event.target.matches(".card__button")) {
-        let serviceID = card.querySelector(".card__button").id;
+        let serviceID = card.querySelector(".card__button").dataset.id;
         localStorage.setItem("redirectServiceID", serviceID);
         location.href = "individual_service.html";
       }
@@ -116,7 +116,7 @@ function createShopCard(shopItem) {
         <h4 class="card__price">${shopItem.price},-</h4>
         <button
           class="card__button button button--base-lg button--primary-light"
-          id="${post.id}"
+          data-id="${post.id}"
         >
           Add to cart
           <i class="fas fa-cart-plus"></i>
@@ -128,7 +128,7 @@ function createShopCard(shopItem) {
   } else {
     return `<div class="col-12 col-sm-6 col-xl-4">
   <div
-    class="shop__service-card card card--image card--button card--description card--price card--disabled"
+    class="shop__service-card card card--image card--button card--description card--price"
   >
     <div class="card__image">
       <img
@@ -141,11 +141,7 @@ function createShopCard(shopItem) {
         <h4 class="card__title">
         ${shopItem.title}
         </h4>
-        <h4>
-          <a href="" class="card__link"
-            ><i class="fas fa-arrow-right"></i
-          ></a>
-        </h4>
+
       </div>
 
       <p class="description_short">
@@ -155,8 +151,8 @@ function createShopCard(shopItem) {
       <div class="card__features">
         <h4 class="card__price">${shopItem.price},-</h4>
         <button
-          class="card__button button button--base-lg button--disabled"
-          id="${post.id}"
+          class="card__button button button--base-lg button--primary-light"
+          data-id="${post.id}"
         >
           Add to cart
           <i class="fas fa-cart-plus"></i>
@@ -184,7 +180,7 @@ function addToggleToCheckbox(checkbox, container) {
 // Shopping cart
 
 function addToShoppingCart(e) {
-  let serviceID = e.target.id;
+  let serviceID = e.target.dataset.id;
 
   if (!localStorage.getItem("shoppingCart")) {
     let currentShoppingCart = [];
@@ -198,43 +194,43 @@ function addToShoppingCart(e) {
 }
 
 if (window.location.pathname.includes("shopping_cart.html")) {
-  // if (!localStorage.getItem("itemsToRender")) {
-  let currentShoppingCart = JSON.parse(localStorage.getItem("shoppingCart"));
+  if (localStorage.getItem("shoppingCart")) {
+    let currentShoppingCart = JSON.parse(localStorage.getItem("shoppingCart"));
 
-  // Parse the IDs in the shopping cart to reflect quantity
-  let itemsToRender = currentShoppingCart.reduce(function (IDs, ID) {
-    if (ID in IDs) {
-      IDs[ID]++;
-    } else {
-      IDs[ID] = 1;
+    // Parse the IDs in the shopping cart to reflect quantity
+    let itemsToRender = currentShoppingCart.reduce(function (IDs, ID) {
+      if (ID in IDs) {
+        IDs[ID]++;
+      } else {
+        IDs[ID] = 1;
+      }
+      return IDs;
+    }, {});
+    console.log(itemsToRender);
+    localStorage.setItem("itemsToRender", JSON.stringify(itemsToRender));
+    // } else {
+    // itemsToRender = JSON.parse(localStorage.getItem("itemsToRender"));
+
+    let requestString = "?include[]=";
+    let i = 0;
+
+    for (const ID in itemsToRender) {
+      if (i == 0) {
+        console.log(ID);
+        requestString += ID;
+        i++;
+      } else {
+        requestString += `&include[]=${ID}`;
+      }
     }
-    return IDs;
-  }, {});
-  console.log(itemsToRender);
-  localStorage.setItem("itemsToRender", JSON.stringify(itemsToRender));
-  // } else {
-  // itemsToRender = JSON.parse(localStorage.getItem("itemsToRender"));
-  // }
 
-  let requestString = "?include[]=";
-  let i = 0;
-
-  for (const ID in itemsToRender) {
-    if (i == 0) {
-      console.log(ID);
-      requestString += ID;
-      i++;
-    } else {
-      requestString += `&include[]=${ID}`;
-    }
+    console.log(requestString);
+    let shoppingCartItems = requestWP(
+      noEndPoint,
+      requestString,
+      renderShoppingCart
+    );
   }
-
-  console.log(requestString);
-  let shoppingCartItems = requestWP(
-    noEndPoint,
-    requestString,
-    renderShoppingCart
-  );
 }
 
 function renderShoppingCart(shoppingCartItems) {
@@ -320,7 +316,8 @@ function renderShoppingCart(shoppingCartItems) {
     item.addEventListener("click", () => {
       console.log("removing");
       let currentID = item.dataset.id;
-      deleteItem(currentID);
+      console.log(currentID);
+      deleteItem(currentID, itemsToRender);
     });
   });
 }
@@ -342,7 +339,7 @@ function createShopppingCartCard(shopItem, itemsToRender) {
       <div class="card__content">
         <div class="card__label">
           <h4 class="card__title">  ${shopItem.title}</h4>
-          <a class="card__link" data-id="${currentID}">Remove item</a>
+          <h4 class="card__link" data-id="${currentID}"><i class="fas fa-trash-alt button--warning icon--right"></i></h4>
         </div>
   
         <p class="card__description">
@@ -468,13 +465,25 @@ function updateDisplay(currentID, newAmount, itemsToRender, displayElement) {
 //   updateDisplay(currentID, currentItemAmount, itemsToRender, cardAmountDisplay);
 // }
 
-function deleteItem(ID) {
+function deleteItem(ID, itemsToRender) {
   $(`.card[data-id='${ID}']`).remove();
   console.log(itemsToRender[`${ID}`]);
   console.log(itemsToRender);
   delete itemsToRender[`${ID}`];
   console.log(itemsToRender);
   localStorage.setItem("itemsToRender", JSON.stringify(itemsToRender));
+}
+
+const removeAllButton = $("#removeAllButton");
+
+if (removeAllButton) {
+  removeAllButton.addEventListener("click", deleteAllItems);
+}
+
+function deleteAllItems() {
+  localStorage.removeItem("itemsToRender");
+  localStorage.removeItem("shoppingCart");
+  location.reload();
 }
 
 function updateTotal() {}

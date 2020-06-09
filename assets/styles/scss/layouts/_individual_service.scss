@@ -7,11 +7,8 @@
   }
   &__info {
     &__image {
-      // background-image: url(../../images/photos/steering-wheel-wash.jpg);
       @include bckg-img;
       @include drop-shadow-light-sm;
-    }
-    &__description {
     }
   }
 
@@ -21,9 +18,9 @@
 }
 
 .recommended-services {
-  .recommended-services-container {
+  &-container {
     max-width: 100%;
-    .recommended-services-container__row {
+    &__row {
       padding-top: 3rem;
       overflow-y: hidden;
       overflow-x: auto;
