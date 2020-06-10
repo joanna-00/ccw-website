@@ -1,65 +1,86 @@
-.main-memberships{
-    &:after{
-        content: '';
-        background-image: url(../../images/svgs/bubbles.svg);
-        position: absolute;
-        top: 0;
-        left: 0;
-        opacity: 16%;
-        min-height: 100%;
-        min-width: 100%;
-        z-index: -10;
+.main-memberships {
+  &:after {
+    content: "";
+    background-image: url(../../images/svgs/bubbles.svg);
+    position: absolute;
+    top: 0;
+    left: 0;
+    opacity: 16%;
+    min-height: 100%;
+    min-width: 100%;
+    z-index: -10;
+  }
+  margin-top: 12rem;
+  &__intro {
+    &__banner {
+      padding: 4rem 0;
+      &-message {
+      }
+      &-image {
+        background-image: url(../../images/photos/membership-image.jpg);
+        @include bckg-img;
+        padding-top: 24.25%;
+      }
     }
-    margin-top: 12rem;
-    &__intro{
-        &__banner{
-            padding: 4rem 0;
-            &-message{
-                
-            }
-            &-image{
-                background-image: url(../../images/photos/membership-image.jpg);
-                @include bckg-img;
-                padding-top: 24.25%;
-            }
-        }
-        &__benefits{
-            padding: 2rem 0;
-            background-color: $white;
-            h4{
-                display: inline-block;
-                border-bottom: 3px solid $primary-dark;
-            }
-        }
+    &__benefits {
+      padding: 2rem 0;
+      background-color: $white;
+      h4 {
+        display: inline-block;
+        border-bottom: 3px solid $primary-dark;
+      }
     }
-    &__memberships{
-        padding: 4rem 0 8rem 0;
-        table{
-            padding: 0;
-            @include drop-shadow-light-sm;
-            @include border-round-lg;
-            tr:nth-child(odd){background-color: $white;}
-            tr:nth-child(even){background-color: $background-light;} 
-            .heading{padding-left: 8rem;}  
-            .plat-heading, .plat{color: #3D6277;}
-            .gold-heading, .gold{color: #F6D868;}
-            .silver-heading, .silver{color: #B6B6B6;}
-            .bronze-heading, .bronze{color: #C99274;}
-            .plat, .gold, .silver, .bronze{
-            padding: 1.6rem;
-            text-shadow: 0 3px 10px #c4c4c4;
-            text-align: center;
-            font-size: 3.2rem;
-        }
+  }
+  &__memberships {
+    padding: 4rem 0 8rem 0;
+    table {
+      padding: 0;
+      @include drop-shadow-light-sm;
+      @include border-round-lg;
+      tr:nth-child(odd) {
+        background-color: $white;
+      }
+      tr:nth-child(even) {
+        background-color: $background-light;
+      }
+      .heading {
+        padding-left: 8rem;
+      }
+      .plat-heading,
+      .plat {
+        color: $platinum;
+      }
+      .gold-heading,
+      .gold {
+        color: $gold;
+      }
+      .silver-heading,
+      .silver {
+        color: $silver;
+      }
+      .bronze-heading,
+      .bronze {
+        color: $bronze;
+      }
+      .plat,
+      .gold,
+      .silver,
+      .bronze {
+        padding: 1.6rem;
+        text-shadow: 0 3px 10px #c4c4c4;
+        text-align: center;
+        font-size: 3.2rem;
+      }
     }
-        
+  }
+  &__services {
+    padding: 4rem 0;
+    background-color: $background-dark;
+    h2 {
+      color: $white;
     }
-    &__services{
-        padding: 4rem 0;
-        background-color: $background-dark;
-        h2{color: $white;}
-        a{color: black;}
-        
-        
+    a {
+      color: black;
     }
+  }
 }

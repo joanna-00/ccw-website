@@ -386,12 +386,61 @@ h1 {
   box-shadow: 0px 3px 10px 0px rgba(0, 0, 0, 0.25);
   overflow: hidden;
   margin-bottom: 4rem;
-  display: flex;
   flex-direction: column;
   transition: transform 0.2s ease-out;
 }
+.card__memberships-badge {
+  display: none;
+  position: absolute;
+  padding: 1.5rem;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  left: 1.5rem;
+  top: 1.5rem;
+  background-color: #ffffff;
+  z-index: 1;
+  height: 26px;
+  border-radius: 5px;
+}
+.card__memberships-badge--platinum {
+  display: inline-block;
+  border-radius: 9999px;
+  height: 15px;
+  width: 15px;
+  margin: 0.5rem;
+  background-color: #3d6277;
+}
+.card__memberships-badge--gold {
+  display: inline-block;
+  border-radius: 9999px;
+  height: 15px;
+  width: 15px;
+  margin: 0.5rem;
+  background-color: #f6d868;
+}
+.card__memberships-badge--silver {
+  display: inline-block;
+  border-radius: 9999px;
+  height: 15px;
+  width: 15px;
+  margin: 0.5rem;
+  background-color: #b6b6b6;
+}
+.card__memberships-badge--bronze {
+  display: inline-block;
+  border-radius: 9999px;
+  height: 15px;
+  width: 15px;
+  margin: 0.5rem;
+  background-color: #c99274;
+}
+.card--memberships-badge .card__memberships-badge {
+  display: flex;
+}
 .card__image {
   display: none;
+  position: relative;
   width: 100%;
   overflow: hidden;
   max-height: 200px;
@@ -526,6 +575,9 @@ h1 {
 .card--membership .card__title {
   text-transform: uppercase;
   text-align: center;
+}
+.card--membership .card__price {
+  display: inline-block;
 }
 .card--badge {
   display: flex;
@@ -1912,19 +1964,26 @@ h1 {
 .main-memberships__memberships table .heading {
   padding-left: 8rem;
 }
-.main-memberships__memberships table .plat-heading, .main-memberships__memberships table .plat {
-  color: #3D6277;
+.main-memberships__memberships table .plat-heading,
+.main-memberships__memberships table .plat {
+  color: #3d6277;
 }
-.main-memberships__memberships table .gold-heading, .main-memberships__memberships table .gold {
-  color: #F6D868;
+.main-memberships__memberships table .gold-heading,
+.main-memberships__memberships table .gold {
+  color: #f6d868;
 }
-.main-memberships__memberships table .silver-heading, .main-memberships__memberships table .silver {
-  color: #B6B6B6;
+.main-memberships__memberships table .silver-heading,
+.main-memberships__memberships table .silver {
+  color: #b6b6b6;
 }
-.main-memberships__memberships table .bronze-heading, .main-memberships__memberships table .bronze {
-  color: #C99274;
+.main-memberships__memberships table .bronze-heading,
+.main-memberships__memberships table .bronze {
+  color: #c99274;
 }
-.main-memberships__memberships table .plat, .main-memberships__memberships table .gold, .main-memberships__memberships table .silver, .main-memberships__memberships table .bronze {
+.main-memberships__memberships table .plat,
+.main-memberships__memberships table .gold,
+.main-memberships__memberships table .silver,
+.main-memberships__memberships table .bronze {
   padding: 1.6rem;
   text-shadow: 0 3px 10px #c4c4c4;
   text-align: center;
