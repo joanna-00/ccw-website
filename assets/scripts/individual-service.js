@@ -10,6 +10,7 @@ if (window.location.pathname.includes("individual_service.html")) {
   //  Individual page rendering
 
   function renderIndividualService(individualService) {
+    let currentImage = null;
     let id = individualService.id;
     individualService = individualService.acf;
 
@@ -29,12 +30,32 @@ if (window.location.pathname.includes("individual_service.html")) {
 
     $(".service-info-card__title").textContent = individualService.title;
     $(".service-info-card__price-value").textContent = individualService.price;
+
     $(
       ".service-info-card__time-value"
     ).textContent = `${individualService.est_time} - ${individualService.est_time_max} hr`;
-    $(
-      ".main-service__info__image"
-    ).style.backgroundImage = `url(${individualService.imageafter})`;
+
+    const image = $(".main-service__info__image");
+
+    image.style.backgroundImage = `url(${individualService.imagebefore})`;
+    currentImage = individualService.imagebefore;
+
+    setInterval(() => {
+      image.classList.add("flash");
+      setTimeout(() => {
+        if (currentImage == individualService.imageafter) {
+          currentImage = individualService.imagebefore;
+          image.style.backgroundImage = `url(${individualService.imagebefore})`;
+        } else {
+          currentImage = individualService.imageafter;
+          image.style.backgroundImage = `url(${individualService.imageafter})`;
+        }
+
+        setTimeout(() => {
+          image.classList.remove("flash");
+        }, 1000);
+      }, 1000);
+    }, 5000);
 
     $(".service-info-card__button-cart").dataset.id = id;
     $(".service-info-card__button-cart").addEventListener("click", () => {

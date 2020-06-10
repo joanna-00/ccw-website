@@ -1,4 +1,11 @@
 .shopping-cart {
+  &:after {
+    @include bubbles-after;
+  }
+
+  &:before {
+    @include bubbles-before;
+  }
   .empty {
     height: 60vh;
     background-position: center;

@@ -68,3 +68,39 @@
   width: 12px;
   margin: 0.5rem;
 }
+
+@mixin bubbles-before {
+  content: "";
+  background-image: url(../../images/svgs/bubbles.svg);
+  background-repeat: no-repeat;
+  background-position: center;
+  background-size: contain;
+  object-fit: contain;
+  position: fixed;
+  bottom: 0;
+  right: 0;
+  opacity: 12%;
+
+  min-height: 45%;
+  min-width: 45%;
+  transform: rotateZ(-190deg);
+  z-index: -1;
+}
+
+@mixin bubbles-after {
+  content: "";
+  background-image: url(../../images/svgs/bubbles.svg);
+  background-repeat: no-repeat;
+
+  background-position: center;
+  background-size: contain;
+  object-fit: contain;
+  position: fixed;
+  top: 10%;
+  left: -10%;
+  opacity: 12%;
+  min-height: 60%;
+  min-width: 60%;
+  transform: rotateZ(30deg);
+  z-index: -1;
+}

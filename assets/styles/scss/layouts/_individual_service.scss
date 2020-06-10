@@ -9,11 +9,32 @@
     &__image {
       @include bckg-img;
       @include drop-shadow-light-sm;
+      position: relative;
+
+      &::after {
+        content: " ";
+        // background-color: $text-body;
+        background-color: $text-light;
+        display: block;
+        width: 100%;
+        height: 100%;
+        opacity: 0;
+        position: absolute;
+        top: 0;
+        left: 0;
+        transition: 1s ease-in-out;
+      }
     }
   }
 
   &__purchase {
     padding: 0;
+  }
+}
+
+.flash {
+  &::after {
+    opacity: 1;
   }
 }
 

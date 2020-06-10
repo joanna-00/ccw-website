@@ -56,13 +56,13 @@
     overflow: hidden;
     max-height: 200px;
 
-    @media (min-width: $media-md) {
-      max-height: 250px;
-    }
+    // @media (min-width: $media-md) {
+    //   max-height: 250px;
+    // }
 
-    @media (min-width: $media-lg) {
-      max-height: 300px;
-    }
+    // @media (min-width: $media-lg) {
+    //   max-height: 300px;
+    // }
 
     img {
       width: 100%;
@@ -84,12 +84,26 @@
     justify-content: space-between;
     height: 100%;
     min-width: 50%;
+
+    // @media (min-width: $media-lg) {
+    //   padding: 0;
+    // }
   }
 
   &__label {
     display: flex;
     justify-content: space-between;
     align-items: center;
+  }
+
+  &__title {
+    line-height: 1.1;
+    font-size: $h5;
+    min-height: 40px;
+  }
+
+  &__description {
+    min-height: 80px;
   }
 
   a.card__link {
@@ -127,7 +141,8 @@
 
   &--button {
     .card__button {
-      display: inline-block;
+      display: flex;
+      flex-wrap: nowrap;
     }
   }
 
@@ -181,16 +196,19 @@
       .card__image {
         // display: flex;
         overflow: hidden;
-        height: 100%;
+
+        min-height: 300px;
         // width: 50%;
         // max-height: 100%;
         max-width: 50%;
         // position: relative;
 
         img {
-          // width: 100%;
+          width: 100%;
+
           // max-height: inherit;
           height: auto;
+
           width: auto;
           display: block;
           //   height: 200px;
@@ -203,7 +221,7 @@
   }
 
   &--membership {
-    padding: $padding-md;
+    padding: 3rem;
 
     .card__image {
       max-height: 100%;
@@ -221,11 +239,19 @@
     .card__content {
       @include flex-center;
       flex-direction: column;
+      padding: 0;
     }
 
     .card__title {
       text-transform: uppercase;
       text-align: center;
+      line-height: 1.1;
+      font-size: $h5;
+      min-height: 40px;
+    }
+
+    .card__description {
+      min-height: 100px;
     }
 
     .card__price {
@@ -243,11 +269,12 @@
 
     .card__title {
       text-transform: uppercase;
-      margin: 0;
+      margin-bottom: 0;
     }
 
     .card__subtitle {
       margin-top: 0;
+      color: $text-light;
     }
   }
 }

@@ -141,7 +141,7 @@
                       <div class="checkbox__group">
                         <input
                           type="checkbox"
-                          name=""
+                          name="checkboxAll"
                           id="checkboxAll"
                           class="checkbox__input"
                         />
@@ -160,7 +160,7 @@
                       <div class="checkbox__group">
                         <input
                           type="checkbox"
-                          name=""
+                          name="checkboxInterior"
                           id="checkboxInterior"
                           class="checkbox__input"
                           checked
@@ -176,7 +176,7 @@
                       <div class="checkbox__group">
                         <input
                           type="checkbox"
-                          name=""
+                          name="checkboxExterior"
                           id="checkboxExterior"
                           class="checkbox__input"
                           checked
@@ -192,7 +192,7 @@
                       <div class="checkbox__group">
                         <input
                           type="checkbox"
-                          name=""
+                          name="checkboxBundles"
                           id="checkboxBundles"
                           class="checkbox__input"
                           checked
@@ -206,7 +206,7 @@
                       <div class="checkbox__group">
                         <input
                           type="checkbox"
-                          name=""
+                          name="checkboxMemberships"
                           id="checkboxMemberships"
                           class="checkbox__input"
                           checked
@@ -229,7 +229,7 @@
                       <div class="checkbox__group">
                         <input
                           type="checkbox"
-                          name=""
+                          name="checkboxBronze"
                           id="checkboxBronze"
                           class="checkbox__input"
                         />
@@ -242,7 +242,7 @@
                       <div class="checkbox__group">
                         <input
                           type="checkbox"
-                          name=""
+                          name="checkboxSilver"
                           id="checkboxSilver"
                           class="checkbox__input"
                         />
@@ -255,7 +255,7 @@
                       <div class="checkbox__group">
                         <input
                           type="checkbox"
-                          name=""
+                          name="checkboxGold"
                           id="checkboxGold"
                           class="checkbox__input"
                         />
@@ -268,7 +268,7 @@
                       <div class="checkbox__group">
                         <input
                           type="checkbox"
-                          name=""
+                          name="checkboxPlatinum"
                           id="checkboxPlatinum"
                           class="checkbox__input"
                         />
@@ -293,7 +293,7 @@
                         value="1200"
                         min="300"
                         max="1200"
-                        name=""
+                        name="price"
                         class="slider"
                       />
                     </div>
@@ -330,99 +330,103 @@
         </div>
       </div>
     </div>
-  </body>
-  <footer class="footer">
-    <div class="container">
-      <div class="row justify-content-between">
-        <div
-          class="mt-4 mt-lg-0 col-xl-2 order-lg-1 col-lg-3 order-sm-1 col-sm-6 order-1 col-12"
-        >
-          <div class="footer__section">
-            <h6>Opening times</h6>
-            <p>Mon - Sat: 09:00 – 17:00</p>
-            <p>Sunday: Closed</p>
-          </div>
 
-          <div class="footer__section">
-            <h6>Aarhus</h6>
-            <p>Anelystparken 37a</p>
-            <p>8381 Tilst</p>
-          </div>
-
-          <div class="footer__section">
-            <h6>Aalborg</h6>
-            <p>K. Christensens Vej 2D</p>
-            <p>9200 Aalborg</p>
-          </div>
-        </div>
-
-        <div
-          class="mt-4 mt-lg-0 col-xl-4 order-lg-2 col-lg-4 order-sm-3 col-sm-12 order-3 col-12 footer__center"
-        >
-          <h6>Subscribe to our newsletter!</h6>
-          <input
-            type="text"
-            name=""
-            placeholder="E-mail"
-            id="firstName"
-            class="text-input__input"
-          />
-          <button
-            class="button button--base-sm button--secondary button--filled"
+    <footer class="footer">
+      <div class="container">
+        <div class="row justify-content-between">
+          <div
+            class="mt-4 mt-lg-0 col-xl-2 order-lg-1 col-lg-3 order-sm-1 col-sm-6 order-1 col-12"
           >
-            Subscribe
-          </button>
-          <div class="footer__icons-container">
-            <!-- <h1> -->
-            <a href="https://www.facebook.com/ccwaalborg/"
-              ><i class="fab fa-facebook-square"></i
-            ></a>
-            <a href="https://www.instagram.com/centralcarwash_aps/"
-              ><i class="fab fa-instagram"></i
-            ></a>
-            <a
-              href="https://www.youtube.com/channel/UCL6K9SfbQXlfQC3a4-3K9Gw/featured"
-              ><i class="fab fa-youtube"></i
-            ></a>
-            <a href="https://www.linkedin.com/company/central-carwash-aps/"
-              ><i class="fab fa-linkedin"></i
-            ></a>
-            <!-- </h1> -->
+            <div class="footer__section">
+              <h6>Opening times</h6>
+              <p>Mon - Sat: 09:00 – 17:00</p>
+              <p>Sunday: Closed</p>
+            </div>
+
+            <div class="footer__section">
+              <h6>Aarhus</h6>
+              <p>Anelystparken 37a</p>
+              <p>8381 Tilst</p>
+            </div>
+
+            <div class="footer__section">
+              <h6>Aalborg</h6>
+              <p>K. Christensens Vej 2D</p>
+              <p>9200 Aalborg</p>
+            </div>
           </div>
 
-          <h6 class="mt-5">We accept</h6>
-          <div class="footer__icons-container">
-            <img src="assets/images/payment-dankort.png" alt="Dankort" />
-            <img src="assets/images/payment-mastercard.png" alt="MasterCard" />
-            <img src="assets/images/payment-visa.png" alt="Visa" />
-          </div>
-
-          <p class="footer__copyright">All rights reserved &copy; 2020</p>
-        </div>
-
-        <div
-          class="mt-4 mt-lg-0 col-xl-2 order-lg-3 col-lg-3 order-sm-2 col-sm-6 order-2 col-12"
-        >
-          <div class="footer__section">
-            <h6>About CCW</h6>
-            <ul>
-              <li><a href="">Shop</a></li>
-              <li><a href="">Kontakt</a></li>
-              <li><a href="">FAQ</a></li>
-              <li><a href="">Abonnement og Handelsbetingelser</a></li>
-              <li><a href="">GPDR privacy policy</a></li>
-            </ul>
-          </div>
-
-          <div class="footer__section">
-            <h6>Contact</h6>
-            <p>+45 22 99 40 71</p>
-            <a href="mailto:kontakt@centralcarwash.dk"
-              >kontakt@centralcarwash.dk</a
+          <div
+            class="mt-4 mt-lg-0 col-xl-4 order-lg-2 col-lg-4 order-sm-3 col-sm-12 order-3 col-12 footer__center"
+          >
+            <h6>Subscribe to our newsletter!</h6>
+            <input
+              type="text"
+              name="newsletter"
+              placeholder="E-mail"
+              id="firstName"
+              class="text-input__input"
+            />
+            <button
+              class="button button--base-sm button--secondary button--filled"
             >
+              Subscribe
+            </button>
+            <div class="footer__icons-container">
+              <!-- <h1> -->
+              <a href="https://www.facebook.com/ccwaalborg/"
+                ><i class="fab fa-facebook-square"></i
+              ></a>
+              <a href="https://www.instagram.com/centralcarwash_aps/"
+                ><i class="fab fa-instagram"></i
+              ></a>
+              <a
+                href="https://www.youtube.com/channel/UCL6K9SfbQXlfQC3a4-3K9Gw/featured"
+                ><i class="fab fa-youtube"></i
+              ></a>
+              <a href="https://www.linkedin.com/company/central-carwash-aps/"
+                ><i class="fab fa-linkedin"></i
+              ></a>
+              <!-- </h1> -->
+            </div>
+
+            <h6 class="mt-5">We accept</h6>
+            <div class="footer__icons-container">
+              <img src="assets/images/payment-dankort.png" alt="Dankort" />
+              <img
+                src="assets/images/payment-mastercard.png"
+                alt="MasterCard"
+              />
+              <img src="assets/images/payment-visa.png" alt="Visa" />
+            </div>
+
+            <p class="footer__copyright">All rights reserved &copy; 2020</p>
+          </div>
+
+          <div
+            class="mt-4 mt-lg-0 col-xl-2 order-lg-3 col-lg-3 order-sm-2 col-sm-6 order-2 col-12"
+          >
+            <div class="footer__section">
+              <h6>About CCW</h6>
+              <ul>
+                <li><a href="">Shop</a></li>
+                <li><a href="">Kontakt</a></li>
+                <li><a href="">FAQ</a></li>
+                <li><a href="">Abonnement og Handelsbetingelser</a></li>
+                <li><a href="">GPDR privacy policy</a></li>
+              </ul>
+            </div>
+
+            <div class="footer__section">
+              <h6>Contact</h6>
+              <p>+45 22 99 40 71</p>
+              <a href="mailto:kontakt@centralcarwash.dk"
+                >kontakt@centralcarwash.dk</a
+              >
+            </div>
           </div>
         </div>
       </div>
-    </div>
-  </footer>
+    </footer>
+  </body>
 </html>

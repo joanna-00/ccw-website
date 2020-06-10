@@ -266,7 +266,7 @@ function renderShop(shopItems) {
 function createMembershipCard(shopItem, type) {
   shopItem = shopItem.acf;
   if (type == "homepage") {
-    return `        <div class="col-12 col-sm-6 col-lg-3">
+    return `        <div class="col-12 col-sm-8 col-md-6 col-lg-3">
   <div class="shop__membership-card card card--membership card--image">
     <div class="card__image">
       <img src="${shopItem.membership_icon}" alt="" />
@@ -433,7 +433,7 @@ function createShopCard(shopItem, type) {
         </h4>
       </div>
 
-      <p class="description_short">
+      <p class="card__description">
         ${shopItem.description_short}
       </p>
 
@@ -475,7 +475,7 @@ function createShopCard(shopItem, type) {
 
       </div>
 
-      <p class="description_short">
+      <p class="card__description">
         ${shopItem.description_short}
       </p>
 
@@ -724,7 +724,7 @@ function createShopppingCartCard(shopItem, itemsToRender) {
       <div class="card__content">
         <div class="card__label">
           <h4 class="card__title">  ${shopItem.title}</h4>
-          <h4 class="card__link" data-id="${currentID}"><i class="fas fa-trash-alt button--warning icon--right"></i></h4>
+          <h4 class="card__link" data-id="${currentID}"><i class="fas fa-trash-alt icon--right"></i></h4>
         </div>
   
         <p class="card__description">
@@ -791,6 +791,9 @@ function createCheckoutSummary(shoppingCartItems, itemsToRender, type) {
   }
 
   if (type == "checkout") {
+    //     checkoutSummary += `<div class="checkout-card__time">
+    // <p class="checkout-card__time-value">Coupon</p>`;
+
     checkoutSummary += `  <div class="checkout-card__coupon">
     <p class="checkout-card__coupon-label">Coupon</p>
   
@@ -902,6 +905,15 @@ function renderHomepageServices(services) {
   services.forEach((item) => {
     servicesContainer.innerHTML += createShopCard(item, "homepage");
   });
+
+  // Add 'add to cart' functionality to buttons
+  const serviceButtons = $$(".shop-item .card__button");
+
+  serviceButtons.forEach((button) => {
+    button.addEventListener("click", () => {
+      addToShoppingCart(event);
+    });
+  });
 }
 
 function renderHomepageMemberships(memberships) {
@@ -935,5 +947,14 @@ function renderMembershipsServices(services) {
   let servicesContainer = $(".main-memberships__services-container");
   services.forEach((item) => {
     servicesContainer.innerHTML += createShopCard(item, "homepage");
+  });
+
+  // Add 'add to cart' functionality to buttons
+  const serviceButtons = $$(".shop-item .card__button");
+
+  serviceButtons.forEach((button) => {
+    button.addEventListener("click", () => {
+      addToShoppingCart(event);
+    });
   });
 }
