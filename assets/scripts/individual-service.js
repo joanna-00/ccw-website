@@ -50,10 +50,12 @@ if (window.location.pathname.includes("individual_service.html")) {
           currentImage = individualService.imageafter;
           image.style.backgroundImage = `url(${individualService.imageafter})`;
         }
-        
-        setTimeout(() => {image.classList.remove("flash");}, 100)
-      }, 500);
-    }, 3000);
+
+        setTimeout(() => {
+          image.classList.remove("flash");
+        }, 1000);
+      }, 1000);
+    }, 5000);
 
     $(".service-info-card__button-cart").dataset.id = id;
     $(".service-info-card__button-cart").addEventListener("click", () => {

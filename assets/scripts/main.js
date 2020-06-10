@@ -791,6 +791,9 @@ function createCheckoutSummary(shoppingCartItems, itemsToRender, type) {
   }
 
   if (type == "checkout") {
+    //     checkoutSummary += `<div class="checkout-card__time">
+    // <p class="checkout-card__time-value">Coupon</p>`;
+
     checkoutSummary += `  <div class="checkout-card__coupon">
     <p class="checkout-card__coupon-label">Coupon</p>
   

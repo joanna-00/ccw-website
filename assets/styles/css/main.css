@@ -303,20 +303,38 @@ h1 {
   content: " " !important;
   display: inline;
 }
+.breadcrumbs--h1 {
+  margin-left: 0;
+}
 .breadcrumbs--h1 .breadcrumbs__item, .breadcrumbs--h1 .breadcrumbs__item--active {
   font-size: 4rem;
+}
+.breadcrumbs--h2 {
+  padding-left: 0;
 }
 .breadcrumbs--h2 .breadcrumbs__item, .breadcrumbs--h2 .breadcrumbs__item--active {
   font-size: 3.6rem;
 }
+.breadcrumbs--h3 {
+  padding-left: 0;
+}
 .breadcrumbs--h3 .breadcrumbs__item, .breadcrumbs--h3 .breadcrumbs__item--active {
   font-size: 3.2rem;
+}
+.breadcrumbs--h4 {
+  padding-left: 0;
 }
 .breadcrumbs--h4 .breadcrumbs__item, .breadcrumbs--h4 .breadcrumbs__item--active {
   font-size: 2.8rem;
 }
+.breadcrumbs--h5 {
+  padding-left: 0;
+}
 .breadcrumbs--h5 .breadcrumbs__item, .breadcrumbs--h5 .breadcrumbs__item--active {
   font-size: 2.4rem;
+}
+.breadcrumbs--h6 {
+  padding-left: 0;
 }
 .breadcrumbs--h6 .breadcrumbs__item, .breadcrumbs--h6 .breadcrumbs__item--active {
   font-size: 2rem;
@@ -648,10 +666,11 @@ h1 {
 }
 .card--badge .card__title {
   text-transform: uppercase;
-  margin: 0;
+  margin-bottom: 0;
 }
 .card--badge .card__subtitle {
   margin-top: 0;
+  color: #f9f9f9;
 }
 
 .checkout-card {
@@ -1303,6 +1322,7 @@ h1 {
 .filters {
   overflow-y: scroll;
   position: relative;
+  color: #f9f9f9;
 }
 .filters__body {
   background: #133657;
@@ -1587,7 +1607,7 @@ h1 {
 }
 .main-service__info__image::after {
   content: " ";
-  background-color: #ffffff;
+  background-color: #f9f9f9;
   display: block;
   width: 100%;
   height: 100%;
@@ -1595,7 +1615,7 @@ h1 {
   position: absolute;
   top: 0;
   left: 0;
-  transition: 0.5s ease-in-out;
+  transition: 1s ease-in-out;
 }
 .main-service__purchase {
   padding: 0;

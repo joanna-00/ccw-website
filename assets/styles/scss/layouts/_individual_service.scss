@@ -13,7 +13,8 @@
 
       &::after {
         content: " ";
-        background-color: $white;
+        // background-color: $text-body;
+        background-color: $text-light;
         display: block;
         width: 100%;
         height: 100%;
@@ -21,7 +22,7 @@
         position: absolute;
         top: 0;
         left: 0;
-        transition: 0.5s ease-in-out;
+        transition: 1s ease-in-out;
       }
     }
   }

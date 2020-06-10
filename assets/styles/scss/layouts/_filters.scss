@@ -1,6 +1,7 @@
 .filters {
   overflow-y: scroll;
   position: relative;
+  color: $text-light;
 
   &__body {
     background: $background-dark;
