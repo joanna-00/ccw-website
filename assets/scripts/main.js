@@ -785,6 +785,7 @@ function createCheckoutSummary(shoppingCartItems, itemsToRender, type) {
       type="text"
       name=""
       id="coupon"
+      placeholder="1234"
       class="checkout-card__coupon-input text-input__input"
     />
   </div>`;

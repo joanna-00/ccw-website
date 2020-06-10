@@ -1096,10 +1096,6 @@ h1 {
   margin-right: 1.5rem;
 }
 
-.fa-trash-alt {
-  color: #d14444;
-}
-
 .notification {
   width: calc(100% - 4rem);
   background-color: #ffffff;
@@ -2629,6 +2625,9 @@ h1 {
   .shopping-cart .empty {
     background-size: 50%;
   }
+}
+.shopping-cart .card .fa-trash-alt {
+  color: #d14444;
 }
 
 /*# sourceMappingURL=main.css.map */
