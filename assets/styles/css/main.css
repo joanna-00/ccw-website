@@ -1325,6 +1325,9 @@ h1 {
   position: relative;
   color: #f9f9f9;
 }
+.filters p {
+  color: #f9f9f9;
+}
 .filters__body {
   background: #133657;
   color: #f9f9f9;
@@ -1664,7 +1667,7 @@ h1 {
   min-height: 60%;
   min-width: 60%;
   transform: rotateZ(30deg);
-  z-index: -1;
+  z-index: -9999;
 }
 .checkout:before {
   content: "";
@@ -1680,7 +1683,7 @@ h1 {
   min-height: 45%;
   min-width: 45%;
   transform: rotateZ(-190deg);
-  z-index: -1;
+  z-index: -9999;
 }
 .checkout__form-steps {
   position: relative;
@@ -1746,7 +1749,7 @@ h1 {
   min-height: 60%;
   min-width: 60%;
   transform: rotateZ(30deg);
-  z-index: -1;
+  z-index: -9999;
 }
 .main-company:before {
   content: "";
@@ -1762,7 +1765,7 @@ h1 {
   min-height: 45%;
   min-width: 45%;
   transform: rotateZ(-190deg);
-  z-index: -1;
+  z-index: -9999;
 }
 @media (min-width: 1200px) {
   .main-company {
@@ -2053,7 +2056,7 @@ h1 {
   min-height: 60%;
   min-width: 60%;
   transform: rotateZ(30deg);
-  z-index: -1;
+  z-index: -9999;
 }
 .main-contact:before {
   content: "";
@@ -2069,7 +2072,7 @@ h1 {
   min-height: 45%;
   min-width: 45%;
   transform: rotateZ(-190deg);
-  z-index: -1;
+  z-index: -9999;
 }
 @media (min-width: 1200px) {
   .main-contact {
@@ -2126,7 +2129,7 @@ h1 {
   min-height: 60%;
   min-width: 60%;
   transform: rotateZ(30deg);
-  z-index: -1;
+  z-index: -9999;
 }
 .main-homepage:before {
   content: "";
@@ -2142,7 +2145,7 @@ h1 {
   min-height: 45%;
   min-width: 45%;
   transform: rotateZ(-190deg);
-  z-index: -1;
+  z-index: -9999;
 }
 .main-homepage__banner {
   height: 100vh;
@@ -2158,8 +2161,13 @@ h1 {
   position: relative;
   height: 100vh;
   width: 100%;
-  clip-path: polygon(0 48%, 100% 60%, 100% 100%, 0% 100%);
+  clip-path: polygon(0 20%, 100% 40%, 100% 100%, 0% 100%);
   backdrop-filter: blur(14px) brightness(64%);
+}
+@media (min-width: 576px) {
+  .main-homepage__banner-container {
+    clip-path: polygon(0 30%, 100% 50%, 100% 100%, 0% 100%);
+  }
 }
 @media (min-width: 768px) {
   .main-homepage__banner-container {
@@ -2377,7 +2385,7 @@ h1 {
   min-height: 60%;
   min-width: 60%;
   transform: rotateZ(30deg);
-  z-index: -1;
+  z-index: -9999;
 }
 .main-memberships:before {
   content: "";
@@ -2393,7 +2401,7 @@ h1 {
   min-height: 45%;
   min-width: 45%;
   transform: rotateZ(-190deg);
-  z-index: -1;
+  z-index: -9999;
 }
 @media (min-width: 1200px) {
   .main-memberships {
@@ -2560,7 +2568,7 @@ h1 {
   min-height: 60%;
   min-width: 60%;
   transform: rotateZ(30deg);
-  z-index: -1;
+  z-index: -9999;
 }
 .shop:before {
   content: "";
@@ -2576,7 +2584,7 @@ h1 {
   min-height: 45%;
   min-width: 45%;
   transform: rotateZ(-190deg);
-  z-index: -1;
+  z-index: -9999;
 }
 .shop main {
   padding: 4rem 0;
@@ -2599,7 +2607,7 @@ h1 {
   min-height: 60%;
   min-width: 60%;
   transform: rotateZ(30deg);
-  z-index: -1;
+  z-index: -9999;
 }
 .shopping-cart:before {
   content: "";
@@ -2615,7 +2623,7 @@ h1 {
   min-height: 45%;
   min-width: 45%;
   transform: rotateZ(-190deg);
-  z-index: -1;
+  z-index: -9999;
 }
 .shopping-cart .empty {
   height: 60vh;

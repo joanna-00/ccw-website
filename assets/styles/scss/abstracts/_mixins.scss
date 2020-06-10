@@ -84,7 +84,7 @@
   min-height: 45%;
   min-width: 45%;
   transform: rotateZ(-190deg);
-  z-index: -1;
+  z-index: -9999;
 }
 
 @mixin bubbles-after {
@@ -102,5 +102,5 @@
   min-height: 60%;
   min-width: 60%;
   transform: rotateZ(30deg);
-  z-index: -1;
+  z-index: -9999;
 }

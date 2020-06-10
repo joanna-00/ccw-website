@@ -3,6 +3,10 @@
   position: relative;
   color: $text-light;
 
+  p {
+    color: $text-light;
+  }
+
   &__body {
     background: $background-dark;
     color: $text-light;
