@@ -1,17 +1,12 @@
 .main-homepage {
   &:after {
-    content: "";
-    background-image: url(../../images/svgs/bubbles.svg);
-    background-repeat: no-repeat;
-    position: absolute;
-    top: 0;
-    left: 0;
-    opacity: 16%;
-    min-height: 65%;
-    min-width: 65%;
-    transform: rotateZ(-5deg);
-    z-index: -10;
+    @include bubbles-after;
   }
+
+  &:before {
+    @include bubbles-before;
+  }
+
   overflow-x: hidden;
   &__banner {
     height: 100vh;

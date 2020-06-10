@@ -1,4 +1,11 @@
 .checkout {
+  &:after {
+    @include bubbles-after;
+  }
+
+  &:before {
+    @include bubbles-before;
+  }
   &__form-steps {
     position: relative;
     // height: 100%;

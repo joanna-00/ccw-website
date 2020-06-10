@@ -1,4 +1,11 @@
 .shop {
+  &:after {
+    @include bubbles-after;
+  }
+
+  &:before {
+    @include bubbles-before;
+  }
   main {
     padding: 4rem 0;
   }

@@ -724,7 +724,7 @@ function createShopppingCartCard(shopItem, itemsToRender) {
       <div class="card__content">
         <div class="card__label">
           <h4 class="card__title">  ${shopItem.title}</h4>
-          <h4 class="card__link" data-id="${currentID}"><i class="fas fa-trash-alt button--warning icon--right"></i></h4>
+          <h4 class="card__link" data-id="${currentID}"><i class="fas fa-trash-alt icon--right"></i></h4>
         </div>
   
         <p class="card__description">

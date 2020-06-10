@@ -151,6 +151,7 @@ p {
 p {
   font-size: 1.6rem;
   margin: 0.8rem 0;
+  color: #212529;
 }
 
 h6 {
@@ -594,10 +595,11 @@ h1 {
   }
   .card--horizontal .card__image {
     overflow: hidden;
-    height: 100%;
+    min-height: 300px;
     max-width: 50%;
   }
   .card--horizontal .card__image img {
+    width: 100%;
     height: auto;
     width: auto;
     display: block;
@@ -1073,6 +1075,10 @@ h1 {
 }
 .icon--left {
   margin-right: 1.5rem;
+}
+
+.fa-trash-alt {
+  color: #d14444;
 }
 
 .notification {
@@ -1614,6 +1620,38 @@ h1 {
     width: 100%;
   }
 }
+.checkout:after {
+  content: "";
+  background-image: url(../../images/svgs/bubbles.svg);
+  background-repeat: no-repeat;
+  background-position: center;
+  background-size: contain;
+  object-fit: contain;
+  position: fixed;
+  top: 10%;
+  left: -10%;
+  opacity: 12%;
+  min-height: 60%;
+  min-width: 60%;
+  transform: rotateZ(30deg);
+  z-index: -1;
+}
+.checkout:before {
+  content: "";
+  background-image: url(../../images/svgs/bubbles.svg);
+  background-repeat: no-repeat;
+  background-position: center;
+  background-size: contain;
+  object-fit: contain;
+  position: fixed;
+  bottom: 0;
+  right: 0;
+  opacity: 12%;
+  min-height: 45%;
+  min-width: 45%;
+  transform: rotateZ(-190deg);
+  z-index: -1;
+}
 .checkout__form-steps {
   position: relative;
   overflow: hidden;
@@ -1668,14 +1706,33 @@ h1 {
   content: "";
   background-image: url(../../images/svgs/bubbles.svg);
   background-repeat: no-repeat;
-  position: absolute;
-  top: 0;
-  left: 0;
-  opacity: 16%;
-  min-height: 65%;
-  min-width: 65%;
-  transform: rotateZ(-5deg);
-  z-index: -10;
+  background-position: center;
+  background-size: contain;
+  object-fit: contain;
+  position: fixed;
+  top: 10%;
+  left: -10%;
+  opacity: 12%;
+  min-height: 60%;
+  min-width: 60%;
+  transform: rotateZ(30deg);
+  z-index: -1;
+}
+.main-company:before {
+  content: "";
+  background-image: url(../../images/svgs/bubbles.svg);
+  background-repeat: no-repeat;
+  background-position: center;
+  background-size: contain;
+  object-fit: contain;
+  position: fixed;
+  bottom: 0;
+  right: 0;
+  opacity: 12%;
+  min-height: 45%;
+  min-width: 45%;
+  transform: rotateZ(-190deg);
+  z-index: -1;
 }
 @media (min-width: 1200px) {
   .main-company {
@@ -1956,14 +2013,33 @@ h1 {
   content: "";
   background-image: url(../../images/svgs/bubbles.svg);
   background-repeat: no-repeat;
-  position: absolute;
-  top: 0;
-  left: 0;
-  opacity: 16%;
-  min-height: 65%;
-  min-width: 65%;
-  transform: rotateZ(-5deg);
-  z-index: -10;
+  background-position: center;
+  background-size: contain;
+  object-fit: contain;
+  position: fixed;
+  top: 10%;
+  left: -10%;
+  opacity: 12%;
+  min-height: 60%;
+  min-width: 60%;
+  transform: rotateZ(30deg);
+  z-index: -1;
+}
+.main-contact:before {
+  content: "";
+  background-image: url(../../images/svgs/bubbles.svg);
+  background-repeat: no-repeat;
+  background-position: center;
+  background-size: contain;
+  object-fit: contain;
+  position: fixed;
+  bottom: 0;
+  right: 0;
+  opacity: 12%;
+  min-height: 45%;
+  min-width: 45%;
+  transform: rotateZ(-190deg);
+  z-index: -1;
 }
 @media (min-width: 1200px) {
   .main-contact {
@@ -1975,7 +2051,22 @@ h1 {
 }
 .main-contact__address iframe {
   border: none;
-  height: 50vh;
+  height: 60vh;
+}
+@media (min-width: 768px) {
+  .main-contact__address iframe {
+    height: 50vh;
+  }
+}
+@media (min-width: 992px) {
+  .main-contact__address iframe {
+    height: 70vh;
+  }
+}
+@media (min-width: 1200px) {
+  .main-contact__address iframe {
+    height: 60vh;
+  }
 }
 .main-contact__form {
   padding: 4rem 0;
@@ -1995,14 +2086,33 @@ h1 {
   content: "";
   background-image: url(../../images/svgs/bubbles.svg);
   background-repeat: no-repeat;
-  position: absolute;
-  top: 0;
-  left: 0;
-  opacity: 16%;
-  min-height: 65%;
-  min-width: 65%;
-  transform: rotateZ(-5deg);
-  z-index: -10;
+  background-position: center;
+  background-size: contain;
+  object-fit: contain;
+  position: fixed;
+  top: 10%;
+  left: -10%;
+  opacity: 12%;
+  min-height: 60%;
+  min-width: 60%;
+  transform: rotateZ(30deg);
+  z-index: -1;
+}
+.main-homepage:before {
+  content: "";
+  background-image: url(../../images/svgs/bubbles.svg);
+  background-repeat: no-repeat;
+  background-position: center;
+  background-size: contain;
+  object-fit: contain;
+  position: fixed;
+  bottom: 0;
+  right: 0;
+  opacity: 12%;
+  min-height: 45%;
+  min-width: 45%;
+  transform: rotateZ(-190deg);
+  z-index: -1;
 }
 .main-homepage__banner {
   height: 100vh;
@@ -2218,14 +2328,33 @@ h1 {
   content: "";
   background-image: url(../../images/svgs/bubbles.svg);
   background-repeat: no-repeat;
-  position: absolute;
-  top: 0;
-  left: 0;
-  opacity: 16%;
-  min-height: 65%;
-  min-width: 65%;
-  transform: rotateZ(-5deg);
-  z-index: -10;
+  background-position: center;
+  background-size: contain;
+  object-fit: contain;
+  position: fixed;
+  top: 10%;
+  left: -10%;
+  opacity: 12%;
+  min-height: 60%;
+  min-width: 60%;
+  transform: rotateZ(30deg);
+  z-index: -1;
+}
+.main-memberships:before {
+  content: "";
+  background-image: url(../../images/svgs/bubbles.svg);
+  background-repeat: no-repeat;
+  background-position: center;
+  background-size: contain;
+  object-fit: contain;
+  position: fixed;
+  bottom: 0;
+  right: 0;
+  opacity: 12%;
+  min-height: 45%;
+  min-width: 45%;
+  transform: rotateZ(-190deg);
+  z-index: -1;
 }
 @media (min-width: 1200px) {
   .main-memberships {
@@ -2378,6 +2507,38 @@ h1 {
   color: black;
 }
 
+.shop:after {
+  content: "";
+  background-image: url(../../images/svgs/bubbles.svg);
+  background-repeat: no-repeat;
+  background-position: center;
+  background-size: contain;
+  object-fit: contain;
+  position: fixed;
+  top: 10%;
+  left: -10%;
+  opacity: 12%;
+  min-height: 60%;
+  min-width: 60%;
+  transform: rotateZ(30deg);
+  z-index: -1;
+}
+.shop:before {
+  content: "";
+  background-image: url(../../images/svgs/bubbles.svg);
+  background-repeat: no-repeat;
+  background-position: center;
+  background-size: contain;
+  object-fit: contain;
+  position: fixed;
+  bottom: 0;
+  right: 0;
+  opacity: 12%;
+  min-height: 45%;
+  min-width: 45%;
+  transform: rotateZ(-190deg);
+  z-index: -1;
+}
 .shop main {
   padding: 4rem 0;
 }
@@ -2385,6 +2546,38 @@ h1 {
   display: none;
 }
 
+.shopping-cart:after {
+  content: "";
+  background-image: url(../../images/svgs/bubbles.svg);
+  background-repeat: no-repeat;
+  background-position: center;
+  background-size: contain;
+  object-fit: contain;
+  position: fixed;
+  top: 10%;
+  left: -10%;
+  opacity: 12%;
+  min-height: 60%;
+  min-width: 60%;
+  transform: rotateZ(30deg);
+  z-index: -1;
+}
+.shopping-cart:before {
+  content: "";
+  background-image: url(../../images/svgs/bubbles.svg);
+  background-repeat: no-repeat;
+  background-position: center;
+  background-size: contain;
+  object-fit: contain;
+  position: fixed;
+  bottom: 0;
+  right: 0;
+  opacity: 12%;
+  min-height: 45%;
+  min-width: 45%;
+  transform: rotateZ(-190deg);
+  z-index: -1;
+}
 .shopping-cart .empty {
   height: 60vh;
   background-position: center;

@@ -1,25 +1,22 @@
 .main-memberships {
   &:after {
-    content: "";
-    background-image: url(../../images/svgs/bubbles.svg);
-    background-repeat: no-repeat;
-    position: absolute;
-    top: 0;
-    left: 0;
-    opacity: 16%;
-    min-height: 65%;
-    min-width: 65%;
-    transform: rotateZ(-5deg);
-    z-index: -10;
+    @include bubbles-after;
+  }
+
+  &:before {
+    @include bubbles-before;
   }
 
   margin-top: 4rem;
 
-  @media (min-width: $media-sm) {}
+  @media (min-width: $media-sm) {
+  }
 
-  @media (min-width: $media-md) {}
+  @media (min-width: $media-md) {
+  }
 
-  @media (min-width: $media-lg) {}
+  @media (min-width: $media-lg) {
+  }
 
   @media (min-width: $media-xl) {
     margin-top: 12rem;
@@ -29,11 +26,14 @@
     &__banner {
       padding: 4rem 0 0 0;
 
-      @media (min-width: $media-sm) {}
+      @media (min-width: $media-sm) {
+      }
 
-      @media (min-width: $media-md) {}
+      @media (min-width: $media-md) {
+      }
 
-      @media (min-width: $media-lg) {}
+      @media (min-width: $media-lg) {
+      }
 
       @media (min-width: $media-xl) {
         padding: 4rem 0;
@@ -47,15 +47,16 @@
             font-size: 2.6rem;
           }
 
-          @media (min-width: $media-md) {}
+          @media (min-width: $media-md) {
+          }
 
-          @media (min-width: $media-lg) {}
+          @media (min-width: $media-lg) {
+          }
 
           @media (min-width: $media-xl) {
             font-size: 4rem;
           }
         }
-
       }
 
       &-image {
@@ -63,7 +64,8 @@
         @include bckg-img;
         padding-top: 74.25%;
 
-        @media (min-width: $media-sm) {}
+        @media (min-width: $media-sm) {
+        }
 
         @media (min-width: $media-md) {
           padding-top: 42.25%;
@@ -76,7 +78,6 @@
         @media (min-width: $media-xl) {
           padding-top: 24.25%;
         }
-
       }
     }
 
@@ -99,54 +100,54 @@
       overflow-y: none;
     }
 
-    &__table{
+    &__table {
       padding: auto 0;
       table {
         padding: 0;
         @include drop-shadow-light-sm;
         @include border-round-lg;
-  
+
         tr:nth-child(odd) {
           background-color: $white;
         }
-  
+
         tr:nth-child(even) {
           background-color: $background-light;
         }
-  
+
         .heading {
           padding: 1.6rem 0;
           text-align: center;
-  
+
           @media (min-width: $media-lg) {
             padding: 1.6rem 0 0 1.6rem;
             text-align: left;
           }
-  
+
           @media (min-width: $media-xl) {
           }
         }
-  
+
         .plat-heading,
         .plat {
           color: $platinum;
         }
-  
+
         .gold-heading,
         .gold {
           color: $gold;
         }
-  
+
         .silver-heading,
         .silver {
           color: $silver;
         }
-  
+
         .bronze-heading,
         .bronze {
           color: $bronze;
         }
-  
+
         .plat,
         .gold,
         .silver,
@@ -155,13 +156,16 @@
           text-shadow: 0 3px 10px #c4c4c4;
           text-align: center;
           font-size: 2.4rem;
-  
-          @media (min-width: $media-sm) {}
-  
-          @media (min-width: $media-md) {}
-  
-          @media (min-width: $media-lg) {}
-  
+
+          @media (min-width: $media-sm) {
+          }
+
+          @media (min-width: $media-md) {
+          }
+
+          @media (min-width: $media-lg) {
+          }
+
           @media (min-width: $media-xl) {
             padding: 1.6rem;
             font-size: 3.2rem;
@@ -169,7 +173,6 @@
         }
       }
     }
-    
   }
 
   &__services {
@@ -183,16 +186,18 @@
         font-size: 2.6rem;
       }
 
-          @media (min-width: $media-md) {}
+      @media (min-width: $media-md) {
+      }
 
-          @media (min-width: $media-lg) {}
+      @media (min-width: $media-lg) {
+      }
 
-          @media (min-width: $media-xl) {
-            font-size: 3.6rem;
-          }
+      @media (min-width: $media-xl) {
+        font-size: 3.6rem;
+      }
     }
 
-    &-container{
+    &-container {
       overflow-x: auto;
       overflow-y: hidden;
     }
