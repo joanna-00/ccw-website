@@ -44,12 +44,56 @@ if (window.location.pathname.includes("individual_service.html")) {
       location.href = "shopping_cart.html";
     });
 
-    const reccomendedServices = requestPostWP(
-      catEndPoint,
-      catMembership,
-      renderHomepageMemberships
-    );
+    let requestString = "?include[]=";
+    let reccomendedServiceIDs = [];
+
+    if (individualService.recommended_with_1) {
+      reccomendedServiceIDs.push(individualService.recommended_with_1.ID);
+    }
+    if (individualService.recommended_with_2) {
+      reccomendedServiceIDs.push(individualService.recommended_with_2.ID);
+    }
+    if (individualService.recommended_with_3) {
+      reccomendedServiceIDs.push(individualService.recommended_with_3.ID);
+    }
+    if (individualService.recommended_with_4) {
+      reccomendedServiceIDs.push(individualService.recommended_with_4.ID);
+    }
+    console.log(reccomendedServiceIDs);
+
+    let i = 0;
+    reccomendedServiceIDs.forEach((ID) => {
+      if (i == 0) {
+        console.log(ID);
+        requestString += ID;
+        i++;
+      } else {
+        requestString += `&include[]=${ID}`;
+      }
+      //  requestString += ID
+    });
+
+    console.log(requestString);
+
+    if (!reccomendedServiceIDs.length === 0) {
+      const reccomendedServices = requestWP(
+        noEndPoint,
+        requestString,
+        renderReccomendedServices
+      );
+    }
   }
 }
 
-function renderReccomendedServices(reccomendedServices) {}
+function renderReccomendedServices(reccomendedServices) {
+  let reccomendedServicesContainer = $(".recommended-services-container__row");
+
+  console.log(reccomendedServices);
+  reccomendedServices.forEach((service) => {
+    console.log(service);
+    reccomendedServicesContainer.innerHTML += createShopCard(
+      service,
+      "recommended"
+    );
+  });
+}

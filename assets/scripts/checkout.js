@@ -182,19 +182,5 @@ buttonNext.addEventListener("click", () => {
 
       // displayNotification("success", true, "sm", newTitle, newDesc);
     }
-    // }
   }
-
-  // if (currentStep == 4) {
-  //   if (validateForm()) {
-  //     console.log("current step is 4");
-  //     currentStep++;
-  //   }
-  // }
-  // if (currentStep == 5) {
-  //   if (validateForm()) {
-  //     location.href = "shopping_cart.html";
-  //     deleteAllItems();
-  //   }
-  // }
 });

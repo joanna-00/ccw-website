@@ -111,7 +111,46 @@ function createShopCard(shopItem, type) {
   shopItem = shopItem.acf;
   // console.log(shopItem.isavailable);
 
-  if (type == "reccomended") {
+  if (type == "recommended") {
+    return `<div class="col-xl-3 col-sm-6 col-12">
+    <div
+      class="card shop-item card--image card--button card--description card--price card--clickable"
+    >
+      <div class="card__image">
+        <img
+          src="${shopItem.thumbnail_image.url}"
+          alt=""
+        />
+      </div>
+      <div class="card__content">
+        <div class="card__label">
+          <h4 class="card__title">
+          ${shopItem.title}
+          </h4>
+          <h4>
+            <a href="" class="card__link"
+              ><i class="fas fa-arrow-right" aria-hidden="true"></i
+            ></a>
+          </h4>
+        </div>
+
+        <p class="card__description">
+        ${shopItem.description_short}
+        </p>
+
+        <div class="card__features">
+          <h4 class="card__price">${shopItem.price},-</h4>
+          <button
+            class="card__button button button--base-lg button--primary-light"
+            data-id="${post.id}"
+          >
+            Add to cart
+            <i class="fas fa-cart-plus" aria-hidden="true"></i>
+          </button>
+        </div>
+      </div>
+    </div>
+  </div>`;
   }
 
   if (type == "homepage") {
@@ -302,6 +341,7 @@ if (window.location.pathname.includes("shopping_cart.html")) {
         'You can see it under "calendar" in your profile or in your e-mail.';
 
     displayNotification("success", true, "sm", newTitle, newDesc);
+    localStorage.getItem("notification");
   }
 }
 
@@ -600,13 +640,29 @@ function renderHomepageMemberships(memberships) {
   });
 }
 
+// MEMBERSHIPS
+
 if (window.location.pathname.includes("memberships.html")) {
+  let requestString = "?include[]=635&include[]=626&include[]=598";
+
   const memberships = requestWP(catEndPoint, catMembership, renderMemberships);
+  const services = requestWP(
+    noEndPoint,
+    requestString,
+    renderMembershipsServices
+  );
 }
 
 function renderMemberships(memberships) {
   let membershipsContainer = $(".main-memberships__memberships__cards");
   memberships.forEach((item) => {
     membershipsContainer.innerHTML += createMembershipCard(item, "homepage");
+  });
+}
+
+function renderMembershipsServices(services) {
+  let servicesContainer = $(".main-memberships__services-container");
+  services.forEach((item) => {
+    servicesContainer.innerHTML += createShopCard(item, "homepage");
   });
 }
