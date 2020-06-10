@@ -8,7 +8,16 @@
   &__info {
     &__image {
       @include bckg-img;
+      background-size: contain;
       @include drop-shadow-light-sm;
+
+      &.flash::after {
+        content: "";
+        background-color: $white;
+        display: block;
+        width: 100%;
+        height: 100%;
+      }
     }
   }
 

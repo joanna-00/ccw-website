@@ -80,6 +80,7 @@
     justify-content: center;
     @media (min-width: $media-lg) {
       flex-direction: row;
+      // justify-content: space-between;
     }
     @media (min-width: $media-xl) {
       flex-direction: row;
@@ -134,12 +135,18 @@
 
     .button--primary-light {
       width: 100%;
+      @media (min-width: $media-md) {
+        width: auto;
+      }
       margin-bottom: 2rem;
     }
 
     button {
       margin-bottom: 1rem;
-      width: 100%;
+
+      @media (min-width: $media-md) {
+        width: auto;
+      }
 
       &.nav__login {
         margin-bottom: 0;
@@ -158,7 +165,7 @@
 
     display: inline-block;
     @media (min-width: $media-lg) {
-      font-size: $h1 * 1.125;
+      font-size: $h1;
       margin-right: 1.6rem;
     }
     @media (min-width: $media-xl) {
@@ -188,9 +195,11 @@
     transition: all 0.3s ease-in-out;
     @media (min-width: $media-lg) {
       display: flex;
+      // justify-content: space-between;
     }
     @media (min-width: $media-xl) {
       display: flex;
+      // justify-content: space-between;
     }
   }
 

@@ -29,12 +29,28 @@ if (window.location.pathname.includes("individual_service.html")) {
 
     $(".service-info-card__title").textContent = individualService.title;
     $(".service-info-card__price-value").textContent = individualService.price;
+
     $(
       ".service-info-card__time-value"
     ).textContent = `${individualService.est_time} - ${individualService.est_time_max} hr`;
-    $(
-      ".main-service__info__image"
-    ).style.backgroundImage = `url(${individualService.imageafter})`;
+
+    const image = $(".main-service__info__image");
+    setInterval(() => {
+      image.classList.add("flash");
+      setTimeout(() => {
+        if (
+          image.style.backgroundImage == `url(${individualService.imageafter})`
+        ) {
+          image.style.backgroundImage = `url(${individualService.imagebefore})`;
+        } else {
+          image.style.backgroundImage = `url(${individualService.imageafter})`;
+        }
+
+        image.classList.remove("flash");
+      }, 1100);
+    }, 6100);
+
+    image.style.backgroundImage = `url(${individualService.imagebefore})`;
 
     $(".service-info-card__button-cart").dataset.id = id;
     $(".service-info-card__button-cart").addEventListener("click", () => {
