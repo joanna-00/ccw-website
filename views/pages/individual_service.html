@@ -28,7 +28,6 @@
     <!-- Custom styles and scripts -->
     <link rel="stylesheet" href="../../assets/styles/css/main.css" />
     <script src="../../assets/scripts/main.js" defer></script>
-    <script src="../../assets/scripts/shop.js" defer></script>
     <script src="../../assets/scripts/individual-service.js" defer></script>
   </head>
 
@@ -71,12 +70,15 @@
             <button
               class="button button--base-sm button--primary-light button--filled d-lg-none d-xl-none"
             >
-              <i class="fas fa-shopping-cart nav__shopping-cart"></i
+              <i
+                class="fas fa-shopping-cart nav__shopping-cart nav__shopping-cart--mobile"
+              ></i
               >Shopping&nbsp;cart
             </button>
             <a href="shopping_cart.html">
               <i
-                class="fas fa-shopping-cart nav__shopping-cart d-none d-lg-block"
+                class="fas fa-shopping-cart nav__shopping-cart nav__shopping-cart--desktop d-none d-lg-block"
+                ><span id="totalCartAmountDot"></span
               ></i>
             </a>
             <button

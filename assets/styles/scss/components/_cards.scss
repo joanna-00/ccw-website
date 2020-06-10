@@ -6,7 +6,7 @@
   @include drop-shadow-light-sm;
   overflow: hidden;
   margin-bottom: 4rem;
-  // display: flex;
+  display: flex;
   flex-direction: column;
   transition: transform $very-fast ease-out;
 
@@ -50,7 +50,7 @@
 
   &__image {
     display: none;
-    position: relative;
+    // position: relative;
     // height: 300px;
     width: 100%;
     overflow: hidden;
