@@ -8,21 +8,32 @@
   &__info {
     &__image {
       @include bckg-img;
-      background-size: contain;
       @include drop-shadow-light-sm;
+      position: relative;
 
-      &.flash::after {
-        content: "";
+      &::after {
+        content: " ";
         background-color: $white;
         display: block;
         width: 100%;
         height: 100%;
+        opacity: 0;
+        position: absolute;
+        top: 0;
+        left: 0;
+        transition: 0.5s ease-in-out;
       }
     }
   }
 
   &__purchase {
     padding: 0;
+  }
+}
+
+.flash {
+  &::after {
+    opacity: 1;
   }
 }
 
