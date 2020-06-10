@@ -15,8 +15,8 @@
     position: absolute;
     padding: 1.5rem;
     @include flex-center;
-    left: 1.5rem;
-    top: 1.5rem;
+    left: 2rem;
+    top: 2rem;
     background-color: $white;
     // z-index: 1;
     // width: 100%;
@@ -50,7 +50,7 @@
 
   &__image {
     display: none;
-    // position: relative;
+    position: relative;
     // height: 300px;
     width: 100%;
     overflow: hidden;
