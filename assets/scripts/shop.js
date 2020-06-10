@@ -307,19 +307,42 @@ function addToggleToCheckbox(checkbox, container) {
 }
 
 // SHOPPING CART
+let shoppingCartIcon = $(".nav__shopping-cart--desktop");
+
+let totalCartAmount = JSON.parse(localStorage.getItem("shoppingCart")).length;
+console.log(totalCartAmount);
 
 function addToShoppingCart(e) {
   let serviceID = e.target.dataset.id;
 
   if (!localStorage.getItem("shoppingCart")) {
     let currentShoppingCart = [];
-    currentShoppingCart.push(serviceID);
+    if (serviceID) {
+      currentShoppingCart.push(serviceID);
+    }
+
     localStorage.setItem("shoppingCart", JSON.stringify(currentShoppingCart));
+
+    playAnimation("shoppingCartAdd", 300, shoppingCartIcon);
   } else {
     let currentShoppingCart = JSON.parse(localStorage.getItem("shoppingCart"));
-    currentShoppingCart.push(serviceID);
+    if (serviceID) {
+      currentShoppingCart.push(serviceID);
+    }
     localStorage.setItem("shoppingCart", JSON.stringify(currentShoppingCart));
+    playAnimation("shoppingCartAdd", 300, shoppingCartIcon);
   }
+}
+
+function playAnimation(className, duration, element) {
+  console.log(element);
+  console.log("playing animation");
+  element.classList.add(className);
+  setTimeout(() => {
+    element.classList.remove(className);
+    console.log(element);
+  }, duration);
+  console.log(element);
 }
 
 if (window.location.pathname.includes("shopping_cart.html")) {
