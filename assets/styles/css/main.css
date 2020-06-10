@@ -1397,7 +1397,7 @@ h1 {
     padding: 2.4rem 1.6rem;
   }
 }
-.nav__link.active {
+.nav__link.active, .nav__link:hover {
   border-bottom: #133657 solid 3px;
 }
 .nav__buttons {
