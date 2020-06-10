@@ -106,7 +106,7 @@
       }
     }
 
-    &.active {
+    &.active, &:hover {
       border-bottom: $text-dark solid 3px;
     }
   }
