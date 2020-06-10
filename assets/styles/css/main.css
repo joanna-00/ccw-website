@@ -39,20 +39,6 @@
     transform: translateX(100%);
   }
 }
-@keyframes shoppingCartAdd {
-  0% {
-    transform: translateY(0);
-  }
-  40% {
-    transform: translateY(15%);
-  }
-  60% {
-    transform: translateY(10%);
-  }
-  100% {
-    transform: translateY(0);
-  }
-}
 * {
   box-sizing: inherit;
 }
@@ -420,32 +406,32 @@ h1 {
 .card__memberships-badge--platinum {
   display: inline-block;
   border-radius: 9999px;
-  height: 12px;
-  width: 12px;
+  height: 15px;
+  width: 15px;
   margin: 0.5rem;
   background-color: #3d6277;
 }
 .card__memberships-badge--gold {
   display: inline-block;
   border-radius: 9999px;
-  height: 12px;
-  width: 12px;
+  height: 15px;
+  width: 15px;
   margin: 0.5rem;
   background-color: #f6d868;
 }
 .card__memberships-badge--silver {
   display: inline-block;
   border-radius: 9999px;
-  height: 12px;
-  width: 12px;
+  height: 15px;
+  width: 15px;
   margin: 0.5rem;
   background-color: #b6b6b6;
 }
 .card__memberships-badge--bronze {
   display: inline-block;
   border-radius: 9999px;
-  height: 12px;
-  width: 12px;
+  height: 15px;
+  width: 15px;
   margin: 0.5rem;
   background-color: #c99274;
 }
@@ -454,6 +440,7 @@ h1 {
 }
 .card__image {
   display: none;
+  position: relative;
   width: 100%;
   overflow: hidden;
   max-height: 200px;
@@ -1404,7 +1391,6 @@ h1 {
   padding: 1rem 2rem;
   font-size: 4rem;
   margin-right: 4rem;
-  display: inline-block;
 }
 @media (min-width: 992px) {
   .nav__shopping-cart {
@@ -1416,11 +1402,6 @@ h1 {
   .nav__shopping-cart {
     margin-right: 4rem;
   }
-}
-.nav__shopping-cart.shoppingCartAdd {
-  animation-name: shoppingCartAdd;
-  animation-timing-function: ease-in;
-  animation-duration: 0.3s;
 }
 .nav__login {
   width: 50%;
