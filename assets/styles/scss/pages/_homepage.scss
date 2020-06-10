@@ -84,9 +84,13 @@
 
     &-text {
       backdrop-filter: blur(14px) brightness(64%);
-      color: $white;
+      color: $text-light;
       clip-path: polygon(0 0, 100% 0, 100% 100%, 0 100%);
-      padding: 4rem 0;
+      padding: 10rem 0;
+
+      p {
+        color: $text-light;
+      }
 
       @media (min-width: $media-md) {
         // clip-path: polygon(70% 0, 100% 0, 100% 100%, 50% 100%);
@@ -94,7 +98,7 @@
       }
 
       @media (min-width: $media-lg) {
-        clip-path: polygon(60% 0, 100% 0, 100% 100%, 50% 100%);
+        clip-path: polygon(50% 0, 100% 0, 100% 100%, 30% 100%);
         padding: 0;
       }
 
@@ -134,8 +138,12 @@
   &__steps {
     padding: 4rem 0;
     text-align: center;
-    color: $white;
+    color: $text-light;
     background-color: $primary-light;
+
+    p {
+      color: $text-light;
+    }
 
     &__step div {
       &.hidden {

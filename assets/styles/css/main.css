@@ -2212,15 +2212,18 @@ h1 {
 }
 .main-homepage__company-text {
   backdrop-filter: blur(14px) brightness(64%);
-  color: #ffffff;
+  color: #f9f9f9;
   clip-path: polygon(0 0, 100% 0, 100% 100%, 0 100%);
-  padding: 4rem 0;
+  padding: 10rem 0;
   backdrop-filter: blur(5px) brightness(64%);
   height: 100%;
   display: flex;
   justify-content: center;
   flex-direction: column;
   align-items: flex-end;
+}
+.main-homepage__company-text p {
+  color: #f9f9f9;
 }
 @media (min-width: 768px) {
   .main-homepage__company-text {
@@ -2229,7 +2232,7 @@ h1 {
 }
 @media (min-width: 992px) {
   .main-homepage__company-text {
-    clip-path: polygon(60% 0, 100% 0, 100% 100%, 50% 100%);
+    clip-path: polygon(50% 0, 100% 0, 100% 100%, 30% 100%);
     padding: 0;
   }
 }
@@ -2259,8 +2262,11 @@ h1 {
 .main-homepage__steps {
   padding: 4rem 0;
   text-align: center;
-  color: #ffffff;
+  color: #f9f9f9;
   background-color: #133657;
+}
+.main-homepage__steps p {
+  color: #f9f9f9;
 }
 .main-homepage__steps__step div.hidden {
   opacity: 0;
