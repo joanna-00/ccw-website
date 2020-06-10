@@ -1643,12 +1643,14 @@ h1 {
 .main-company:after {
   content: "";
   background-image: url(../../images/svgs/bubbles.svg);
-  position: fixed;
+  background-repeat: no-repeat;
+  position: absolute;
   top: 0;
   left: 0;
   opacity: 16%;
-  min-height: 100%;
-  min-width: 100%;
+  min-height: 65%;
+  min-width: 65%;
+  transform: rotateZ(-5deg);
   z-index: -10;
 }
 @media (min-width: 1200px) {
@@ -1929,12 +1931,14 @@ h1 {
 .main-contact:after {
   content: "";
   background-image: url(../../images/svgs/bubbles.svg);
-  position: fixed;
+  background-repeat: no-repeat;
+  position: absolute;
   top: 0;
   left: 0;
   opacity: 16%;
-  min-height: 100%;
-  min-width: 100%;
+  min-height: 65%;
+  min-width: 65%;
+  transform: rotateZ(-5deg);
   z-index: -10;
 }
 @media (min-width: 1200px) {
@@ -1962,6 +1966,19 @@ h1 {
 
 .main-homepage {
   overflow-x: hidden;
+}
+.main-homepage:after {
+  content: "";
+  background-image: url(../../images/svgs/bubbles.svg);
+  background-repeat: no-repeat;
+  position: absolute;
+  top: 0;
+  left: 0;
+  opacity: 16%;
+  min-height: 65%;
+  min-width: 65%;
+  transform: rotateZ(-5deg);
+  z-index: -10;
 }
 .main-homepage__banner {
   height: 100vh;
@@ -2179,12 +2196,14 @@ h1 {
 .main-memberships:after {
   content: "";
   background-image: url(../../images/svgs/bubbles.svg);
+  background-repeat: no-repeat;
   position: absolute;
   top: 0;
   left: 0;
   opacity: 16%;
-  min-height: 100%;
-  min-width: 100%;
+  min-height: 65%;
+  min-width: 65%;
+  transform: rotateZ(-5deg);
   z-index: -10;
 }
 @media (min-width: 1200px) {
