@@ -10,6 +10,7 @@ if (window.location.pathname.includes("individual_service.html")) {
   //  Individual page rendering
 
   function renderIndividualService(individualService) {
+    let currentImage = null;
     let id = individualService.id;
     individualService = individualService.acf;
 
@@ -35,22 +36,24 @@ if (window.location.pathname.includes("individual_service.html")) {
     ).textContent = `${individualService.est_time} - ${individualService.est_time_max} hr`;
 
     const image = $(".main-service__info__image");
+
+    image.style.backgroundImage = `url(${individualService.imagebefore})`;
+    currentImage = individualService.imagebefore;
+
     setInterval(() => {
       image.classList.add("flash");
       setTimeout(() => {
-        if (
-          image.style.backgroundImage == `url(${individualService.imageafter})`
-        ) {
+        if (currentImage == individualService.imageafter) {
+          currentImage = individualService.imagebefore;
           image.style.backgroundImage = `url(${individualService.imagebefore})`;
         } else {
+          currentImage = individualService.imageafter;
           image.style.backgroundImage = `url(${individualService.imageafter})`;
         }
-
-        image.classList.remove("flash");
-      }, 1100);
-    }, 6100);
-
-    image.style.backgroundImage = `url(${individualService.imagebefore})`;
+        
+        setTimeout(() => {image.classList.remove("flash");}, 100)
+      }, 500);
+    }, 3000);
 
     $(".service-info-card__button-cart").dataset.id = id;
     $(".service-info-card__button-cart").addEventListener("click", () => {
