@@ -1240,16 +1240,17 @@ h1 {
   color: #f9f9f9;
   padding: 1rem 2rem;
   min-height: 100vh;
+  font-size: 80%;
   margin-top: 0;
   position: absolute;
   left: 0;
-  transform: translateX(0);
+  transform: translateX(calc(-100% - 10vw));
   transition: transform 0.3s ease-out;
-  z-index: 1;
+  z-index: 9999;
+  position: fixed;
 }
 @media (min-width: 768px) {
   .filters__body {
-    position: fixed;
     transform: translateX(0);
   }
 }
@@ -1266,16 +1267,9 @@ h1 {
   position: fixed;
   transform: translateX(0);
   z-index: 9999;
-  margin-top: 136px;
-}
-@media (min-width: 768px) {
-  .filters__collapse-button--outside {
-    margin-top: 153px;
-  }
 }
 @media (min-width: 992px) {
   .filters__collapse-button--outside {
-    margin-top: 170px;
     z-index: 0;
   }
 }
