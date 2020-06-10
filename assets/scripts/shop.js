@@ -74,7 +74,6 @@ function createMembershipCard(shopItem, type) {
       <p class="card__description">
         ${shopItem.membership_description}
       </p>
-      <h4 class="card__price">${shopItem.price},-</h4>
       <button
         class="button button--base-lg button--secondary button--filled"
       >
@@ -96,7 +95,6 @@ function createMembershipCard(shopItem, type) {
       <p class="card__description">
         ${shopItem.membership_description}
       </p>
-      <h4 class="card__price">${shopItem.price},-</h4>
       <button
         class="button button--base-lg button--secondary button--filled"
       >
@@ -119,12 +117,6 @@ function createShopCard(shopItem, type) {
       class="card shop-item card--image card--button card--description card--price card--clickable"
     >
       <div class="card__image">
-      <div class="card__memberships-badge">
-                <span class="card__memberships-badge--platinum"></span>
-                <span class="card__memberships-badge--gold"></span>
-                <span class="card__memberships-badge--silver"></span>
-                <span class="card__memberships-badge--bronze"></span>
-              </div>
         <img
           src="${shopItem.thumbnail_image.url}"
           alt=""
@@ -166,12 +158,6 @@ function createShopCard(shopItem, type) {
 <div
     class="card shop-item card--image card--button card--description card--price card--clickable">
     <div class="card__image">
-        <div class="card__memberships-badge">
-                <span class="card__memberships-badge--platinum"></span>
-                <span class="card__memberships-badge--gold"></span>
-                <span class="card__memberships-badge--silver"></span>
-                <span class="card__memberships-badge--bronze"></span>
-          </div>
         <img src="${shopItem.thumbnail_image.url}" alt="">
     </div>
     <div class="card__content">
@@ -208,12 +194,6 @@ function createShopCard(shopItem, type) {
     class="shop__service-card card card--image card--button card--description card--price card--clickable"
   >
     <div class="card__image">
-        <div class="card__memberships-badge">
-                <span class="card__memberships-badge--platinum"></span>
-                <span class="card__memberships-badge--gold"></span>
-                <span class="card__memberships-badge--silver"></span>
-                <span class="card__memberships-badge--bronze"></span>
-              </div>
       <img
         src="${shopItem.thumbnail_image.url}"
         alt=""
@@ -254,12 +234,6 @@ function createShopCard(shopItem, type) {
     class="shop__service-card card card--image card--button card--description card--price"
   >
     <div class="card__image">
-        <div class="card__memberships-badge">
-                <span class="card__memberships-badge--platinum"></span>
-                <span class="card__memberships-badge--gold"></span>
-                <span class="card__memberships-badge--silver"></span>
-                <span class="card__memberships-badge--bronze"></span>
-              </div>
       <img
         src="${shopItem.thumbnail_image.url}"
         alt=""
