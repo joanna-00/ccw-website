@@ -151,13 +151,7 @@
       margin-right: 4rem;
     }
 
-    &::before {
-      // display: inline-block;
-    }
-
     &.shoppingCartAdd {
-      // position: absolute;
-
       animation-name: shoppingCartAdd;
       animation-timing-function: ease-in;
       animation-duration: $fast;
@@ -202,5 +196,9 @@
     font-family: $font-primary;
     // transform: translateY(300%);
     // transform: translateX(-100%);
+
+    &.hidden {
+      display: none;
+    }
   }
 }

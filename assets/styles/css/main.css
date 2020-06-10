@@ -1472,6 +1472,9 @@ h1 {
   font-size: 1.28rem;
   font-family: "Nunito Sans";
 }
+.nav #totalCartAmountDot.hidden {
+  display: none;
+}
 
 .main-service-container {
   max-width: 100%;
