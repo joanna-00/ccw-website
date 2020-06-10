@@ -1854,7 +1854,7 @@ h1 {
 }
 
 .main-contact {
-  margin-top: 12rem;
+  margin-top: 4rem;
 }
 .main-contact:after {
   content: "";
@@ -1867,11 +1867,17 @@ h1 {
   min-width: 100%;
   z-index: -10;
 }
+@media (min-width: 1200px) {
+  .main-contact {
+    margin-top: 12rem;
+  }
+}
 .main-contact__address {
   padding: 4rem 0;
 }
 .main-contact__address iframe {
   border: none;
+  height: 50vh;
 }
 .main-contact__form {
   padding: 4rem 0;
