@@ -140,12 +140,26 @@
     padding: $padding-sm;
     font-size: $h1;
     margin-right: 4rem;
+
+    display: inline-block;
     @media (min-width: $media-lg) {
       font-size: 3.2rem;
       margin-right: 1.6rem;
     }
     @media (min-width: $media-xl) {
       margin-right: 4rem;
+    }
+
+    &::before {
+      // display: inline-block;
+    }
+
+    &.shoppingCartAdd {
+      // position: absolute;
+
+      animation-name: shoppingCartAdd;
+      animation-timing-function: ease-in;
+      animation-duration: $fast;
     }
   }
 

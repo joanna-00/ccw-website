@@ -45,3 +45,22 @@
     transform: translateX(100%);
   }
 }
+
+@keyframes shoppingCartAdd {
+  0% {
+    transform: translateY(0);
+  }
+  40% {
+    transform: translateY(15%);
+  }
+  60% {
+    transform: translateY(10%);
+  }
+  // 80% {
+  //   transform: translateY(10%);
+  // }
+
+  100% {
+    transform: translateY(0);
+  }
+}

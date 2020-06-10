@@ -64,7 +64,7 @@
 @mixin badge-dot {
   display: inline-block;
   @include border-circle;
-  height: 15px;
-  width: 15px;
+  height: 12px;
+  width: 12px;
   margin: 0.5rem;
 }
