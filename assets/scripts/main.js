@@ -149,6 +149,57 @@ function displayNotification(type, hasIcon, size, title, description) {
   }, 5000);
 }
 
+function playAnimation(className, duration, element) {
+  console.log("playing animation");
+  element.classList.add(className);
+  setTimeout(() => {
+    element.classList.remove(className);
+  }, duration);
+}
+
+const onScroll =
+  window.requestAnimationFrame ||
+  function (callback) {
+    window.setTimeout(callback, 1000 / 60);
+  };
+
+const queryTablet = window.matchMedia(
+  "(min-width: 421px) and (max-width: 780px)"
+);
+const queryMobile = window.matchMedia("(max-width: 420px)");
+
+function isElementInViewport(element) {
+  let rect = element.getBoundingClientRect();
+  if (queryMobile.matches) {
+    return rect.top <= 650;
+  } else if (queryTablet.matches) {
+    return rect.top <= 600;
+  } else {
+    return rect.top <= 700;
+  }
+}
+
+// let elemsToShow = document.querySelectorAll(".show-on-scroll");
+
+function checkPosition(elemsToShow, callback) {
+  // if (!elemsToShow.length === undefined) {
+  //   elemsToShow.forEach(function (elem) {
+  //     if (isElementInViewport(elem)) {
+  //       callback();
+  //     }
+  //   });
+  //   onScroll(checkPosition);
+  // } else {
+  if (isElementInViewport(elemsToShow)) {
+    callback();
+    return;
+  }
+  onScroll(() => checkPosition(elemsToShow, callback));
+  // }
+}
+
+// checkPosition();
+
 // SHOP
 
 if (window.location.pathname.includes("shop.html")) {
@@ -498,15 +549,18 @@ function addToShoppingCart(e) {
   }
 }
 
-function playAnimation(className, duration, element) {
-  console.log(element);
-  console.log("playing animation");
-  element.classList.add(className);
-  setTimeout(() => {
-    element.classList.remove(className);
-    console.log(element);
-  }, duration);
-  console.log(element);
+const stepsContainer = $(".main-homepage__steps__step");
+
+function showStepsProcess() {
+  let steps = stepsContainer.children;
+
+  steps = Array.from(steps);
+  for (let i = 1; i <= steps.length; i++) {
+    setTimeout(() => {
+      playAnimation("showStep", 700, steps[i - 1]);
+      steps[i - 1].classList.remove("hidden");
+    }, 700 * i);
+  }
 }
 
 if (window.location.pathname.includes("shopping_cart.html")) {
@@ -830,6 +884,10 @@ if (
 
 if (window.location.pathname.includes("index.html")) {
   let requestString = "?include[]=635&include[]=626&include[]=598";
+
+  const stepsContainer = $(".main-homepage__steps__step");
+
+  checkPosition(stepsContainer, showStepsProcess);
 
   const services = requestWP(noEndPoint, requestString, renderHomepageServices);
   const memberships = requestWP(

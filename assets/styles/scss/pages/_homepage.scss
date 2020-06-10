@@ -149,6 +149,20 @@
     text-align: center;
     color: $white;
     background-color: $primary-light;
+
+    &__step div {
+      // opacity: 0;
+
+      &.hidden {
+        opacity: 0;
+      }
+
+      &.showStep {
+        animation-name: showStep;
+        animation-duration: $slow;
+      }
+    }
+
     i {
       font-size: 10rem;
     }

@@ -64,6 +64,16 @@
     transform: scale(1) translateY(0);
   }
 }
+@keyframes showStep {
+  0% {
+    opacity: 0;
+    transform: translateY(100%);
+  }
+  100% {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
 * {
   box-sizing: inherit;
 }
@@ -1906,6 +1916,13 @@ h1 {
   text-align: center;
   color: #ffffff;
   background-color: #133657;
+}
+.main-homepage__steps__step div.hidden {
+  opacity: 0;
+}
+.main-homepage__steps__step div.showStep {
+  animation-name: showStep;
+  animation-duration: 0.7s;
 }
 .main-homepage__steps i {
   font-size: 10rem;
