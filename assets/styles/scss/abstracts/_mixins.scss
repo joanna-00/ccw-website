@@ -1,24 +1,16 @@
 @mixin drop-shadow-light-sm {
-  -webkit-box-shadow: 0px 3px 10px 0px rgba(0, 0, 0, 0.25);
-  -moz-box-shadow: 0px 3px 10px 0px rgba(0, 0, 0, 0.25);
   box-shadow: 0px 3px 10px 0px rgba(0, 0, 0, 0.25);
 }
 
 @mixin drop-shadow-light-lg {
-  -webkit-box-shadow: 0px 3px 15px 0px rgba(0, 0, 0, 0.25);
-  -moz-box-shadow: 0px 3px 15px 0px rgba(0, 0, 0, 0.25);
   box-shadow: 0px 3px 15px 0px rgba(0, 0, 0, 0.25);
 }
 
 @mixin drop-shadow-dark-sm {
-  -webkit-box-shadow: 0px 3px 10px 0px rgba(0, 0, 0, 0.5);
-  -moz-box-shadow: 0px 3px 10px 0px rgba(0, 0, 0, 0.5);
   box-shadow: 0px 3px 10px 0px rgba(0, 0, 0, 0.5);
 }
 
 @mixin drop-shadow-dark-lg {
-  -webkit-box-shadow: 0px 3px 15px 0px rgba(0, 0, 0, 0.5);
-  -moz-box-shadow: 0px 3px 15px 0px rgba(0, 0, 0, 0.5);
   box-shadow: 0px 3px 15px 0px rgba(0, 0, 0, 0.5);
 }
 
@@ -75,6 +67,7 @@
   background-repeat: no-repeat;
   background-position: center;
   background-size: contain;
+  -o-object-fit: contain;
   object-fit: contain;
   position: fixed;
   bottom: 0;
@@ -94,6 +87,7 @@
 
   background-position: center;
   background-size: contain;
+  -o-object-fit: contain;
   object-fit: contain;
   position: fixed;
   top: 10%;

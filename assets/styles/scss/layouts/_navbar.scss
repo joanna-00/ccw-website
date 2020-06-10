@@ -173,13 +173,19 @@
     }
 
     &.shoppingCartAdd {
+      -webkit-animation-name: shoppingCartAdd;
       animation-name: shoppingCartAdd;
+      -webkit-animation-timing-function: ease-in;
       animation-timing-function: ease-in;
+      -webkit-animation-duration: $fast;
       animation-duration: $fast;
 
       #totalCartAmountDot {
+        -webkit-animation-name: pulse;
         animation-name: pulse;
+        -webkit-animation-timing-function: ease-in;
         animation-timing-function: ease-in;
+        -webkit-animation-duration: $fast;
         animation-duration: $fast;
       }
     }

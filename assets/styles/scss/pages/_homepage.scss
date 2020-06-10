@@ -25,19 +25,25 @@
       width: 100%;
       // clip-path: polygon(0 0, 100% 0, 100% 100%, 0 100%);
       // clip-path: polygon(0 50%, 100% 50%, 100% 100%, 0% 100%);
+      -webkit-clip-path: polygon(0 20%, 100% 40%, 100% 100%, 0% 100%);
       clip-path: polygon(0 20%, 100% 40%, 100% 100%, 0% 100%);
 
       @media (min-width: $media-sm) {
+        -webkit-clip-path: polygon(0 30%, 100% 50%, 100% 100%, 0% 100%);
         clip-path: polygon(0 30%, 100% 50%, 100% 100%, 0% 100%);
       }
 
       @media (min-width: $media-md) {
+        -webkit-clip-path: polygon(0 0, 50% 0, 70% 100%, 0 100%);
         clip-path: polygon(0 0, 50% 0, 70% 100%, 0 100%);
       }
 
       @media (min-width: $media-lg) {
+        -webkit-clip-path: polygon(0 0, 40% 0, 60% 100%, 0 100%);
         clip-path: polygon(0 0, 40% 0, 60% 100%, 0 100%);
       }
+
+      -webkit-backdrop-filter: blur(14px) brightness(64%);
 
       backdrop-filter: blur(14px) brightness(64%);
       // top: -100%;
@@ -88,8 +94,10 @@
     padding: 0;
 
     &-text {
+      -webkit-backdrop-filter: blur(14px) brightness(64%);
       backdrop-filter: blur(14px) brightness(64%);
       color: $text-light;
+      -webkit-clip-path: polygon(0 0, 100% 0, 100% 100%, 0 100%);
       clip-path: polygon(0 0, 100% 0, 100% 100%, 0 100%);
       padding: 10rem 0;
 
@@ -100,13 +108,17 @@
 
       @media (min-width: $media-md) {
         // clip-path: polygon(70% 0, 100% 0, 100% 100%, 50% 100%);
+        -webkit-clip-path: polygon(50% 0, 100% 0, 100% 100%, 30% 100%);
         clip-path: polygon(50% 0, 100% 0, 100% 100%, 30% 100%);
       }
 
       @media (min-width: $media-lg) {
+        -webkit-clip-path: polygon(50% 0, 100% 0, 100% 100%, 30% 100%);
         clip-path: polygon(50% 0, 100% 0, 100% 100%, 30% 100%);
         padding: 0;
       }
+
+      -webkit-backdrop-filter: blur(5px) brightness(64%);
 
       backdrop-filter: blur(5px) brightness(64%);
       height: 100%;
@@ -157,7 +169,9 @@
       }
 
       &.showStep {
+        -webkit-animation-name: showStep;
         animation-name: showStep;
+        -webkit-animation-duration: $slow;
         animation-duration: $slow;
       }
     }

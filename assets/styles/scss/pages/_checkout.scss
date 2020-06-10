@@ -31,30 +31,46 @@
     }
 
     &.moveInLeft {
+      -webkit-animation-name: moveInLeft;
       animation-name: moveInLeft;
+      -webkit-animation-duration: $fast;
       animation-duration: $fast;
+      -webkit-animation-fill-mode: backwards;
       animation-fill-mode: backwards;
+      -webkit-animation-timing-function: ease-out;
       animation-timing-function: ease-out;
     }
 
     &.moveInRight {
+      -webkit-animation-name: moveInRight;
       animation-name: moveInRight;
+      -webkit-animation-duration: $fast;
       animation-duration: $fast;
+      -webkit-animation-fill-mode: backwards;
       animation-fill-mode: backwards;
+      -webkit-animation-timing-function: ease-out;
       animation-timing-function: ease-out;
     }
 
     &.moveOutLeft {
+      -webkit-animation-name: moveOutLeft;
       animation-name: moveOutLeft;
+      -webkit-animation-duration: $fast;
       animation-duration: $fast;
+      -webkit-animation-fill-mode: backwards;
       animation-fill-mode: backwards;
+      -webkit-animation-timing-function: ease-out;
       animation-timing-function: ease-out;
     }
 
     &.moveOutRight {
+      -webkit-animation-name: moveOutRight;
       animation-name: moveOutRight;
+      -webkit-animation-duration: $fast;
       animation-duration: $fast;
+      -webkit-animation-fill-mode: backwards;
       animation-fill-mode: backwards;
+      -webkit-animation-timing-function: ease-out;
       animation-timing-function: ease-out;
     }
   }

@@ -20,8 +20,12 @@
   bottom: 1rem;
   z-index: 9999;
 
+  -webkit-animation-name: moveInRight;
+
   animation-name: moveInRight;
+  -webkit-animation-duration: $fast;
   animation-duration: $fast;
+  -webkit-animation-timing-function: ease-out;
   animation-timing-function: ease-out;
 
   transition: transform $very-fast ease-out;

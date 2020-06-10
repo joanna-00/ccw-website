@@ -1,8 +1,28 @@
 @import url("https://fonts.googleapis.com/css2?family=Nunito+Sans:wght@400;700&display=swap");
+@-webkit-keyframes moveInLeft {
+  0% {
+    opacity: 0;
+    transform: translateX(-100%);
+  }
+  100% {
+    opacity: 1;
+    transform: translateX(0);
+  }
+}
 @keyframes moveInLeft {
   0% {
     opacity: 0;
     transform: translateX(-100%);
+  }
+  100% {
+    opacity: 1;
+    transform: translateX(0);
+  }
+}
+@-webkit-keyframes moveInRight {
+  0% {
+    opacity: 0;
+    transform: translateX(100%);
   }
   100% {
     opacity: 1;
@@ -19,6 +39,16 @@
     transform: translateX(0);
   }
 }
+@-webkit-keyframes moveOutLeft {
+  0% {
+    opacity: 1;
+    transform: translateX(0);
+  }
+  100% {
+    opacity: 0;
+    transform: translateX(-100%);
+  }
+}
 @keyframes moveOutLeft {
   0% {
     opacity: 1;
@@ -29,6 +59,16 @@
     transform: translateX(-100%);
   }
 }
+@-webkit-keyframes moveOutRight {
+  0% {
+    opacity: 1;
+    transform: translateX(0);
+  }
+  100% {
+    opacity: 0;
+    transform: translateX(100%);
+  }
+}
 @keyframes moveOutRight {
   0% {
     opacity: 1;
@@ -37,6 +77,20 @@
   100% {
     opacity: 0;
     transform: translateX(100%);
+  }
+}
+@-webkit-keyframes shoppingCartAdd {
+  0% {
+    transform: translateY(0);
+  }
+  40% {
+    transform: translateY(15%);
+  }
+  60% {
+    transform: translateY(10%);
+  }
+  100% {
+    transform: translateY(0);
   }
 }
 @keyframes shoppingCartAdd {
@@ -53,6 +107,17 @@
     transform: translateY(0);
   }
 }
+@-webkit-keyframes pulse {
+  0% {
+    transform: scale(1) translateY(0);
+  }
+  50% {
+    transform: scale(1.3) translateY(-10%);
+  }
+  100% {
+    transform: scale(1) translateY(0);
+  }
+}
 @keyframes pulse {
   0% {
     transform: scale(1) translateY(0);
@@ -62,6 +127,16 @@
   }
   100% {
     transform: scale(1) translateY(0);
+  }
+}
+@-webkit-keyframes showStep {
+  0% {
+    opacity: 0;
+    transform: translateY(100%);
+  }
+  100% {
+    opacity: 1;
+    transform: translateY(0);
   }
 }
 @keyframes showStep {
@@ -455,8 +530,6 @@ h1 {
   width: 100%;
   background-color: #ffffff;
   border-radius: 10px;
-  -webkit-box-shadow: 0px 3px 10px 0px rgba(0, 0, 0, 0.25);
-  -moz-box-shadow: 0px 3px 10px 0px rgba(0, 0, 0, 0.25);
   box-shadow: 0px 3px 10px 0px rgba(0, 0, 0, 0.25);
   overflow: hidden;
   margin-bottom: 4rem;
@@ -522,6 +595,7 @@ h1 {
 .card__image img {
   width: 100%;
   height: 100%;
+  -o-object-fit: cover;
   object-fit: cover;
 }
 .card--image .card__image {
@@ -579,8 +653,6 @@ h1 {
   flex-wrap: nowrap;
 }
 .card__amount {
-  -webkit-box-shadow: 0px 3px 10px 0px rgba(0, 0, 0, 0.25);
-  -moz-box-shadow: 0px 3px 10px 0px rgba(0, 0, 0, 0.25);
   box-shadow: 0px 3px 10px 0px rgba(0, 0, 0, 0.25);
   border-radius: 5px;
   display: flex;
@@ -626,6 +698,7 @@ h1 {
     height: auto;
     width: auto;
     display: block;
+    -o-object-fit: cover;
     object-fit: cover;
   }
 }
@@ -637,7 +710,9 @@ h1 {
 }
 .card--membership .card__image img {
   width: 100%;
+  -o-object-fit: contain;
   object-fit: contain;
+  -o-object-position: 50% 50%;
   object-position: 50% 50%;
 }
 .card--membership .card__content {
@@ -746,8 +821,6 @@ h1 {
   width: 25px;
   height: 25px;
   margin-right: 2rem;
-  -webkit-box-shadow: 0px 3px 10px 0px rgba(0, 0, 0, 0.25);
-  -moz-box-shadow: 0px 3px 10px 0px rgba(0, 0, 0, 0.25);
   box-shadow: 0px 3px 10px 0px rgba(0, 0, 0, 0.25);
   border-radius: 5px;
   background-color: #66bf6c;
@@ -761,8 +834,6 @@ h1 {
   width: 25px;
   height: 25px;
   margin-right: 2rem;
-  -webkit-box-shadow: 0px 3px 10px 0px rgba(0, 0, 0, 0.25);
-  -moz-box-shadow: 0px 3px 10px 0px rgba(0, 0, 0, 0.25);
   box-shadow: 0px 3px 10px 0px rgba(0, 0, 0, 0.25);
   border-radius: 5px;
   background-color: #55beee;
@@ -772,11 +843,12 @@ h1 {
   width: 100%;
   background-color: #fff;
   margin-bottom: 3rem;
-  -webkit-box-shadow: 0px 3px 10px 0px rgba(0, 0, 0, 0.25);
-  -moz-box-shadow: 0px 3px 10px 0px rgba(0, 0, 0, 0.25);
   box-shadow: 0px 3px 10px 0px rgba(0, 0, 0, 0.25);
   border-radius: 10px;
   overflow: hidden;
+  -webkit-user-select: none;
+  -moz-user-select: none;
+  -ms-user-select: none;
   user-select: none;
   display: block;
   left: 0;
@@ -822,8 +894,6 @@ h1 {
 }
 .date-picker .days .day.selected, .date-picker .days .selected.day-week {
   border-radius: 5px;
-  -webkit-box-shadow: 0px 3px 10px 0px rgba(0, 0, 0, 0.25);
-  -moz-box-shadow: 0px 3px 10px 0px rgba(0, 0, 0, 0.25);
   box-shadow: 0px 3px 10px 0px rgba(0, 0, 0, 0.25);
   background-color: #133657;
   color: #f9f9f9;
@@ -841,8 +911,6 @@ h1 {
   background-color: #ffffff;
   cursor: pointer;
   margin-bottom: 3rem;
-  -webkit-box-shadow: 0px 3px 10px 0px rgba(0, 0, 0, 0.25);
-  -moz-box-shadow: 0px 3px 10px 0px rgba(0, 0, 0, 0.25);
   box-shadow: 0px 3px 10px 0px rgba(0, 0, 0, 0.25);
   border-radius: 10px;
 }
@@ -886,8 +954,6 @@ h1 {
 .text-input__input {
   width: 100%;
   border: none;
-  -webkit-box-shadow: 0px 3px 10px 0px rgba(0, 0, 0, 0.25);
-  -moz-box-shadow: 0px 3px 10px 0px rgba(0, 0, 0, 0.25);
   box-shadow: 0px 3px 10px 0px rgba(0, 0, 0, 0.25);
   border-radius: 10px;
   padding: 1rem 2rem;
@@ -914,6 +980,7 @@ h1 {
 
 .slider {
   -webkit-appearance: none;
+  -moz-appearance: none;
   appearance: none;
   position: relative;
   width: 100%;
@@ -921,8 +988,6 @@ h1 {
   background: #ffffff;
   outline: none;
   cursor: pointer;
-  -webkit-box-shadow: 0px 3px 10px 0px rgba(0, 0, 0, 0.25);
-  -moz-box-shadow: 0px 3px 10px 0px rgba(0, 0, 0, 0.25);
   box-shadow: 0px 3px 10px 0px rgba(0, 0, 0, 0.25);
   border-radius: 9999px;
 }
@@ -931,8 +996,6 @@ h1 {
   appearance: none;
   width: 27px;
   height: 27px;
-  -webkit-box-shadow: 0px 3px 10px 0px rgba(0, 0, 0, 0.25);
-  -moz-box-shadow: 0px 3px 10px 0px rgba(0, 0, 0, 0.25);
   box-shadow: 0px 3px 10px 0px rgba(0, 0, 0, 0.25);
   border-radius: 9999px;
   background: #0d99c2;
@@ -940,8 +1003,6 @@ h1 {
 .slider::-moz-range-thumb {
   width: 27px;
   height: 27px;
-  -webkit-box-shadow: 0px 3px 10px 0px rgba(0, 0, 0, 0.25);
-  -moz-box-shadow: 0px 3px 10px 0px rgba(0, 0, 0, 0.25);
   box-shadow: 0px 3px 10px 0px rgba(0, 0, 0, 0.25);
   border-radius: 9999px;
   position: absolute;
@@ -976,8 +1037,6 @@ h1 {
   width: 35px;
   height: 35px;
   display: inline-block;
-  -webkit-box-shadow: 0px 3px 10px 0px rgba(0, 0, 0, 0.25);
-  -moz-box-shadow: 0px 3px 10px 0px rgba(0, 0, 0, 0.25);
   box-shadow: 0px 3px 10px 0px rgba(0, 0, 0, 0.25);
   border-radius: 9999px;
   background-color: #ffffff;
@@ -1020,8 +1079,6 @@ h1 {
   height: 35px;
   display: inline-block;
   background-color: #ffffff;
-  -webkit-box-shadow: 0px 3px 10px 0px rgba(0, 0, 0, 0.25);
-  -moz-box-shadow: 0px 3px 10px 0px rgba(0, 0, 0, 0.25);
   box-shadow: 0px 3px 10px 0px rgba(0, 0, 0, 0.25);
   border-radius: 5px;
   position: relative;
@@ -1046,8 +1103,6 @@ h1 {
   height: 25px;
   display: inline-block;
   background-color: #ffffff;
-  -webkit-box-shadow: 0px 3px 10px 0px rgba(0, 0, 0, 0.25);
-  -moz-box-shadow: 0px 3px 10px 0px rgba(0, 0, 0, 0.25);
   box-shadow: 0px 3px 10px 0px rgba(0, 0, 0, 0.25);
   border-radius: 5px;
   position: relative;
@@ -1072,8 +1127,6 @@ h1 {
   height: 15px;
   display: inline-block;
   background-color: #ffffff;
-  -webkit-box-shadow: 0px 3px 10px 0px rgba(0, 0, 0, 0.25);
-  -moz-box-shadow: 0px 3px 10px 0px rgba(0, 0, 0, 0.25);
   box-shadow: 0px 3px 10px 0px rgba(0, 0, 0, 0.25);
   border-radius: 5px;
   position: relative;
@@ -1105,8 +1158,6 @@ h1 {
   width: calc(100% - 4rem);
   background-color: #ffffff;
   border-radius: 10px;
-  -webkit-box-shadow: 0px 3px 10px 0px rgba(0, 0, 0, 0.25);
-  -moz-box-shadow: 0px 3px 10px 0px rgba(0, 0, 0, 0.25);
   box-shadow: 0px 3px 10px 0px rgba(0, 0, 0, 0.25);
   overflow: hidden;
   margin-bottom: 4rem;
@@ -1115,8 +1166,11 @@ h1 {
   right: 2rem;
   bottom: 1rem;
   z-index: 9999;
+  -webkit-animation-name: moveInRight;
   animation-name: moveInRight;
+  -webkit-animation-duration: 0.3s;
   animation-duration: 0.3s;
+  -webkit-animation-timing-function: ease-out;
   animation-timing-function: ease-out;
   transition: transform 0.2s ease-out;
   transition: opacity 0.5s ease-out;
@@ -1379,8 +1433,6 @@ h1 {
 }
 
 .nav {
-  -webkit-box-shadow: 0px 3px 10px 0px rgba(0, 0, 0, 0.25);
-  -moz-box-shadow: 0px 3px 10px 0px rgba(0, 0, 0, 0.25);
   box-shadow: 0px 3px 10px 0px rgba(0, 0, 0, 0.25);
   background-color: #ffffff;
   position: fixed;
@@ -1549,13 +1601,19 @@ h1 {
   }
 }
 .nav__shopping-cart.shoppingCartAdd {
+  -webkit-animation-name: shoppingCartAdd;
   animation-name: shoppingCartAdd;
+  -webkit-animation-timing-function: ease-in;
   animation-timing-function: ease-in;
+  -webkit-animation-duration: 0.3s;
   animation-duration: 0.3s;
 }
 .nav__shopping-cart.shoppingCartAdd #totalCartAmountDot {
+  -webkit-animation-name: pulse;
   animation-name: pulse;
+  -webkit-animation-timing-function: ease-in;
   animation-timing-function: ease-in;
+  -webkit-animation-duration: 0.3s;
   animation-duration: 0.3s;
 }
 .nav .hidden {
@@ -1604,8 +1662,6 @@ h1 {
   background-position: center;
   background-repeat: no-repeat;
   background-size: cover;
-  -webkit-box-shadow: 0px 3px 10px 0px rgba(0, 0, 0, 0.25);
-  -moz-box-shadow: 0px 3px 10px 0px rgba(0, 0, 0, 0.25);
   box-shadow: 0px 3px 10px 0px rgba(0, 0, 0, 0.25);
   position: relative;
 }
@@ -1659,6 +1715,7 @@ h1 {
   background-repeat: no-repeat;
   background-position: center;
   background-size: contain;
+  -o-object-fit: contain;
   object-fit: contain;
   position: fixed;
   top: 10%;
@@ -1675,6 +1732,7 @@ h1 {
   background-repeat: no-repeat;
   background-position: center;
   background-size: contain;
+  -o-object-fit: contain;
   object-fit: contain;
   position: fixed;
   bottom: 0;
@@ -1704,27 +1762,43 @@ h1 {
   display: flex;
 }
 .checkout .form-step.moveInLeft {
+  -webkit-animation-name: moveInLeft;
   animation-name: moveInLeft;
+  -webkit-animation-duration: 0.3s;
   animation-duration: 0.3s;
+  -webkit-animation-fill-mode: backwards;
   animation-fill-mode: backwards;
+  -webkit-animation-timing-function: ease-out;
   animation-timing-function: ease-out;
 }
 .checkout .form-step.moveInRight {
+  -webkit-animation-name: moveInRight;
   animation-name: moveInRight;
+  -webkit-animation-duration: 0.3s;
   animation-duration: 0.3s;
+  -webkit-animation-fill-mode: backwards;
   animation-fill-mode: backwards;
+  -webkit-animation-timing-function: ease-out;
   animation-timing-function: ease-out;
 }
 .checkout .form-step.moveOutLeft {
+  -webkit-animation-name: moveOutLeft;
   animation-name: moveOutLeft;
+  -webkit-animation-duration: 0.3s;
   animation-duration: 0.3s;
+  -webkit-animation-fill-mode: backwards;
   animation-fill-mode: backwards;
+  -webkit-animation-timing-function: ease-out;
   animation-timing-function: ease-out;
 }
 .checkout .form-step.moveOutRight {
+  -webkit-animation-name: moveOutRight;
   animation-name: moveOutRight;
+  -webkit-animation-duration: 0.3s;
   animation-duration: 0.3s;
+  -webkit-animation-fill-mode: backwards;
   animation-fill-mode: backwards;
+  -webkit-animation-timing-function: ease-out;
   animation-timing-function: ease-out;
 }
 .checkout__buttons {
@@ -1741,6 +1815,7 @@ h1 {
   background-repeat: no-repeat;
   background-position: center;
   background-size: contain;
+  -o-object-fit: contain;
   object-fit: contain;
   position: fixed;
   top: 10%;
@@ -1757,6 +1832,7 @@ h1 {
   background-repeat: no-repeat;
   background-position: center;
   background-size: contain;
+  -o-object-fit: contain;
   object-fit: contain;
   position: fixed;
   bottom: 0;
@@ -2048,6 +2124,7 @@ h1 {
   background-repeat: no-repeat;
   background-position: center;
   background-size: contain;
+  -o-object-fit: contain;
   object-fit: contain;
   position: fixed;
   top: 10%;
@@ -2064,6 +2141,7 @@ h1 {
   background-repeat: no-repeat;
   background-position: center;
   background-size: contain;
+  -o-object-fit: contain;
   object-fit: contain;
   position: fixed;
   bottom: 0;
@@ -2121,6 +2199,7 @@ h1 {
   background-repeat: no-repeat;
   background-position: center;
   background-size: contain;
+  -o-object-fit: contain;
   object-fit: contain;
   position: fixed;
   top: 10%;
@@ -2137,6 +2216,7 @@ h1 {
   background-repeat: no-repeat;
   background-position: center;
   background-size: contain;
+  -o-object-fit: contain;
   object-fit: contain;
   position: fixed;
   bottom: 0;
@@ -2161,21 +2241,26 @@ h1 {
   position: relative;
   height: 100vh;
   width: 100%;
+  -webkit-clip-path: polygon(0 20%, 100% 40%, 100% 100%, 0% 100%);
   clip-path: polygon(0 20%, 100% 40%, 100% 100%, 0% 100%);
+  -webkit-backdrop-filter: blur(14px) brightness(64%);
   backdrop-filter: blur(14px) brightness(64%);
 }
 @media (min-width: 576px) {
   .main-homepage__banner-container {
+    -webkit-clip-path: polygon(0 30%, 100% 50%, 100% 100%, 0% 100%);
     clip-path: polygon(0 30%, 100% 50%, 100% 100%, 0% 100%);
   }
 }
 @media (min-width: 768px) {
   .main-homepage__banner-container {
+    -webkit-clip-path: polygon(0 0, 50% 0, 70% 100%, 0 100%);
     clip-path: polygon(0 0, 50% 0, 70% 100%, 0 100%);
   }
 }
 @media (min-width: 992px) {
   .main-homepage__banner-container {
+    -webkit-clip-path: polygon(0 0, 40% 0, 60% 100%, 0 100%);
     clip-path: polygon(0 0, 40% 0, 60% 100%, 0 100%);
   }
 }
@@ -2223,10 +2308,13 @@ h1 {
   padding: 0;
 }
 .main-homepage__company-text {
+  -webkit-backdrop-filter: blur(14px) brightness(64%);
   backdrop-filter: blur(14px) brightness(64%);
   color: #f9f9f9;
+  -webkit-clip-path: polygon(0 0, 100% 0, 100% 100%, 0 100%);
   clip-path: polygon(0 0, 100% 0, 100% 100%, 0 100%);
   padding: 10rem 0;
+  -webkit-backdrop-filter: blur(5px) brightness(64%);
   backdrop-filter: blur(5px) brightness(64%);
   height: 100%;
   display: flex;
@@ -2239,11 +2327,13 @@ h1 {
 }
 @media (min-width: 768px) {
   .main-homepage__company-text {
+    -webkit-clip-path: polygon(50% 0, 100% 0, 100% 100%, 30% 100%);
     clip-path: polygon(50% 0, 100% 0, 100% 100%, 30% 100%);
   }
 }
 @media (min-width: 992px) {
   .main-homepage__company-text {
+    -webkit-clip-path: polygon(50% 0, 100% 0, 100% 100%, 30% 100%);
     clip-path: polygon(50% 0, 100% 0, 100% 100%, 30% 100%);
     padding: 0;
   }
@@ -2284,7 +2374,9 @@ h1 {
   opacity: 0;
 }
 .main-homepage__steps__step div.showStep {
+  -webkit-animation-name: showStep;
   animation-name: showStep;
+  -webkit-animation-duration: 0.7s;
   animation-duration: 0.7s;
 }
 .main-homepage__steps i {
@@ -2377,6 +2469,7 @@ h1 {
   background-repeat: no-repeat;
   background-position: center;
   background-size: contain;
+  -o-object-fit: contain;
   object-fit: contain;
   position: fixed;
   top: 10%;
@@ -2393,6 +2486,7 @@ h1 {
   background-repeat: no-repeat;
   background-position: center;
   background-size: contain;
+  -o-object-fit: contain;
   object-fit: contain;
   position: fixed;
   bottom: 0;
@@ -2473,8 +2567,6 @@ h1 {
 }
 .main-memberships__memberships__table table {
   padding: 0;
-  -webkit-box-shadow: 0px 3px 10px 0px rgba(0, 0, 0, 0.25);
-  -moz-box-shadow: 0px 3px 10px 0px rgba(0, 0, 0, 0.25);
   box-shadow: 0px 3px 10px 0px rgba(0, 0, 0, 0.25);
   border-radius: 10px;
 }
@@ -2560,6 +2652,7 @@ h1 {
   background-repeat: no-repeat;
   background-position: center;
   background-size: contain;
+  -o-object-fit: contain;
   object-fit: contain;
   position: fixed;
   top: 10%;
@@ -2576,6 +2669,7 @@ h1 {
   background-repeat: no-repeat;
   background-position: center;
   background-size: contain;
+  -o-object-fit: contain;
   object-fit: contain;
   position: fixed;
   bottom: 0;
@@ -2599,6 +2693,7 @@ h1 {
   background-repeat: no-repeat;
   background-position: center;
   background-size: contain;
+  -o-object-fit: contain;
   object-fit: contain;
   position: fixed;
   top: 10%;
@@ -2615,6 +2710,7 @@ h1 {
   background-repeat: no-repeat;
   background-position: center;
   background-size: contain;
+  -o-object-fit: contain;
   object-fit: contain;
   position: fixed;
   bottom: 0;
