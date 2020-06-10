@@ -1465,21 +1465,22 @@ h1 {
     flex-direction: row;
   }
 }
-.nav__buttons button,
-.nav__buttons a {
-  margin-bottom: 1rem;
-  width: 100%;
-}
-.nav__buttons button.nav__login,
-.nav__buttons a.nav__login {
-  margin-bottom: 0;
-}
-.nav__buttons button .nav__shopping-cart,
-.nav__buttons a .nav__shopping-cart {
+.nav__buttons .nav__shopping-cart--mobile {
   color: white;
   padding: 0;
   font-size: 2.4rem;
   margin-right: 2.4vw;
+}
+.nav__buttons .button--primary-light {
+  width: 100%;
+  margin-bottom: 2rem;
+}
+.nav__buttons button {
+  margin-bottom: 1rem;
+  width: 100%;
+}
+.nav__buttons button.nav__login {
+  margin-bottom: 0;
 }
 .nav__shopping-cart {
   color: #133657;
@@ -2028,21 +2029,15 @@ h1 {
   height: 100%;
 }
 .main-homepage__company-text {
-  padding: 3rem 6rem;
   backdrop-filter: blur(14px) brightness(64%);
   color: #ffffff;
-  clip-path: polygon(70% 0, 100% 0, 100% 100%, 50% 100%);
+  clip-path: polygon(0 0, 100% 0, 100% 100%, 0 100%);
   backdrop-filter: blur(14px) brightness(64%);
-  position: relative;
-  top: 50%;
-  padding-left: 4rem;
-  transform: translateY(-50%);
   height: 100%;
   display: flex;
   justify-content: center;
   flex-direction: column;
   align-items: flex-end;
-  text-align: right;
 }
 @media (min-width: 768px) {
   .main-homepage__company-text {
@@ -2053,9 +2048,6 @@ h1 {
   .main-homepage__company-text {
     clip-path: polygon(60% 0, 100% 0, 100% 100%, 40% 100%);
   }
-}
-.main-homepage__company-text h2 {
-  width: 25%;
 }
 .main-homepage__services {
   padding: 4rem 0;

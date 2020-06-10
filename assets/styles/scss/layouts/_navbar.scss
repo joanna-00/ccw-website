@@ -106,7 +106,8 @@
       }
     }
 
-    &.active, &:hover {
+    &.active,
+    &:hover {
       border-bottom: $text-dark solid 3px;
     }
   }
@@ -123,20 +124,25 @@
     @media (min-width: $media-xl) {
       flex-direction: row;
     }
-    button,
-    a {
+
+    .nav__shopping-cart--mobile {
+      color: white;
+      padding: 0;
+      font-size: 2.4rem;
+      margin-right: 2.4vw;
+    }
+
+    .button--primary-light {
+      width: 100%;
+      margin-bottom: 2rem;
+    }
+
+    button {
       margin-bottom: 1rem;
       width: 100%;
 
       &.nav__login {
         margin-bottom: 0;
-      }
-
-      .nav__shopping-cart {
-        color: white;
-        padding: 0;
-        font-size: 2.4rem;
-        margin-right: 2.4vw;
       }
     }
   }

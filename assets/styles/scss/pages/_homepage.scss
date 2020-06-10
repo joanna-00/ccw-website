@@ -86,11 +86,11 @@
     }
 
     &-text {
-      padding: $padding-lg;
+      // padding: $padding-lg;
       backdrop-filter: blur(14px) brightness(64%);
       color: $white;
 
-      clip-path: polygon(70% 0, 100% 0, 100% 100%, 50% 100%);
+      clip-path: polygon(0 0, 100% 0, 100% 100%, 0 100%);
 
       @media (min-width: $media-md) {
         clip-path: polygon(70% 0, 100% 0, 100% 100%, 50% 100%);
@@ -101,23 +101,18 @@
       }
 
       backdrop-filter: blur(14px) brightness(64%);
-      position: relative;
-      //   top: -100%;
-      // left: 50%;
-      top: 50%;
-      padding-left: 4rem;
-      // width: 50%;
-      transform: translateY(-50%);
-      height: 100%;
+      // position: relative;
+      // top: 50%;
 
+      // transform: translateY(-50%);
+      height: 100%;
       display: flex;
       justify-content: center;
       flex-direction: column;
       align-items: flex-end;
-      text-align: right;
 
       h2 {
-        width: 25%;
+        // width: 25%;
       }
     }
   }
