@@ -1207,6 +1207,8 @@ h1 {
 }
 .footer__icons-container i {
   margin: 1rem 2rem;
+  margin-top: 4rem;
+  font-size: 4rem;
 }
 
 .filters__body {
