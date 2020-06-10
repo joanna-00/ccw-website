@@ -11,17 +11,17 @@
     font-size: $p;
   }
   @media (min-width: $media-xl) {
-    font-size: 2rem;
+    // font-size: 2rem;
   }
 
   &__logo-container {
     padding: 1rem 0;
     @media (min-width: $media-lg) {
-      padding: 1rem 3rem;
+      padding: $padding-sm;
     }
-    @media (min-width: $media-xl) {
-      padding: $padding-md;
-    }
+    // @media (min-width: $media-xl) {
+    //   padding: $padding-sm;
+    // }
   }
 
   &__logo {
@@ -38,9 +38,9 @@
     @media (min-width: $media-lg) {
       background-position: left bottom;
     }
-    @media (min-width: $media-xl) {
-      background-position: left bottom;
-    }
+    // @media (min-width: $media-xl) {
+    //   background-position: left bottom;
+    // }
   }
 
   .hamburger {
@@ -97,10 +97,12 @@
       padding: 1.6rem 0.8rem;
       text-align: center;
       @media (min-width: $media-lg) {
+        // padding: 2.4rem 0.8rem;
         padding: 2.4rem 0.8rem;
       }
       @media (min-width: $media-xl) {
-        padding: 4rem 2rem;
+        // padding: 4rem 2rem;
+        padding: 2.4rem 1.6rem;
       }
     }
 
@@ -144,7 +146,7 @@
 
     display: inline-block;
     @media (min-width: $media-lg) {
-      font-size: $h1 * 1.25;
+      font-size: $h1 * 1.125;
       margin-right: 1.6rem;
     }
     @media (min-width: $media-xl) {
@@ -165,7 +167,7 @@
   }
 
   &__login {
-    width: 50%;
+    // width: 50%;
     // margin: 0;
   }
 
@@ -185,6 +187,7 @@
     top: 5%;
     right: 5%;
     display: inline-flex;
+    justify-content: center;
     align-items: center;
     @include border-circle;
     height: 26px;
@@ -194,6 +197,7 @@
     color: $white;
     font-size: $p * 0.8;
     font-family: $font-primary;
+
     // transform: translateY(300%);
     // transform: translateX(-100%);
 

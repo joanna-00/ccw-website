@@ -483,6 +483,7 @@ function addToShoppingCart(e) {
     localStorage.setItem("shoppingCart", JSON.stringify(currentShoppingCart));
 
     playAnimation("shoppingCartAdd", 300, shoppingCartIcon);
+    totalCartAmountDot.classList.remove("hidden");
     totalCartAmount = JSON.parse(localStorage.getItem("shoppingCart")).length;
     totalCartAmountDot.textContent = totalCartAmount;
   } else {

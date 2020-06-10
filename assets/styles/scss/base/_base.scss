@@ -4,6 +4,13 @@
 
 html {
   font-size: 62.5%;
+
+  @media (min-width: $media-md) {
+    font-size: 62.5% * 1.125;
+  }
+  // @media (min-width: $media-lg) {
+  //   font-size: 62.5% * 1.25;
+  // }
 }
 
 body {
@@ -42,8 +49,16 @@ a:visited {
 }
 
 .content {
-  margin-top: calc(16px * 1.6 * 1.25 + +2px + 8rem);
+  // margin-top: calc(16px * 1.25 + +2px + 8rem);
+  margin-top: 68px;
 
+  @media (min-width: $media-md) {
+    margin-top: 76.5px;
+  }
+
+  @media (min-width: $media-lg) {
+    margin-top: 85px;
+  }
   // .row {
   //   padding: 0;
   //   .row {
