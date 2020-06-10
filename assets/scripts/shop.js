@@ -311,6 +311,8 @@ let shoppingCartIcon = $(".nav__shopping-cart--desktop");
 
 let totalCartAmount = JSON.parse(localStorage.getItem("shoppingCart")).length;
 console.log(totalCartAmount);
+const totalCartAmountDot = $("#totalCartAmountDot");
+totalCartAmountDot.innerText = totalCartAmount;
 
 function addToShoppingCart(e) {
   let serviceID = e.target.dataset.id;
@@ -324,6 +326,8 @@ function addToShoppingCart(e) {
     localStorage.setItem("shoppingCart", JSON.stringify(currentShoppingCart));
 
     playAnimation("shoppingCartAdd", 300, shoppingCartIcon);
+    totalCartAmount = JSON.parse(localStorage.getItem("shoppingCart")).length;
+    totalCartAmountDot.textContent = totalCartAmount;
   } else {
     let currentShoppingCart = JSON.parse(localStorage.getItem("shoppingCart"));
     if (serviceID) {
@@ -331,6 +335,8 @@ function addToShoppingCart(e) {
     }
     localStorage.setItem("shoppingCart", JSON.stringify(currentShoppingCart));
     playAnimation("shoppingCartAdd", 300, shoppingCartIcon);
+    totalCartAmount = JSON.parse(localStorage.getItem("shoppingCart")).length;
+    totalCartAmountDot.innerText = totalCartAmount;
   }
 }
 

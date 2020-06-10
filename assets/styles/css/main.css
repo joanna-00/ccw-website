@@ -53,6 +53,17 @@
     transform: translateY(0);
   }
 }
+@keyframes pulse {
+  0% {
+    transform: scale(1) translateY(0);
+  }
+  50% {
+    transform: scale(1.3) translateY(-10%);
+  }
+  100% {
+    transform: scale(1) translateY(0);
+  }
+}
 * {
   box-sizing: inherit;
 }
@@ -400,6 +411,7 @@ h1 {
   box-shadow: 0px 3px 10px 0px rgba(0, 0, 0, 0.25);
   overflow: hidden;
   margin-bottom: 4rem;
+  display: flex;
   flex-direction: column;
   transition: transform 0.2s ease-out;
 }
@@ -1404,11 +1416,12 @@ h1 {
   padding: 1rem 2rem;
   font-size: 4rem;
   margin-right: 4rem;
+  position: relative;
   display: inline-block;
 }
 @media (min-width: 992px) {
   .nav__shopping-cart {
-    font-size: 3.2rem;
+    font-size: 5rem;
     margin-right: 1.6rem;
   }
 }
@@ -1419,6 +1432,11 @@ h1 {
 }
 .nav__shopping-cart.shoppingCartAdd {
   animation-name: shoppingCartAdd;
+  animation-timing-function: ease-in;
+  animation-duration: 0.3s;
+}
+.nav__shopping-cart.shoppingCartAdd #totalCartAmountDot {
+  animation-name: pulse;
   animation-timing-function: ease-in;
   animation-duration: 0.3s;
 }
@@ -1438,6 +1456,21 @@ h1 {
   .nav .hidden {
     display: flex;
   }
+}
+.nav #totalCartAmountDot {
+  position: absolute;
+  top: 5%;
+  right: 5%;
+  display: inline-flex;
+  align-items: center;
+  border-radius: 9999px;
+  height: 26px;
+  width: 26px;
+  padding: 0.5rem;
+  background-color: #66bf6c;
+  color: #ffffff;
+  font-size: 1.28rem;
+  font-family: "Nunito Sans";
 }
 
 .main-service-container {
