@@ -42,6 +42,11 @@
       backdrop-filter: blur(14px) brightness(64%);
       // top: -100%;
       // transform: translateY(50%);
+
+      p {
+        color: $text-light;
+        // font-size: $p * 1.125;
+      }
     }
 
     &-text {
@@ -90,6 +95,7 @@
 
       p {
         color: $text-light;
+        // font-size: $p * 1.125;
       }
 
       @media (min-width: $media-md) {

@@ -153,6 +153,11 @@ p {
   margin: 0.8rem 0;
   color: #212529;
 }
+@media (min-width: 992px) {
+  p {
+    font-size: 1.8rem;
+  }
+}
 
 h6 {
   font-size: 2rem;
@@ -2165,6 +2170,9 @@ h1 {
   .main-homepage__banner-container {
     clip-path: polygon(0 0, 40% 0, 60% 100%, 0 100%);
   }
+}
+.main-homepage__banner-container p {
+  color: #f9f9f9;
 }
 .main-homepage__banner-text {
   position: relative;
