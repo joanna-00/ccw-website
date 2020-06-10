@@ -1409,6 +1409,9 @@ h1 {
   margin-bottom: 1rem;
   width: 100%;
 }
+.nav__buttons button.nav__login {
+  margin-bottom: 0;
+}
 .nav__buttons button .nav__shopping-cart {
   color: white;
   padding: 0;

@@ -12,6 +12,8 @@ if (window.location.pathname.includes("individual_service.html")) {
   function renderIndividualService(individualService) {
     let id = individualService.id;
     individualService = individualService.acf;
+
+    document.title = `${individualService.title} | CCW`;
     console.log("rendering page");
     $(".breadcrumbs__item--active a").textContent = individualService.title;
 
