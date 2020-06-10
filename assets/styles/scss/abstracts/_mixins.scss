@@ -53,10 +53,18 @@
   padding: 0 8rem;
 }
 
-@mixin bckg-img{
+@mixin bckg-img {
   width: 100%;
   padding-top: 56.25%;
   background-position: center;
   background-repeat: no-repeat;
   background-size: cover;
+}
+
+@mixin badge-dot {
+  display: inline-block;
+  @include border-circle;
+  height: 15px;
+  width: 15px;
+  margin: 0.5rem;
 }
