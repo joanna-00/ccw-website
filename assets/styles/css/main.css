@@ -1986,7 +1986,7 @@ h1 {
 }
 
 .main-memberships {
-  margin-top: 12rem;
+  margin-top: 4rem;
 }
 .main-memberships:after {
   content: "";
@@ -1999,8 +1999,31 @@ h1 {
   min-width: 100%;
   z-index: -10;
 }
+@media (min-width: 1200px) {
+  .main-memberships {
+    margin-top: 12rem;
+  }
+}
 .main-memberships__intro__banner {
-  padding: 4rem 0;
+  padding: 4rem 0 0 0;
+}
+@media (min-width: 1200px) {
+  .main-memberships__intro__banner {
+    padding: 4rem 0;
+  }
+}
+.main-memberships__intro__banner-message h1 {
+  font-size: 2.3rem;
+}
+@media (min-width: 576px) {
+  .main-memberships__intro__banner-message h1 {
+    font-size: 2.6rem;
+  }
+}
+@media (min-width: 1200px) {
+  .main-memberships__intro__banner-message h1 {
+    font-size: 4rem;
+  }
 }
 .main-memberships__intro__banner-image {
   background-image: url(../../images/photos/membership-image.jpg);
@@ -2009,7 +2032,22 @@ h1 {
   background-position: center;
   background-repeat: no-repeat;
   background-size: cover;
-  padding-top: 24.25%;
+  padding-top: 74.25%;
+}
+@media (min-width: 768px) {
+  .main-memberships__intro__banner-image {
+    padding-top: 42.25%;
+  }
+}
+@media (min-width: 992px) {
+  .main-memberships__intro__banner-image {
+    padding-top: 32.25%;
+  }
+}
+@media (min-width: 1200px) {
+  .main-memberships__intro__banner-image {
+    padding-top: 24.25%;
+  }
 }
 .main-memberships__intro__benefits {
   padding: 2rem 0;
@@ -2022,46 +2060,69 @@ h1 {
 .main-memberships__memberships {
   padding: 4rem 0 8rem 0;
 }
-.main-memberships__memberships table {
+.main-memberships__memberships__cards {
+  overflow-x: auto;
+  overflow-y: none;
+}
+.main-memberships__memberships__table {
+  padding: auto 0;
+}
+.main-memberships__memberships__table table {
   padding: 0;
   -webkit-box-shadow: 0px 3px 10px 0px rgba(0, 0, 0, 0.25);
   -moz-box-shadow: 0px 3px 10px 0px rgba(0, 0, 0, 0.25);
   box-shadow: 0px 3px 10px 0px rgba(0, 0, 0, 0.25);
   border-radius: 10px;
 }
-.main-memberships__memberships table tr:nth-child(odd) {
+.main-memberships__memberships__table table tr:nth-child(odd) {
   background-color: #ffffff;
 }
-.main-memberships__memberships table tr:nth-child(even) {
+.main-memberships__memberships__table table tr:nth-child(even) {
   background-color: #f9f9f9;
 }
-.main-memberships__memberships table .heading {
-  padding-left: 8rem;
+.main-memberships__memberships__table table .heading {
+  padding: 1.6rem 0;
+  text-align: center;
 }
-.main-memberships__memberships table .plat-heading,
-.main-memberships__memberships table .plat {
+@media (min-width: 992px) {
+  .main-memberships__memberships__table table .heading {
+    padding: 1.6rem 0 0 1.6rem;
+    text-align: left;
+  }
+}
+.main-memberships__memberships__table table .plat-heading,
+.main-memberships__memberships__table table .plat {
   color: #3d6277;
 }
-.main-memberships__memberships table .gold-heading,
-.main-memberships__memberships table .gold {
+.main-memberships__memberships__table table .gold-heading,
+.main-memberships__memberships__table table .gold {
   color: #f6d868;
 }
-.main-memberships__memberships table .silver-heading,
-.main-memberships__memberships table .silver {
+.main-memberships__memberships__table table .silver-heading,
+.main-memberships__memberships__table table .silver {
   color: #b6b6b6;
 }
-.main-memberships__memberships table .bronze-heading,
-.main-memberships__memberships table .bronze {
+.main-memberships__memberships__table table .bronze-heading,
+.main-memberships__memberships__table table .bronze {
   color: #c99274;
 }
-.main-memberships__memberships table .plat,
-.main-memberships__memberships table .gold,
-.main-memberships__memberships table .silver,
-.main-memberships__memberships table .bronze {
+.main-memberships__memberships__table table .plat,
+.main-memberships__memberships__table table .gold,
+.main-memberships__memberships__table table .silver,
+.main-memberships__memberships__table table .bronze {
   padding: 1.6rem;
   text-shadow: 0 3px 10px #c4c4c4;
   text-align: center;
-  font-size: 3.2rem;
+  font-size: 2.4rem;
+}
+@media (min-width: 1200px) {
+  .main-memberships__memberships__table table .plat,
+.main-memberships__memberships__table table .gold,
+.main-memberships__memberships__table table .silver,
+.main-memberships__memberships__table table .bronze {
+    padding: 1.6rem;
+    font-size: 3.2rem;
+  }
 }
 .main-memberships__services {
   padding: 4rem 0;
@@ -2069,6 +2130,21 @@ h1 {
 }
 .main-memberships__services h2 {
   color: #ffffff;
+  font-size: 2.4rem;
+}
+@media (min-width: 576px) {
+  .main-memberships__services h2 {
+    font-size: 2.6rem;
+  }
+}
+@media (min-width: 1200px) {
+  .main-memberships__services h2 {
+    font-size: 3.6rem;
+  }
+}
+.main-memberships__services-container {
+  overflow-x: auto;
+  overflow-y: hidden;
 }
 .main-memberships__services a {
   color: black;
