@@ -1568,7 +1568,7 @@ h1 {
 }
 
 .main-company {
-  margin-top: 12rem;
+  margin-top: 4rem;
 }
 .main-company:after {
   content: "";
@@ -1581,8 +1581,31 @@ h1 {
   min-width: 100%;
   z-index: -10;
 }
+@media (min-width: 1200px) {
+  .main-company {
+    margin-top: 12rem;
+  }
+}
 .main-company__intro__banner {
-  padding: 4rem 0;
+  padding: 4rem 0 0 0;
+}
+@media (min-width: 1200px) {
+  .main-company__intro__banner {
+    padding: 4rem 0;
+  }
+}
+.main-company__intro__banner-message h1 {
+  font-size: 2.3rem;
+}
+@media (min-width: 576px) {
+  .main-company__intro__banner-message h1 {
+    font-size: 2.6rem;
+  }
+}
+@media (min-width: 1200px) {
+  .main-company__intro__banner-message h1 {
+    font-size: 4rem;
+  }
 }
 .main-company__intro__banner-image {
   background-image: url(../../images/photos/AalborgFrontStore.jpeg);
@@ -1591,7 +1614,22 @@ h1 {
   background-position: center;
   background-repeat: no-repeat;
   background-size: cover;
-  padding-top: 24.25%;
+  padding-top: 74.25%;
+}
+@media (min-width: 768px) {
+  .main-company__intro__banner-image {
+    padding-top: 42.25%;
+  }
+}
+@media (min-width: 992px) {
+  .main-company__intro__banner-image {
+    padding-top: 32.25%;
+  }
+}
+@media (min-width: 1200px) {
+  .main-company__intro__banner-image {
+    padding-top: 24.25%;
+  }
 }
 .main-company__intro__benefits {
   padding: 2rem 0;
@@ -1623,7 +1661,22 @@ h1 {
   background-position: center;
   background-repeat: no-repeat;
   background-size: cover;
-  padding-top: 24.25%;
+  padding-top: 94.25%;
+}
+@media (min-width: 768px) {
+  .main-company__founders-the_guys {
+    padding-top: 55.25%;
+  }
+}
+@media (min-width: 992px) {
+  .main-company__founders-the_guys {
+    padding-top: 32.25%;
+  }
+}
+@media (min-width: 1200px) {
+  .main-company__founders-the_guys {
+    padding-top: 24.25%;
+  }
 }
 .main-company__founders-damir h4::after {
   content: "";
@@ -1640,7 +1693,27 @@ h1 {
 }
 .main-company__story {
   background-color: #ffffff;
-  padding: 8rem 0;
+  padding: 0;
+}
+@media (min-width: 576px) {
+  .main-company__story {
+    padding: 2rem 0;
+  }
+}
+@media (min-width: 768px) {
+  .main-company__story {
+    padding: 4rem 0;
+  }
+}
+@media (min-width: 992px) {
+  .main-company__story {
+    padding: 6rem 0;
+  }
+}
+@media (min-width: 1200px) {
+  .main-company__story {
+    padding: 8rem 0;
+  }
 }
 .main-company__story-start {
   padding: 8rem 0;
@@ -1652,7 +1725,25 @@ h1 {
   background-position: center;
   background-repeat: no-repeat;
   background-size: cover;
-  padding-top: 32.25%;
+  padding-top: 72.25%;
+}
+@media (min-width: 768px) {
+  .main-company__story-start-image {
+    padding-top: 55.25%;
+  }
+}
+@media (min-width: 992px) {
+  .main-company__story-start-image {
+    padding-top: 32.25%;
+  }
+}
+@media (min-width: 1200px) {
+  .main-company__story-start-image {
+    padding-top: 32.25%;
+  }
+}
+.main-company__story-start-text-image {
+  margin: 2rem 0;
 }
 .main-company__story-now {
   padding: 8rem 0;
@@ -1664,7 +1755,25 @@ h1 {
   background-position: center;
   background-repeat: no-repeat;
   background-size: cover;
-  padding-top: 32.25%;
+  padding-top: 72.25%;
+}
+@media (min-width: 768px) {
+  .main-company__story-now-image {
+    padding-top: 55.25%;
+  }
+}
+@media (min-width: 992px) {
+  .main-company__story-now-image {
+    padding-top: 32.25%;
+  }
+}
+@media (min-width: 1200px) {
+  .main-company__story-now-image {
+    padding-top: 32.25%;
+  }
+}
+.main-company__story-now-text-image {
+  margin: 2rem 0;
 }
 .main-company__testimonials {
   padding: 4rem 0;
