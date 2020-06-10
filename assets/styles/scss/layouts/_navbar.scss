@@ -123,7 +123,8 @@
     @media (min-width: $media-xl) {
       flex-direction: row;
     }
-    button {
+    button,
+    a {
       margin-bottom: 1rem;
       width: 100%;
 
