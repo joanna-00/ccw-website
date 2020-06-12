@@ -60,6 +60,7 @@
     padding: $padding-sm;
     color: $text-dark;
     margin-bottom: 3rem;
+    position: relative;
 
     // &:focus:required:invalid {
     //   outline: none;
@@ -71,10 +72,39 @@
       border: 1px solid $primary-light;
     }
 
+    & + i.invalid {
+      display: none;
+      color: $warning;
+      position: absolute;
+      transform: translate(-300%, 70%);
+    }
+
+    & ~ span.invalid {
+      position: absolute;
+      font-size: $p * 0.8;
+      font-weight: $bold;
+      color: $warning;
+      text-align: right;
+      width: 100%;
+      transform: translate(-100%, 200%);
+    }
+
     &.invalid {
       outline: none;
       border: 1px solid $warning;
       position: relative;
+
+      // & + span::before {
+      //   content: "";
+      //   display: inline-block;
+      //   background: red;
+      //   width: 10px;
+      //   height: 10px;
+      // }
+
+      & + i.invalid {
+        display: inline;
+      }
 
       // &::after {
       //   content: "!";
@@ -95,6 +125,10 @@
     font-weight: $bold;
     display: inline;
   }
+}
+
+label.hidden {
+  display: none;
 }
 
 .slider {
@@ -158,7 +192,8 @@
   &__label {
     cursor: pointer;
     position: relative;
-    @include flex-center;
+    display: flex;
+    align-items: center;
   }
 
   &__button--lg {

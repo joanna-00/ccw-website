@@ -287,6 +287,8 @@
   padding: $padding-md;
   display: flex;
   flex-direction: column;
+  position: sticky;
+  top: 10rem;
 
   &__item {
     display: flex;

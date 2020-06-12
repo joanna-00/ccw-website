@@ -114,19 +114,30 @@ function highlightInvalidFields(currentForm) {
     invalidFields = currentForm.querySelectorAll(":invalid");
     invalidFields.forEach((field) => {
       field.classList.add("invalid");
-      // console.log(field);
+      createValidationError(field);
     });
   } else {
     invalidFields.forEach((field) => {
       field.classList.remove("invalid");
-      // console.log(field);
+      field.parentElement.querySelector("span").remove();
     });
     invalidFields = currentForm.querySelectorAll(":invalid");
     invalidFields.forEach((field) => {
       field.classList.add("invalid");
-      // console.log(field);
+      createValidationError(field);
     });
   }
+}
+
+function createValidationError(field) {
+  let fieldName = field.parentElement.querySelector("label").textContent;
+  console.log(fieldName);
+  let errorMessage = `The ${fieldName.toLowerCase()} you entered is invalid`;
+
+  let errorMessageElement = document.createElement("span");
+  errorMessageElement.classList.add("invalid");
+  errorMessageElement.textContent = errorMessage;
+  field.parentElement.appendChild(errorMessageElement);
 }
 
 function showForm(animationDirection) {

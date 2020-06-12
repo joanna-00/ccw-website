@@ -763,6 +763,8 @@ h1 {
   padding: 2rem 4rem;
   display: flex;
   flex-direction: column;
+  position: sticky;
+  top: 10rem;
 }
 .checkout-card__item {
   display: flex;
@@ -965,15 +967,34 @@ h1 {
   padding: 1rem 2rem;
   color: #133657;
   margin-bottom: 3rem;
+  position: relative;
 }
 .text-input__input:focus {
   outline: none;
   border: 1px solid #133657;
 }
+.text-input__input + i.invalid {
+  display: none;
+  color: #d14444;
+  position: absolute;
+  transform: translate(-300%, 70%);
+}
+.text-input__input ~ span.invalid {
+  position: absolute;
+  font-size: 1.28rem;
+  font-weight: 700;
+  color: #d14444;
+  text-align: right;
+  width: 100%;
+  transform: translate(-100%, 200%);
+}
 .text-input__input.invalid {
   outline: none;
   border: 1px solid #d14444;
   position: relative;
+}
+.text-input__input.invalid + i.invalid {
+  display: inline;
 }
 .text-input__label {
   font-weight: 700;
@@ -982,6 +1003,10 @@ h1 {
 .text-input__slash {
   font-weight: 700;
   display: inline;
+}
+
+label.hidden {
+  display: none;
 }
 
 .slider {
@@ -1037,7 +1062,6 @@ h1 {
   position: relative;
   display: flex;
   align-items: center;
-  justify-content: center;
 }
 .radio__button--lg {
   width: 35px;
