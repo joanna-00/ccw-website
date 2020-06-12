@@ -1404,6 +1404,7 @@ h1 {
   z-index: 10;
   transform: translateX(0);
   position: fixed;
+  overflow-y: scroll;
 }
 @media (min-width: 992px) {
   .filters__body {
@@ -1426,6 +1427,7 @@ h1 {
 }
 @media (min-width: 992px) {
   .filters__collapse-button--outside {
+    display: none;
     z-index: 0;
   }
 }
@@ -2221,10 +2223,11 @@ h1 {
   position: relative;
   height: 100vh;
   width: 100%;
+  background-color: rgba(19, 54, 87, 0.5);
   -webkit-clip-path: polygon(0 20%, 100% 40%, 100% 100%, 0% 100%);
   clip-path: polygon(0 20%, 100% 40%, 100% 100%, 0% 100%);
-  -webkit-backdrop-filter: blur(14px) brightness(64%);
-  backdrop-filter: blur(14px) brightness(64%);
+  -webkit-backdrop-filter: blur(10px);
+  backdrop-filter: blur(10px);
 }
 @media (min-width: 576px) {
   .main-homepage__banner-container {
@@ -2249,24 +2252,20 @@ h1 {
 }
 .main-homepage__banner-text {
   position: relative;
-  top: 75%;
   width: 100%;
-  transform: translateY(-50%);
+  transform: translateY(100%);
   display: flex;
   flex-direction: column;
   color: #ffffff;
 }
-.main-homepage__banner-text h1 {
-  font-size: 3.2rem;
-}
-@media (min-width: 576px) {
-  .main-homepage__banner-text {
-    top: 75%;
+@media (min-width: 992px) {
+  .main-homepage__banner-text h1 {
+    max-width: 70%;
   }
 }
-@media (min-width: 768px) {
-  .main-homepage__banner-text {
-    top: 50%;
+@media (min-width: 992px) {
+  .main-homepage__banner-text p {
+    max-width: 70%;
   }
 }
 .main-homepage__memberships {
@@ -2288,9 +2287,10 @@ h1 {
   padding: 0;
 }
 .main-homepage__company-text {
-  -webkit-backdrop-filter: blur(14px) brightness(64%);
-  backdrop-filter: blur(14px) brightness(64%);
+  -webkit-backdrop-filter: blur(10px);
+  backdrop-filter: blur(10px);
   color: #f9f9f9;
+  background-color: rgba(19, 54, 87, 0.5);
   -webkit-clip-path: polygon(0 0, 100% 0, 100% 100%, 0 100%);
   clip-path: polygon(0 0, 100% 0, 100% 100%, 0 100%);
   padding: 10rem 0;
@@ -2350,10 +2350,10 @@ h1 {
 .main-homepage__steps p {
   color: #f9f9f9;
 }
-.main-homepage__steps__step div.hidden {
+.main-homepage__steps-container .main-homepage__steps-step.hidden {
   opacity: 0;
 }
-.main-homepage__steps__step div.showStep {
+.main-homepage__steps-container .main-homepage__steps-step.showStep {
   -webkit-animation-name: showStep;
   animation-name: showStep;
   -webkit-animation-duration: 0.7s;

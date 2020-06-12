@@ -2,6 +2,7 @@
   overflow-y: scroll;
   position: relative;
   color: $text-light;
+  // max-height: 100%;
 
   p {
     color: $text-light;
@@ -11,19 +12,23 @@
     background: $background-dark;
     color: $text-light;
     padding: $padding-sm;
+    // min-height: calc(100% -85px);
+    // min-height: 100%;
     max-height: 100%;
     // font-size: 80%;
 
     margin-top: 0;
     // position: absolute;
     left: 0;
-    // top: 0;
+    // bottom: 0;
     // top: calc(16px * 1.6 + 8rem);
     // transform: translateX(calc(-100% - 10vw));
     transition: transform $fast ease-out;
     z-index: 10;
     transform: translateX(0);
     position: fixed;
+    overflow-y: scroll;
+    // right: -17px;
 
     @media (min-width: $media-lg) {
       transform: translateX(0);
@@ -54,6 +59,7 @@
 
       @media (min-width: $media-lg) {
         // margin-top: 85px * 2;
+        display: none;
         z-index: 0;
       }
     }

@@ -549,7 +549,8 @@ function addToShoppingCart(e) {
   }
 }
 
-const stepsContainer = $(".main-homepage__steps__step");
+const stepsContainer = $(".main-homepage__steps-container");
+// console.log(stepsContainer);
 
 function showStepsProcess() {
   let steps = stepsContainer.children;
@@ -889,7 +890,7 @@ if (
 if (window.location.pathname.includes("index.html")) {
   let requestString = "?include[]=635&include[]=626&include[]=598";
 
-  const stepsContainer = $(".main-homepage__steps__step");
+  const stepsContainer = $(".main-homepage__steps-container");
 
   checkPosition(stepsContainer, showStepsProcess);
 
