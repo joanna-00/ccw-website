@@ -267,7 +267,7 @@ function createMembershipCard(shopItem, type) {
   shopItem = shopItem.acf;
   if (type == "homepage") {
     return `        <div class="col-12 col-sm-8 col-md-6 col-lg-3">
-  <div class="shop__membership-card card card--membership card--image">
+  <div class="shop__membership-card card card--membership card--image card--button card--description card--centered card--price">
     <div class="card__image">
       <img src="${shopItem.membership_icon}" alt="" />
     </div>
@@ -289,7 +289,7 @@ function createMembershipCard(shopItem, type) {
 
   if (type == "shop") {
     return `        <div class="col-12 col-sm-6 col-xl-3">
-  <div class="shop__membership-card card card--membership card--image">
+  <div class="shop__membership-card card card--membership card--image card--button card--description card--centered card--price">
     <div class="card__image">
       <img src="${shopItem.membership_icon}" alt="" />
     </div>

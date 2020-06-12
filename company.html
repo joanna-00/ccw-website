@@ -47,12 +47,18 @@
     <nav class="nav">
       <div class="container">
         <div class="row">
-          <div class="nav__logo-container row col-12 col-lg-3 col-xl-3">
-            <a href="index.html" class="nav__logo col"></a>
-            <div class="hamburger d-xl-none d-lg-none col">
-              <span class="line"></span>
-              <span class="line"></span>
-              <span class="line"></span>
+          <div
+            class="nav__logo-container col-12 col-lg-3 col-xl-3 justify-content-between"
+          >
+            <div class="row">
+              <a href="index.html" class="nav__logo col-6"></a>
+              <div class="nav__hamburger-container d-xl-none d-lg-none col-6">
+                <div class="nav__hamburger">
+                  <span class="line"></span>
+                  <span class="line"></span>
+                  <span class="line"></span>
+                </div>
+              </div>
             </div>
           </div>
 
@@ -103,21 +109,23 @@
         </div>
       </div>
     </nav>
-    <main class="main-company">
+    <main class="main-company content">
       <section class="main-company__intro">
-        <div class="container-fluid">
+        <div class="container">
           <div
-            class="main-company__intro__banner row justify-content-md-around align-items-center"
+            class="main-company__intro__banner row justify-content-md-between align-items-center"
           >
             <div class="main-company__intro__banner-message col-md-5 col-lg-4">
               <h1>We care about your car just as much as you do</h1>
             </div>
             <div
-              class="main-company__intro__banner-image col-md-7 col-lg-5"
-            ></div>
+              class="main-company__intro__banner-image-container col-md-7 col-lg-8"
+            >
+              <div class="main-company__intro__banner-image"></div>
+            </div>
           </div>
           <div
-            class="main-company__intro__benefits row justify-content-lg-around"
+            class="main-company__intro__benefits row justify-content-lg-between"
           >
             <article class="col-sm-7 col-md-7 col-lg-3">
               <div>
@@ -154,10 +162,10 @@
       <section class="main-company__founders">
         <div class="container">
           <div class="row justify-content-center">
-            <h2>The minds behind the company</h2>
+            <h2 class="col-12">The minds behind the company</h2>
           </div>
           <div
-            class="row my-5 justify-content-md-center justify-content-lg-around"
+            class="row my-5 justify-content-md-center justify-content-lg-between"
           >
             <div
               class="order-3 my-4 col-md-6 order-md-2 col-lg-4 order-lg-1 col-xl-3"
@@ -176,8 +184,11 @@
               </article>
             </div>
             <div
-              class="order-1 my-4 col-md-7 order-md-1 col-lg-4 order-lg-2 col-xl-3 main-company__founders-the_guys"
-            ></div>
+              class="main-company__founders-the_guys-container order-1 my-4 col-md-7 order-md-1 col-lg-4 order-lg-2 col-xl-4"
+            >
+              <div class="main-company__founders-the_guys"></div>
+            </div>
+
             <div
               class="order-2 my-4 col-md-6 order-md-3 col-lg-4 order-lg-3 col-xl-3"
             >
@@ -201,12 +212,18 @@
 
       <section class="main-company__story">
         <div class="container">
-          <div class="row justify-content-lg-around main-company__story-start">
+          <div class="row justify-content-lg-between main-company__story-start">
             <div
-              class="d-none d-lg-block col-lg-6 order-lg-2 main-company__story-start-image"
-            ></div>
-            <article class="col-lg-4 main-company__story-start-text">
+              class="main-company__story-start-image-container d-none d-lg-block col-lg-6 order-lg-2"
+            >
+              <div class="main-company__story-start-image"></div>
+            </div>
+
+            <article
+              class="col-12 col-lg-6 col-xl-5 main-company__story-start-text"
+            >
               <h4>How we got to where we are today...</h4>
+              <!-- <div class="main-company__story-start-text-image-container"></div> -->
               <div
                 class="d-lg-none main-company__story-start-image main-company__story-start-text-image"
               ></div>
@@ -220,11 +237,16 @@
               </p>
             </article>
           </div>
-          <div class="row justify-content-lg-around main-company__story-now">
+          <div class="row justify-content-lg-between main-company__story-now">
             <div
-              class="d-none d-lg-block col-lg-6 main-company__story-now-image"
-            ></div>
-            <article class="col-lg-4 main-company__story-now-text">
+              class="main-company__story-now-image-container d-none d-lg-block col-lg-6"
+            >
+              <div class="main-company__story-now-image"></div>
+            </div>
+
+            <article
+              class="col-12 col-lg-6 col-xl-5 main-company__story-now-text"
+            >
               <h4>… and now we are only growing bigger!</h4>
               <div
                 class="d-lg-none col-lg-6 main-company__story-now-image main-company__story-now-text-image"
@@ -351,9 +373,9 @@
     </main>
     <footer class="footer">
       <div class="container">
-        <div class="row justify-content-between">
+        <div class="row">
           <div
-            class="mt-4 mt-lg-0 col-xl-2 order-lg-1 col-lg-3 order-sm-1 col-sm-6 order-1 col-12"
+            class="mt-4 mt-lg-0 col-xl-3 order-lg-1 col-lg-4 order-sm-1 col-sm-6 order-1 col-12"
           >
             <div class="footer__section">
               <h6>Opening times</h6>
@@ -375,7 +397,7 @@
           </div>
 
           <div
-            class="mt-4 mt-lg-0 col-xl-4 order-lg-2 col-lg-4 order-sm-3 col-sm-12 order-3 col-12 footer__center"
+            class="mt-4 mt-lg-0 col-xl-6 order-lg-2 col-lg-4 order-sm-3 col-sm-12 order-3 col-12 footer__center"
           >
             <h6>Subscribe to our newsletter!</h6>
             <input
@@ -422,7 +444,7 @@
           </div>
 
           <div
-            class="mt-4 mt-lg-0 col-xl-2 order-lg-3 col-lg-3 order-sm-2 col-sm-6 order-2 col-12"
+            class="mt-4 mt-lg-0 col-xl-3 order-lg-3 col-lg-4 order-sm-2 col-sm-6 order-2 col-12"
           >
             <div class="footer__section">
               <h6>About CCW</h6>

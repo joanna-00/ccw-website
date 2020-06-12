@@ -79,16 +79,12 @@
   }
 
   &__content {
-    padding: $padding-md;
     display: flex;
+    padding: $padding-md;
     flex-direction: column;
     justify-content: space-between;
     height: 100%;
     min-width: 50%;
-
-    // @media (min-width: $media-lg) {
-    //   padding: 0;
-    // }
   }
 
   &__label {
@@ -103,15 +99,22 @@
     min-height: 40px;
   }
 
-  &__description {
-    min-height: 80px;
-  }
-
   a.card__link {
     text-decoration: underline;
   }
   &__link {
     cursor: pointer;
+  }
+
+  &__description {
+    display: none;
+    min-height: 80px;
+  }
+
+  &--description {
+    .card__description {
+      display: inline-block;
+    }
   }
 
   &__features {
@@ -150,7 +153,7 @@
   &__amount {
     @include drop-shadow-light-sm;
     @include border-round-sm;
-    display: flex;
+    display: none;
     background-color: $background-dark;
     color: $text-light;
 
@@ -167,6 +170,12 @@
     }
   }
 
+  &--amount {
+    .card__amount {
+      display: flex;
+    }
+  }
+
   &--clickable {
     cursor: pointer;
     &:hover {
@@ -176,6 +185,14 @@
 
   &--disabled {
     opacity: 0.65;
+  }
+
+  &--centered {
+    .card__content {
+      @include flex-center;
+      flex-direction: column;
+      padding: 0;
+    }
   }
 
   &--horizontal {
@@ -189,7 +206,6 @@
       align-items: top;
 
       .card__link {
-        // min-width: 50%;
         display: flex;
         justify-content: flex-end;
       }
@@ -199,24 +215,17 @@
         overflow: hidden;
 
         min-height: 300px;
-        // width: 50%;
-        // max-height: 100%;
         max-width: 50%;
-        // position: relative;
 
         img {
           width: 100%;
-
-          // max-height: inherit;
           height: auto;
 
           width: auto;
           display: block;
-          //   height: 200px;
+
           -o-object-fit: cover;
           object-fit: cover;
-          // position: absolute;
-          // top: -25%;
         }
       }
     }
@@ -227,9 +236,6 @@
 
     .card__image {
       max-height: 100%;
-      @media (min-width: $media-md) {
-        // height: 300px;
-      }
 
       img {
         width: 100%;
@@ -240,15 +246,9 @@
       }
     }
 
-    .card__content {
-      @include flex-center;
-      flex-direction: column;
-      padding: 0;
-    }
-
     .card__title {
       text-transform: uppercase;
-      text-align: center;
+      // text-align: center;
       line-height: 1.1;
       font-size: $h5;
       min-height: 40px;
@@ -258,9 +258,9 @@
       min-height: 100px;
     }
 
-    .card__price {
-      display: inline-block;
-    }
+    // .card__price {
+    //   display: inline-block;
+    // }
   }
 
   &--badge {
