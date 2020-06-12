@@ -295,6 +295,7 @@ h1 {
   content: "";
   display: block;
   position: absolute;
+  margin-right: 45px;
   width: 90vw;
   border-radius: 9999px;
   top: 50%;
@@ -312,6 +313,7 @@ h1 {
   content: "";
   display: block;
   position: absolute;
+  margin-left: 15px;
   width: 120%;
   right: 100%;
   top: 50%;
@@ -2438,9 +2440,6 @@ h1 {
   background-image: url(../../images/photos/aalborg-nu.png);
 }
 
-.main-memberships {
-  margin-top: 4rem;
-}
 .main-memberships:after {
   content: "";
   background-image: url(../../images/svgs/bubbles.svg);
@@ -2474,11 +2473,6 @@ h1 {
   min-width: 45%;
   transform: rotateZ(-190deg);
   z-index: -9999;
-}
-@media (min-width: 1200px) {
-  .main-memberships {
-    margin-top: 12rem;
-  }
 }
 .main-memberships__intro__banner {
   padding: 4rem 0 0 0;
@@ -2522,7 +2516,7 @@ h1 {
 }
 @media (min-width: 1200px) {
   .main-memberships__intro__banner-image {
-    padding-top: 24.25%;
+    padding-top: 44.25%;
   }
 }
 .main-memberships__intro__benefits {
@@ -2663,6 +2657,9 @@ h1 {
 }
 .shop__section.hidden {
   display: none;
+}
+.shop .headline {
+  margin-left: 15px;
 }
 
 .shopping-cart:after {

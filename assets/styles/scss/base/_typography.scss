@@ -69,11 +69,13 @@ h1 {
     position: relative;
     margin-left: 15rem;
     padding: $padding-sm;
+    // margin-right: -45px;
 
     &::after {
       content: "";
       display: block;
       position: absolute;
+      margin-right: 45px;
 
       width: 90vw;
       @include border-circle;
@@ -88,6 +90,7 @@ h1 {
       content: "";
       display: block;
       position: absolute;
+      margin-left: 15px;
 
       width: 120%;
       right: 100%;
