@@ -261,9 +261,17 @@ function renderShop(shopItems) {
       addToShoppingCart(event);
     });
   });
+
+  membershipButtons.forEach((button) => {
+    button.addEventListener("click", () => {
+      addToShoppingCart(event);
+      location.href = "shopping_cart.html";
+    });
+  });
 }
 
 function createMembershipCard(shopItem, type) {
+  let post = shopItem;
   shopItem = shopItem.acf;
   if (type == "homepage") {
     return `        <div class="col-12 col-sm-8 col-md-6 col-lg-3">
@@ -278,7 +286,8 @@ function createMembershipCard(shopItem, type) {
       </p>
       <h4 class="card__price">${shopItem.price},-</h4>
       <button
-        class="button button--base-lg button--secondary button--filled"
+        class=" card__button button button--base-lg button--secondary button--filled"
+        data-id="${post.id}"
       >
         Buy now
       </button>
@@ -300,7 +309,8 @@ function createMembershipCard(shopItem, type) {
       </p>
       <h4 class="card__price">${shopItem.price},-</h4>
       <button
-        class="button button--base-lg button--secondary button--filled"
+        class="card__button button button--base-lg button--secondary button--filled"
+        data-id="${post.id}"
       >
         Buy now
       </button>
@@ -713,9 +723,9 @@ function createShopppingCartCard(shopItem, itemsToRender) {
   let currentItemAmount = itemsToRender[`${currentID}`];
 
   shopItem = shopItem.acf;
-  if (!currentItemAmount == 0) {
+  if (!currentItemAmount == 0 && shopItem.title) {
     return `<div class="col-12">
-    <div class="card card--horizontal card--image card--price" data-id="${currentID}">
+    <div class="card card--horizontal card--image  card--description card--price card--amount" data-id="${currentID}">
       <div class="card__image">
         <img
           src="${shopItem.thumbnail_image.url}"
@@ -743,8 +753,38 @@ function createShopppingCartCard(shopItem, itemsToRender) {
       </div>
     </div>
   </div>`;
-  } else {
-    return "";
+  }
+
+  if (!currentItemAmount == 0 && shopItem.membership_title) {
+    return `
+  <div class="col-12">
+    <div
+      class="card card--membership card--image card--description card--horizontal card--price card--amount"
+    >
+      <div class="card__image">
+        <img src="${shopItem.membership_icon}" alt="" />
+      </div>
+      <div class="card__content">
+        <h4 class="card__title">     ${shopItem.membership_title} membership</h4>
+        <p class="card__description">
+        ${shopItem.membership_description}
+        </p>
+        <div class="card__features">
+          <h4 class="card__price">${shopItem.price},-</h4>
+          <div class="card__amount" data-id="${currentID}">
+            <div class="card__amount--decrease">-</div>
+            <div class="card__amount--display">${currentItemAmount}</div>
+            <div class="card__amount--increase">+</div>
+          </div>
+          <button
+            class="card__button button button--base-lg button--secondary button--filled"
+          >
+            Buy now
+          </button>
+        </div>
+      </div>
+    </div>
+  </div>`;
   }
 }
 
@@ -761,7 +801,9 @@ function createCheckoutSummary(shoppingCartItems, itemsToRender, type) {
     console.log(totalPrice);
     output += `
     <div class="checkout-card__item">
-      <p class="checkout-card__item-name">${itemAmount}x ${item.title}</p>
+      <p class="checkout-card__item-name">${itemAmount}x ${
+      item.title ? item.title : item.membership_title + " membership"
+    }</p>
       <p class="checkout-card__item-price">${itemAmount * item.price}</p>
     </div>`;
   });
@@ -770,13 +812,13 @@ function createCheckoutSummary(shoppingCartItems, itemsToRender, type) {
   checkoutSummary += `<div class="card checkout-card">`;
   checkoutSummary += output;
 
-  for (const ID in itemsToRender) {
-    output += `
-    <div class="checkout-card__item">
-      <p class="checkout-card__item-name">a</p>
-      <p class="checkout-card__item-price">aa</p>
-    </div>`;
-  }
+  // for (const ID in itemsToRender) {
+  //   output += `
+  //   <div class="checkout-card__item">
+  //     <p class="checkout-card__item-name">a</p>
+  //     <p class="checkout-card__item-price">aa</p>
+  //   </div>`;
+  // }
 
   if (type == "shoppingCart") {
     checkoutSummary += `  <div class="checkout-card__coupon">
@@ -923,6 +965,15 @@ function renderHomepageMemberships(memberships) {
   memberships.forEach((item) => {
     membershipsContainer.innerHTML += createMembershipCard(item, "homepage");
   });
+
+  const membershipButtons = $$(".card--membership .card__button");
+
+  membershipButtons.forEach((button) => {
+    button.addEventListener("click", () => {
+      addToShoppingCart(event);
+      location.href = "shopping_cart.html";
+    });
+  });
 }
 
 // MEMBERSHIPS
@@ -942,6 +993,15 @@ function renderMemberships(memberships) {
   let membershipsContainer = $(".main-memberships__memberships__cards");
   memberships.forEach((item) => {
     membershipsContainer.innerHTML += createMembershipCard(item, "homepage");
+  });
+
+  const membershipButtons = $$(".card--membership .card__button");
+
+  membershipButtons.forEach((button) => {
+    button.addEventListener("click", () => {
+      addToShoppingCart(event);
+      location.href = "shopping_cart.html";
+    });
   });
 }
 
