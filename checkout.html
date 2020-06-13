@@ -152,6 +152,9 @@
             </div>
             <form class="row form-step current" data-step="1">
               <div class="col-12 col-lg-6">
+                <label for="dropdownLocation" class="text-input__label">
+                  Choose a location</label
+                >
                 <div class="dropdown" id="dropdownLocation" data-value="">
                   <div class="dropdown__title">
                     Choose a location
@@ -183,11 +186,10 @@
                     <div class="days"></div>
                   </div>
                 </div>
-                <div
-                  class="dropdown hidden mt-5"
-                  id="dropdownTime"
-                  data-value=""
+                <label for="dropdownTime" class="text-input__label hidden mt-5">
+                  Choose a time</label
                 >
+                <div class="dropdown hidden" id="dropdownTime" data-value="">
                   <div class="dropdown__title">
                     Choose a time
                     <i class="fas fa-chevron-down"></i>
@@ -206,7 +208,7 @@
               </div>
             </form>
             <form class="row form-step" data-step="2">
-              <div class="col-6 text-input">
+              <div class="col-12 col-md-6 text-input">
                 <label for="firstName" class="text-input__label"
                   >First name</label
                 >
@@ -218,8 +220,9 @@
                   pattern="[^0-9]+"
                   required
                 />
+                <i class="fas fa-exclamation invalid"></i>
               </div>
-              <div class="col-6 text-input">
+              <div class="col-12 col-md-6 text-input">
                 <label for="lastName" class="text-input__label"
                   >Last name</label
                 >
@@ -231,8 +234,9 @@
                   pattern="[^0-9]+"
                   required
                 />
+                <i class="fas fa-exclamation invalid"></i>
               </div>
-              <div class="col-9 text-input">
+              <div class="col-12 col-md-6 text-input">
                 <label for="address" class="text-input__label">Address</label>
                 <input
                   type="text"
@@ -241,6 +245,7 @@
                   class="text-input__input"
                   required
                 />
+                <i class="fas fa-exclamation invalid"></i>
               </div>
               <div class="col-6 text-input">
                 <label for="postalCode" class="text-input__label"
@@ -253,8 +258,9 @@
                   class="text-input__input"
                   required
                 />
+                <i class="fas fa-exclamation invalid"></i>
               </div>
-              <div class="col-6 text-input">
+              <div class="col-12 col-md-6 text-input">
                 <label for="city" class="text-input__label">City</label>
                 <input
                   type="text"
@@ -263,8 +269,9 @@
                   class="text-input__input"
                   required
                 />
+                <i class="fas fa-exclamation invalid"></i>
               </div>
-              <div class="col-6 text-input mr-5">
+              <div class="col-12 col-md-6 text-input mr-5">
                 <label for="telephoneNumber" class="text-input__label"
                   >Telephone number</label
                 >
@@ -276,8 +283,9 @@
                   pattern="[0-9]+"
                   required
                 />
+                <i class="fas fa-exclamation invalid"></i>
               </div>
-              <div class="col-6 text-input">
+              <div class="col-12 col-md-6 text-input">
                 <label for="business" class="text-input__label"
                   >Business (optional)</label
                 >
@@ -287,6 +295,7 @@
                   id="business"
                   class="text-input__input"
                 />
+                <i class="fas fa-exclamation invalid"></i>
               </div>
               <div class="col-6 text-input">
                 <label for="CVR" class="text-input__label"
@@ -298,10 +307,11 @@
                   id="CVR"
                   class="text-input__input"
                 />
+                <i class="fas fa-exclamation invalid"></i>
               </div>
             </form>
             <form class="row form-step" data-step="3">
-              <div class="col-6 text-input mr-5">
+              <div class="col-12 col-md-6 text-input mr-5">
                 <label for="licensePlateNumber" class="text-input__label"
                   >License plate number</label
                 >
@@ -312,6 +322,7 @@
                   class="text-input__input"
                   required
                 />
+                <i class="fas fa-exclamation invalid"></i>
               </div>
               <div class="col-6 text-input mr-5">
                 <label for="carBrand" class="text-input__label"
@@ -324,6 +335,7 @@
                   class="text-input__input"
                   required
                 />
+                <i class="fas fa-exclamation invalid"></i>
               </div>
               <div class="col-6 text-input mr-5">
                 <label for="carModel" class="text-input__label"
@@ -336,16 +348,17 @@
                   class="text-input__input"
                   required
                 />
+                <i class="fas fa-exclamation invalid"></i>
               </div>
             </form>
             <form class="row form-step" data-step="4">
               <div class="row col-12">
-                <div class="col-6 text-input">
+                <div class="col-12 text-input">
                   <label for="licensePlateNumber" class="text-input__label"
                     >Choose a payment method</label
                   >
                   <div class="row">
-                    <div class="radio__group col-4">
+                    <div class="radio__group col-12 col-md-4">
                       <input
                         type="radio"
                         name="radio-payment"
@@ -354,12 +367,13 @@
                         checked
                         required
                       />
+
                       <label for="MasterCard" class="radio__label">
                         <span class="radio__button--lg"></span>
                         <span class="radio__button-text">MasterCard</span>
                       </label>
                     </div>
-                    <div class="radio__group col-4">
+                    <div class="radio__group col-12 col-md-4">
                       <input
                         type="radio"
                         name="radio-payment"
@@ -371,7 +385,7 @@
                         <span class="radio__button-text">Visa</span>
                       </label>
                     </div>
-                    <div class="radio__group col-4">
+                    <div class="radio__group col-12 col-md-4">
                       <input
                         type="radio"
                         name="radio-payment"
@@ -388,7 +402,7 @@
               </div>
 
               <div class="row col-12">
-                <div class="col-6 text-input">
+                <div class="col-12 col-md-4 text-input">
                   <label for="creditCardNumber" class="text-input__label"
                     >Credit card number</label
                   >
@@ -399,11 +413,12 @@
                     class="text-input__input"
                     required
                   />
+                  <i class="fas fa-exclamation invalid"></i>
                 </div>
               </div>
 
               <div class="row col-12">
-                <div class="col-6 text-input">
+                <div class="col-12 col-md-4 text-input">
                   <label for="nameOnCreditCard" class="text-input__label"
                     >Name on credit card</label
                   >
@@ -414,11 +429,12 @@
                     class="text-input__input"
                     required
                   />
+                  <i class="fas fa-exclamation invalid"></i>
                 </div>
               </div>
 
               <div class="row col-12">
-                <div class="col-3 text-input">
+                <div class="col-12 col-md-6 text-input">
                   <label for="expirationDate" class="text-input__label"
                     >Expiration date</label
                   >
@@ -426,27 +442,30 @@
                     type="text"
                     name="expirationDate"
                     id="expirationDate"
-                    class="text-input__input col-4 mr-3"
+                    class="text-input__input col-5 col-md-4 mr-3"
                     required
                   />
+                  <i class="fas fa-exclamation invalid"></i>
                   <h6 class="text-input__slash">/</h6>
                   <input
                     type="text"
                     name="expirationDate2"
                     id="expirationDate2"
-                    class="text-input__input col-4 ml-3"
+                    class="text-input__input col-5 col-md-4 ml-3"
                     required
                   />
+                  <i class="fas fa-exclamation invalid"></i>
                 </div>
-                <div class="col-3 text-input">
+                <div class="col-6 col-md-3 text-input">
                   <label for="CVC" class="text-input__label">CVV / CVC</label>
                   <input
                     type="text"
                     name="CVC"
                     id="CVC"
-                    class="text-input__input col-4"
+                    class="text-input__input col-6 col-md-4"
                     required
                   />
+                  <i class="fas fa-exclamation invalid"></i>
                 </div>
               </div>
             </form>

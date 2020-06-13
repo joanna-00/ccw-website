@@ -7,7 +7,7 @@
     @include bubbles-before;
   }
 
-  margin-top: 4rem;
+  // margin-top: 4rem;
 
   @media (min-width: $media-sm) {
   }
@@ -19,7 +19,7 @@
   }
 
   @media (min-width: $media-xl) {
-    margin-top: 12rem;
+    // margin-top: 12rem;
   }
 
   &__intro {
@@ -76,7 +76,7 @@
         }
 
         @media (min-width: $media-xl) {
-          padding-top: 24.25%;
+          padding-top: 44.25%;
         }
       }
     }

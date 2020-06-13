@@ -74,8 +74,6 @@ function applyFill(slider) {
   slider.style.background = bg;
 }
 
-//SRC: https://codepen.io/nosurprisethere/pen/KJxwQz
-
 const collapseFiltersButtonOutside = $("#collapseFiltersButtonOutside"),
   collapseFiltersButtonInside = $("#collapseFiltersButtonInside");
 const filtersBody = $(".filters__body");

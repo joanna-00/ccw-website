@@ -152,9 +152,10 @@ function populateDays() {
     let day_element_date_value = new Date(year, month, i + 1);
     day_element.dataset.value = day_element_date_value;
 
-    // let yesterday = new Date();
-    // yesterday.setDate(yesterday - 1);
-    if (day_element_date_value < new Date()) {
+    let yesterday = new Date();
+    yesterday.setDate(yesterday.getDate() - 1);
+    // console.log(yesterday);
+    if (day_element_date_value < yesterday) {
       day_element.classList.add("unavailable");
     }
 
@@ -171,6 +172,9 @@ function populateDays() {
         if (date_picker_element.dataset.type == "checkout") {
           dropdownTime.classList.remove("hidden");
           date_picker_element.classList.remove("invalid");
+          dropdownTime.parentElement
+            .querySelector("label[for=dropdownTime]")
+            .classList.remove("hidden");
         }
 
         populateDays();

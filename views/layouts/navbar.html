@@ -23,12 +23,18 @@
   <nav class="nav">
     <div class="container">
       <div class="row">
-        <div class="nav__logo-container row col-12 col-lg-3 col-xl-3">
-          <a href="index.html" class="nav__logo col"></a>
-          <div class="hamburger d-xl-none d-lg-none col">
-            <span class="line"></span>
-            <span class="line"></span>
-            <span class="line"></span>
+        <div
+          class="nav__logo-container col-12 col-lg-3 col-xl-3 justify-content-between"
+        >
+          <div class="row">
+            <a href="index.html" class="nav__logo col-6"></a>
+            <div class="nav__hamburger-container d-xl-none d-lg-none col-6">
+              <div class="nav__hamburger">
+                <span class="line"></span>
+                <span class="line"></span>
+                <span class="line"></span>
+              </div>
+            </div>
           </div>
         </div>
 
@@ -42,7 +48,7 @@
               <a href="memberships.html">Memberships</a>
             </li>
             <li class="nav__link"><a href="shop.html">Shop</a></li>
-            <li class="nav__link">
+            <li class="nav__link active">
               <a href="company.html">The&nbsp;company</a>
             </li>
             <li class="nav__link">
@@ -55,17 +61,20 @@
           class="nav__buttons col-12 col-lg-3 col-xl-3 my-5 my-lg-0 hidden"
           id="buttons-container"
         >
-          <button
+          <a
+            href="shopping_cart.html"
             class="button button--base-sm button--primary-light button--filled d-lg-none d-xl-none"
           >
-            <i class="fas fa-shopping-cart nav__shopping-cart nav__shopping-cart--mobile"></i
+            <i
+              class="fas fa-shopping-cart nav__shopping-cart nav__shopping-cart--mobile"
+            ></i
             >Shopping&nbsp;cart
-          </button>
+          </a>
           <a href="shopping_cart.html">
             <i
               class="fas fa-shopping-cart nav__shopping-cart nav__shopping-cart--desktop d-none d-lg-block"
-            ><span id="totalCartAmountDot"></span></i>
-            
+              ><span id="totalCartAmountDot"></span
+            ></i>
           </a>
           <button
             class="nav__login button button--base-sm button--primary-light"

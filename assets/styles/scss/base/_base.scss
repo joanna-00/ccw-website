@@ -28,15 +28,18 @@ body {
   @media (min-width: $media-lg) {
     max-width: 95vw;
   }
+  @media (min-width: $media-xl) {
+    max-width: 90vw;
+  }
 }
 
 .container-fluid {
   padding: 0 2.5vw;
 }
 
-.row {
-  margin: 0;
-}
+// .row {
+//   margin: 0;
+// }
 
 a:link {
   color: inherit;

@@ -47,12 +47,18 @@
     <nav class="nav">
       <div class="container">
         <div class="row">
-          <div class="nav__logo-container row col-12 col-lg-3 col-xl-3">
-            <a href="index.html" class="nav__logo col"></a>
-            <div class="hamburger d-xl-none d-lg-none col">
-              <span class="line"></span>
-              <span class="line"></span>
-              <span class="line"></span>
+          <div
+            class="nav__logo-container col-12 col-lg-3 col-xl-3 justify-content-between"
+          >
+            <div class="row">
+              <a href="index.html" class="nav__logo col-6"></a>
+              <div class="nav__hamburger-container d-xl-none d-lg-none col-6">
+                <div class="nav__hamburger">
+                  <span class="line"></span>
+                  <span class="line"></span>
+                  <span class="line"></span>
+                </div>
+              </div>
             </div>
           </div>
 
@@ -81,7 +87,7 @@
           >
             <a
               href="shopping_cart.html"
-              class="button button--base-sm button--primary-light button--filled nav__button-cart d-lg-none d-xl-none"
+              class="button button--base-sm button--primary-light button--filled d-lg-none d-xl-none"
             >
               <i
                 class="fas fa-shopping-cart nav__shopping-cart nav__shopping-cart--mobile"
@@ -238,11 +244,11 @@
 
       <section class="main-homepage__signup">
         <div class="container">
-          <div class="row my-5 align-items-center justify-content-around">
+          <div class="row my-5 align-items-center justify-content-between">
             <div class="col-12 col-lg-5 col-xl-4 order-2 order-lg-1">
               <article class="main-homepage__signup-text">
                 <div
-                  class="row my-2 justify-content-center justify-content-md-start"
+                  class="my-2 justify-content-center justify-content-md-start"
                 >
                   <h3>Access our services wherever you are</h3>
                   <p>
@@ -250,13 +256,13 @@
                     control of how your car is taken care of and get access to
                     coupons!
                   </p>
-                  <!-- <div class="col-12 col-lg-4 col-xl-4"> -->
-                  <a
-                    class="button button--base-lg button--primary-light button--filled mt-4"
-                    href=""
-                    >Sign&nbsp;up</a
-                  >
-                  <!-- </div>  -->
+                  <div class="row col-12">
+                    <a
+                      class="button button--base-lg button--primary-light button--filled mt-4"
+                      href=""
+                      >Sign&nbsp;up</a
+                    >
+                  </div>
                 </div>
               </article>
             </div>
@@ -278,46 +284,39 @@
               </article>
             </div>
           </div>
-          <div class="row main-homepage__steps__step my-4">
-            <div class="col-12 col-sm-6 col-md-3 col-xl-3 hidden">
-              <div class="">
-                <i class="fas fa-tags"></i>
-                <div class="card__content">
-                  <p class="card__description">
-                    Choose a service from the shop or select a membership
-                  </p>
-                </div>
-              </div>
+          <div class="row main-homepage__steps-container my-4">
+            <div
+              class="main-homepage__steps-step col-12 col-sm-6 col-md-3 col-xl-3 hidden"
+            >
+              <i class="fas fa-tags"></i>
+              <p>
+                Choose a service from the shop or select a membership
+              </p>
             </div>
-            <div class="col-12 col-sm-6 col-md-3 col-xl-3 hidden">
-              <div class="">
-                <i class="fas fa-calendar-check"></i>
-                <div class="card__content">
-                  <p class="card__description">
-                    Book a date and time that suits you.
-                  </p>
-                </div>
-              </div>
+            <div
+              class="main-homepage__steps-step col-12 col-sm-6 col-md-3 col-xl-3 hidden"
+            >
+              <i class="fas fa-calendar-check"></i>
+
+              <p>
+                Book a date and time that suits you.
+              </p>
             </div>
-            <div class="col-12 col-sm-6 col-md-3 col-xl-3 hidden">
-              <div class="">
-                <i class="fas fa-cart-arrow-down"></i>
-                <div class="card__content">
-                  <p class="card__description">
-                    Make an online purchase on our site.
-                  </p>
-                </div>
-              </div>
+            <div
+              class="main-homepage__steps-step col-12 col-sm-6 col-md-3 col-xl-3 hidden"
+            >
+              <i class="fas fa-cart-arrow-down"></i>
+              <p>
+                Make an online purchase on our site.
+              </p>
             </div>
-            <div class="col-12 col-sm-6 col-md-3 col-xl-3 hidden">
-              <div class="">
-                <i class="fas fa-car"></i>
-                <div class="card__content">
-                  <p class="card__description">
-                    Arrive with your car and get the best service ever!
-                  </p>
-                </div>
-              </div>
+            <div
+              class="main-homepage__steps-step col-12 col-sm-6 col-md-3 col-xl-3 hidden"
+            >
+              <i class="fas fa-car"></i>
+              <p>
+                Arrive with your car and get the best service ever!
+              </p>
             </div>
           </div>
         </div>
@@ -434,9 +433,9 @@
 
     <footer class="footer">
       <div class="container">
-        <div class="row justify-content-around">
+        <div class="row">
           <div
-            class="mt-4 mt-lg-0 col-xl-2 order-lg-1 col-lg-3 order-sm-1 col-sm-6 order-1 col-12"
+            class="mt-4 mt-lg-0 col-xl-3 order-lg-1 col-lg-4 order-sm-1 col-sm-6 order-1 col-12"
           >
             <div class="footer__section">
               <h6>Opening times</h6>
@@ -458,14 +457,14 @@
           </div>
 
           <div
-            class="mt-4 mt-lg-0 col-xl-4 order-lg-2 col-lg-4 order-sm-3 col-sm-12 order-3 col-12 footer__center"
+            class="mt-4 mt-lg-0 col-xl-6 order-lg-2 col-lg-4 order-sm-3 col-sm-12 order-3 col-12 footer__center"
           >
             <h6>Subscribe to our newsletter!</h6>
             <input
               type="text"
               name="newsletter"
               placeholder="E-mail"
-              id="firstName"
+              id="newsletter"
               class="text-input__input"
             />
             <button
@@ -505,7 +504,7 @@
           </div>
 
           <div
-            class="mt-4 mt-lg-0 col-xl-2 order-lg-3 col-lg-3 order-sm-2 col-sm-6 order-2 col-12"
+            class="mt-4 mt-lg-0 col-xl-3 order-lg-3 col-lg-4 order-sm-2 col-sm-6 order-2 col-12"
           >
             <div class="footer__section">
               <h6>About CCW</h6>
