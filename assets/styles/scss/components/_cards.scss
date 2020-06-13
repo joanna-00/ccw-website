@@ -290,6 +290,19 @@
   position: sticky;
   top: 10rem;
 
+  .choice-group {
+    &__title {
+      font-weight: $bold;
+      display: block;
+    }
+
+    &__description {
+      font-weight: $bold;
+      font-size: $h5;
+      margin: 0;
+    }
+  }
+
   &__item {
     display: flex;
     justify-content: space-between;

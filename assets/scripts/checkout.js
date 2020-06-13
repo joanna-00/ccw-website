@@ -182,6 +182,12 @@ buttonNext.addEventListener("click", () => {
 
       showForm("moveInRight");
       updateStepIcons();
+
+      if (currentStep == 4) {
+        buttonNext.textContent = "Accept and pay";
+        buttonNext.classList.remove("button--primary-light");
+        buttonNext.classList.add("button--secondary");
+      }
     } else {
       localStorage.setItem("notification", "bookedSuccess");
       location.href = "shopping_cart.html";
