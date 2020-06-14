@@ -917,7 +917,7 @@ const removeAllButton = $("#removeAllButton");
 
 if (removeAllButton) {
   removeAllButton.addEventListener("click", () => {
-    deleteAllItems(true);
+    displayPopUp("confirmation");
   });
 }
 
@@ -927,6 +927,51 @@ function deleteAllItems(shouldRefresh) {
   if (shouldRefresh === true) {
     location.reload();
   }
+}
+
+function displayPopUp(type) {
+  let newPopUp = document.createElement("div");
+  newPopUp.setAttribute("class", "pop-up__container");
+
+  if (type == "confirmation") {
+    const popUpBody = `<div class="pop-up pop-up--confirmation">
+    <div class="pop-up__text-container">
+      <h5 class="pop-up__title">
+          Are you sure you want to remove all items?
+        </h5>
+        <p class="pop-up__descritption">This is what may happen if you continue.</p>
+    </div>
+
+    <div class="pop-up__buttons-container">
+      <button class="pop-up__button--confirm button button--base-lg button--secondary">
+          Yes, continue
+         </button>
+         <button class="pop-up__button--cancel button button--base-lg button--warning button--filled">
+         Cancel
+         </button>
+    </div>
+</div>`;
+    newPopUp.innerHTML += popUpBody;
+  }
+
+  newPopUp
+    .querySelector(".pop-up__button--confirm")
+    .addEventListener("click", () => {
+      deleteAllItems(true);
+      $("body").classList.remove("popUpOpen");
+    });
+
+  newPopUp
+    .querySelector(".pop-up__button--cancel")
+    .addEventListener("click", () => {
+      newPopUp
+        .querySelector(".pop-up__button--cancel")
+        .parentElement.parentElement.parentElement.remove();
+      $("body").classList.remove("popUpOpen");
+    });
+
+  $("body").appendChild(newPopUp);
+  $("body").classList.add("popUpOpen");
 }
 
 if (
