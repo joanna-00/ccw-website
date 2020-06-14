@@ -759,46 +759,98 @@ h1 {
   color: #f9f9f9;
 }
 
-.checkout-card {
+.shopping-cart-total-card {
   padding: 2rem 4rem;
   display: flex;
   flex-direction: column;
   position: sticky;
   top: 10rem;
 }
-.checkout-card .choice-group__title {
-  font-weight: 700;
-  display: block;
-}
-.checkout-card .choice-group__description {
-  font-weight: 700;
-  font-size: 2.4rem;
-  margin: 0;
-}
-.checkout-card__item {
+.shopping-cart-total-card__item {
   display: flex;
   justify-content: space-between;
+  align-items: center;
 }
-.checkout-card__total {
+.shopping-cart-total-card__item-name {
+  color: #133657;
+  font-size: 2rem;
+}
+.shopping-cart-total-card__item-price {
+  color: #66bf6c;
+}
+.shopping-cart-total-card__total {
   display: flex;
   justify-content: space-between;
   padding: 1rem 0;
   text-transform: uppercase;
   border-top: 1px solid #999999;
 }
-.checkout-card__buttons {
+.shopping-cart-total-card__buttons {
   display: flex;
   justify-content: space-evenly;
   flex-wrap: wrap;
 }
-.checkout-card__coupon {
+.shopping-cart-total-card__coupon {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  color: #66bf6c;
+  margin-bottom: 3rem;
+}
+.shopping-cart-total-card__coupon-input {
+  width: 15rem !important;
+  margin-bottom: 0 !important;
+}
+
+.checkout-total-card {
+  padding: 2rem 4rem;
+  display: flex;
+  flex-direction: column;
+  position: sticky;
+  top: 10rem;
+}
+.checkout-total-card .choice-group {
+  margin-top: 0;
+}
+.checkout-total-card .choice-group__title {
+  font-weight: 700;
+  display: block;
+}
+.checkout-total-card .choice-group__description {
+  font-weight: 700;
+  font-size: 2.4rem;
+  margin: 0;
+}
+.checkout-total-card__item {
   display: flex;
   justify-content: space-between;
 }
-.checkout-card__coupon-input {
-  width: 15rem !important;
+.checkout-total-card__item:first-of-type {
+  margin-top: 3rem;
 }
-.checkout-card p.checkout-card__coupon-input {
+.checkout-total-card__item-name {
+  color: #133657;
+  font-size: 2rem;
+}
+.checkout-total-card__item-price {
+  color: #66bf6c;
+}
+.checkout-total-card__total {
+  display: flex;
+  justify-content: space-between;
+  padding: 1rem 0;
+  text-transform: uppercase;
+  border-top: 1px solid #999999;
+}
+.checkout-total-card__coupon {
+  display: flex;
+  justify-content: space-between;
+  color: #66bf6c;
+}
+.checkout-total-card__coupon-value {
+  color: #66bf6c;
+}
+.checkout-total-card p.checkout-card__coupon-input {
   text-align: right;
 }
 

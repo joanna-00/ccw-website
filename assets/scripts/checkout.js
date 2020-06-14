@@ -49,6 +49,9 @@ function renderTotal(shoppingCartItems) {
     itemsToRender,
     "checkout"
   );
+  if (!$("#locationDate")) {
+    setUpTotal();
+  }
 }
 
 function updateStepIcons() {
@@ -61,6 +64,74 @@ function updateStepIcons() {
       icon.className = stepIcons[step.dataset.step - 1];
     }
   });
+}
+
+function setUpTotal() {
+  let checkoutSummary = $(".checkout-total-card");
+  let locationDate = { name: "locationDate" },
+    timeData = { name: "timeData" },
+    carModelData = { name: "carModelData" },
+    carLicencePlateData = { name: "carLicencePlateData" };
+  let checkoutElements = [
+    locationDate,
+    timeData,
+    carModelData,
+    carLicencePlateData,
+  ];
+
+  checkoutElements.reverse().forEach((element) => {
+    let name = element.name;
+    element = document.createElement("dl");
+    element.setAttribute("class", "choice-group");
+    element.setAttribute("id", name);
+    checkoutSummary.insertBefore(element, checkoutSummary.firstChild);
+    console.log(element);
+  });
+}
+
+function updateTotal() {
+  let checkoutSummary = $(".checkout-total-card");
+
+  let location = $("#dropdownLocation").dataset.value;
+  if (location) {
+    console.log(location);
+    $("#locationDate").innerHTML = `
+    <dt class="choice-group__title">Location</dt>
+    <dd class="choice-group__description">${location}</dd>
+    `;
+  }
+
+  let date = $(".date-picker").dataset.value;
+  date = new Date(date);
+  date = `${date.getDate()} / ${date.getMonth() + 1} / ${date.getFullYear()}`;
+  console.log(date);
+  let time = $("#dropdownTime").dataset.value;
+  if (date && time) {
+    console.log(date, time);
+    timeData.innerHTML = `
+    <dt class="choice-group__title">Date and time</dt>
+    <dd class="choice-group__description">${date}, ${time}</dd>
+    `;
+  }
+
+  let carBrand = $("#carBrand").value;
+  let carModel = $("#carModel").value;
+  if (carModel) {
+    console.log(carModel);
+    carModelData.innerHTML = `
+    <dt class="choice-group__title">Your car</dt>
+    <dd class="choice-group__description">${carBrand} ${carModel}</dd>
+    `;
+  }
+
+  let carLicencePlate = $("#licensePlateNumber").value;
+  if (carLicencePlate) {
+    console.log(carLicencePlate);
+    carLicencePlateData.innerHTML = `
+    <dt class="choice-group__title">License plate number</dt>
+    <dd class="choice-group__description">${carLicencePlate}</dd>
+    `;
+  }
 }
 
 function validateDropdown(dropdownToValidate) {
@@ -169,6 +240,12 @@ buttonBack.addEventListener("click", () => {
     formSteps[currentStep - 1].classList.add("moveOutRight");
     showForm("moveInLeft");
     updateStepIcons();
+
+    if (currentStep < 4) {
+      buttonNext.textContent = "Next";
+      buttonNext.classList.add("button--primary-light");
+      buttonNext.classList.remove("button--secondary");
+    }
   }
 });
 
@@ -177,6 +254,11 @@ buttonNext.addEventListener("click", () => {
     // if () {
     currentStep++;
     if (currentStep < 5) {
+      // if (currentStep == 1) {
+      //   setUpTotal();
+      //   updateTotal();
+      // }
+      updateTotal();
       console.log(formSteps[currentStep - 1]);
       formSteps[currentStep - 1].classList.add("moveOutLeft");
 
@@ -192,12 +274,6 @@ buttonNext.addEventListener("click", () => {
       localStorage.setItem("notification", "bookedSuccess");
       location.href = "shopping_cart.html";
       deleteAllItems(false);
-
-      // let newTitle = "Your appointment was successfully booked!",
-      //   newDesc =
-      //     'You can see it under "calendar" in your profile or in your e-mail.';
-
-      // displayNotification("success", true, "sm", newTitle, newDesc);
     }
   }
 });

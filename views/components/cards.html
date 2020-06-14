@@ -426,45 +426,45 @@
       <div class="row mt-5">
         <div class="col-12">
           <h2>
-            card checkout-card
+            card shopping-cart-total-card
           </h2>
         </div>
         <div class="col-3">
-          <div class="card checkout-card">
-            <div class="checkout-card__item">
-              <p class="checkout-card__item-name">Item 1</p>
-              <p class="checkout-card__item-price">10 dolers</p>
+          <div class="card shopping-cart-total-card">
+            <div class="shopping-cart-total-card__item">
+              <p class="shopping-cart-total-card__item-name">Item 1</p>
+              <h5 class="shopping-cart-total-card__item-price">100,-</h5>
             </div>
 
-            <div class="checkout-card__item">
-              <p class="checkout-card__item-name">Item 1</p>
-              <p class="checkout-card__item-price">10 dolers</p>
+            <div class="shopping-cart-total-card__item">
+              <p class="shopping-cart-total-card__item-name">Item 1</p>
+              <h5 class="shopping-cart-total-card__item-price">100,-</h5>
             </div>
 
-            <div class="checkout-card__item">
-              <p class="checkout-card__item-name">Item 1</p>
-              <p class="checkout-card__item-price">10 dolers</p>
+            <div class="shopping-cart-total-card__item">
+              <p class="shopping-cart-total-card__item-name">Item 1</p>
+              <h5 class="shopping-cart-total-card__item-price">100,-</h5>
             </div>
 
-            <div class="checkout-card__coupon">
-              <p class="checkout-card__coupon-label">Coupon</p>
+            <div class="shopping-cart-total-card__coupon">
+              <h6 class="shopping-cart-total-card__coupon-label">Coupon</h6>
 
               <input
                 type="text"
                 name=""
                 id="coupon"
-                class="checkout-card__coupon-input text-input__input"
+                class="shopping-cart-total-card__coupon-input text-input__input"
               />
             </div>
 
-            <div class="checkout-card__total">
-              <h4>Total:</h4>
-              <h4 class="checkout-card__total-price">700,-</h4>
+            <div class="shopping-cart-total-card__total">
+              <h3 class="shopping-cart-total-card__total-label">Total:</h3>
+              <h3 class="shopping-cart-total-card__total-price">700,-</h3>
             </div>
 
-            <div class="checkout-card__buttons">
+            <div class="shopping-cart-total-card__buttons">
               <button
-                class="checkout-card__button button button--base-lg button--primary-light button--filled"
+                class="shopping-cart-total-card__button button button--base-lg button--primary-light button--filled"
               >
                 Proceed to checkout
               </button>
@@ -476,11 +476,11 @@
       <div class="row mt-5">
         <div class="col-12">
           <h2>
-            card checkout-card
+            card checkout-total-card
           </h2>
         </div>
         <div class="col-3">
-          <div class="card checkout-card">
+          <div class="card checkout-total-card">
             <dl class="choice-group">
               <dt class="choice-group__title">Location</dt>
               <dd class="choice-group__description">Aalborg</dd>
@@ -498,17 +498,25 @@
               <dd class="choice-group__description">KL 3209 SD</dd>
             </dl>
 
-            <div class="checkout-card__total">
-              <h4>Total:</h4>
-              <h4 class="checkout-card__total-price">700,-</h4>
+            <div class="checkout-total-card__item">
+              <p class="checkout-total-card__item-name">Total price</p>
+              <h5 class="checkout-total-card__item-price">800,-</h5>
             </div>
 
-            <div class="checkout-card__buttons">
-              <button
-                class="checkout-card__button button button--base-lg button--primary-light button--filled"
-              >
-                Proceed to checkout
-              </button>
+            <div class="checkout-total-card__item">
+              <p class="checkout-total-card__item-name">VAT</p>
+              <h5 class="checkout-total-card__item-price">100,-</h5>
+            </div>
+
+            <div class="checkout-total-card__coupon">
+              <h6 class="checkout-total-card__coupon-label">Coupon</h6>
+
+              <h5 class="checkout-total-card__coupon-value">-100,-</h5>
+            </div>
+
+            <div class="checkout-total-card__total">
+              <h3 class="checkout-total-card__label">Total:</h3>
+              <h3 class="checkout-total-card__total-price">700,-</h3>
             </div>
           </div>
         </div>
