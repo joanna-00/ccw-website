@@ -547,47 +547,62 @@ h1 {
 .card__memberships-badge {
   display: none;
   position: absolute;
-  padding: 1.5rem;
+  box-shadow: 0px 3px 10px 0px rgba(0, 0, 0, 0.25);
   display: flex;
   align-items: center;
   justify-content: center;
   left: 2rem;
   top: 2rem;
   background-color: #ffffff;
-  height: 26px;
   border-radius: 5px;
+}
+.card__memberships-badge.platinum .card__memberships-badge--platinum {
+  display: inline-block;
+}
+.card__memberships-badge.gold .card__memberships-badge--gold {
+  display: inline-block;
+}
+.card__memberships-badge.silver .card__memberships-badge--silver {
+  display: inline-block;
+}
+.card__memberships-badge.bronze .card__memberships-badge--bronze {
+  display: inline-block;
 }
 .card__memberships-badge--platinum {
   display: inline-block;
   border-radius: 9999px;
-  height: 12px;
-  width: 12px;
-  margin: 0.5rem;
+  height: 15px;
+  width: 15px;
+  margin: 0.8rem;
   background-color: #3d6277;
+  display: none;
 }
 .card__memberships-badge--gold {
   display: inline-block;
   border-radius: 9999px;
-  height: 12px;
-  width: 12px;
-  margin: 0.5rem;
+  height: 15px;
+  width: 15px;
+  margin: 0.8rem;
   background-color: #f6d868;
+  display: none;
 }
 .card__memberships-badge--silver {
   display: inline-block;
   border-radius: 9999px;
-  height: 12px;
-  width: 12px;
-  margin: 0.5rem;
+  height: 15px;
+  width: 15px;
+  margin: 0.8rem;
   background-color: #b6b6b6;
+  display: none;
 }
 .card__memberships-badge--bronze {
   display: inline-block;
   border-radius: 9999px;
-  height: 12px;
-  width: 12px;
-  margin: 0.5rem;
+  height: 15px;
+  width: 15px;
+  margin: 0.8rem;
   background-color: #c99274;
+  display: none;
 }
 .card--memberships-badge .card__memberships-badge {
   display: flex;
@@ -1415,7 +1430,7 @@ label.hidden {
   z-index: 9999;
 }
 .pop-up__container {
-  position: absolute;
+  position: fixed;
   top: 0;
   left: 0;
   z-index: 9999;
@@ -1442,6 +1457,7 @@ label.hidden {
   color: #d14444 !important;
   text-decoration: underline !important;
   text-align: right;
+  cursor: pointer;
 }
 .pop-up__title--log-in, .pop-up__title--sign-up {
   text-align: center;
@@ -1449,13 +1465,17 @@ label.hidden {
 .pop-up__form-switch--log-in {
   text-align: center;
   color: #133657;
+  margin-top: 3rem;
 }
 .pop-up__form-switch--sign-up {
   text-align: center;
   color: #133657;
+  margin-top: 3rem;
 }
 .pop-up__form-switch-link {
   text-decoration: underline !important;
+  display: inline;
+  cursor: pointer;
 }
 .pop-up__button--log-in, .pop-up__button--sign-up {
   width: 100%;

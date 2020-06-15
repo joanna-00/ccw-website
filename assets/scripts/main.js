@@ -78,6 +78,10 @@ if ($(".hamburger")) {
   });
 }
 
+$("nav .nav__login").addEventListener("click", () => {
+  displayPopUp("account-log-in");
+});
+
 // Notifications
 
 const notificationCloseButtons = $$(".notification__close-button");
@@ -323,7 +327,11 @@ function createMembershipCard(shopItem, type) {
 function createShopCard(shopItem, type) {
   let post = shopItem;
   shopItem = shopItem.acf;
-  // console.log(shopItem.isavailable);
+
+  let membershipFilters = "";
+  shopItem.membership_included_filter.forEach((item) => {
+    membershipFilters += ` ${parseFilter(item)}`;
+  });
 
   if (type == "recommended") {
     return `<div class="col-xl-3 col-sm-6 col-12">
@@ -331,7 +339,7 @@ function createShopCard(shopItem, type) {
       class="card shop-item card--image card--button card--description card--price card--clickable"
     >
       <div class="card__image">
-      <div class="card__memberships-badge">
+      <div class="card__memberships-badge ${membershipFilters}">
                 <span class="card__memberships-badge--platinum"></span>
                 <span class="card__memberships-badge--gold"></span>
                 <span class="card__memberships-badge--silver"></span>
@@ -378,7 +386,7 @@ function createShopCard(shopItem, type) {
 <div
     class="card shop-item card--image card--button card--description card--price card--clickable">
     <div class="card__image">
-        <div class="card__memberships-badge">
+        <div class="card__memberships-badge ${membershipFilters}">
                 <span class="card__memberships-badge--platinum"></span>
                 <span class="card__memberships-badge--gold"></span>
                 <span class="card__memberships-badge--silver"></span>
@@ -420,7 +428,7 @@ function createShopCard(shopItem, type) {
     class="shop__service-card card card--image card--button card--description card--price card--clickable"
   >
     <div class="card__image">
-        <div class="card__memberships-badge">
+        <div class="card__memberships-badge ${membershipFilters}">
                 <span class="card__memberships-badge--platinum"></span>
                 <span class="card__memberships-badge--gold"></span>
                 <span class="card__memberships-badge--silver"></span>
@@ -466,7 +474,7 @@ function createShopCard(shopItem, type) {
     class="shop__service-card card card--image card--button card--description card--price"
   >
     <div class="card__image">
-        <div class="card__memberships-badge">
+        <div class="card__memberships-badge ${membershipFilters}">
                 <span class="card__memberships-badge--platinum"></span>
                 <span class="card__memberships-badge--gold"></span>
                 <span class="card__memberships-badge--silver"></span>
@@ -642,10 +650,29 @@ function renderShoppingCart(shoppingCartItems) {
     "shoppingCart"
   );
 
+  let shouldShowPopUp = true;
+
   const proceedToCheckoutButton = $("#proceedToCheckoutButton");
   proceedToCheckoutButton.addEventListener("click", () => {
-    let coupon = $("#coupon").value;
-    localStorage.setItem("coupon", coupon);
+    if (shouldShowPopUp === true) {
+      displayPopUp("account-sign-up");
+      let hasMembershipInCart = JSON.parse(
+        localStorage.getItem("hasMembershipInCart")
+      );
+      if (hasMembershipInCart == true) {
+        $(".pop-up--account-sign-up .pop-up__title--sign-up").textContent =
+          "An account is required to purchase a membership. Please sign up to continue.";
+      } else {
+        $(".pop-up--account-sign-up .pop-up__title--sign-up").textContent =
+          "Would you like to create an account first?";
+      }
+
+      let coupon = $("#coupon").value;
+      localStorage.setItem("coupon", coupon);
+      shouldShowPopUp = false;
+    } else {
+      location.href = "checkout.html";
+    }
   });
 
   // Set up increase/decrease logic
@@ -768,6 +795,7 @@ function createShopppingCartCard(shopItem, itemsToRender) {
   }
 
   if (!currentItemAmount == 0 && shopItem.membership_title) {
+    localStorage.setItem("hasMembershipInCart", true);
     return `
   <div class="col-12">
     <div
@@ -821,10 +849,11 @@ function createCheckoutSummary(shoppingCartItems, itemsToRender, type) {
       </div>`;
     });
 
-    let checkoutSummary = "";
-    checkoutSummary += `<div class="card shopping-cart-total-card">`;
-    checkoutSummary += itemList;
-    checkoutSummary += `  <div class="shopping-cart-total-card__coupon">
+    let checkoutSummary = document.createElement("div");
+    checkoutSummary.setAttribute("class", "card shopping-cart-total-card");
+    // checkoutSummary += `<div class="card shopping-cart-total-card">`;
+    checkoutSummary.innerHTML += itemList;
+    checkoutSummary.innerHTML += `  <div class="shopping-cart-total-card__coupon">
     <h6 class="shopping-cart-total-card__coupon-label">Coupon</h6>
   
     <input
@@ -840,16 +869,16 @@ function createCheckoutSummary(shoppingCartItems, itemsToRender, type) {
     <h3 class="shopping-cart-total-card__total-price">${totalPrice},-</h3>
   </div>
   <div class="shopping-cart-total-card__buttons">
-  <a href="checkout.html"
+  <button
     class="shopping-cart-total-card__button button button--base-lg button--primary-light button--filled"
     id="proceedToCheckoutButton"
   >
     Proceed to checkout
-  </a>
+  </button>
 </div>
-</div>`;
-
-    return checkoutSummary;
+`;
+    // console.log(checkoutSummary.outerHTML);
+    return checkoutSummary.outerHTML;
   }
 
   if (type == "checkout") {
@@ -952,23 +981,242 @@ function displayPopUp(type) {
     </div>
 </div>`;
     newPopUp.innerHTML += popUpBody;
+
+    newPopUp
+      .querySelector(".pop-up__button--confirm")
+      .addEventListener("click", () => {
+        deleteAllItems(true);
+        $("body").classList.remove("popUpOpen");
+      });
+
+    newPopUp
+      .querySelector(".pop-up__button--cancel")
+      .addEventListener("click", () => {
+        newPopUp.remove();
+        $("body").classList.remove("popUpOpen");
+      });
   }
 
-  newPopUp
-    .querySelector(".pop-up__button--confirm")
-    .addEventListener("click", () => {
-      deleteAllItems(true);
-      $("body").classList.remove("popUpOpen");
-    });
+  // const accountPopUpBody = `
+  // `
 
-  newPopUp
-    .querySelector(".pop-up__button--cancel")
-    .addEventListener("click", () => {
-      newPopUp
-        .querySelector(".pop-up__button--cancel")
-        .parentElement.parentElement.parentElement.remove();
-      $("body").classList.remove("popUpOpen");
-    });
+  if (type == "account-log-in") {
+    const popUpBody = `<div class="pop-up pop-up--account-log-in">
+    <p class="pop-up__close-button" >
+      Close
+      <i class="pop-up__close-button-x fas fa-times icon--right"></i
+    ></p>
+    <h5 class="pop-up__title--sign-up">
+      Create an account
+    </h5>
+
+    <h5 class="pop-up__title--log-in">
+        Log in to your account
+             </h5>
+    <form action="">
+      <div class="pop-up__input text-input">
+        <label for="email" class="text-input__label">Email</label>
+        <input
+          type="email"
+          name=""
+          id="email"
+          class="text-input__input"
+        />
+      </div>
+
+      <div class="pop-up__input text-input">
+        <label for="password" class="text-input__label">Password</label>
+        <input
+          type="password"
+          name=""
+          id="password"
+          class="text-input__input"
+        />
+      </div>
+
+      <div class="checkbox__group">
+        <input
+          type="checkbox"
+          name=""
+          id="remember"
+          class="checkbox__input"
+        />
+        <label for="remember" class="checkbox__label">
+          <span class="checkbox__button--sm"></span>
+          <span class="checkbox__button-text">Remember me</span>
+        </label>
+      </div>
+
+      <div class="checkbox__group">
+        <input
+          type="checkbox"
+          name=""
+          id="acceptTC"
+          class="checkbox__input"
+        />
+        <label for="acceptTC" class="checkbox__label">
+          <span class="checkbox__button--sm"></span>
+          <span class="checkbox__button-text"
+            >Accept Terms and conditions</span
+          >
+        </label>
+      </div>
+      <button
+        class="pop-up__button--sign-up button button--base-lg button--secondary"
+      >
+        Sign up
+      </button>
+      <button
+        class="pop-up__button--log-in button button--base-lg button--secondary"
+      >
+        Log in
+      </button>
+    </form>
+
+    <div class="pop-up__form-switch--sign-up">
+      Have an account?
+      <p class="pop-up__form-switch-link">Log in</p>
+    </div>
+    <div class="pop-up__form-switch--log-in">
+      Don't have an account?
+      <p class="pop-up__form-switch-link">Sign-up</p>
+    </div>
+  </div>`;
+
+    newPopUp.innerHTML += popUpBody;
+
+    newPopUp
+      .querySelector(".pop-up__form-switch--log-in .pop-up__form-switch-link")
+      .addEventListener("click", () => {
+        newPopUp.firstChild.classList.remove("pop-up--account-log-in");
+        newPopUp.firstChild.classList.add("pop-up--account-sign-up");
+      });
+
+    newPopUp
+      .querySelector(".pop-up__form-switch--sign-up .pop-up__form-switch-link")
+      .addEventListener("click", () => {
+        newPopUp.firstChild.classList.remove("pop-up--account-sign-up");
+        newPopUp.firstChild.classList.add("pop-up--account-log-in");
+      });
+
+    newPopUp
+      .querySelector(".pop-up__close-button")
+      .addEventListener("click", () => {
+        newPopUp.remove();
+        $("body").classList.remove("popUpOpen");
+      });
+  }
+
+  if (type == "account-sign-up") {
+    const popUpBody = `<div class="pop-up pop-up--account-sign-up">
+    <p class="pop-up__close-button">
+      Close
+      <i class="pop-up__close-button-x fas fa-times icon--right"></i
+    ></p>
+    <h5 class="pop-up__title--sign-up">
+    Create an account
+    </h5>
+    <h5 class="pop-up__title--log-in">
+         Log in to your account
+      </h5>
+    <form action="">
+      <div class="pop-up__input text-input">
+        <label for="email" class="text-input__label">Email</label>
+        <input
+          type="email"
+          name=""
+          id="email"
+          class="text-input__input"
+        />
+      </div>
+
+      <div class="pop-up__input text-input">
+        <label for="password" class="text-input__label">Password</label>
+        <input
+          type="password"
+          name=""
+          id="password"
+          class="text-input__input"
+        />
+      </div>
+
+      <div class="checkbox__group">
+        <input
+          type="checkbox"
+          name=""
+          id="remember"
+          class="checkbox__input"
+        />
+        <label for="remember" class="checkbox__label">
+          <span class="checkbox__button--sm"></span>
+          <span class="checkbox__button-text">Remember me</span>
+        </label>
+      </div>
+
+      <div class="checkbox__group">
+        <input
+          type="checkbox"
+          name=""
+          id="acceptTC"
+          class="checkbox__input"
+        />
+        <label for="acceptTC" class="checkbox__label">
+          <span class="checkbox__button--sm"></span>
+          <span class="checkbox__button-text"
+            >Accept Terms and conditions</span
+          >
+        </label>
+      </div>
+      <button
+        class="pop-up__button--sign-up button button--base-lg button--secondary"
+      >
+        Sign up
+      </button>
+      <button
+        class="pop-up__button--log-in button button--base-lg button--secondary"
+      >
+        Log in
+      </button>
+    </form>
+
+    <div class="pop-up__form-switch--sign-up">
+      Have an account?
+      <p class="pop-up__form-switch-link">Log in</p>
+    </div>
+    <div class="pop-up__form-switch--log-in">
+      Don't have an account?
+      <p class="pop-up__form-switch-link">Sign-up</p>
+    </div>
+  </div>
+    `;
+    newPopUp.innerHTML += popUpBody;
+    console.log(
+      newPopUp.querySelector(
+        ".pop-up__form-switch--sign-up .pop-up__form-switch-link"
+      )
+    );
+
+    newPopUp
+      .querySelector(".pop-up__form-switch--sign-up .pop-up__form-switch-link")
+      .addEventListener("click", () => {
+        newPopUp.firstChild.classList.remove("pop-up--account-sign-up");
+        newPopUp.firstChild.classList.add("pop-up--account-log-in");
+      });
+
+    newPopUp
+      .querySelector(".pop-up__form-switch--log-in .pop-up__form-switch-link")
+      .addEventListener("click", () => {
+        newPopUp.firstChild.classList.remove("pop-up--account-log-in");
+        newPopUp.firstChild.classList.add("pop-up--account-sign-up");
+      });
+
+    newPopUp
+      .querySelector(".pop-up__close-button")
+      .addEventListener("click", () => {
+        newPopUp.remove();
+        $("body").classList.remove("popUpOpen");
+      });
+  }
 
   $("body").appendChild(newPopUp);
   $("body").classList.add("popUpOpen");

@@ -1,6 +1,6 @@
 .pop-up {
   &__container {
-    position: absolute;
+    position: fixed;
     top: 0;
     left: 0;
     z-index: 9999;
@@ -23,7 +23,6 @@
     width: 25%;
   }
 
-  // height: 100%;
   background-color: $white;
   @include border-round-lg;
   @include drop-shadow-light-sm;
@@ -44,6 +43,7 @@
     color: $warning !important;
     text-decoration: underline !important;
     text-align: right;
+    cursor: pointer;
   }
 
   &__title--log-in,
@@ -55,15 +55,19 @@
     &--log-in {
       text-align: center;
       color: $text-dark;
+      margin-top: 3rem;
     }
 
     &--sign-up {
       text-align: center;
       color: $text-dark;
+      margin-top: 3rem;
     }
 
     &-link {
       text-decoration: underline !important;
+      display: inline;
+      cursor: pointer;
     }
   }
 
@@ -98,10 +102,6 @@
     @media (min-width: $media-lg) {
       width: 50%;
     }
-
-    // @media (min-width: $media-xl) {
-    //   width: %;
-    // }
 
     .pop-up__text-container {
       padding: $padding-sm;
