@@ -78,6 +78,10 @@ if ($(".hamburger")) {
   });
 }
 
+$("nav .nav__login").addEventListener("click", () => {
+  displayPopUp("account-log-in");
+});
+
 // Notifications
 
 const notificationCloseButtons = $$(".notification__close-button");
@@ -202,7 +206,7 @@ function checkPosition(elemsToShow, callback) {
 
 // SHOP
 
-if (window.location.pathname.includes("shop.html")) {
+if ($("body").id === "shop") {
   const shopItems = requestWP(tagEndPoint, tagShop, renderShop);
 }
 
@@ -323,7 +327,11 @@ function createMembershipCard(shopItem, type) {
 function createShopCard(shopItem, type) {
   let post = shopItem;
   shopItem = shopItem.acf;
-  // console.log(shopItem.isavailable);
+
+  let membershipFilters = "";
+  shopItem.membership_included_filter.forEach((item) => {
+    membershipFilters += ` ${parseFilter(item)}`;
+  });
 
   if (type == "recommended") {
     return `<div class="col-xl-3 col-sm-6 col-12">
@@ -331,7 +339,7 @@ function createShopCard(shopItem, type) {
       class="card shop-item card--image card--button card--description card--price card--clickable"
     >
       <div class="card__image">
-      <div class="card__memberships-badge">
+      <div class="card__memberships-badge ${membershipFilters}">
                 <span class="card__memberships-badge--platinum"></span>
                 <span class="card__memberships-badge--gold"></span>
                 <span class="card__memberships-badge--silver"></span>
@@ -378,7 +386,7 @@ function createShopCard(shopItem, type) {
 <div
     class="card shop-item card--image card--button card--description card--price card--clickable">
     <div class="card__image">
-        <div class="card__memberships-badge">
+        <div class="card__memberships-badge ${membershipFilters}">
                 <span class="card__memberships-badge--platinum"></span>
                 <span class="card__memberships-badge--gold"></span>
                 <span class="card__memberships-badge--silver"></span>
@@ -420,7 +428,7 @@ function createShopCard(shopItem, type) {
     class="shop__service-card card card--image card--button card--description card--price card--clickable"
   >
     <div class="card__image">
-        <div class="card__memberships-badge">
+        <div class="card__memberships-badge ${membershipFilters}">
                 <span class="card__memberships-badge--platinum"></span>
                 <span class="card__memberships-badge--gold"></span>
                 <span class="card__memberships-badge--silver"></span>
@@ -466,7 +474,7 @@ function createShopCard(shopItem, type) {
     class="shop__service-card card card--image card--button card--description card--price"
   >
     <div class="card__image">
-        <div class="card__memberships-badge">
+        <div class="card__memberships-badge ${membershipFilters}">
                 <span class="card__memberships-badge--platinum"></span>
                 <span class="card__memberships-badge--gold"></span>
                 <span class="card__memberships-badge--silver"></span>
@@ -574,7 +582,7 @@ function showStepsProcess() {
   }
 }
 
-if (window.location.pathname.includes("shopping_cart.html")) {
+if ($("body").id === "shopping_cart") {
   if (localStorage.getItem("shoppingCart")) {
     let currentShoppingCart = JSON.parse(localStorage.getItem("shoppingCart"));
 
@@ -642,10 +650,29 @@ function renderShoppingCart(shoppingCartItems) {
     "shoppingCart"
   );
 
+  let shouldShowPopUp = true;
+
   const proceedToCheckoutButton = $("#proceedToCheckoutButton");
   proceedToCheckoutButton.addEventListener("click", () => {
-    let coupon = $("#coupon").value;
-    localStorage.setItem("coupon", coupon);
+    if (shouldShowPopUp === true) {
+      displayPopUp("account-sign-up");
+      let hasMembershipInCart = JSON.parse(
+        localStorage.getItem("hasMembershipInCart")
+      );
+      if (hasMembershipInCart == true) {
+        $(".pop-up--account-sign-up .pop-up__title--sign-up").textContent =
+          "An account is required to purchase a membership. Please sign up to continue.";
+      } else {
+        $(".pop-up--account-sign-up .pop-up__title--sign-up").textContent =
+          "Would you like to create an account first?";
+      }
+
+      let coupon = $("#coupon").value;
+      localStorage.setItem("coupon", coupon);
+      shouldShowPopUp = false;
+    } else {
+      location.href = "checkout.html";
+    }
   });
 
   // Set up increase/decrease logic
@@ -658,7 +685,7 @@ function renderShoppingCart(shoppingCartItems) {
       console.log(event.target.parentElement.dataset.id);
       let currentID = event.target.parentElement.dataset.id;
       let currentItemAmount = JSON.parse(localStorage.getItem("itemsToRender"))[
-        `${currentID}`
+        currentID
       ];
 
       currentItemAmount++;
@@ -674,6 +701,12 @@ function renderShoppingCart(shoppingCartItems) {
       );
 
       updateShoppingCartLS(itemsToRender);
+
+      checkoutCardContainer.innerHTML = createCheckoutSummary(
+        shoppingCartItems,
+        itemsToRender,
+        "shoppingCart"
+      );
     });
   });
 
@@ -688,7 +721,7 @@ function renderShoppingCart(shoppingCartItems) {
       if (currentItemAmount > 0) {
         currentItemAmount--;
       } else if (currentItemAmount == 0) {
-        delete itemsToRender[`${currentID}`];
+        delete itemsToRender[currentID];
       }
 
       const cardAmountDisplay = event.target.parentElement.querySelector(
@@ -702,6 +735,12 @@ function renderShoppingCart(shoppingCartItems) {
       );
 
       updateShoppingCartLS(itemsToRender);
+
+      checkoutCardContainer.innerHTML = createCheckoutSummary(
+        shoppingCartItems,
+        itemsToRender,
+        "shoppingCart"
+      );
     });
   });
 
@@ -756,6 +795,7 @@ function createShopppingCartCard(shopItem, itemsToRender) {
   }
 
   if (!currentItemAmount == 0 && shopItem.membership_title) {
+    localStorage.setItem("hasMembershipInCart", true);
     return `
   <div class="col-12">
     <div
@@ -789,94 +829,95 @@ function createShopppingCartCard(shopItem, itemsToRender) {
 }
 
 function createCheckoutSummary(shoppingCartItems, itemsToRender, type) {
-  console.log(shoppingCartItems);
-  let output = "";
-  let totalPrice = 0;
-
-  shoppingCartItems.forEach((item) => {
-    let ID = item.id;
-    let itemAmount = itemsToRender[`${ID}`];
-    item = item.acf;
-    totalPrice += Number(item.price) * itemAmount;
-    console.log(totalPrice);
-    output += `
-    <div class="checkout-card__item">
-      <p class="checkout-card__item-name">${itemAmount}x ${
-      item.title ? item.title : item.membership_title + " membership"
-    }</p>
-      <p class="checkout-card__item-price">${itemAmount * item.price}</p>
-    </div>`;
-  });
-
-  let checkoutSummary = "";
-  checkoutSummary += `<div class="card checkout-card">`;
-  checkoutSummary += output;
-
-  // for (const ID in itemsToRender) {
-  //   output += `
-  //   <div class="checkout-card__item">
-  //     <p class="checkout-card__item-name">a</p>
-  //     <p class="checkout-card__item-price">aa</p>
-  //   </div>`;
-  // }
-
   if (type == "shoppingCart") {
-    checkoutSummary += `  <div class="checkout-card__coupon">
-    <p class="checkout-card__coupon-label">Coupon</p>
+    let itemList = "";
+    let totalPrice = 0;
+
+    shoppingCartItems.forEach((item) => {
+      let ID = item.id;
+      let itemAmount = itemsToRender[ID];
+      item = item.acf;
+      totalPrice += Number(item.price) * itemAmount;
+      itemList += `
+      <div class="shopping-cart-total-card__item">
+        <p class="shopping-cart-total-card__item-name">${itemAmount}x ${
+        item.title ? item.title : item.membership_title + " membership"
+      }</p>
+        <h5 class="shopping-cart-total-card__item-price">${
+          itemAmount * item.price
+        },-</h5>
+      </div>`;
+    });
+
+    let checkoutSummary = document.createElement("div");
+    checkoutSummary.setAttribute("class", "card shopping-cart-total-card");
+    // checkoutSummary += `<div class="card shopping-cart-total-card">`;
+    checkoutSummary.innerHTML += itemList;
+    checkoutSummary.innerHTML += `  <div class="shopping-cart-total-card__coupon">
+    <h6 class="shopping-cart-total-card__coupon-label">Coupon</h6>
   
     <input
       type="text"
       name=""
       id="coupon"
       placeholder="1234"
-      class="checkout-card__coupon-input text-input__input"
+      class="shopping-cart-total-card__coupon-input text-input__input"
     />
-  </div>`;
+  </div>
+  <div class="shopping-cart-total-card__total">
+    <h3>Total:</h3>
+    <h3 class="shopping-cart-total-card__total-price">${totalPrice},-</h3>
+  </div>
+  <div class="shopping-cart-total-card__buttons">
+  <button
+    class="shopping-cart-total-card__button button button--base-lg button--primary-light button--filled"
+    id="proceedToCheckoutButton"
+  >
+    Proceed to checkout
+  </button>
+</div>
+`;
+    // console.log(checkoutSummary.outerHTML);
+    return checkoutSummary.outerHTML;
   }
 
   if (type == "checkout") {
-    //     checkoutSummary += `<div class="checkout-card__time">
-    // <p class="checkout-card__time-value">Coupon</p>`;
+    let totalPrice = 0;
 
-    checkoutSummary += `  <div class="checkout-card__coupon">
-    <p class="checkout-card__coupon-label">Coupon</p>
+    shoppingCartItems.forEach((item) => {
+      let ID = item.id;
+      let itemAmount = itemsToRender[ID];
+      item = item.acf;
+      totalPrice += Number(item.price) * itemAmount;
+    });
+
+    let checkoutSummary = "";
+    checkoutSummary += `<div class="card checkout-total-card">`;
+
+    checkoutSummary += `  <div class="checkout-total-card__coupon">
+    <h6 class="checkout-total-card__coupon-label">Coupon</h6>
   
-    <p
+    <h5
       id="coupon"
-      class="checkout-card__coupon-input">
-      ${
-        localStorage.getItem("coupon") ? localStorage.getItem("coupon") : "none"
-      }
-    </p>
-  </div>`;
-  }
-
-  checkoutSummary += `
-  <div class="checkout-card__total">
-    <h6>Total:</h6>
-    <h6 class="checkout-card__total-price">${totalPrice}</h6>
-  </div>`;
-
-  if (type == "shoppingCart") {
-    checkoutSummary += `<div class="checkout-card__buttons">
-    <a href="checkout.html"
-      class="checkout-card__button button button--base-lg button--primary-light button--filled"
-      id="proceedToCheckoutButton"
-    >
-      Proceed to checkout
-    </a>
+      class="checkout-total-card__coupon-input">
+      ${localStorage.getItem("coupon") ? localStorage.getItem("coupon") : "-"}
+    </h5>
   </div>
-</div>`;
+  <div class="checkout-total-card__total">
+    <h3>Total:</h3>
+    <h3 class="checkout-total-card__total-price">${totalPrice},-</h3>
+  </div>`;
+
+    return checkoutSummary;
   }
-  return checkoutSummary;
 }
 
 function updateShoppingCartLS(itemsToRender) {
   const updatedShoppingCart = [];
   for (const ID in itemsToRender) {
     console.log(ID);
-    console.log(itemsToRender[`${ID}`]);
-    for (let i = 0; i < itemsToRender[`${ID}`]; i++) {
+    console.log(itemsToRender[ID]);
+    for (let i = 0; i < itemsToRender[ID]; i++) {
       updatedShoppingCart.push(ID);
     }
   }
@@ -885,18 +926,18 @@ function updateShoppingCartLS(itemsToRender) {
 }
 
 function updateDisplay(currentID, newAmount, itemsToRender, displayElement) {
-  itemsToRender[`${currentID}`] = newAmount;
+  itemsToRender[currentID] = newAmount;
   displayElement.innerHTML = newAmount;
-  console.log(itemsToRender[`${currentID}`]);
+  console.log(itemsToRender[currentID]);
 
   localStorage.setItem("itemsToRender", JSON.stringify(itemsToRender));
 }
 
 function deleteItem(ID, itemsToRender) {
   $(`.card[data-id='${ID}']`).remove();
-  console.log(itemsToRender[`${ID}`]);
+  console.log(itemsToRender[ID]);
   console.log(itemsToRender);
-  delete itemsToRender[`${ID}`];
+  delete itemsToRender[ID];
   console.log(itemsToRender);
   localStorage.setItem("itemsToRender", JSON.stringify(itemsToRender));
 }
@@ -905,7 +946,7 @@ const removeAllButton = $("#removeAllButton");
 
 if (removeAllButton) {
   removeAllButton.addEventListener("click", () => {
-    deleteAllItems(true);
+    displayPopUp("confirmation");
   });
 }
 
@@ -917,19 +958,281 @@ function deleteAllItems(shouldRefresh) {
   }
 }
 
-function updateTotal() {}
+function displayPopUp(type) {
+  let newPopUp = document.createElement("div");
+  newPopUp.setAttribute("class", "pop-up__container");
+
+  if (type == "confirmation") {
+    const popUpBody = `<div class="pop-up pop-up--confirmation">
+    <div class="pop-up__text-container">
+      <h5 class="pop-up__title">
+          Are you sure you want to remove all items?
+        </h5>
+        <p class="pop-up__descritption">This is what may happen if you continue.</p>
+    </div>
+
+    <div class="pop-up__buttons-container">
+      <button class="pop-up__button--confirm button button--base-lg button--secondary">
+          Yes, continue
+         </button>
+         <button class="pop-up__button--cancel button button--base-lg button--warning button--filled">
+         Cancel
+         </button>
+    </div>
+</div>`;
+    newPopUp.innerHTML += popUpBody;
+
+    newPopUp
+      .querySelector(".pop-up__button--confirm")
+      .addEventListener("click", () => {
+        deleteAllItems(true);
+        $("body").classList.remove("popUpOpen");
+      });
+
+    newPopUp
+      .querySelector(".pop-up__button--cancel")
+      .addEventListener("click", () => {
+        newPopUp.remove();
+        $("body").classList.remove("popUpOpen");
+      });
+  }
+
+  // const accountPopUpBody = `
+  // `
+
+  if (type == "account-log-in") {
+    const popUpBody = `<div class="pop-up pop-up--account-log-in">
+    <p class="pop-up__close-button" >
+      Close
+      <i class="pop-up__close-button-x fas fa-times icon--right"></i
+    ></p>
+    <h5 class="pop-up__title--sign-up">
+      Create an account
+    </h5>
+
+    <h5 class="pop-up__title--log-in">
+        Log in to your account
+             </h5>
+    <form action="">
+      <div class="pop-up__input text-input">
+        <label for="email" class="text-input__label">Email</label>
+        <input
+          type="email"
+          name=""
+          id="email"
+          class="text-input__input"
+        />
+      </div>
+
+      <div class="pop-up__input text-input">
+        <label for="password" class="text-input__label">Password</label>
+        <input
+          type="password"
+          name=""
+          id="password"
+          class="text-input__input"
+        />
+      </div>
+
+      <div class="checkbox__group">
+        <input
+          type="checkbox"
+          name=""
+          id="remember"
+          class="checkbox__input"
+        />
+        <label for="remember" class="checkbox__label">
+          <span class="checkbox__button--sm"></span>
+          <span class="checkbox__button-text">Remember me</span>
+        </label>
+      </div>
+
+      <div class="checkbox__group">
+        <input
+          type="checkbox"
+          name=""
+          id="acceptTC"
+          class="checkbox__input"
+        />
+        <label for="acceptTC" class="checkbox__label">
+          <span class="checkbox__button--sm"></span>
+          <span class="checkbox__button-text"
+            >Accept Terms and conditions</span
+          >
+        </label>
+      </div>
+      <button
+        class="pop-up__button--sign-up button button--base-lg button--secondary"
+      >
+        Sign up
+      </button>
+      <button
+        class="pop-up__button--log-in button button--base-lg button--secondary"
+      >
+        Log in
+      </button>
+    </form>
+
+    <div class="pop-up__form-switch--sign-up">
+      Have an account?
+      <p class="pop-up__form-switch-link">Log in</p>
+    </div>
+    <div class="pop-up__form-switch--log-in">
+      Don't have an account?
+      <p class="pop-up__form-switch-link">Sign-up</p>
+    </div>
+  </div>`;
+
+    newPopUp.innerHTML += popUpBody;
+
+    newPopUp
+      .querySelector(".pop-up__form-switch--log-in .pop-up__form-switch-link")
+      .addEventListener("click", () => {
+        newPopUp.firstChild.classList.remove("pop-up--account-log-in");
+        newPopUp.firstChild.classList.add("pop-up--account-sign-up");
+      });
+
+    newPopUp
+      .querySelector(".pop-up__form-switch--sign-up .pop-up__form-switch-link")
+      .addEventListener("click", () => {
+        newPopUp.firstChild.classList.remove("pop-up--account-sign-up");
+        newPopUp.firstChild.classList.add("pop-up--account-log-in");
+      });
+
+    newPopUp
+      .querySelector(".pop-up__close-button")
+      .addEventListener("click", () => {
+        newPopUp.remove();
+        $("body").classList.remove("popUpOpen");
+      });
+  }
+
+  if (type == "account-sign-up") {
+    const popUpBody = `<div class="pop-up pop-up--account-sign-up">
+    <p class="pop-up__close-button">
+      Close
+      <i class="pop-up__close-button-x fas fa-times icon--right"></i
+    ></p>
+    <h5 class="pop-up__title--sign-up">
+    Create an account
+    </h5>
+    <h5 class="pop-up__title--log-in">
+         Log in to your account
+      </h5>
+    <form action="">
+      <div class="pop-up__input text-input">
+        <label for="email" class="text-input__label">Email</label>
+        <input
+          type="email"
+          name=""
+          id="email"
+          class="text-input__input"
+        />
+      </div>
+
+      <div class="pop-up__input text-input">
+        <label for="password" class="text-input__label">Password</label>
+        <input
+          type="password"
+          name=""
+          id="password"
+          class="text-input__input"
+        />
+      </div>
+
+      <div class="checkbox__group">
+        <input
+          type="checkbox"
+          name=""
+          id="remember"
+          class="checkbox__input"
+        />
+        <label for="remember" class="checkbox__label">
+          <span class="checkbox__button--sm"></span>
+          <span class="checkbox__button-text">Remember me</span>
+        </label>
+      </div>
+
+      <div class="checkbox__group">
+        <input
+          type="checkbox"
+          name=""
+          id="acceptTC"
+          class="checkbox__input"
+        />
+        <label for="acceptTC" class="checkbox__label">
+          <span class="checkbox__button--sm"></span>
+          <span class="checkbox__button-text"
+            >Accept Terms and conditions</span
+          >
+        </label>
+      </div>
+      <button
+        class="pop-up__button--sign-up button button--base-lg button--secondary"
+      >
+        Sign up
+      </button>
+      <button
+        class="pop-up__button--log-in button button--base-lg button--secondary"
+      >
+        Log in
+      </button>
+    </form>
+
+    <div class="pop-up__form-switch--sign-up">
+      Have an account?
+      <p class="pop-up__form-switch-link">Log in</p>
+    </div>
+    <div class="pop-up__form-switch--log-in">
+      Don't have an account?
+      <p class="pop-up__form-switch-link">Sign-up</p>
+    </div>
+  </div>
+    `;
+    newPopUp.innerHTML += popUpBody;
+    console.log(
+      newPopUp.querySelector(
+        ".pop-up__form-switch--sign-up .pop-up__form-switch-link"
+      )
+    );
+
+    newPopUp
+      .querySelector(".pop-up__form-switch--sign-up .pop-up__form-switch-link")
+      .addEventListener("click", () => {
+        newPopUp.firstChild.classList.remove("pop-up--account-sign-up");
+        newPopUp.firstChild.classList.add("pop-up--account-log-in");
+      });
+
+    newPopUp
+      .querySelector(".pop-up__form-switch--log-in .pop-up__form-switch-link")
+      .addEventListener("click", () => {
+        newPopUp.firstChild.classList.remove("pop-up--account-log-in");
+        newPopUp.firstChild.classList.add("pop-up--account-sign-up");
+      });
+
+    newPopUp
+      .querySelector(".pop-up__close-button")
+      .addEventListener("click", () => {
+        newPopUp.remove();
+        $("body").classList.remove("popUpOpen");
+      });
+  }
+
+  $("body").appendChild(newPopUp);
+  $("body").classList.add("popUpOpen");
+}
 
 if (
   !localStorage.getItem("shoppingCart") &&
   !localStorage.getItem("itemsToRender") &&
-  window.location.pathname.includes("shopping_cart.html")
+  $("body").id === "shopping_cart"
 ) {
   $(".shoping-cart__items-container").classList.add("empty");
 }
 
 // HOMEPAGE
 
-if (window.location.pathname.includes("index.html")) {
+if ($("body").id === "index") {
   let requestString = "?include[]=635&include[]=626&include[]=598";
 
   const stepsContainer = $(".main-homepage__steps-container");
@@ -978,7 +1281,7 @@ function renderHomepageMemberships(memberships) {
 
 // MEMBERSHIPS
 
-if (window.location.pathname.includes("memberships.html")) {
+if ($("body").id === "memberships") {
   let requestString = "?include[]=635&include[]=626&include[]=598";
 
   const memberships = requestWP(catEndPoint, catMembership, renderMemberships);

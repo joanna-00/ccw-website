@@ -184,7 +184,9 @@ label.hidden {
   &__input {
     display: none;
 
-    &:checked ~ .radio__label .radio__button--lg::after {
+    &:checked ~ .radio__label .radio__button--lg::after,
+    &:checked ~ .radio__label .radio__button--md::after,
+    &:checked ~ .radio__label .radio__button--sm::after {
       opacity: 1;
     }
   }
@@ -197,26 +199,26 @@ label.hidden {
   }
 
   &__button--lg {
-    width: 35px;
-    height: 35px;
-    display: inline-block;
-    @include drop-shadow-light-sm;
-    @include border-circle;
-    background-color: $white;
-    position: relative;
-    margin-right: 1rem;
+    @include radio-base(35px);
 
     &::after {
-      content: "";
-      width: 22px;
-      height: 22px;
-      background-color: $background-dark;
-      @include border-circle;
-      position: absolute;
-      top: 50%;
-      left: 50%;
-      transform: translate(-50%, -50%);
-      opacity: 0;
+      @include radio-after(22px);
+    }
+  }
+
+  &__button--md {
+    @include radio-base(25px);
+
+    &::after {
+      @include radio-after(15px);
+    }
+  }
+
+  &__button--sm {
+    @include radio-base(20px);
+
+    &::after {
+      @include radio-after(12px);
     }
   }
 }
@@ -227,7 +229,9 @@ label.hidden {
   &__input {
     display: none;
 
-    &:checked ~ .checkbox__label .checkbox__button--lg::after {
+    &:checked ~ .checkbox__label .checkbox__button--lg::after,
+    &:checked ~ .checkbox__label .checkbox__button--md::after,
+    &:checked ~ .checkbox__label .checkbox__button--sm::after {
       opacity: 1;
     }
   }
@@ -248,84 +252,30 @@ label.hidden {
   &__button--lg {
     width: 35px;
     height: 35px;
-    display: inline-block;
-    background-color: $white;
-
-    @include drop-shadow-light-sm;
-    @include border-round-sm;
-    position: relative;
-    margin-right: 1rem;
+    @include checkbox-base;
 
     &::after {
-      content: "";
-      background-image: url(../../../assets/images/svgs/check-24px.svg);
-      background-size: cover;
-      background-repeat: no-repeat;
-      display: inline-block;
-      width: 100%;
-      height: 100%;
-      position: absolute;
-
-      top: 50%;
-      left: 50%;
-      transform: translate(-50%, -50%);
-      opacity: 0;
+      @include checkbox-after;
     }
   }
 
   &__button--md {
-    width: 25px;
-    height: 25px;
-    display: inline-block;
-    background-color: $white;
-
-    @include drop-shadow-light-sm;
-    @include border-round-sm;
-    position: relative;
-    margin-right: 1rem;
+    width: 30px;
+    height: 30px;
+    @include checkbox-base;
 
     &::after {
-      content: "";
-      background-image: url(../../../assets/images/svgs/check-24px.svg);
-      background-size: cover;
-      background-repeat: no-repeat;
-      display: inline-block;
-      width: 100%;
-      height: 100%;
-      position: absolute;
-
-      top: 50%;
-      left: 50%;
-      transform: translate(-50%, -50%);
-      opacity: 0;
+      @include checkbox-after;
     }
   }
 
   &__button--sm {
-    width: 15px;
-    height: 15px;
-    display: inline-block;
-    background-color: $white;
-
-    @include drop-shadow-light-sm;
-    @include border-round-sm;
-    position: relative;
-    margin-right: 1rem;
+    width: 20px;
+    height: 20px;
+    @include checkbox-base;
 
     &::after {
-      content: "";
-      background-image: url(../../../assets/images/svgs/check-24px.svg);
-      background-size: cover;
-      background-repeat: no-repeat;
-      display: inline-block;
-      width: 100%;
-      height: 100%;
-      position: absolute;
-
-      top: 50%;
-      left: 50%;
-      transform: translate(-50%, -50%);
-      opacity: 0;
+      @include checkbox-after;
     }
   }
 }

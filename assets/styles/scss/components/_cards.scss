@@ -13,32 +13,61 @@
   &__memberships-badge {
     display: none;
     position: absolute;
-    padding: 1.5rem;
+    @include drop-shadow-light-sm;
     @include flex-center;
     left: 2rem;
     top: 2rem;
     background-color: $white;
     // z-index: 1;
     // width: 100%;
-    height: 26px;
+    // height: 26px;
 
     @include border-round-sm;
+
+    &.platinum {
+      .card__memberships-badge--platinum {
+        display: inline-block;
+      }
+    }
+
+    &.gold {
+      .card__memberships-badge--gold {
+        display: inline-block;
+      }
+    }
+
+    &.silver {
+      .card__memberships-badge--silver {
+        display: inline-block;
+      }
+    }
+
+    &.bronze {
+      .card__memberships-badge--bronze {
+        display: inline-block;
+      }
+    }
+
     &--platinum {
       @include badge-dot;
       background-color: $platinum;
+      display: none;
     }
 
     &--gold {
       @include badge-dot;
       background-color: $gold;
+      display: none;
     }
     &--silver {
       @include badge-dot;
       background-color: $silver;
+      display: none;
     }
     &--bronze {
       @include badge-dot;
       background-color: $bronze;
+      display: none;
     }
   }
 
@@ -283,7 +312,7 @@
   }
 }
 
-.checkout-card {
+.shopping-cart-total-card {
   padding: $padding-md;
   display: flex;
   flex-direction: column;
@@ -293,6 +322,16 @@
   &__item {
     display: flex;
     justify-content: space-between;
+    align-items: center;
+
+    &-name {
+      color: $text-dark;
+      font-size: $p * 1.25;
+    }
+
+    &-price {
+      color: $secondary;
+    }
   }
 
   &__total {
@@ -312,10 +351,72 @@
   &__coupon {
     display: flex;
     justify-content: space-between;
+    align-items: center;
+    color: $secondary;
+    margin-bottom: 3rem;
 
     &-input {
-      // display: inline-block;
       width: 15rem !important;
+      margin-bottom: 0 !important;
+    }
+  }
+}
+
+.checkout-total-card {
+  padding: $padding-md;
+  display: flex;
+  flex-direction: column;
+  position: sticky;
+  top: 10rem;
+
+  .choice-group {
+    margin-top: 0;
+
+    &__title {
+      font-weight: $bold;
+      display: block;
+    }
+
+    &__description {
+      font-weight: $bold;
+      font-size: $h5;
+      margin: 0;
+    }
+  }
+
+  &__item {
+    display: flex;
+    justify-content: space-between;
+
+    &:first-of-type {
+      margin-top: 3rem;
+    }
+
+    &-name {
+      color: $text-dark;
+      font-size: $p * 1.25;
+    }
+
+    &-price {
+      color: $secondary;
+    }
+  }
+
+  &__total {
+    display: flex;
+    justify-content: space-between;
+    padding: $padding-y-sm;
+    text-transform: uppercase;
+    border-top: 1px solid $greyed-out;
+  }
+
+  &__coupon {
+    display: flex;
+    justify-content: space-between;
+    color: $secondary;
+
+    &-value {
+      color: $secondary;
     }
   }
   p.checkout-card__coupon-input {

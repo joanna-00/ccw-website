@@ -23,6 +23,10 @@ body {
   line-height: 1.6;
 }
 
+body.popUpOpen {
+  overflow-y: hidden;
+}
+
 .container {
   max-width: calc(100vw - 30px);
   @media (min-width: $media-lg) {
