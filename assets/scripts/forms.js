@@ -1,15 +1,15 @@
 // const dropdowns = $$(".dropdown");
-const dropdown_Title = $$(".dropdown__title");
-const dropdown_OptionsContainer = $$(".dropdown__options-container");
 
 function customizeDropdownEvent(dropdownElement, callback) {
   dropdownElement.querySelectorAll(".dropdown__option").forEach((option) => {
     option.addEventListener("click", callback);
   });
 }
-initDropdowns();
 
 function initDropdowns() {
+  const dropdown_Title = $$(".dropdown__title");
+  const dropdown_OptionsContainer = $$(".dropdown__options-container");
+
   dropdown_Title.forEach((dropdown) => {
     dropdown.addEventListener("click", () => {
       dropdown.querySelector(".fas").classList.toggle("fa-chevron-up");

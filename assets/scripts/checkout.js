@@ -50,7 +50,9 @@ function renderTotal(shoppingCartItems) {
     itemsToRender,
     "checkout"
   );
-  if (!$("#locationDate")) {
+  setUpStepForms(shoppingCartItems);
+  initDropdowns();
+  if (!$(".locationDate")) {
     setUpTotal();
   }
 }
@@ -152,7 +154,8 @@ function validateDropdown(dropdownToValidate) {
 }
 function validateDatePicker() {
   let currentForm = formSteps[currentStep];
-  if (currentForm.querySelector("date-picker").dataset.value === "") {
+  // console.log(currentForm.querySelector(".date-picker").dataset.value);
+  if (currentForm.querySelector(".date-picker").dataset.value === "") {
     console.log("validateDatePicker: false ");
     return false;
   } else {
@@ -164,17 +167,17 @@ function validateDatePicker() {
 function validateForm() {
   let currentForm = formSteps[currentStep];
   console.log(currentForm);
-  if ($("form.current dropdown")) {
+  if ($("form.current .dropdown")) {
     if (!validateDropdown("dropdownLocation")) {
-      dropdownLocation.classList.add("invalid");
+      currentForm.querySelector(".dropdownLocation").classList.add("invalid");
       return false;
     }
     if (!validateDatePicker()) {
-      date_picker_element.classList.add("invalid");
+      currentForm.querySelector(".date-picker").classList.add("invalid");
       return false;
     }
     if (!validateDropdown("dropdownTime")) {
-      dropdownTime.classList.add("invalid");
+      currentForm.querySelector(".dropdownTime").classList.add("invalid");
       return false;
     }
     return true;
@@ -232,13 +235,38 @@ function showForm(animationDirection) {
   });
 }
 
-function createTimeBookingForm() {
+function createTimeBookingForm(items, index) {
+  let shoppingCartItems = JSON.parse(localStorage.getItem("shoppingCart"));
   let timeBookingForm = document.createElement("form");
   timeBookingForm.setAttribute("class", "row form-step");
   timeBookingForm.setAttribute("data-step", "");
 
+  // console.log(items[index - 1]);
+  // console.log(shoppingCartItems[index - 1]);
+
+  let searchedID = shoppingCartItems[index - 1];
+  console.log(searchedID);
+
+  let searchedIDPost = items.filter((obj) => {
+    return obj.id == searchedID;
+  });
+  console.log(searchedIDPost);
+
+  let itemTitle =
+    searchedIDPost[0].acf.title || searchedIDPost[0].acf.membership_title;
+  //  || searchedIDPost.acf.membership_title;
+  console.log(itemTitle);
+  // if (items[index - 1].id == shoppingCartItems[index - 1]) {
+  //   itemTitle =
+  //     items[index - 1].acf.title || items[index - 1].acf.membership_title;
+  // }
+
   let timeBookingFormBody = `
+  <div class="col-12">
+  <h4>Booking for: <span class="secondary">${itemTitle}</span> </h4>
+</div>
   <div class="col-12 col-lg-6">
+
     <label for="dropdownLocation" class="text-input__label">
       Choose a location</label
     >
@@ -280,9 +308,9 @@ function createTimeBookingForm() {
   newDatePicker.setUpDatePicker();
   newDatePicker.date_picker_element.classList.add("hidden");
 
-  timeBookingForm.children[0].insertBefore(
+  timeBookingForm.children[1].insertBefore(
     newDatePicker.date_picker_element,
-    timeBookingForm.querySelector("label")
+    timeBookingForm.querySelector(`label[for="dropdownTime"]`)
   );
 
   return timeBookingForm;
@@ -295,13 +323,13 @@ function clearAnimationClasses(element) {
   element.classList.remove("moveInRight");
 }
 
-function setUpStepForms() {
+function setUpStepForms(items) {
   let shoppingCartItems = JSON.parse(localStorage.getItem("shoppingCart"));
   let checkoutFormStepsContainer = $(".checkout__form-steps");
 
   shoppingCartItems.forEach((item) => {
     totalSteps++;
-    let newForm = createTimeBookingForm();
+    let newForm = createTimeBookingForm(items, totalSteps - 4);
     checkoutFormStepsContainer.insertBefore(
       newForm,
       $(".checkout__form-steps form")
@@ -316,8 +344,6 @@ function setUpStepForms() {
     formSteps[i].dataset.step = i;
   }
 }
-
-setUpStepForms();
 
 buttonBack.addEventListener("click", () => {
   if (currentStep > 0) {

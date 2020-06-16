@@ -41,6 +41,7 @@ class DatePicker {
   createNewDatePicker() {
     let newDatePicker = document.createElement("div");
     newDatePicker.setAttribute("class", "date-picker");
+    newDatePicker.setAttribute("data-value", "");
     newDatePicker.innerHTML += `<p id="dateFullyAvailable">Fully available date</p>
     <p id="datePartiallyBooked">Partially booked date</p>
     <div class="dates">
