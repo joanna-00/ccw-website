@@ -653,7 +653,9 @@ function renderShoppingCart(shoppingCartItems) {
   let shouldShowPopUp = true;
 
   const proceedToCheckoutButton = $("#proceedToCheckoutButton");
+
   proceedToCheckoutButton.addEventListener("click", () => {
+    console.log("click");
     if (shouldShowPopUp === true) {
       displayPopUp("account-sign-up");
       let hasMembershipInCart = JSON.parse(
@@ -671,6 +673,9 @@ function renderShoppingCart(shoppingCartItems) {
       localStorage.setItem("coupon", coupon);
       shouldShowPopUp = false;
     } else {
+      let coupon = $("#coupon").value;
+      localStorage.setItem("coupon", coupon);
+      shouldShowPopUp = false;
       location.href = "checkout.html";
     }
   });
@@ -707,6 +712,36 @@ function renderShoppingCart(shoppingCartItems) {
         itemsToRender,
         "shoppingCart"
       );
+
+      let shouldShowPopUp = true;
+
+      const proceedToCheckoutButton = $("#proceedToCheckoutButton");
+
+      proceedToCheckoutButton.addEventListener("click", () => {
+        console.log("click");
+        if (shouldShowPopUp === true) {
+          displayPopUp("account-sign-up");
+          let hasMembershipInCart = JSON.parse(
+            localStorage.getItem("hasMembershipInCart")
+          );
+          if (hasMembershipInCart == true) {
+            $(".pop-up--account-sign-up .pop-up__title--sign-up").textContent =
+              "An account is required to purchase a membership. Please sign up to continue.";
+          } else {
+            $(".pop-up--account-sign-up .pop-up__title--sign-up").textContent =
+              "Would you like to create an account first?";
+          }
+
+          let coupon = $("#coupon").value;
+          localStorage.setItem("coupon", coupon);
+          shouldShowPopUp = false;
+        } else {
+          let coupon = $("#coupon").value;
+          localStorage.setItem("coupon", coupon);
+          shouldShowPopUp = false;
+          location.href = "checkout.html";
+        }
+      });
     });
   });
 
@@ -741,6 +776,36 @@ function renderShoppingCart(shoppingCartItems) {
         itemsToRender,
         "shoppingCart"
       );
+
+      let shouldShowPopUp = true;
+
+      const proceedToCheckoutButton = $("#proceedToCheckoutButton");
+
+      proceedToCheckoutButton.addEventListener("click", () => {
+        console.log("click");
+        if (shouldShowPopUp === true) {
+          displayPopUp("account-sign-up");
+          let hasMembershipInCart = JSON.parse(
+            localStorage.getItem("hasMembershipInCart")
+          );
+          if (hasMembershipInCart == true) {
+            $(".pop-up--account-sign-up .pop-up__title--sign-up").textContent =
+              "An account is required to purchase a membership. Please sign up to continue.";
+          } else {
+            $(".pop-up--account-sign-up .pop-up__title--sign-up").textContent =
+              "Would you like to create an account first?";
+          }
+
+          let coupon = $("#coupon").value;
+          localStorage.setItem("coupon", coupon);
+          shouldShowPopUp = false;
+        } else {
+          let coupon = $("#coupon").value;
+          localStorage.setItem("coupon", coupon);
+          shouldShowPopUp = false;
+          location.href = "checkout.html";
+        }
+      });
     });
   });
 
@@ -851,7 +916,7 @@ function createCheckoutSummary(shoppingCartItems, itemsToRender, type) {
 
     let checkoutSummary = document.createElement("div");
     checkoutSummary.setAttribute("class", "card shopping-cart-total-card");
-    // checkoutSummary += `<div class="card shopping-cart-total-card">`;
+
     checkoutSummary.innerHTML += itemList;
     checkoutSummary.innerHTML += `  <div class="shopping-cart-total-card__coupon">
     <h6 class="shopping-cart-total-card__coupon-label">Coupon</h6>

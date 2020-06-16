@@ -1,9 +1,10 @@
 const buttonBack = $("#buttonBack");
 const buttonNext = $("#buttonNext");
 
-const formSteps = $$(".form-step");
+let formSteps = $$(".form-step");
 
-let currentStep = 1;
+let currentStep = 0;
+let totalSteps = 4;
 const processSteps = $$(".process-steps__step");
 
 const dropdownLocation = $("#dropdownLocation");
@@ -18,7 +19,7 @@ const stepIcons = [
 
 updateStepIcons();
 
-if (window.location.pathname.includes("checkout.html")) {
+if ($("body").id === "checkout") {
   let itemsToRender = JSON.parse(localStorage.getItem("itemsToRender"));
   console.log(itemsToRender);
 
@@ -154,9 +155,9 @@ function validateDatePicker() {
 }
 
 function validateForm() {
-  let currentForm = formSteps[currentStep - 1];
+  let currentForm = formSteps[currentStep];
   console.log(currentForm);
-  if (currentStep == 1) {
+  if ($("form.current dropdown")) {
     if (!validateDropdown(dropdownLocation)) {
       dropdownLocation.classList.add("invalid");
       return false;
@@ -202,9 +203,7 @@ function highlightInvalidFields(currentForm) {
 
 function createValidationError(field) {
   let fieldName = field.parentElement.querySelector("label").textContent;
-  console.log(fieldName);
   let errorMessage = `The ${fieldName.toLowerCase()} you entered is invalid`;
-
   let errorMessageElement = document.createElement("span");
   errorMessageElement.classList.add("invalid");
   errorMessageElement.textContent = errorMessage;
@@ -226,6 +225,62 @@ function showForm(animationDirection) {
   });
 }
 
+function createTimeBookingForm() {
+  let timeBookingForm = document.createElement("form");
+  timeBookingForm.setAttribute("class", "row form-step");
+  timeBookingForm.setAttribute("data-step", "");
+
+  let timeBookingFormBody = `
+  <div class="col-12 col-lg-6">
+    <label for="dropdownLocation" class="text-input__label">
+      Choose a location</label
+    >
+    <div class="dropdown dropdownLocation" data-value="">
+      <div class="dropdown__title">
+        Choose a location
+        <i class="fas fa-chevron-down"></i>
+      </div>
+      <ul class="dropdown__options-container hidden">
+        <li class="dropdown__option">Aalborg</li>
+        <li class="dropdown__option">Aarhus</li>
+      </ul>
+    </div>
+
+    <label for="dropdownTime" class="text-input__label hidden mt-5">
+      Choose a time</label
+    >
+    <div class="dropdown hidden dropdownTime" data-value="">
+      <div class="dropdown__title">
+        Choose a time
+        <i class="fas fa-chevron-down"></i>
+      </div>
+      <ul class="dropdown__options-container hidden">
+        <li class="dropdown__option">08:00 - 09:00</li>
+        <li class="dropdown__option">09:00 - 10:00</li>
+        <li class="dropdown__option">10:15 - 11:15</li>
+        <li class="dropdown__option">11:15 - 12:15</li>
+        <li class="dropdown__option">12:45 - 13:45</li>
+        <li class="dropdown__option">13:45 - 14:45</li>
+        <li class="dropdown__option">15:00 - 16:00</li>
+        <li class="dropdown__option">16:00 - 17:00</li>
+      </ul>
+    </div>
+  </div>
+  `;
+  timeBookingForm.innerHTML += timeBookingFormBody;
+
+  let newDatePicker = new DatePicker();
+  newDatePicker.setUpDatePicker();
+  newDatePicker.date_picker_element.classList.add("hidden");
+
+  timeBookingForm.children[0].insertBefore(
+    newDatePicker.date_picker_element,
+    timeBookingForm.querySelector("label")
+  );
+
+  return timeBookingForm;
+}
+
 function clearAnimationClasses(element) {
   element.classList.remove("moveOutLeft");
   element.classList.remove("moveOutRight");
@@ -233,11 +288,35 @@ function clearAnimationClasses(element) {
   element.classList.remove("moveInRight");
 }
 
+function setUpStepForms() {
+  let shoppingCartItems = JSON.parse(localStorage.getItem("shoppingCart"));
+  let checkoutFormStepsContainer = $(".checkout__form-steps");
+
+  shoppingCartItems.forEach((item) => {
+    totalSteps++;
+    let newForm = createTimeBookingForm();
+    checkoutFormStepsContainer.insertBefore(
+      newForm,
+      $(".checkout__form-steps form")
+    );
+  });
+
+  formSteps = $$(".form-step");
+  for (let i = 0; i < formSteps.length; i++) {
+    if (i === 0) {
+      formSteps[i].classList.add("current");
+    }
+    formSteps[i].dataset.step = i;
+  }
+}
+
+setUpStepForms();
+
 buttonBack.addEventListener("click", () => {
-  if (currentStep > 1) {
+  if (currentStep > 0) {
     currentStep--;
-    console.log(formSteps[currentStep - 1]);
-    formSteps[currentStep - 1].classList.add("moveOutRight");
+    console.log(formSteps[currentStep]);
+    formSteps[currentStep].classList.add("moveOutRight");
     showForm("moveInLeft");
     updateStepIcons();
 
@@ -250,22 +329,22 @@ buttonBack.addEventListener("click", () => {
 });
 
 buttonNext.addEventListener("click", () => {
-  if (currentStep < 5 && validateForm()) {
+  if (currentStep < totalSteps && validateForm()) {
     // if () {
     currentStep++;
-    if (currentStep < 5) {
+    if (currentStep < totalSteps) {
       // if (currentStep == 1) {
       //   setUpTotal();
       //   updateTotal();
       // }
       updateTotal();
-      console.log(formSteps[currentStep - 1]);
+      console.log(formSteps[currentStep]);
       formSteps[currentStep - 1].classList.add("moveOutLeft");
 
       showForm("moveInRight");
       updateStepIcons();
 
-      if (currentStep == 4) {
+      if (currentStep == totalSteps - 1) {
         buttonNext.textContent = "Accept and pay";
         buttonNext.classList.remove("button--primary-light");
         buttonNext.classList.add("button--secondary");
