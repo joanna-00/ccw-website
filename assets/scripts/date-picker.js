@@ -61,7 +61,7 @@ class DatePicker {
   }
 
   setUpDatePicker() {
-    console.log(this);
+    // console.log(this);
     this.mth_element.textContent = this.months[this.month] + " " + this.year;
     this.date_picker_element.dataset.type = "checkout";
     this.next_mth_element.addEventListener("click", this.goToNextMonth);
@@ -71,22 +71,22 @@ class DatePicker {
   }
 
   goToNextMonth() {
-    month++;
-    if (month > 11) {
-      month = 0;
-      year++;
+    this.month++;
+    if (this.month > 11) {
+      this.month = 0;
+      this.year++;
     }
-    mth_element.textContent = months[month] + " " + year;
+    this.mth_element.textContent = this.months[this.month] + " " + this.year;
     populateDays();
   }
 
   goToPreviousMonth() {
-    month--;
-    if (month < 0) {
-      month = 11;
-      year--;
+    this.month--;
+    if (this.month < 0) {
+      this.month = 11;
+      this.year--;
     }
-    mth_element.textContent = months[month] + " " + year;
+    this.mth_element.textContent = this.months[this.month] + " " + this.year;
     populateDays();
   }
 
@@ -95,7 +95,7 @@ class DatePicker {
       const empty_day_element = document.createElement("div");
       empty_day_element.classList.add("day");
 
-      days_element.appendChild(empty_day_element);
+      this.days_element.appendChild(empty_day_element);
     }
   }
 
@@ -189,17 +189,18 @@ class DatePicker {
 
       if (!day_element.classList.contains("unavailable")) {
         day_element.addEventListener("click", () => {
-          this.selectedDate = new Date(year, month, i + 1);
+          this.selectedDate = new Date(this.year, this.month, i + 1);
           this.selectedDay = i + 1;
-          this.selectedMonth = month;
-          this.selectedYear = year;
+          this.selectedMonth = this.month;
+          this.selectedYear = this.year;
 
           this.date_picker_element.dataset.value = this.selectedDate;
 
           if (this.date_picker_element.dataset.type == "checkout") {
-            let dropdownTime = this.date_picker_element.querySelector(
+            let dropdownTime = this.date_picker_element.parentElement.querySelector(
               ".dropdownTime"
             );
+            // console.log(dropdownTime);
             dropdownTime.classList.remove("hidden");
             this.date_picker_element.classList.remove("invalid");
             dropdownTime.parentElement
@@ -213,8 +214,8 @@ class DatePicker {
 
       if (
         this.selectedDay == i + 1 &&
-        this.selectedMonth == month &&
-        this.selectedYear == year
+        this.selectedMonth == this.month &&
+        this.selectedYear == this.year
       ) {
         day_element.classList.add("selected");
       }

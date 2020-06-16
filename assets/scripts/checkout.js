@@ -92,8 +92,10 @@ function setUpTotal() {
 
 function updateTotal() {
   let checkoutSummary = $(".checkout-total-card");
+  let currentForm = formSteps[currentStep];
+  console.log(currentForm);
 
-  let location = $("#dropdownLocation").dataset.value;
+  let location = currentForm.querySelector(".dropdownLocation").dataset.value;
   if (location) {
     console.log(location);
     $("#locationDate").innerHTML = `
@@ -102,11 +104,12 @@ function updateTotal() {
     `;
   }
 
-  let date = $(".date-picker").dataset.value;
+  let date = currentForm.querySelector(".date-picker").dataset.value;
+  console.log(date);
   date = new Date(date);
   date = `${date.getDate()} / ${date.getMonth() + 1} / ${date.getFullYear()}`;
   console.log(date);
-  let time = $("#dropdownTime").dataset.value;
+  let time = currentForm.querySelector(".dropdownTime").dataset.value;
   if (date && time) {
     console.log(date, time);
     timeData.innerHTML = `
@@ -136,7 +139,10 @@ function updateTotal() {
 }
 
 function validateDropdown(dropdownToValidate) {
-  if (dropdownToValidate.dataset.value === "") {
+  let currentForm = formSteps[currentStep];
+  if (
+    currentForm.querySelector(`.${dropdownToValidate}`).dataset.value === ""
+  ) {
     console.log("validateDropdown: false ");
     return false;
   } else {
@@ -145,7 +151,8 @@ function validateDropdown(dropdownToValidate) {
   }
 }
 function validateDatePicker() {
-  if (date_picker_element.dataset.value === "") {
+  let currentForm = formSteps[currentStep];
+  if (currentForm.querySelector("date-picker").dataset.value === "") {
     console.log("validateDatePicker: false ");
     return false;
   } else {
@@ -158,7 +165,7 @@ function validateForm() {
   let currentForm = formSteps[currentStep];
   console.log(currentForm);
   if ($("form.current dropdown")) {
-    if (!validateDropdown(dropdownLocation)) {
+    if (!validateDropdown("dropdownLocation")) {
       dropdownLocation.classList.add("invalid");
       return false;
     }
@@ -166,7 +173,7 @@ function validateForm() {
       date_picker_element.classList.add("invalid");
       return false;
     }
-    if (!validateDropdown(dropdownTime)) {
+    if (!validateDropdown("dropdownTime")) {
       dropdownTime.classList.add("invalid");
       return false;
     }
