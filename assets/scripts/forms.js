@@ -38,6 +38,9 @@ function initDropdowns() {
             .querySelector(".date-picker")
             .classList.remove("hidden");
           childNode.parentElement.parentElement.classList.remove("invalid");
+
+          childNode.parentElement.parentElement.dataset.value =
+            childNode.textContent;
         }
 
         if (

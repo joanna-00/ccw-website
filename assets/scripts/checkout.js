@@ -53,7 +53,7 @@ function renderTotal(shoppingCartItems) {
   setUpStepForms(shoppingCartItems);
   initDropdowns();
   if (!$(".locationDate")) {
-    setUpTotal();
+    setUpTotal(shoppingCartItems);
   }
 }
 
@@ -69,18 +69,37 @@ function updateStepIcons() {
   });
 }
 
-function setUpTotal() {
+function setUpTotal(shoppingCartItems) {
   let checkoutSummary = $(".checkout-total-card");
   let locationDate = { name: "locationDate" },
     timeData = { name: "timeData" },
     carModelData = { name: "carModelData" },
     carLicencePlateData = { name: "carLicencePlateData" };
   let checkoutElements = [
-    locationDate,
-    timeData,
+    // locationDate,
+    // timeData,
     carModelData,
     carLicencePlateData,
   ];
+
+  let shoppingCart = JSON.parse(localStorage.getItem("shoppingCart"));
+
+  shoppingCart.forEach((item) => {
+    let locationDate = document.createElement("dl");
+    locationDate.setAttribute("class", "choice-group timeData");
+    checkoutSummary.insertBefore(locationDate, checkoutSummary.firstChild);
+
+    // console.log(locationDate);
+    let timeData = document.createElement("dl");
+    timeData.setAttribute("class", "choice-group locationDate");
+    checkoutSummary.insertBefore(timeData, checkoutSummary.firstChild);
+
+    let bookingForLabel = document.createElement("h6");
+    bookingForLabel.setAttribute("class", "bookingForLabel");
+    checkoutSummary.insertBefore(bookingForLabel, checkoutSummary.firstChild);
+
+    // console.log(timeData);
+  });
 
   checkoutElements.reverse().forEach((element) => {
     let name = element.name;
@@ -94,30 +113,73 @@ function setUpTotal() {
 
 function updateTotal() {
   let checkoutSummary = $(".checkout-total-card");
-  let currentForm = formSteps[currentStep];
-  console.log(currentForm);
+  let currentForm = formSteps[currentStep - 1];
+
+  let bookingForLabelText = currentForm.querySelector("h4").innerHTML;
+  let bookingForLabelContainers = $$(".bookingForLabel");
+  for (let i = 0; i < bookingForLabelContainers.length; i++) {
+    if (bookingForLabelContainers[i].innerHTML == "") {
+      bookingForLabelContainers[i].innerHTML = bookingForLabelText;
+      break;
+    } else {
+      continue;
+    }
+  }
 
   let location = currentForm.querySelector(".dropdownLocation").dataset.value;
   if (location) {
     console.log(location);
-    $("#locationDate").innerHTML = `
-    <dt class="choice-group__title">Location</dt>
-    <dd class="choice-group__description">${location}</dd>
-    `;
+    let locationDateContainers = $$(".locationDate");
+    for (let i = 0; i < locationDateContainers.length; i++) {
+      if (locationDateContainers[i].innerHTML == "") {
+        locationDateContainers[i].innerHTML = `
+            <dt class="choice-group__title">Location</dt>
+            <dd class="choice-group__description">${location}</dd>
+            `;
+        break;
+      } else {
+        continue;
+      }
+    }
+    // $$(".locationDate").forEach((locationDate) => {
+    //   if (locationDate.innerHTML == "") {
+    //     locationDate.innerHTML = `
+    //     <dt class="choice-group__title">Location</dt>
+    //     <dd class="choice-group__description">${location}</dd>
+    //     `;
+    //     break;
+    //   } else {
+    //     continue;
+    //   }
+    // });
   }
 
   let date = currentForm.querySelector(".date-picker").dataset.value;
-  console.log(date);
+  console.log(currentForm.querySelector(".date-picker"));
   date = new Date(date);
   date = `${date.getDate()} / ${date.getMonth() + 1} / ${date.getFullYear()}`;
   console.log(date);
   let time = currentForm.querySelector(".dropdownTime").dataset.value;
   if (date && time) {
     console.log(date, time);
-    timeData.innerHTML = `
-    <dt class="choice-group__title">Date and time</dt>
-    <dd class="choice-group__description">${date}, ${time}</dd>
-    `;
+
+    let timeDataContainers = $$(".timeData");
+    for (let i = 0; i < timeDataContainers.length; i++) {
+      if (timeDataContainers[i].innerHTML == "") {
+        timeDataContainers[i].innerHTML = `
+     <dt class="choice-group__title">Date and time</dt>
+     <dd class="choice-group__description">${date}, ${time}</dd>
+     `;
+        break;
+      } else {
+        continue;
+      }
+    }
+
+    // timeData.innerHTML = `
+    // <dt class="choice-group__title">Date and time</dt>
+    // <dd class="choice-group__description">${date}, ${time}</dd>
+    // `;
   }
 
   let carBrand = $("#carBrand").value;
@@ -154,7 +216,6 @@ function validateDropdown(dropdownToValidate) {
 }
 function validateDatePicker() {
   let currentForm = formSteps[currentStep];
-  // console.log(currentForm.querySelector(".date-picker").dataset.value);
   if (currentForm.querySelector(".date-picker").dataset.value === "") {
     console.log("validateDatePicker: false ");
     return false;
@@ -241,25 +302,13 @@ function createTimeBookingForm(items, index) {
   timeBookingForm.setAttribute("class", "row form-step");
   timeBookingForm.setAttribute("data-step", "");
 
-  // console.log(items[index - 1]);
-  // console.log(shoppingCartItems[index - 1]);
-
   let searchedID = shoppingCartItems[index - 1];
-  console.log(searchedID);
-
   let searchedIDPost = items.filter((obj) => {
     return obj.id == searchedID;
   });
-  console.log(searchedIDPost);
 
   let itemTitle =
     searchedIDPost[0].acf.title || searchedIDPost[0].acf.membership_title;
-  //  || searchedIDPost.acf.membership_title;
-  console.log(itemTitle);
-  // if (items[index - 1].id == shoppingCartItems[index - 1]) {
-  //   itemTitle =
-  //     items[index - 1].acf.title || items[index - 1].acf.membership_title;
-  // }
 
   let timeBookingFormBody = `
   <div class="col-12">

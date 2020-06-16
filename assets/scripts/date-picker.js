@@ -81,7 +81,6 @@ class DatePicker {
       this.month = 0;
       this.year++;
     }
-    console.log(this);
     this.mth_element.textContent = this.months[this.month] + " " + this.year;
     this.populateDays();
   }
@@ -92,9 +91,9 @@ class DatePicker {
       this.month = 11;
       this.year--;
     }
-    console.log(this);
+
     this.mth_element.textContent = this.months[this.month] + " " + this.year;
-    populateDays();
+    this.populateDays();
   }
 
   appendEmptyDays(firstDayOfMonth) {
