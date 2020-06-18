@@ -2741,4 +2741,69 @@ label.hidden {
   color: #d14444;
 }
 
+* {
+  box-sizing: border-box;
+}
+
+.components {
+  display: flex;
+  width: 100%;
+  background: #efefef;
+}
+.components .navigation {
+  min-height: 100vh;
+  width: 20%;
+  background: white;
+  padding: 2vh 4vh;
+}
+.components .navigation .navigation__title {
+  margin: 0 0 2vh 0;
+}
+.components .navigation .navigation__list {
+  list-style-type: none;
+  padding: 0;
+  margin: 0;
+}
+.components .navigation .navigation__list li {
+  margin-bottom: 0.5vh;
+  border-bottom: 2px solid white;
+  width: min-content;
+  white-space: nowrap;
+  transition: 0.3s;
+}
+.components .navigation .navigation__list li.active {
+  border-color: #55beee;
+}
+.components .navigation .navigation__list li.disabled {
+  opacity: 0.5;
+  pointer-events: none;
+}
+.components .navigation .navigation__list li:not(.active):hover {
+  border-color: #133657;
+}
+.components .component {
+  padding: 2vh 4vh;
+  width: 80%;
+}
+.components .component .component__title {
+  margin: 0 0 2vh 0;
+}
+.components .component .component__configurator {
+  display: flex;
+}
+.components .component .component__configurator > * {
+  width: 50%;
+  padding: 2vh 4vh;
+  border: 1px solid #ccc;
+}
+.components .component .component__configurator > *:first-child {
+  border-right: 0;
+}
+.components .component .component__configurator .configurator__result {
+  min-height: 40vh;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
 /*# sourceMappingURL=main.css.map */
