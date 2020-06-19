@@ -2805,5 +2805,30 @@ label.hidden {
   justify-content: center;
   align-items: center;
 }
+.components .component .component__configurator .configurator__options .option__wrapper {
+  margin: 16px 0;
+  display: flex;
+  flex-wrap: wrap;
+}
+.components .component .component__configurator .configurator__options .option__wrapper .option__field {
+  display: flex;
+  align-items: center;
+  margin-right: 16px;
+}
+.components .component .component__configurator .configurator__options .option__wrapper .option__field input[type=radio] {
+  height: 20px;
+  width: 20px;
+  margin: 0 4px 0 0px;
+}
+.components .component .component__configurator .configurator__options .option__wrapper .option__field label {
+  font-size: 1.4rem;
+}
+.components .component .component__configurator .configurator__options .option__wrapper .option__header {
+  margin: 0;
+  text-transform: capitalize;
+  font-weight: 700;
+  font-size: 1.6rem;
+  width: 100%;
+}
 
 /*# sourceMappingURL=main.css.map */
