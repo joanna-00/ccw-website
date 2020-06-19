@@ -2830,5 +2830,13 @@ label.hidden {
   font-size: 1.6rem;
   width: 100%;
 }
+.components .component .component__code {
+  padding: 2vh 4vh;
+  margin: 2vh 0;
+  border: 1px solid #ccc;
+}
+.components .component .component__code pre {
+  white-space: normal;
+}
 
 /*# sourceMappingURL=main.css.map */

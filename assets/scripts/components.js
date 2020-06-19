@@ -1,6 +1,9 @@
-let classRegex = /(\bclass=)/gm;
-let classValueRegex = /(".*")/g;
-let textContentRegex = />(.*)<\//gm;
+const openTagStartRegex = /<[p|b|i|].*? /g;
+const openTagEndRegex = />\b/g;
+const endTagRegex = /<\/.*>/g;
+const classAttributeRegex = /class=/g;
+const classValueRegex = /(".*")/g;
+const nodeValueRegex = />(.*)<\//g;
 
 const buttonEnum = {
     SIZE: {
@@ -71,6 +74,7 @@ const buttonConfig = {
 
 const configOptionsElement = document.querySelector('.configurator__options');
 const configResultElement = document.querySelector('.configurator__result');
+const codeAreaElement = document.querySelector('code');
 
 const switchNavigationListState = (link) => {
     const activeListItem = document.querySelector('.navigation__list .active');
@@ -170,11 +174,14 @@ const renderElement = (component) => {
     let template = getComponentTemplate(component);
     if (!template) return;
 
-    let classString = getClassString(component);
     let classPrefix = getComponentPrefix(component);
+    let classString = getClassString(component);
+
+    classString = classString.replace(/\s{2,}/g, "");   // remove blocks of whitespaces
     template = template.replace(classValueRegex, `"${classPrefix} ${classString}"`)
     
     configResultElement.innerHTML = template;
+    displayCodeTemplate(template);
 }
 
 const getClassString = (component) => {
@@ -192,6 +199,10 @@ const getClassString = (component) => {
     }
 
     return classString;
+}
+
+const displayCodeTemplate = (template) => {     // not global and multiline
+    codeAreaElement.innerText = template;
 }
 
 const init = () => {

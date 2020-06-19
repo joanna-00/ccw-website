@@ -109,5 +109,15 @@
                 }
             }
         }
+
+        .component__code {
+            @include padding();
+            margin: 2vh 0;
+            border: 1px solid #ccc;
+
+            pre {
+                white-space: normal;
+            }
+        }
     }
 }
