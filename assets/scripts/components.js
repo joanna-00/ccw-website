@@ -30,9 +30,9 @@ const notificationEnum = {
     },
     STATE: {
         SUCCESS: 'notification--success',
-        NEW: 'notification--warning',
-        WARNING: 'notification--new',
-        ALERT: 'notification--alert'
+        DANGER: 'notification--danger',
+        WARNING: 'notification--warning',
+        NORMAL: 'notification--info'
     },
     ICON: {
         WITH_ICON: 'notification--icon',
@@ -108,8 +108,8 @@ const notificationConfig = {
         type: 'radio',
         options: [
             {
-                text: 'New',
-                value: 'new'
+                text: 'Normal',
+                value: 'normal'
             },
             {
                 text: 'Success',
@@ -120,8 +120,8 @@ const notificationConfig = {
                 value: 'warning'
             },
             {
-                text: 'Alert',
-                value: 'alert'
+                text: 'Danger',
+                value: 'danger'
             }
         ]
     },

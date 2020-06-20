@@ -1259,17 +1259,17 @@ label.hidden {
 .notification--sm .notification__description {
   margin: 0;
 }
-.notification--warning {
+.notification--danger {
   border-color: #d14444;
 }
-.notification--warning .icon--warning {
+.notification--danger .icon--warning {
   display: inline-block;
   color: #d14444;
 }
-.notification--new {
+.notification--warning {
   border-color: #f6d868;
 }
-.notification--new .icon--new {
+.notification--warning .icon--new {
   display: inline-block;
   color: #f6d868;
 }
@@ -1280,10 +1280,10 @@ label.hidden {
   display: inline-block;
   color: #309a37;
 }
-.notification--alert {
+.notification--info {
   border-color: #0d99c2;
 }
-.notification--alert .icon--alert {
+.notification--info .icon--alert {
   display: inline-block;
   color: #0d99c2;
 }
