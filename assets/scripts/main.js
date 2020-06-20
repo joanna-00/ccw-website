@@ -70,9 +70,9 @@ function parseFilter(string) {
 }
 
 // Mobile navigation
-if ($(".hamburger")) {
-  $(".hamburger").addEventListener("click", function () {
-    $(".hamburger").classList.toggle("is-active");
+if ($(".nav__hamburger")) {
+  $(".nav__hamburger").addEventListener("click", function () {
+    $(".nav__hamburger").classList.toggle("is-active");
     $("#links-container").classList.toggle("hidden");
     $("#buttons-container").classList.toggle("hidden");
   });
@@ -384,7 +384,7 @@ function createShopCard(shopItem, type) {
   if (type == "homepage") {
     return `   <div class="col-12 col-sm-6 col-lg-4 col-xl-3">
 <div
-    class="card shop-item card--image card--button card--description card--price card--clickable">
+    class="card shop-item card--image card--button card--description card--price">
     <div class="card__image">
         <div class="card__memberships-badge ${membershipFilters}">
                 <span class="card__memberships-badge--platinum"></span>
@@ -399,11 +399,7 @@ function createShopCard(shopItem, type) {
             <h4 class="card__title">
             ${shopItem.title}
             </h4>
-            <h4>
-                <a href="" class="card__link"><i class="fas fa-arrow-right"
-                        aria-hidden="true"></i></a>
-            </h4>
-        </div>
+           </div>
 
         <p class="card__description">
         ${shopItem.description_short}
@@ -864,13 +860,17 @@ function createShopppingCartCard(shopItem, itemsToRender) {
     return `
   <div class="col-12">
     <div
-      class="card card--membership card--image card--description card--horizontal card--price card--amount"
+      class="card card--membership card--image card--description card--horizontal card--price card--amount"  data-id="${currentID}"
     >
       <div class="card__image">
         <img src="${shopItem.membership_icon}" alt="" />
       </div>
       <div class="card__content">
-        <h4 class="card__title">     ${shopItem.membership_title} membership</h4>
+      <div class="card__label">
+          <h4 class="card__title"> ${shopItem.membership_title} </h4>
+          <h4 class="card__link" data-id="${currentID}"><i class="fas fa-trash-alt icon--right"></i></h4>
+        </div>
+     
         <p class="card__description">
         ${shopItem.membership_description}
         </p>
@@ -1033,7 +1033,7 @@ function displayPopUp(type) {
       <h5 class="pop-up__title">
           Are you sure you want to remove all items?
         </h5>
-        <p class="pop-up__descritption">This is what may happen if you continue.</p>
+        <p class="pop-up__descritption"></p>
     </div>
 
     <div class="pop-up__buttons-container">
@@ -1086,6 +1086,7 @@ function displayPopUp(type) {
           name=""
           id="email"
           class="text-input__input"
+          required
         />
       </div>
 
@@ -1096,6 +1097,7 @@ function displayPopUp(type) {
           name=""
           id="password"
           class="text-input__input"
+          required
         />
       </div>
 
@@ -1192,6 +1194,7 @@ function displayPopUp(type) {
           name=""
           id="email"
           class="text-input__input"
+          required
         />
       </div>
 
@@ -1202,6 +1205,7 @@ function displayPopUp(type) {
           name=""
           id="password"
           class="text-input__input"
+          required
         />
       </div>
 
@@ -1292,6 +1296,8 @@ if (
   !localStorage.getItem("itemsToRender") &&
   $("body").id === "shopping_cart"
 ) {
+  $("#removeAllButton").classList.remove("button--warning");
+  $("#removeAllButton").classList.add("button--disabled");
   $(".shoping-cart__items-container").classList.add("empty");
 }
 

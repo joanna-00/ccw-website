@@ -228,7 +228,6 @@ class DatePicker {
 
       this.days_element.appendChild(day_element);
     }
-    console.log(this.days_element);
   }
 }
 

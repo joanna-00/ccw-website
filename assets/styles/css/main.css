@@ -523,6 +523,7 @@ h1 {
   border-color: #999999;
   color: #999999;
   cursor: not-allowed;
+  pointer-events: none;
 }
 .button--disabled.button--filled {
   background-color: #999999;
@@ -745,6 +746,9 @@ h1 {
 .card--membership {
   padding: 3rem;
 }
+.card--membership.card--horizontal {
+  padding: 0;
+}
 .card--membership .card__image {
   max-height: 100%;
 }
@@ -832,8 +836,20 @@ h1 {
   position: sticky;
   top: 10rem;
 }
+.checkout-total-card .bookingForLabel {
+  border-top: 1px solid #999999;
+  padding: 2rem 0;
+}
+.checkout-total-card .bookingForLabel:empty {
+  display: none;
+}
 .checkout-total-card .choice-group {
-  margin-top: 0;
+  margin: 0;
+  padding-bottom: 1rem;
+  box-sizing: content-box;
+}
+.checkout-total-card .choice-group:empty {
+  display: none;
 }
 .checkout-total-card .choice-group__title {
   font-weight: 700;
@@ -2916,7 +2932,7 @@ label.hidden {
   z-index: -9999;
 }
 .shop main {
-  padding: 4rem 0;
+  padding-left: 15px;
 }
 .shop__section.hidden {
   display: none;

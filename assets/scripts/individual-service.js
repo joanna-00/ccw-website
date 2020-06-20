@@ -93,12 +93,9 @@ if (window.location.pathname.includes("individual_service.html")) {
       } else {
         requestString += `&include[]=${ID}`;
       }
-      //  requestString += ID
     });
 
-    console.log(requestString);
-
-    if (!reccomendedServiceIDs.length === 0) {
+    if (!reccomendedServiceIDs.length == 0) {
       const reccomendedServices = requestWP(
         noEndPoint,
         requestString,
@@ -110,7 +107,7 @@ if (window.location.pathname.includes("individual_service.html")) {
 
 function renderReccomendedServices(reccomendedServices) {
   let reccomendedServicesContainer = $(".recommended-services-container__row");
-
+  console.log(reccomendedServicesContainer);
   console.log(reccomendedServices);
   reccomendedServices.forEach((service) => {
     console.log(service);

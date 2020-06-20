@@ -4,7 +4,7 @@ const buttonNext = $("#buttonNext");
 let formSteps = $$(".form-step");
 
 let currentStep = 0;
-let totalSteps = 4;
+let totalSteps = 3;
 const processSteps = $$(".process-steps__step");
 
 const dropdownLocation = $("#dropdownLocation");
@@ -64,7 +64,7 @@ function updateStepIcons() {
       icon.className = "fas fa-check-circle completed";
     } else {
       let icon = step.getElementsByTagName("i")[0];
-      icon.className = stepIcons[step.dataset.step - 1];
+      icon.className = stepIcons[step.dataset.step];
     }
   });
 }
@@ -115,19 +115,21 @@ function updateTotal() {
   let checkoutSummary = $(".checkout-total-card");
   let currentForm = formSteps[currentStep - 1];
 
-  let bookingForLabelText = currentForm.querySelector("h4").innerHTML;
-  let bookingForLabelContainers = $$(".bookingForLabel");
-  for (let i = 0; i < bookingForLabelContainers.length; i++) {
-    if (bookingForLabelContainers[i].innerHTML == "") {
-      bookingForLabelContainers[i].innerHTML = bookingForLabelText;
-      break;
-    } else {
-      continue;
+  if (currentForm.querySelector("h4")) {
+    let bookingForLabelText = currentForm.querySelector("h4").innerHTML;
+    let bookingForLabelContainers = $$(".bookingForLabel");
+    for (let i = 0; i < bookingForLabelContainers.length; i++) {
+      if (bookingForLabelContainers[i].innerHTML == "") {
+        bookingForLabelContainers[i].innerHTML = bookingForLabelText;
+        break;
+      } else {
+        continue;
+      }
     }
   }
 
-  let location = currentForm.querySelector(".dropdownLocation").dataset.value;
-  if (location) {
+  if (currentForm.querySelector(".dropdownLocation")) {
+    let location = currentForm.querySelector(".dropdownLocation").dataset.value;
     console.log(location);
     let locationDateContainers = $$(".locationDate");
     for (let i = 0; i < locationDateContainers.length; i++) {
@@ -154,13 +156,17 @@ function updateTotal() {
     // });
   }
 
-  let date = currentForm.querySelector(".date-picker").dataset.value;
-  console.log(currentForm.querySelector(".date-picker"));
-  date = new Date(date);
-  date = `${date.getDate()} / ${date.getMonth() + 1} / ${date.getFullYear()}`;
-  console.log(date);
-  let time = currentForm.querySelector(".dropdownTime").dataset.value;
-  if (date && time) {
+  if (
+    currentForm.querySelector(".date-picker") &&
+    currentForm.querySelector(".dropdownTime")
+  ) {
+    let date = currentForm.querySelector(".date-picker").dataset.value;
+    console.log(currentForm.querySelector(".date-picker"));
+    date = new Date(date);
+    date = `${date.getDate()} / ${date.getMonth() + 1} / ${date.getFullYear()}`;
+    console.log(date);
+    let time = currentForm.querySelector(".dropdownTime").dataset.value;
+
     console.log(date, time);
 
     let timeDataContainers = $$(".timeData");
@@ -306,7 +312,7 @@ function createTimeBookingForm(items, index) {
   let searchedIDPost = items.filter((obj) => {
     return obj.id == searchedID;
   });
-
+  console.log(searchedIDPost);
   let itemTitle =
     searchedIDPost[0].acf.title || searchedIDPost[0].acf.membership_title;
 
@@ -378,7 +384,7 @@ function setUpStepForms(items) {
 
   shoppingCartItems.forEach((item) => {
     totalSteps++;
-    let newForm = createTimeBookingForm(items, totalSteps - 4);
+    let newForm = createTimeBookingForm(items, totalSteps - 3);
     checkoutFormStepsContainer.insertBefore(
       newForm,
       $(".checkout__form-steps form")
@@ -415,6 +421,7 @@ buttonNext.addEventListener("click", () => {
     // if () {
     currentStep++;
     if (currentStep < totalSteps) {
+      location.href = "#checkout";
       // if (currentStep == 1) {
       //   setUpTotal();
       //   updateTotal();
@@ -436,5 +443,7 @@ buttonNext.addEventListener("click", () => {
       location.href = "shopping_cart.html";
       deleteAllItems(false);
     }
+  } else {
+    location.href = "#checkout";
   }
 });
