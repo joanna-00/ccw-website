@@ -36,7 +36,7 @@ const notificationEnum = {
     },
     ICON: {
         WITH_ICON: 'notification--icon',
-        WIHOUT_ICON: ''
+        WITHOUT_ICON: ''
     }
 }
 
