@@ -59,7 +59,7 @@ function renderTotal(shoppingCartItems) {
 
 function updateStepIcons() {
   processSteps.forEach((step) => {
-    if (step.dataset.step < currentStep) {
+    if (step.dataset.step == currentStep - 2) {
       let icon = step.getElementsByTagName("i")[0];
       icon.className = "fas fa-check-circle completed";
     } else {
