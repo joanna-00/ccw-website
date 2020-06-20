@@ -2840,10 +2840,24 @@ label.hidden {
   padding: 2vh 4vh;
   margin: 2vh 0;
   border: 1px solid #ccc;
+  position: relative;
 }
 .components .component .component__code pre {
   white-space: normal;
   font-size: 1.2rem;
+}
+.components .component .component__code #clipboard {
+  position: absolute;
+  top: 0;
+  right: 0;
+  border-radius: 0;
+  width: 200px;
+}
+.components .component .component__code #clipboard:hover {
+  cursor: pointer;
+}
+.components .component .component__code #clipboard:focus {
+  outline: none;
 }
 
 /*# sourceMappingURL=main.css.map */

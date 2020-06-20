@@ -144,6 +144,7 @@ const notificationConfig = {
 const configOptionsElement = document.querySelector('.configurator__options');
 const configResultElement = document.querySelector('.configurator__result');
 const codeAreaElement = document.querySelector('code');
+const clipboardAreaElement = document.querySelector('#clipboardArea');
 
 const switchNavigationListState = (link) => {
     const activeListItem = document.querySelector('.navigation__list .active');
@@ -310,5 +311,24 @@ configOptionsElement.addEventListener('click', () => {
 
     renderElement(component);
 })
+
+document.querySelector('#clipboard').addEventListener('click', () => {
+    let button = event.target;
+    let code = codeAreaElement.innerText;
+
+    navigator.clipboard.writeText(code).then(function() {
+        button.innerText = 'Copied';
+        button.classList.remove('button--primary-light');
+        button.classList.add('button--secondary');
+
+        setTimeout(() => {
+            button.innerText = 'Copy to clipboard';
+            button.classList.remove('button--secondary');
+            button.classList.add('button--primary-light');
+        }, 1000)
+    }, function() {
+        console.log('Copy action failed');
+    });
+});
 
 init();
