@@ -2,6 +2,7 @@ const openTagStartRegex = /<[p|b|i|].*? /g;
 const openTagEndRegex = />\b/g;
 const endTagRegex = /<\/.*>/g;
 const classAttributeRegex = /class=/g;
+const classValueTemplateRegex = /class=""/g;
 const classValueRegex = /(".*")/g;
 const nodeValueRegex = />(.*)<\//g;
 
@@ -19,6 +20,23 @@ const buttonEnum = {
     LOOK: {
         FILL: 'button--filled',
         OUTLINE: ''
+    }
+}
+
+const notificationEnum = {
+    SIZE: {
+        SMALL: 'notification--sm',
+        LARGE: ''
+    },
+    STATE: {
+        SUCCESS: 'notification--success',
+        NEW: 'notification--warning',
+        WARNING: 'notification--new',
+        ALERT: 'notification--alert'
+    },
+    ICON: {
+        WITH_ICON: 'notification--icon',
+        WIHOUT_ICON: ''
     }
 }
 
@@ -72,6 +90,57 @@ const buttonConfig = {
     }
 }
 
+const notificationConfig = {
+    size: {
+        type: 'radio',
+        options: [
+            {
+                text: 'Small',
+                value: 'small'
+            },
+            {
+                text: 'Large',
+                value: 'large'
+            }
+        ]
+    },
+    state: {
+        type: 'radio',
+        options: [
+            {
+                text: 'New',
+                value: 'new'
+            },
+            {
+                text: 'Success',
+                value: 'success'
+            },
+            {
+                text: 'Warning',
+                value: 'warning'
+            },
+            {
+                text: 'Alert',
+                value: 'alert'
+            }
+        ]
+    },
+    icon: {
+        type: 'radio',
+        options: [
+            {
+                text: 'With icon',
+                value: 'with_icon'
+            },
+            {
+                text: 'Without icon',
+                value: 'without_icon'
+            }
+        ]
+    }
+}
+
+
 const configOptionsElement = document.querySelector('.configurator__options');
 const configResultElement = document.querySelector('.configurator__result');
 const codeAreaElement = document.querySelector('code');
@@ -86,21 +155,14 @@ const switchNavigationListState = (link) => {
 const getComponentConfig = (component) => {
     switch (component) {
         case 'button': return buttonConfig;
+        case 'notification': return notificationConfig;
     }
 }
 
 const getComponentEnum = (component) => {
     switch (component) {
         case 'button': return buttonEnum;
-    }
-}
-
-const getComponentElement = (component) => {
-    switch (component) {
-        case 'button':
-            let element = document.createElement('button');
-            element.innerText = "Action";
-            return element;
+        case 'notification': return notificationEnum
     }
 }
 
@@ -108,12 +170,29 @@ const getComponentTemplate = (component) => {
     switch (component) {
         case 'button': 
             return `<button class="">Action</button>`;
+        case 'notification':
+            return `<div class="">
+                <i class="notification__close-button fas fa-times"></i>
+                <div class="notification__icon">
+                    <i class="far fa-envelope icon--alert"></i>
+                    <i class="fas fa-check-circle icon--success"></i>
+                    <i class="fas fa-exclamation-circle icon--warning"></i>
+                    <i class="far fa-bell icon--new"></i>
+                </div>
+                <div class="notification__content">
+                    <h4 class="notification__title">Notification title</h4>
+                    <p class="notification__description">
+                        Notification description message
+                    </p>
+                </div>
+            </div>`
     }
 }
 
 const getComponentPrefix = (component) => {
     switch (component) {
         case 'button': return "button";
+        case 'notification': return "notification"
     }
 }
 
@@ -178,7 +257,7 @@ const renderElement = (component) => {
     let classString = getClassString(component);
 
     classString = classString.replace(/\s{2,}/g, "");   // remove blocks of whitespaces
-    template = template.replace(classValueRegex, `"${classPrefix} ${classString}"`)
+    template = template.replace(classValueTemplateRegex, `class="${classPrefix} ${classString}"`)
     
     configResultElement.innerHTML = template;
     displayCodeTemplate(template);

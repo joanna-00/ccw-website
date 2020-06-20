@@ -2775,7 +2775,7 @@ label.hidden {
   border-color: #55beee;
 }
 .components .navigation .navigation__list li.disabled {
-  opacity: 0.5;
+  opacity: 0.55;
   pointer-events: none;
 }
 .components .navigation .navigation__list li:not(.active):hover {
@@ -2804,6 +2804,12 @@ label.hidden {
   display: flex;
   justify-content: center;
   align-items: center;
+}
+.components .component .component__configurator .configurator__result .notification {
+  position: relative;
+  right: 0;
+  width: 100%;
+  animation: none;
 }
 .components .component .component__configurator .configurator__options .option__wrapper {
   margin: 16px 0;
@@ -2837,6 +2843,7 @@ label.hidden {
 }
 .components .component .component__code pre {
   white-space: normal;
+  font-size: 1.2rem;
 }
 
 /*# sourceMappingURL=main.css.map */
