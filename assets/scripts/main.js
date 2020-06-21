@@ -1006,6 +1006,7 @@ if (removeAllButton) {
 function deleteAllItems(shouldRefresh) {
   localStorage.removeItem("itemsToRender");
   localStorage.removeItem("shoppingCart");
+  localStorage.setItem("hasMembershipInCart", false);
   if (shouldRefresh === true) {
     location.reload();
   }
