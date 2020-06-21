@@ -9,14 +9,25 @@
 
   overflow-x: hidden;
   &__banner {
-    height: 100vh;
+    // height: 100vh;
     overflow: hidden;
     position: relative;
 
     &-video {
-      min-height: 100%;
+      width: 200%;
+      min-height: auto;
+      // top: 0;
+      // left: 0;
       position: absolute;
+      // object-fit: contain;
+
       z-index: -1;
+
+      @media (min-width: $media-sm) {
+        min-height: 100%;
+        min-width: auto;
+        width: auto;
+      }
     }
 
     &-container {
@@ -75,17 +86,25 @@
       position: relative;
       // top: 75%;
       width: 100%;
-      transform: translateY(100%);
+      // transform: translateY(10%);
+
+      top: 50%;
+      transform: translateY(-25%);
 
       display: flex;
       flex-direction: column;
       color: $white;
 
       @media (min-width: $media-sm) {
-        // top: 75%;
+        transform: translateY(-10%);
       }
       @media (min-width: $media-md) {
+        transform: translateY(-50%);
+      }
+
+      @media (min-width: $media-lg) {
         // top: 50%;
+        // transform: translateY(-50%);
       }
     }
   }

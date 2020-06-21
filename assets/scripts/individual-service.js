@@ -22,11 +22,17 @@ if (window.location.pathname.includes("individual_service.html")) {
     descriptions[0].textContent = individualService.description_long_text1;
     descriptions[1].textContent = individualService.description_long_text2;
     descriptions[2].textContent = individualService.description_long_text3;
+    descriptions[3].textContent = individualService.description_long_text1;
+    descriptions[4].textContent = individualService.description_long_text2;
+    descriptions[5].textContent = individualService.description_long_text3;
 
     let titles = $$(".main-service__info__description-text h3");
     titles[0].textContent = individualService.description_long_title1;
     titles[1].textContent = individualService.description_long_title2;
     titles[2].textContent = individualService.description_long_title3;
+    titles[3].textContent = individualService.description_long_title1;
+    titles[4].textContent = individualService.description_long_title2;
+    titles[5].textContent = individualService.description_long_title3;
 
     $(".service-info-card__title").textContent = individualService.title;
     $(".service-info-card__price-value").textContent = individualService.price;

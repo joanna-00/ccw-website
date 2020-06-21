@@ -694,6 +694,7 @@ function renderShoppingCart(shoppingCartItems) {
       const cardAmountDisplay = event.target.parentElement.querySelector(
         ".card__amount--display"
       );
+
       updateDisplay(
         currentID,
         currentItemAmount,
@@ -702,42 +703,7 @@ function renderShoppingCart(shoppingCartItems) {
       );
 
       updateShoppingCartLS(itemsToRender);
-
-      checkoutCardContainer.innerHTML = createCheckoutSummary(
-        shoppingCartItems,
-        itemsToRender,
-        "shoppingCart"
-      );
-
-      let shouldShowPopUp = true;
-
-      const proceedToCheckoutButton = $("#proceedToCheckoutButton");
-
-      proceedToCheckoutButton.addEventListener("click", () => {
-        console.log("click");
-        if (shouldShowPopUp === true) {
-          displayPopUp("account-sign-up");
-          let hasMembershipInCart = JSON.parse(
-            localStorage.getItem("hasMembershipInCart")
-          );
-          if (hasMembershipInCart == true) {
-            $(".pop-up--account-sign-up .pop-up__title--sign-up").textContent =
-              "An account is required to purchase a membership. Please sign up to continue.";
-          } else {
-            $(".pop-up--account-sign-up .pop-up__title--sign-up").textContent =
-              "Would you like to create an account first?";
-          }
-
-          let coupon = $("#coupon").value;
-          localStorage.setItem("coupon", coupon);
-          shouldShowPopUp = false;
-        } else {
-          let coupon = $("#coupon").value;
-          localStorage.setItem("coupon", coupon);
-          shouldShowPopUp = false;
-          location.href = "checkout.html";
-        }
-      });
+      updateShoppingCartTotal(shoppingCartItems, itemsToRender);
     });
   });
 
@@ -758,6 +724,7 @@ function renderShoppingCart(shoppingCartItems) {
       const cardAmountDisplay = event.target.parentElement.querySelector(
         ".card__amount--display"
       );
+
       updateDisplay(
         currentID,
         currentItemAmount,
@@ -766,42 +733,7 @@ function renderShoppingCart(shoppingCartItems) {
       );
 
       updateShoppingCartLS(itemsToRender);
-
-      checkoutCardContainer.innerHTML = createCheckoutSummary(
-        shoppingCartItems,
-        itemsToRender,
-        "shoppingCart"
-      );
-
-      let shouldShowPopUp = true;
-
-      const proceedToCheckoutButton = $("#proceedToCheckoutButton");
-
-      proceedToCheckoutButton.addEventListener("click", () => {
-        console.log("click");
-        if (shouldShowPopUp === true) {
-          displayPopUp("account-sign-up");
-          let hasMembershipInCart = JSON.parse(
-            localStorage.getItem("hasMembershipInCart")
-          );
-          if (hasMembershipInCart == true) {
-            $(".pop-up--account-sign-up .pop-up__title--sign-up").textContent =
-              "An account is required to purchase a membership. Please sign up to continue.";
-          } else {
-            $(".pop-up--account-sign-up .pop-up__title--sign-up").textContent =
-              "Would you like to create an account first?";
-          }
-
-          let coupon = $("#coupon").value;
-          localStorage.setItem("coupon", coupon);
-          shouldShowPopUp = false;
-        } else {
-          let coupon = $("#coupon").value;
-          localStorage.setItem("coupon", coupon);
-          shouldShowPopUp = false;
-          location.href = "checkout.html";
-        }
-      });
+      updateShoppingCartTotal(shoppingCartItems, itemsToRender);
     });
   });
 
@@ -814,8 +746,61 @@ function renderShoppingCart(shoppingCartItems) {
       let currentID = item.dataset.id;
       console.log(currentID);
       deleteItem(currentID, itemsToRender);
+      updateShoppingCartLS(itemsToRender);
+      updateShoppingCartTotal(shoppingCartItems, itemsToRender);
     });
   });
+}
+
+function updateShoppingCartTotal(shoppingCartItems, itemsToRender) {
+  let checkoutCardContainer = $(".checkout-card__container");
+
+  checkoutCardContainer.innerHTML = createCheckoutSummary(
+    shoppingCartItems,
+    itemsToRender,
+    "shoppingCart"
+  );
+
+  let shouldShowPopUp = true;
+
+  const proceedToCheckoutButton = $("#proceedToCheckoutButton");
+
+  proceedToCheckoutButton.addEventListener("click", () => {
+    console.log("click");
+    if (shouldShowPopUp === true) {
+      displayPopUp("account-sign-up");
+      let hasMembershipInCart = JSON.parse(
+        localStorage.getItem("hasMembershipInCart")
+      );
+      if (hasMembershipInCart == true) {
+        $(".pop-up--account-sign-up .pop-up__title--sign-up").textContent =
+          "An account is required to purchase a membership. Please sign up to continue.";
+      } else {
+        $(".pop-up--account-sign-up .pop-up__title--sign-up").textContent =
+          "Would you like to create an account first?";
+      }
+
+      let coupon = $("#coupon").value;
+      localStorage.setItem("coupon", coupon);
+      shouldShowPopUp = false;
+    } else {
+      let coupon = $("#coupon").value;
+      localStorage.setItem("coupon", coupon);
+      shouldShowPopUp = false;
+      location.href = "checkout.html";
+    }
+  });
+
+  if (
+    JSON.parse(localStorage.getItem("shoppingCart")).length == 0 &&
+    Object.keys(JSON.parse(localStorage.getItem("itemsToRender"))).length ===
+      0 &&
+    $("body").id === "shopping_cart"
+  ) {
+    localStorage.removeItem("shoppingCart");
+    localStorage.removeItem("itemsToRender");
+    location.reload();
+  }
 }
 
 function createShopppingCartCard(shopItem, itemsToRender) {
@@ -901,17 +886,19 @@ function createCheckoutSummary(shoppingCartItems, itemsToRender, type) {
     shoppingCartItems.forEach((item) => {
       let ID = item.id;
       let itemAmount = itemsToRender[ID];
-      item = item.acf;
-      totalPrice += Number(item.price) * itemAmount;
-      itemList += `
-      <div class="shopping-cart-total-card__item">
-        <p class="shopping-cart-total-card__item-name">${itemAmount}x ${
-        item.title ? item.title : item.membership_title + " membership"
-      }</p>
-        <h5 class="shopping-cart-total-card__item-price">${
-          itemAmount * item.price
-        },-</h5>
-      </div>`;
+      if (!itemAmount == 0) {
+        item = item.acf;
+        totalPrice += Number(item.price) * itemAmount;
+        itemList += `
+        <div class="shopping-cart-total-card__item">
+          <p class="shopping-cart-total-card__item-name">${itemAmount}x ${
+          item.title ? item.title : item.membership_title + " membership"
+        }</p>
+          <h5 class="shopping-cart-total-card__item-price">${
+            itemAmount * item.price
+          },-</h5>
+        </div>`;
+      }
     });
 
     let checkoutSummary = document.createElement("div");
@@ -1005,6 +992,7 @@ function deleteItem(ID, itemsToRender) {
   delete itemsToRender[ID];
   console.log(itemsToRender);
   localStorage.setItem("itemsToRender", JSON.stringify(itemsToRender));
+  // updateShoppingCartLS(itemsToRender);
 }
 
 const removeAllButton = $("#removeAllButton");
